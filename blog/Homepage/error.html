@@ -1,0 +1,62 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: grid; place-items: center; -ms-overflow-style: none;" >
+<script>
+	var rs = ['错误', 'error', "$('.iframe').fadeIn(400);"];
+	window.parent.postMessage(rs,"*");
+	if (window.screen.width > 900) {
+		window.document.oncontextmenu = function(){ 
+			return false;
+		}
+	}
+
+</script>
+
+
+
+<!-- Mian -->
+<div style='height: 400px; color: rgba(100, 102, 102, 1); font-family: 微软雅黑;' >
+	<span  style='font-size: 30px;' >出问题了哦.</span>
+	<br />
+	<br />
+	<span  style='white-space: nowrap; font-size: 20px; opacity: 0.7;' >
+		<span>找不到指定 ID 的文章.</span>
+	</span>
+	<br />
+	<span  style='white-space: nowrap; font-size: 20px; opacity: 0.7;' >请检查输入的网址，如果还是无法打开，那就打不开了...</span>
+	<br />
+	<br />
+	<br />
+	<span  style='white-space: nowrap; font-size: 20px; opacity: 0.7;' >
+	<span>将在 </span><span id='stime' style='color: rgba(113, 199, 173, 1);' >n</span><span> 秒后重定向至</span>
+		<a href='page.html' style='color: rgba(100, 102, 102, 1); text-decoration: none; -webkit-user-drag: none;' >博客主页</a><span> .</span>
+	</span>
+</div>
+
+<script>
+	var _seconds = 15;
+	// 这个有 ChatGPT 的帮助...
+	function countdown() {
+		if (_seconds > 0) {
+			document.getElementById('stime').innerHTML = _seconds;
+			_seconds--;
+			setTimeout(countdown, 1000);
+		} else {
+			console.clear();
+			window.location.href = 'page.html';
+		}
+	}
+	countdown();
+</script>
+
+
+
+</body>
+</html>

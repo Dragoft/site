@@ -1,0 +1,116 @@
+﻿@font-face {
+	font-family: Poppins Regular;
+	src: url('../src/Poppins Regular.woff2');
+}
+
+body {
+	font-family: 'Poppins Regular',  '楷体'; 
+	line-height: 33px;
+}
+
+
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+	display: block;
+	width: 8px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.06);
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+	margin: 100px 0px;
+}
+/* 滚动块 */
+::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.05);
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.15);
+}
+::-webkit-scrollbar:horizontal {
+	display: none;
+}
+
+::selection {
+	background: rgba(113, 199, 173, 0.3);
+}
+
+a {
+	text-decoration: none;
+	-webkit-user-drag: none;
+}
+
+img {
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
+
+code {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 5px 8px;
+	line-height: 22px;
+	font-size: 25px;
+	background-color: rgba(244, 243, 241, 1);
+	border-radius: 10px;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.main {
+	margin: 60px auto;
+	width: 900px;
+}
+
+
+
+@keyframes fade-in-1 {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.fade-in-1 {
+	animation: fade-in-1 1s ease-in;
+	animation-fill-mode:forwards;
+}
+
+
+
+
+
+.type-1 {
+	/* 绿 */
+	color: rgba(113, 199, 173, 1);
+}
+
+.type-2 {
+	/* 粉 */
+	color: rgba(244, 183, 188, 1);
+}
+
+.type-3 {
+	/* 蓝 */
+	color: rgba(167, 208, 230, 1);
+}
+
+.disabled {
+	/* 无效元素 */
+	-webkit-user-select: none;
+	pointer-events: none;
+}
+
+@media screen and (max-width: 900px) {
+	::-webkit-scrollbar {
+		display: none !important;
+	}
+}

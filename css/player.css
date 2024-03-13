@@ -1,0 +1,311 @@
+﻿audio::-webkit-media-controls-current-time-display {
+	margin-left: 45px;
+	color: rgba(100, 102, 102, 1);
+	font-family: 微软雅黑;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-time-remaining-display {
+	display: none;
+}
+
+audio::-webkit-media-controls-enclosure {
+	background: none;
+	opacity: 0.7;
+}
+audio:-webkit-media-controls {
+	width: 300px;
+}
+
+
+#player {
+	border-radius: 30px;
+	width: 300px;
+	max-width: 300px;
+	height: 54px;
+}
+
+
+
+.Player {
+	position: fixed;
+	bottom: 15px;
+	right: 15px;
+	max-width: 380px;
+	border-radius: 25px;
+
+	background-color: rgba(244, 243, 241, 0.6);
+	backdrop-filter: blur(3px);
+	box-shadow: 20px 20px 50px -3px rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(192, 194, 194, 0.5);
+	color: rgba(151, 153, 153, 0.9);
+	opacity: 0;
+
+	z-index: 5;
+	font-size: 15px;
+	line-height: 25px;
+	transition: 0.4s ease-in-out;
+}
+
+.Player-active {
+	opacity: 1;
+}
+
+
+.Player-mode1 {
+	height: 54px;
+	width: 300px;
+}
+
+.Player-mode2 {
+	height: 256px;
+	width: 302px;
+	background-color: rgba(244, 243, 241, 0.8);
+	opacity: 1;
+	border-radius: 30px;
+
+}
+
+.Player-mode2 .PlayerAudioBoxOuter {
+	position: absolute;
+	bottom: 0px;
+	width: 300px;
+	height: 54px;
+	border-top: 1px solid rgba(192, 194, 194, 0.5);
+	border-radius: 30px;
+}
+
+.Player-mode2 #player {
+	backdrop-filter: blur(0px);
+}
+
+.Player-mode3 {
+	height: 54px;
+	width: 54px;
+	border: 1px solid rgba(192, 194, 194, 0);
+	background: none;
+	backdrop-filter: none;
+	box-shadow: none;
+}
+
+.Player-mode3 .Player-Button  {
+	color: rgba(255, 255, 255, 1);
+	background-color: rgba(244, 183, 188, 1);
+	box-shadow: 20px 20px 50px -3px rgba(0, 0, 0, 0.2);
+}
+
+.Player-mode3 .Player-Button:hover {
+	color: rgba(244, 183, 188, 1);
+	background-color: rgba(255, 255, 255, 1);
+}
+
+.Player-left {
+	left: 10px;
+}
+
+
+.Player-menu {
+	display: none;
+	position: absolute;
+	height: 256px;
+	width: 302px;
+}
+
+.Player-inactive {
+	opacity: 0;
+}
+
+
+
+.MusicName {
+	position: absolute;
+	width: 130px;
+	margin: 15px 150px;
+	color: rgba(100, 102, 102, 0.8);
+	user-select: all;
+	height: 23px;
+}
+
+#MusicName {
+	display: table;
+}
+
+#Mod {
+	position: absolute;
+	margin: 16px 108px;
+	display: block;
+	color: rgba(2, 114, 164, 0.5);
+	font-size: 16px;
+	line-height: 28px;
+	-webkit-user-select: none;
+}
+
+.PlayerButton {
+	position: absolute;
+	margin: 15px 25px;
+	-webkit-user-select: none;
+}
+
+.PlayerButton a {
+	color: rgba(2, 114, 164, 1);
+}
+
+#PlayerImg {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	opacity: 0;
+}
+
+.PlayerImgBox {
+	position: absolute;
+	bottom: 7px;
+	right: 250px;
+	width: 40px;
+	height: 40px;
+	z-index: 10;
+	border-radius: 50%;
+	border: 1px solid rgba(151, 153, 153, 0.2);
+}
+
+#PlayerPlay {
+	position: absolute;
+	padding: 11px 8px;
+	width: 24px;
+	height: 18px;
+	z-index: 15;
+	top: 0px;
+	left: 0px;
+	font-size: 24px;
+	line-height: 24px;
+	border-radius: 50%;
+	background-color: rgba(100, 102, 102, 0.6);
+	color: rgba(244, 243, 241, 1);
+	user-select: none;
+	opacity: 0;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+#PlayerPlay:hover {
+	opacity: 1;
+}
+
+.Player-Button {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	height: 21px;
+	padding: 7px 8px;
+	border-radius: 50%;
+	background-color: rgba(192, 194, 194, 0);
+	color: rgba(244, 183, 188, 1);
+	font-size: 18px;
+
+	backdrop-filter: blur(0px);
+	line-height: 25px;
+	cursor: pointer;
+	user-select: none;
+	z-index: 15;
+	transition: 0.5s;
+}
+
+.Player-Button:hover {
+	background-color: rgba(192, 194, 194, 0.2);
+}
+
+
+.Player-Button-2 {
+	font-weight: normal;
+	color: rgba(167, 208, 230, 1);
+	font-size: 18px;
+	line-height: 18px;
+	user-select: none;
+	transition: 0.3s;
+}
+
+.Player-Button-2:hover {
+	color: rgba(2, 114, 164, 0.7);
+}
+
+.PlayerList {
+	height: 118px;
+	width: 260px;
+	margin: 83px 24px;
+}
+
+.PlayerListInner {
+	height: 118px;
+	width: 260px;
+	margin: 20px 0px;
+	overflow: scroll;
+	font-family: '微软雅黑';
+}
+
+.PlayerListInner::-webkit-scrollbar {
+	display: block !important;
+	width: 3px;
+}
+
+.PlayerListInner::-webkit-scrollbar-track {
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.06);
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+}
+
+.PlayerListInner::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.PlayerListInner::-webkit-scrollbar-thumb:hover {
+	background: rgba(0, 0, 0, 0.15);
+}
+
+.PlayerListInner::-webkit-scrollbar:horizontal {
+	display: none !important;
+}
+
+.list-item {
+	width: 250px;
+	display: block;
+	line-height: 23px;
+	font-size: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis; 
+	cursor: pointer;
+	transition: 0.2s;
+	user-select: none;
+}
+
+.list-item:hover {
+	color: rgba(113, 199, 173, 1);
+}
+
+.list-line {
+	position: absolute;
+	border: none;
+	border-top: 1px solid rgba(151, 153, 153, 0.2);
+	width: 260px;
+	text-align: center;
+	margin: 41px 20px;
+}
+
+.PlayerListTitle {
+	position: absolute;
+	margin: -30px 0px;
+	font-size: 20px;
+	line-height: 20px;
+	color: rgba(100, 102, 102, 0.9);
+	font-weight: bold;
+}
+
+.PlayerAudioBox {
+	width: 260px;
+	height: 54px;
+	overflow: hidden;
+}
+
+
