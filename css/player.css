@@ -75,7 +75,7 @@ audio:-webkit-media-controls {
 	border-radius: 30px;
 }
 
-.Player-mode2 #player {
+.Player-mode2 .PlayerAudioBox {
 	backdrop-filter: blur(0px);
 }
 
