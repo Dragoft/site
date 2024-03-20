@@ -42,6 +42,11 @@ var music = [
 		img: 'https://p2.music.126.net/0B1PBp9g5l_Fl12Qwspw8Q==/3261151489004368.jpg',
 	},
 	{
+		name: '星のうた - KOKIA',
+		src: 'https://music.163.com/song/media/outer/url?id=2101451382.mp3',
+		img: 'https://p1.music.126.net/rLHKvau26Wt2KA5DJc_u6A==/109951169067925149.jpg',
+	},
+	{
 		name: '春弦 - 塞壬唱片-MSR / 横山克',
 		src: 'https://music.163.com/song/media/outer/url?id=1436614177.mp3',
 		img: 'https://p2.music.126.net/UXMjt2DLm7N2NCuW1NbXoA==/109951164860965324.jpg',
@@ -95,6 +100,11 @@ var music = [
 		name: "原風景(instrumental) - mamomo",
 		src: 'https://music.163.com/song/media/outer/url?id=1811160889.mp3',
 		img: 'https://p1.music.126.net/ct9bs4VXR1mrbVRsX9iboA==/3372202162443903.jpg',
+	},
+	{
+		name: "Snowflakes - 佐々木恵梨",
+		src: 'https://music.163.com/song/media/outer/url?id=2107925574.mp3',
+		img: 'https://p2.music.126.net/Hf2sKfCVb91e1BtFncKe_w==/109951169156986673.jpg',
 	},
 	{
 		name: 'like water - Park Bird / Chance Thrash',
