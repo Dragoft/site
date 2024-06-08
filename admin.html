@@ -105,7 +105,7 @@ h1 {
 		<h1>admin.</h1>
 		<div class="t3">
 			<textarea class="t1" style="width: 200px; height: 32px; vertical-align: top;" maxlength="10" placeholder="adminKey" ></textarea>
-			<a class="t4" href="javascript:;" onclick="" >login</a>
+			<a class="t4" href="javascript:;" onclick="login()" >login</a>
 		</div>
 	</div>
 
@@ -123,6 +123,50 @@ h1 {
 
 
 <script>
+
+password = '';
+
+function login() {
+	password = document.querySelector('.t4').value.toString()
+
+	fetch('https://tatsuno.top/admin.api', {
+		method: "POST",
+		headers: {
+			"Authorization": 0,
+			"Token": password
+		}
+	})
+	.then(response => {return response.json();})
+	.then(json => check(json))
+	.catch(err => console.log('Request Failed', err)); 
+
+	function check(data) {
+		console.log(data['login']);
+		console.log(typeof data['login']);
+		if (data['login']==1) {
+			alert('登录成功');
+			password = data['login'];
+		} else {
+			alert('密码错误');
+		} 
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
