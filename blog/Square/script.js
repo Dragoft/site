@@ -163,7 +163,13 @@ function showComment(data) {
 
 
 function deleteComment(id) {
-	message('<span class="t-8" ></span> 删除:　[<span class="t-9" onclick="Delete(`' + id + '`)">确定</span>] [<span class="t-9" onclick="message.Close()" >取消</span>]', 'info', -1);
+	$('#body').addClass('body-scroll');
+	message('<span class="t-8" ></span> 删除:　[<span class="t-9" onclick="Delete(`' + id + '`)">确定</span>] [<span class="t-9" onclick="deleteCancel()" >取消</span>]', 'info', -1);
+}
+
+function deleteCancel() {
+	message.Close();
+	$('#body').removeClass('body-scroll');
 }
 
 function Delete(id) {

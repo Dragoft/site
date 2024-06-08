@@ -1,4 +1,8 @@
-﻿span {
+﻿.body-scroll {
+	overflow: hidden;
+}
+
+span {
 	color: rgba(151, 153, 153, 1);
 }
 
@@ -182,7 +186,7 @@ h3 {
 
 .bottomBox {
 	position: absolute;
-	margin: -11px 0px;
+	margin: -12px 0px;
 	display: block;
 	width: 406px;
 	height: 10px;
@@ -318,28 +322,34 @@ h3 {
 	}
 
 	.Tname {
-		position: relative;
+		width: calc(80% - 22px);
+		left: 10%;
 		margin-left: 0px;
-		width: 100%;
 	}
 
 	.Tcontent	{
-		width: 100%;
+		position: absolute;
+		margin: 55px 0px;
+		width: calc(80% - 22px);
+		left: 10%;
 	}
 
 	.bottomBox {
-		position: relative;
-		width: calc(100% + 6px);
+		position: absolute;
+		margin: 145px 0px;
+		width: calc(80% - 16px);
 	}
 
 	.sent {
-		margin: 25px -65px;
-		width: 100px;
+		left: 10%;
+		margin: 185px 0px;
+		width: 120px;
 	}
 
 	.pagebtn {
-		margin-top: 20px;
-		margin-right: -20px;
+		margin-top: 177px;
+		position: absolute;
+		right: 10%;
 	}
 
 	.t-5 {
