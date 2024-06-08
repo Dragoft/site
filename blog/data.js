@@ -2,7 +2,7 @@
 
 	{
 		name: '关于网站',
-		src: '20230607/',
+		src: 'about/',
 		details: '#2023.6.7\n网站信息 & 大事记 & 特别感谢',
 		type: 'hide',
 	},
@@ -26,7 +26,7 @@
 	},
 	{
 		name: '广场',
-		src: 'Square/',
+		src: 'square/',
 		details: '#2024.6.8\n网站广场',
 		type: 'hide',
 	},
