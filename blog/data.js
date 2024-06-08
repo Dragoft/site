@@ -7,6 +7,12 @@
 		type: 'hide',
 	},
 	{
+		name: '广场',
+		src: 'square/',
+		details: '#2024.6.8\n网站广场',
+		type: 'hide',
+	},
+	{
 		name: '画室',
 		src: '20231002/',
 		details: '#2023.10.2\n平时画的一些动漫人物铅笔稿',
@@ -23,12 +29,6 @@
 		src: '20240610/',
 		details: '#2024.6.10\n网站 tatsuno.top/ 停更公告',
 		type: '',
-	},
-	{
-		name: '广场',
-		src: 'square/',
-		details: '#2024.6.8\n网站广场',
-		type: 'hide',
 	},
 
 
