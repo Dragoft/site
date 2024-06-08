@@ -88,11 +88,7 @@ function loadComment(page) {
 function showComment(data) {
 	if (errN==0) {
 		var box = document.querySelector('.commentBox');
-		var outerbox = document.querySelector('.Box');
-		outerbox.style.height = '0px';
-		outerbox.style.opacity = '0';
-		outerbox.style.overflow = "hidden";
-
+		box.style.opacity = '0';
 		box.innerHTML = '';
 
 		for (var i = 0; i < data['results'].length; i++) {
@@ -144,12 +140,7 @@ function showComment(data) {
 			}
 
 			if (i==data['results'].length-1) {
-				outerbox.style.height = box.offsetHeight + 'px';
-				outerbox.style.opacity = '1';
-				setTimeout(function (){
-					outerbox.style.overflow = 'visible';
-					outerbox.style.height = 'unset';
-				}, 500);
+				box.style.opacity = '1';
 			}
 		}
 
