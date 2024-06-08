@@ -1,8 +1,4 @@
-﻿.body-scroll {
-	overflow: hidden;
-}
-
-span {
+﻿span {
 	color: rgba(151, 153, 153, 1);
 }
 
@@ -24,6 +20,12 @@ h3 {
 	color: rgba(151, 153, 153, 0.8);
 	margin-left: -3px;
 	font-size: 20px;
+}
+
+
+
+.body-scroll {
+	overflow: hidden;
 }
 
 .textarea {

@@ -1,6 +1,6 @@
 ﻿/*
 	This script is used to interact with a database...
-	Last change: 2024/6/7
+	Last change: 2024/6/8
 */
 
 function sent() {
@@ -88,7 +88,6 @@ function loadComment(page) {
 function showComment(data) {
 	if (errN==0) {
 		var box = document.querySelector('.commentBox');
-		box.style.opacity = '0';
 		box.innerHTML = '';
 
 		for (var i = 0; i < data['results'].length; i++) {
@@ -138,10 +137,6 @@ function showComment(data) {
 				span5.setAttribute('class', 'admin');
 				span3.appendChild(span5);
 			}
-
-			if (i==data['results'].length-1) {
-				box.style.opacity = '1';
-			}
 		}
 
 		setTimeout(function (){
@@ -155,7 +150,7 @@ function showComment(data) {
 
 function deleteComment(id) {
 	$('#body').addClass('body-scroll');
-	message('<span class="t-8" ></span> 删除:　[<span class="t-9" onclick="Delete(`' + id + '`)">确定</span>] [<span class="t-9" onclick="deleteCancel()" >取消</span>]', 'info', -1);
+	message('<span class="t-8" ></span> 删除留言:　[<span class="t-9" onclick="Delete(`' + id + '`)">确定</span>] [<span class="t-9" onclick="deleteCancel()" >取消</span>]', 'info', -1);
 }
 
 function deleteCancel() {

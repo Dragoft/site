@@ -96,11 +96,10 @@
 }
 
 .t-13 {
-	width: 200px;
-	height: 200px;
-	background-color: rgba(192, 194, 194, 0.2);
-	border-radius: 30px;
-
+	width: 160px;
+	height: 160px;
+	background-color: rgb(217, 227, 252);
+	border-radius: 20px;
 	margin: -55px 40px;
 	user-select: none;
 	display: inline-block;
@@ -108,8 +107,8 @@
 }
 
 .t-14 {
-	width: 200px;
-	border-radius: 30px;
+	width: 160px;
+	border-radius: 20px;
 	opacity: 0;
 }
 

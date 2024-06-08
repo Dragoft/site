@@ -9,8 +9,13 @@
 Notice = [
 	{
 		date: '6.10',
-		event: '停更通知',
+		event: '停更通知.',
 		content: '网站暂时停止更新',
+	},
+	{
+		date: '6.8',
+		event: '[留言板] 正式上线.',
+		content: '网站新增「留言板」功能\n大家可以在 广场 - 留言板 发表自己的评论了',
 	},
 	{
 		date: '4.27',
@@ -21,11 +26,6 @@ Notice = [
 		date: '4.26',
 		event: '调整主页面样式.',
 		content: '对主页样式进行了细微调整',
-	},
-	{
-		date: '4.20',
-		event: '细节调整.',
-		content: '美化博客页面的链接样式\n修复博客 Error.html 页面无法显示的问题',
 	},
 	{
 		date: '4.6',
@@ -152,14 +152,15 @@ function filterAndCombine(arr, key, value) {
 function BlogListInit() {
 	// 动态输出博客文章列表
 	ul = document.querySelector('ul');
+
 	for (var i = 0; i < BlogTEMP.length; i++) {
-		if (BlogList[i]['type'] != 'hide') {
+		if (BlogTEMP[i]['type'] != 'hide') {
 			var a = document.createElement('a')
-			a.innerHTML = BlogList[i]['type'] + ' ' + BlogList[i]['name'];
+			a.innerHTML = BlogTEMP[i]['type'] + ' ' + BlogTEMP[i]['name'];
 			a.setAttribute('class', 'search-list');
-			a.setAttribute('onclick', 'Blog(`open`, `' + BlogList[i]['src'].slice(0, -1) + '`); changeURLStatic(`id`, `' + BlogList[i]['src'].slice(0, -1) + '`);');
-			a.setAttribute('id', BlogList[i]['type'] + ' ' + BlogList[i]['name']);
-			a.setAttribute('title', BlogList[i]['details']);
+			a.setAttribute('onclick', 'Blog(`open`, `' + BlogTEMP[i]['src'].slice(0, -1) + '`); changeURLStatic(`id`, `' + BlogTEMP[i]['src'].slice(0, -1) + '`);');
+			a.setAttribute('id', BlogTEMP[i]['type'] + ' ' + BlogTEMP[i]['name']);
+			a.setAttribute('title', BlogTEMP[i]['details']);
 
 			ul.appendChild(a);
 		}
@@ -182,7 +183,7 @@ function BlogListInit() {
 	})
 
 	// 初始化列表高度
-	if (BlogList.length > 10) {
+	if (BlogTEMP.length > 10) {
 		$('#search').css('height', '275px');
 		document.getElementById('searchInput').name = 10;
 	} else {
