@@ -88,6 +88,7 @@ function loadComment(page) {
 function showComment(data) {
 	if (errN==0) {
 		var box = document.querySelector('.commentBox');
+		box.style.opacity = '0';
 		box.innerHTML = '';
 
 		for (var i = 0; i < data['results'].length; i++) {
@@ -142,6 +143,7 @@ function showComment(data) {
 		setTimeout(function (){
 			message.Close()
 			wait = 0;
+			box.style.opacity = '1';
 		}, 1500);
 	}
 }
