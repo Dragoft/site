@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../../css/animation-link.css">
+	<link rel="preload" as="font" href="../../src/Poppins Regular.woff2" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="../../css/hint.css">
 	<link rel="stylesheet" type="text/css" href="../main.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -20,11 +20,7 @@
 <script>
 	var rs = [document.title, window.location.href, "$('.iframe').fadeIn(400);"];
 	window.parent.postMessage(rs,"*");
-	if (window.screen.width > 900) {
-		window.document.oncontextmenu = function(){ 
-			return false;
-		}
-	}
+
 	function isInViewport(element) {
 		var rect = element.getBoundingClientRect();
 		return (
@@ -34,20 +30,7 @@
 			rect.right <= window.innerWidth
 		);
 	}
-	function fun1() {
-		var set = document.getElementsByClassName('t-4');
-		var repeat = set.length;
-		document.querySelector('.t-6').classList.add('t-7');
-		document.querySelector('.t-6').style.height = repeat*35 + 'px';
-		document.querySelector('.t-5').style.height = repeat*35 + 20 + 'px';
-		for (let i = 0; i < repeat; i++) {
-			setTimeout(function (){
-				set[i].classList.remove('hint--none');
-				set[i].classList.add('hint--always');
-			},i*50)
-		}
 
-	}
 </script>
 
 	<br />
@@ -57,27 +40,23 @@
 <div class="main" >
 	<span class="t-1" > <span style="color: rgba(100, 102, 102, 1);" >关于我的网站.</span></span>
 	<br />
-	<hr style="border: none; border-top: 1px solid rgba(151, 153, 153, 0.2); width: 80%; text-align: left; margin-left: 0px;" />
-	<span style="user-select: none;" >
-		<span class="type-3" >Info</span> <span style="color: rgba(151, 153, 153, 0.8);" >|</span> <span style="color: rgba(151, 153, 153, 0.5); " >最后编辑：2024. 2. 10</span>
-	</span>
-
-<br class="disabled" />
-<br class="disabled" />
+	<hr style="border: none; border-top: 1px solid rgba(151, 153, 153, 0.2); width: 100%; text-align: left; margin-left: 0px;" />
 
 <div class="t-2">
-	<br class="disabled" />
-	<span>这里是 Dragoft 的个人主页...</span>
+	<br class="f-1" />
+	<span>这里是 Tatsuno 的个人主页...</span>
 	<br />
-	<br />
+	<br class="f-1" />
 
 	<div style="white-space: nowrap; user-select: none;" >
 		<div class="t-12" style="user-select: text;" >
-			<span>本文将介绍部分关于我网站的信息。</span>
-			<br />
 			<span>
-			在技术层面上，本站属于纯静态网站，博客界面采用了 iframe 框架嵌入的形式。网站由 
-			<ins class="underline" >Cloudflare</ins> 和 <ins class="underline" >GitHub</ins> 提供运行服务，使用了 <ins class="underline" >EU.org</ins> 的免费域名。
+			本文将详细介绍我的网站。
+			<br />
+			网站主体属于静态网站，仅在访问量统计功能上调用了数据库。
+			<br />
+			博客采用了 iframe 框架嵌入的形式。网站由 
+			<ins class="underline" >Cloudflare</ins> 与 <ins class="underline" >GitHub</ins> 提供运行服务。
 			</span>
 		</div>
 		<div class="t-13">
@@ -85,78 +64,81 @@
 			<div class="t-15">The Auther.</div>
 		</div>
 	</div>
+	<br class="f-1" />
+	<br class="f-1" />
 
+	<span>
+		网站 UI 设计受 
+		<a class="link hint--top hint--rounded" data-hint="コトバンク [ 辞書・百科事典・各種データベースを一度に検索 ]" href="https://kotobank.jp/" target="_blank"> kotobank.jp/</a>
+		启发 ，引用的代码已用注释标出（可能有遗漏，请谅解）</span>
 	<br />
-	<span>部分 UI 设计参考了某些网站，引用的代码已用注释标出（可能有遗漏，请谅解）</span>
+	<span>网站中的部分图片源于网络，所有权属于对应画师。由于某些原因，我无法与这些版权所有者沟通，若无意间侵犯了你的权利，请及时联系我。</span>
 	<br />
-	<span>部分图片源于网络，所有权属于对应画师。出于某些原因，我无法与这些版权所有者沟通，若无意间侵犯了你的权利，请联系我。</span>
-	<br />
-	<br />
-	<span>本站属于非盈利性网站，你可以参考这个网站的完整代码：
+	<br class="f-1" />
+	<span>这个网站是完全非盈利性的哦，你可以参考这个网站的完整代码：
 		<a class="link hint--right hint--rounded" data-hint="代码仅供学习
-若要在你的网站使用，请做出一定更改" href="https://github.com/Dragoft/site" target="_blank"> GitHub </a>
+若要在你的网站使用，请做出一定更改" href="https://github.com/Dragoft/site" target="_blank">github.com/</a>
 	</span>
 	<br />
 </div>
 
 <div class="t-2" >
-	<br class="disabled" />
-	<br class="disabled" />
-	<br class="disabled" />
+	<br class="f-1" />
+	<br class="f-1" />
+	<br class="f-1" />
 	<div style="white-space: nowrap; user-select: none;" >
 		<div class="t-8" >
 			<div class="t-9" ></div>
 			<div class="t-10" >
-				<span class="t-11" >网站历史</span>
-				<br />
-				<span>致我们一路走来的艰辛...</span>
+				<span class="t-11" >History.</span>
 			</div>
 		</div>
 
 		<div class="t-6" >
 			<div class="t-5" >
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="开始代码编写." >2023.2.1</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="开始代码编写." >2023.2.1</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="网站上线." >2023.2.3</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="网站上线." >2023.2.3</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="注册域名 haku-dragon.eu.org" >2023.2.16</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="图库上线." >2023.5.3</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="图库上线." >2023.5.3</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="重写全部 UI" >2023.5.21</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="重写全部 UI" >2023.5.21</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="博客上线." >2023.6.7</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="博客上线." >2023.6.7</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="图库下线." >2023.7.12</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="图库下线." >2023.7.12</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="网站建成 :)" >2023.7.21</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="网站建成 :)" >2023.7.21</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="重写博客样式." >2023.8.3</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="重写博客样式." >2023.8.3</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="添加博客页面的搜索引擎." >2023.10.3</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="添加博客页面的搜索引擎." >2023.10.3</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="重写博客页面跳转方法." >2023.12.24</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="重写博客页面跳转方法." >2023.12.24</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="启用临时域名 tatsuno.pages.dev" >2024.4.1</ins>
 				<br />
-				<span class="t-4 hint--right hint--rounded hint--none" data-hint="启用备用域名 bailong.eu.org" >2024.1.31</span>
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="新的简洁 UI ！" >2024.4.4</ins>
+				<br />
+				<ins class="t-4 hint--right hint--rounded hint--none" data-hint="启用新域名 tatsuno.top" >2024.4.6</ins>
 			</div>
 		</div>
 	</div>
 </div>
 
-	<br class="disabled" />
-	<br class="disabled" />
-	<br class="disabled" />
+	<br class="f-2 f-1" />
+	<br class="f-2" />
+	<br class="f-2" />
 
 
 <div class="t-2" >
 	<span class="t-1" style="color: rgba(100, 102, 102, 1);" ><span style="color: rgba(2, 114, 164, 0.8);" ></span> 技术支持.</span>
 	<br />
-	<hr style="border: none; border-top: 1px solid rgba(151, 153, 153, 0.2); width: 80%; text-align: left; margin-left: 0px;" />
-	<span>感谢他们提供的帮助...</span>
-	<br />
-	<br />
-	<div class="t-2 t-19" >
-		<div class="t-20" >
+	<span style="margin: 10px 45px; position: absolute;" class="f-2" >前端小白一只，感谢大佬们提供的各种帮助。</span>
+	<br class="f-1 f-2" />
+	<br class="f-1" />
+	<div class="t-19" >
+		<div class="t-20" style="margin-left: 15px;" >
 			<div class="t-21" >
 				 <a class="link hint--bottom hint--rounded" data-hint="哔哩哔哩 (゜-゜)つロ 干杯~-bilibili" href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a>
 				<br />
@@ -191,12 +173,18 @@
 
 
 <script>
-	let timer1 = setInterval(() => {
-		if (isInViewport(document.querySelector('.t-6'))) {
-			fun1();
-       			clearInterval(timer1);
-		}
-	},500)
+	var set = document.getElementsByClassName('t-4');
+	var repeat = set.length;
+	document.querySelector('.t-6').classList.add('t-7');
+	document.querySelector('.t-6').style.height = repeat*35 + 'px';
+	document.querySelector('.t-5').style.height = repeat*35 + 20 + 'px';
+	for (let i = 0; i < repeat; i++) {
+		setTimeout(function (){
+			set[i].classList.remove('hint--none');
+			set[i].classList.add('hint--always');
+		},i*50)
+	}
+
 
 	let timer3 = setInterval(() => {
 		if (isInViewport(document.querySelector('.t-19'))) {

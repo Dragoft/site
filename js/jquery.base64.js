@@ -13,7 +13,7 @@
     var idx = _ALPHA.indexOf( s.charAt( i ) );
 
     if ( idx === -1 ) {
-      throw "Cannot decode base64";
+      return " ";
     }
 
     return idx;
@@ -55,7 +55,7 @@
     }
 
     if ( imax % 4 !== 0 ) {
-      throw "Cannot decode base64";
+      return " ";
     }
 
     if ( s.charAt( imax - 1 ) === _PADCHAR ) {
@@ -94,7 +94,7 @@
         break;
     }
     _decode_chars(y, x);
-    if(y.length > 0) throw "Cannot decode base64";
+    if(y.length > 0) return " ";
     return x.join( "" );
   }
   

@@ -1,17 +1,43 @@
-﻿
-
-
-/*
-   Console.log Info.
-   F: Fix      +: New function      -: Remove function
-   Version: x.xx (version) .x.xx (date)
+﻿/*
+	核心脚本 script.js
+	太懒了，不想做优化...
 */
 
-Version = 'Release.0.02.27.03.10';
-Update = `Update:		F 重写播放器样式
-`;
 
-playerMode = 1
+
+// 通知列表
+Notice = [
+	{
+		date: '6.10',
+		event: '停更通知',
+		content: '网站暂时停止更新',
+	},
+	{
+		date: '4.27',
+		event: '网站细节优化.',
+		content: '对主页、博客样式进行了调整\n修复手机端界面最小宽度小于 380px 的问题',
+	},
+	{
+		date: '4.26',
+		event: '调整主页面样式.',
+		content: '对主页样式进行了细微调整',
+	},
+	{
+		date: '4.20',
+		event: '细节调整.',
+		content: '美化博客页面的链接样式\n修复博客 Error.html 页面无法显示的问题',
+	},
+	{
+		date: '4.6',
+		event: '启用域名: tatsuno.top/',
+		content: '新的域名，新的开始！',
+	},
+
+];
+
+
+
+
 
 
 
@@ -36,80 +62,38 @@ var runtime = diffYears*365+diffDays;
 
 
 
-// header 样式
 
-/* 防抖函数	From https://blog.csdn.net/SongZhengxing_/article/details/128188882		*/
-function Debounce(handle, delay) {
-	let timer = null;
-	return function () {
-		let _self = this,
-		_args = arguments;
-		clearTimeout(timer);
-		timer = setTimeout(function () {
-		handle.apply(_self, _args)
-		}, delay)
-	}
-}
 
-/* 节流函数	From https://blog.csdn.net/weixin_46279019/article/details/121681896		*/
-function throttle(fn,wait){
-	var pre = Date.now();
-	return function(){
-		var context = this;
-		var args = arguments;
-		var now = Date.now();
-		if( now - pre >= wait){
-			fn.apply(context,args);
-		pre = Date.now();
-	}
-	}
+
+// 初始化参数
+playerMode = 1
+lang = navigator.language
+
+
+
+// 清除 url 参数
+$('title').text('tatsuno.top/');
+let url = window.location.href
+if (url.indexOf('?') !== -1) {
+	url = url.replace(/(\?|#)[^'"]*/, '')
+	history.replaceState(null, null, url);
 }
 
 
- 
-function handle(){
-	if ($(window).scrollTop() > $('.main').offset().top-60) {
-		$('#header').addClass('header-active');
-		$('.header-item').addClass('link-2');
-		$('.header-shell').addClass('header-shell-active');
-	} else {
-		$('#header').removeClass('header-active');
-		$('.header-item').removeClass('link-2');
-		$('.header-shell').removeClass('header-shell-active');
-	}
-	if (playerMode==3) {
-		if ($(window).scrollTop() > $('.main').offset().top-$(window).height()+50) {
-			$('.Player').addClass('Player-active');
-		} else {
-			$('.Player').removeClass('Player-active');
-		}
-	}
-}
-    
 
-window.addEventListener("scroll",throttle(handle,100));
+// 强制初始化页面
+setTimeout(function (){
+	if(document.querySelector('.Avatar').style.opacity!=1){
+		message('初始化异常，已强制加载页面', 'warn', 3000);
+		init();
+	}
+}, 30000);
+
 
 
 // 配饰移动设备
 if ($(window).width() < 900) {
 	var device = 'Mobile';
-	setTimeout(function (){
-		if($('#load-img').hasClass('fade-in-1')!=true) {
-			$('#load-img').addClass('fade-in-1');
-		}
-	},5000)
-
-	// 把播放器调到最小
-	setTimeout(function (){
-		$('.Player').addClass('Player-mode3');
-		$('.Player').removeClass('Player-mode1');
-	},200)
-	$('#player').fadeOut(300);
-	$('.Player-menu').fadeOut(300);
-	$('.PlayerImgBox').fadeOut(300);
-	$('.Player-Button').html('');
-
-	playerMode = 3;
 } else {
 	var device = 'Desktop';
 }
@@ -121,53 +105,6 @@ if (document.domain=="") {
 }
 
 
-
-// 初始化样式
-Adjust();
-
-// 屏幕适应函数
-function Adjust(){
-	if ($(window).width() < 900) {
-		if ($(window).height() > $(window).width()) {
-			// 宽度小于 900px 且 高 > 宽 时尝试以下样式 
-			$('#background').css('display', 'block');
-			$('.background-title').css('display', 'block');
-			$('.container').css('display', 'none');
-			$('#background').attr('src', 'src/background smaller.webp' );
-		} else {
-			$('#background').css('display', 'none');
-			$('.container').css('display', 'block');
-			$('.background-title').css('display', 'none');
-		}
-
-	} else {
-		$('#background').css('display', 'none');
-		$('.container').css('display', 'block');
-		$('.background-title').css('display', 'block');
-
-		// 考虑到电脑有复制粘贴快捷键，所以只屏蔽电脑的右键菜单
-		window.document.oncontextmenu = function(){ 
-			return false;
-		} 
-	}
-	// 检测窗口大小改变后的滚动条位置
-	if ($(window).scrollTop() > $('.main').offset().top-60) {
-		$('#header').addClass('header-active');
-		$('.header-item').addClass('link-2');
-		$('.header-shell').addClass('header-shell-active');
-	} else {
-		$('#header').removeClass('header-active');
-		$('.header-item').removeClass('link-2');
-		$('.header-shell').removeClass('header-shell-active');
-	}
-}
-
-
-
-// 监听到窗口大小改变后，执行屏幕适应函数
-window.onresize = function(){
-	Adjust();
-}
 
 // 判定元素是否可见 ( 这是ChatGPT写的... )
 function isInViewport(element) {
@@ -182,143 +119,168 @@ function isInViewport(element) {
 
 
 
-// 显示播放器
-if (device!='Mobile') {
-	setTimeout(function (){
-		$('.Player').addClass('Player-active');
-	},500)
-}
+// 常规函数
 
-
-
-// Some Normal Functions
-
-function ToMainPage(){
-	var target = $(".main");
-	var offsetTop = target.offset().top - 80;
-	$("html,body").animate({scrollTop: offsetTop}, 500);
-};
-
-function ToBlog(){
-	var target = $(".blog-3");
-	var offsetTop = target.offset().top - 180;
-	$("html,body").animate({scrollTop: offsetTop}, 500);
-
-	setTimeout(function (){
-		blog();
-	},600)
-};
-
-function ToTop(){
-	if ($('.blog').hasClass('blog-active')==false) {
-		$("html,body").animate({scrollTop: 0}, 500);
-	}
+function ToTop() {
+	$("html,body").animate({scrollTop: 0}, 500);
 };
 
 // iframe 监听器 	Borrowed From   https://www.cnblogs.com/JioNote/p/14578483.html
 var iframeURL = '';
 window.addEventListener('message', function (rs) {
 	iframeURL = rs.data;
-	$('title').text('Dragoft - ' + iframeURL[0]);
+	$('title').text('tatsuno.top/ - ' + iframeURL[0]);
 	if (iframeURL[2]!=='undefined') {
 		eval(iframeURL[2]);
 	}
 });
 
-function msg(tite, src, action) {
-	window.postMessage([tite, src, action],"*");
-	return '已将 iframe 页面的返回值设为' + tite + ', ' + src + ', ' + action;
+
+
+// 博客面板
+
+// INIT
+BlogTEMP = filterAndCombine(BlogList, 'type', 'hide');
+
+
+function filterAndCombine(arr, key, value) {
+	return arr.filter(obj => obj[key] != value);
 }
 
 
-function blog() {
-	if ($('.blog').hasClass('blog-active')) {
-		if (iframeURL[1]=='Homepage') {
-			// 关闭博客页面
-			$('.iframe').fadeOut();
-			$('.blog-close').fadeOut();
-			$('title').text('Dragoft - 主页');
-			ClearURLParam();
-			if (document.domain!='') {
-				history.replaceState(null, null, window.location.href.split('org',1)[0] + 'org/');
+
+function BlogListInit() {
+	// 动态输出博客文章列表
+	ul = document.querySelector('ul');
+	for (var i = 0; i < BlogTEMP.length; i++) {
+		if (BlogList[i]['type'] != 'hide') {
+			var a = document.createElement('a')
+			a.innerHTML = BlogList[i]['type'] + ' ' + BlogList[i]['name'];
+			a.setAttribute('class', 'search-list');
+			a.setAttribute('onclick', 'Blog(`open`, `' + BlogList[i]['src'].slice(0, -1) + '`); changeURLStatic(`id`, `' + BlogList[i]['src'].slice(0, -1) + '`);');
+			a.setAttribute('id', BlogList[i]['type'] + ' ' + BlogList[i]['name']);
+			a.setAttribute('title', BlogList[i]['details']);
+
+			ul.appendChild(a);
+		}
+	}
+
+	// 显示博客文章数量
+	document.querySelector('.blog-num').innerHTML = BlogTEMP.length;
+
+	// 博客搜索引擎
+	document.onkeydown = function(e) {
+		var ev = (typeof event!= 'undefined') ? window.event : e;
+			 if(ev.keyCode == 13) {
+				return false;
 			}
-			if ($(window).width() > 900) {
-				$('.headerbox').fadeIn();
-			}
-			setTimeout(function (){
-				$('.blog').removeClass('blog-active');
-				$('#body').removeClass('body-scroll');
-			},300)
+	}
+
+	// 初始化搜索引擎
+	$('#searchInput').on('keyup', function () {
+		new Search('.search-list', $('#searchInput'), 'rgba(244, 183, 188, 1)')
+	})
+
+	// 初始化列表高度
+	if (BlogList.length > 10) {
+		$('#search').css('height', '275px');
+		document.getElementById('searchInput').name = 10;
+	} else {
+		$('#search').css('height', BlogTEMP.length * 22 +55 + 'px');
+		document.getElementById('searchInput').name = BlogTEMP.length;
+	}
+
+}
+
+
+
+// 初始化通知列表
+function NoticeListInit() {
+	NoticeList = document.querySelectorAll(".news-box")
+	for (var i = 0; i < 5; i++) {
+		NoticeList[i].innerHTML = '<span class="news-date" >' + Notice[i]['date'] + '</span><span title="' + Notice[i]['content'] + '" >' + Notice[i]['event'] + '</span>'
+	}
+}
+
+
+
+
+
+
+// 博客文章切换
+function Blog(action, id) {
+	if (action=='close') {
+		// 关闭博客页面
+		$('.blog').fadeOut(600);
+		$('.iframe').fadeOut(600);
+		$('.menu-btn-3').css('transition', 'none');
+		$('.menu-btn-3').fadeOut(400);
+		$('.blog').removeClass('blog-active');
+
+		$('title').text('tatsuno.top/');
+		if (document.domain!='') {
+			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/');
 		} else {
-			$('.iframe').fadeOut(400);
-			setTimeout(function (){
-				// 退回到博客主页
-				document.getElementById('iframe').src = window.location.href.split('org',1)[0] + 'org/blog/Homepage/page.html';
-			},400)
+			ClearURLParam();
+		}
+
+		if(!$('.menu').hasClass('menu-active')){
+			$('#body').removeClass('body-scroll');
 		}
 	} else {
-		if($("#iframe").length <1){
-			// 第一次打开时，生成博客框架
-			var iframe = document.createElement('iframe');
-			iframe.setAttribute('name','frame');
-			iframe.setAttribute('class','iframe');
-			iframe.setAttribute('id','iframe');
-			document.querySelector('.blog').appendChild(iframe);
-			document.getElementById('iframe').src = window.location.href.split('org',1)[0] + 'org/blog/Homepage/page.html';
-		} else {
-			setTimeout(function (){
-				$('.iframe').fadeIn(400);
-			},400)
-		}
-		$('title').text('Dragoft - 博客');
-		$('.blog').addClass('blog-active');
+		// 打开博客界面
+		$('.blog').fadeIn(300);
 		$('#body').addClass('body-scroll');
-		$('.headerbox').fadeOut();
-		$('.header').fadeIn();
-		$('.blog-close').fadeIn();
+		$('.blog').addClass('blog-active');
 
+		// 修改地址栏参数
 		if (document.domain!='') {
-			history.replaceState(null, null, window.location.href.split('org',1)[0] + 'org/blog?id=Homepage');
+			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/blog?id=' + id);
 		} else {
-			changeURLStatic('id', 'Homepage');
+			changeURLStatic('id', id);
 		}
+
+		setTimeout(function (){
+			// 跳转指定文章
+			if (states=="Local") {
+				document.getElementById('iframe').src = 'blog/' + id + '/page.html';
+			} else {
+				document.getElementById('iframe').src = window.location.href.split('top',1)[0] + 'top/blog/' + id + '/page.html';
+			}
+
+			$('.menu-btn-3').css('transition', '0.3s');
+		},400)
+
+		// 返回按钮
+		$('.menu-btn-3').fadeIn(400);
+
+
 	}
 }
 
-// 满足某些博客文章全屏的要求
-function fullscreenOFF() {
-	if(!$('#header').hasClass('header-active')){
-		$('#header').css('display', 'block');
-		$('.header-shell').css('display', 'block');
-		$('.Player').css('display', 'block');
 
-		$('#header').addClass('header-active');
-		$('.header-item').addClass('link-2');
-		$('.header-shell').addClass('header-shell-active');
-		$('.blog-close').fadeIn();
-		$('.Player').removeClass('Player-inactive');
+
+// 弹窗
+function message(content, type, time) {
+	$('.message-box').html(content);
+	$('.message-box').removeClass('message-info');
+	$('.message-box').removeClass('message-warn');
+	$('.message-box').removeClass('message-error');
+
+	$('.message-box').addClass('message-' + type);
+	$('.message').addClass('message-active');
+	if (time != -1) {
+		setTimeout(function (){
+			$('.message').removeClass('message-active');
+		}, time);
+	}
+
+	// 关闭消息框
+	message.Close=function(){
+		$('.message').removeClass('message-active');
 	}
 }
-function fullscreenON() {
-	$('#header').removeClass('header-active');
-	$('.header-item').removeClass('link-2');
-	$('.header-shell').removeClass('header-shell-active');
-	$('.blog-close').fadeOut();
-	$('.Player').addClass('Player-inactive');
-	setTimeout(function (){
-		$('#header').css('display', 'none');
-		$('.header-shell').css('display', 'none');
-		$('.Player').css('display', 'none');
-	},1000)
-}
 
-// 博客页面切换
-function Jump(Path) {
-	$('.iframe').fadeOut(400);
-	setTimeout(function (){
-		document.getElementById('iframe').src = window.location.href.split('org',1)[0] + 'org/blog/' + Path + '/page.html';
-	},400)
-}
 
 
 
@@ -326,14 +288,14 @@ function Jump(Path) {
 $(body).click(function(e){
 	var e = e || window.event;
 	var elem = e.target;
-	if($(elem).is('.Haku') || $(elem).is('.Haku *')){
-		if(!$('.Haku').hasClass('Haku-active')){
-			$('.Haku').addClass('Haku-active');
+	if($(elem).is('.Avatar') || $(elem).is('.Avatar *')){
+		if(!$('.Avatar').hasClass('Avatar-active')){
+			$('.Avatar').addClass('Avatar-active');
 		} else {
-			$('.Haku').removeClass('Haku-active');
+			$('.Avatar').removeClass('Avatar-active');
 		}
 	}else{
-		$('.Haku').removeClass('Haku-active');
+		$('.Avatar').removeClass('Avatar-active');
 	}	
 })
 
@@ -341,43 +303,36 @@ function Typewriter() {
 	var sentence = [
 		// 标题语列表
 
-		'^1000吼！',
+		['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()],
+		`<span style='font-family: "Microsoft YaHei"' >これは何ですか。</span>`,
+		`<span style='font-family: "Microsoft YaHei"' >ここは…</span>`,
 		'不要揪我的尾巴！',
-		'一只很懒的博主.',
+		`<span style='font-family: "Microsoft YaHei"' >辰野さん。</span>`,
+		'一个很懒的博主.',
 		'Html！',
-		'不要揪我的尾巴！',
-		'一夜鱼龙舞.', 
+		'Hello world.',
+		`<span style='font-family: "Microsoft YaHei"' >はーい</span>`,
 		'小白一只.',
 		'Java^1000Script！',
-		'不要揪我的尾巴！',
-		'文案写得不好，^300请多谅解！',
+		`<span style='font-family: "Microsoft YaHei"' >こんにちは。</span>`,
+		`<span style='font-family: "Microsoft YaHei"' >今日は` + ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()] + `ですか。</span>`,
+		'看上去很不错的样子...',
 
 		];
 
 	var RandomSentence = sentence[Math.floor(Math.random() * sentence.length)];
 	$('.Typewriter-1').typed({
 		strings: [RandomSentence],
-		typeSpeed: 40,
+		typeSpeed: 80,
 		showCursor: false,
 	});
 }
 
-// 打出标题语
-let timer1 = setInterval(() => {
-	if (isInViewport(document.querySelector('.Haku'))) {
-		Typewriter();
-       		clearInterval(timer1);
-	}
-},500)
-
 
 
 // 页脚文字
-document.getElementById('footer-1').innerHTML = 'Copyright © ' + new Date().getFullYear() + ' Dragoft. All rights reserved.';
+document.getElementById('footer-1').innerHTML = 'Copyright © 2023-' + new Date().getFullYear() + ' Tatsuno Yuu.';
 document.getElementById('footer-2').innerHTML = '已上线 | ' + runtime + ' 天';
-
-// 显示博客文章数量
-document.querySelector('.blog-num').innerHTML = BlogList.length;
 
 
 
@@ -426,9 +381,116 @@ browser = getBrowserType();
 
 
 
+function Welcome() {
+	if (ShowAlert==1) {
+		// 浏览器检查
+		var browserWarning = '某些元素可能无法在您的 ' + browser + ' 浏览器上正常渲染.';
+		if (browser=='Chrome') {
+			var browserWarning = '';
+		}
+		if (browser=='Edge') {
+			var browserWarning = '';
+		}
+		if (browser=='Unknown') {
+			var browserWarning = '某些元素可能无法在您的浏览器上正常渲染.';
+		}
+		if ($(window).width() < 600) {
+			var browserWarning = '';
+		}
+
+		if (browserWarning=='') {
+			// 弹出问候语
+			message('Hello 🎉', 'info', 2500);
+		} else {
+			message(browserWarning, 'error', 5000);
+		}
+	}
+}
+
+
+
+// 菜单
+function MenuOpen() {
+	$('.menu').addClass('menu-active');
+	$('#body').addClass('body-scroll');
+	$('.menu-btn-2').fadeIn(300);
+	if($('ul')
+.hasClass('ok')!=true) {
+		$('ul')
+.addClass('ok');
+		BlogListInit()
+;
+		NoticeListInit()
+;
+	}
+}
+
+function MenuClose() {
+	$('#body').removeClass('body-scroll');
+ 	$('.menu').removeClass('menu-active');
+	$('.menu-btn-2').fadeOut(300);
+}
+
+function MenuCheck1() {
+	$('#search').css('transition', 'all 0.3s ease-out 0s');
+	if($('#menu-check-1').hasClass('menu-check-active')!=true) {
+		$('#menu-check-1').addClass('menu-check-active');
+		$('#search').css('opacity', '1');
+		$('#search').css('height', document.getElementById('searchInput').name * 22 +55 + 'px');
+	} else {
+		$('#menu-check-1').removeClass('menu-check-active');
+		$('#search').css('height', '0px');
+		$('#search').css('opacity', '0');
+	}
+}
+
+function MenuCheck2() {
+	if($('#menu-check-2').hasClass('menu-check-active')!=true) {
+		$('#menu-check-2').addClass('menu-check-active');
+		$('.MenuCheck2-inner').css('height', '120px');
+		$('.MenuCheck2-inner').css('opacity', '1');
+	} else {
+		$('#menu-check-2').removeClass('menu-check-active');
+		$('.MenuCheck2-inner').css('height', '0px');
+		$('.MenuCheck2-inner').css('opacity', '0');
+	}
+}
+
+function MenuCheck3() {
+	if($('#menu-check-3').hasClass('menu-check-active')!=true) {
+		$('#menu-check-3').addClass('menu-check-active');
+		$('.MenuCheck3-inner').fadeIn(240);
+	} else {
+		$('#menu-check-3').removeClass('menu-check-active');
+		$('.MenuCheck3-inner').fadeOut(240);
+	}
+}
+
+
+
+// 日期格式化	blog.csdn.net/qq_42415827/article/details/114630461
+function dateFormatter(formatter, date) {
+	date = (date ? new Date(date) : new Date)
+	const Y = date.getFullYear() + '',
+		M = date.getMonth() + 1,
+		D = date.getDate(),
+		H = date.getHours(),
+		m = date.getMinutes(),
+		s = date.getSeconds()
+	return formatter.replace(/YYYY|yyyy/g, Y)
+		.replace(/YY|yy/g, Y.substr(2, 2))
+		.replace(/MM/g, (M < 10 ? '0' : '') + M)
+		.replace(/DD/g, (D < 10 ? '0' : '') + D)
+		.replace(/HH|hh/g, (H < 10 ? '0' : '') + H)
+		.replace(/mm/g, (m < 10 ? '0' : '') + m)
+		.replace(/ss/g, (s < 10 ? '0' : '') + s)
+}
+
+
+
 /* Console.log */
 console.log( 
-	'\n%cBailong.eu.org \n%c这里是 %cDragoft %c的个人主页!' + '\n\n%c已上线: %c' + runtime + ' %c天.\n',
+	'\n%cTatsuno.top \n%c这里是 %cTatsuno %c的个人主页!' + '\n\n%c已上线: %c' + runtime + ' %c天.\n',
 	'color: rgba(196, 169, 139, 0.8)',
 	'color: rgba(100, 102, 102, 0.8)',
 	'color: rgba(113, 199, 173, 0.8)',
@@ -446,28 +508,16 @@ setTimeout(console.groupCollapsed.bind(
 ));
 setTimeout(console.log.bind(
 	console, 
-`	%cOwner:		Dragoft.
+`	%cOwner:		Tatsuno Yuu.
 	Online:		2023.2.3
 	Device:		` + device + `: ` + $(window).width() + ` × ` + $(window).height()  + `
 	States:		` + states + `
-	Browser:	` + browser + `
+	Browser:	` + browser + ` [` + lang +`]
 
-	除了 Cloudflare Web Analytics 的网站访问数据统计, 我们不会收集或储存您的任何信息, 可以放心浏览 :)
+	除了访问量统计（使用 1 Cookie）和 Cloudflare Web Analytics 外，我们不会收集你的任何个人信息 :)
 `,
 	'color: rgba(100, 102, 102, 0.8)',
 ));
-setTimeout(console.groupCollapsed.bind(
-	console, 
-	'%cVersion:	%c' + Version,
-	'color: rgba(100, 102, 102, 1)',
-	'color: rgba(244, 183, 188, 1); text-decoration: underline;',
-));
-setTimeout(console.log.bind(
-	console, 
-	'%c' + Update,
-	'color: rgba(100, 102, 102, 0.8)',
-));
-setTimeout(console.groupEnd.bind());
 setTimeout(console.groupEnd.bind());
 
 
@@ -475,96 +525,6 @@ setTimeout(console.groupEnd.bind());
 
 
 
-/* 弹窗函数 */
-if (ShowAlert==1) {
-setTimeout(function (){
-		var browserWarning = `
-			<br />
-			<code style='font-size: 15px; background-color: rgb(255, 251, 229); border: 1px solid rgb(255, 245, 194); color: rgb(92, 60, 0);' >某些元素可能无法在您的 ` + browser + ` 浏览器上正常渲染.</code>
-		`;
-		if (browser=='Chrome') {
-			var browserWarning = '';
-		}
-		if (browser=='Edge') {
-			var browserWarning = '';
-		}
-		if (browser=='Unknown') {
-			var browserWarning = `
-				<br />
-				<code style='font-size: 15px; background-color: rgb(255, 251, 229); border: 1px solid rgb(255, 245, 194); color: rgb(92, 60, 0);' >某些元素可能无法在您的浏览器上正常渲染.</code>
-			`;
-		}
+exam = 'ok';
 
-		swal({
-			title: "<div style='text-align: left; margin-left: 10%;' >欢迎 🎉</div>",
-			text: `
-				<hr style='border: none; border-top: 1px solid rgba(151, 153, 153, 0.3); width: 80%; text-align: center; margin-top: -20px;' />
-				<div style='text-align: left; margin-left: 10%; margin-top: 15px; width: 80%;' >
-					这里是 <ins>Dragoft</ins> 的个人主页.
-					<br />
-					<br />
-					简单 & 温暖的博客，不定期更新各类文章！
-					<br />
-					祝您拥有愉快的一天！
-					<br />
-					` + browserWarning + `
-				</div>
-			`,
-			confirmButtonText: "关闭",
-			html: true,
-			allowOutsideClick: true,
-			timer: 5000,
-		},);
-	},1200)
-}
 
-function Others() {
-	swal({
-		title: "其他",
-		text: "<hr style='border: none; border-top: 1px solid rgba(151, 153, 153, 0.2); width: 80%; text-align: center;' />哈！空的.<br />",
-		confirmButtonText: "关闭",
-		type: "info",
-		html: true,
-		allowOutsideClick: true,
-	},);
-}
-
-function info1() {
-	swal({
-		title: "<div style='text-align: left; margin-left: 10%;' >背景图片</div>",
-		text: `
-			<div class='t-28' >
-				由于某些原因，我无法与这幅作品的 画师 或 版权所有者 取得联系.
-				<br />
-				本站属于非营利性网站，未将其应用于任何商业用途. 但为配合网站需求，已对原作进行一定修改.
-				<br />
-				<a class="link" target="_blank" href="https://www.pinterest.com/pin/290411875981302592/" >原图链接</a>
-				 | 
-				<a class="link" href="javascript:;" >STUDIO GHIBLI</a>
-				<br />
-				<br />
-				若侵犯了您的权利，请联系 <a class="link hint--top hint--rounded" target="_blank" href="mailto:dragoft@bailong.eu.org" data-hint="请注明您的相关信息" >dragoft@bailong.eu.org</a> 核实后我将会做出调整.
-				<br />
-				<br />
-				<br />
-				您可以在这里下载它：
-				<br />
-				<br />
-				<code class="hint--right hint--rounded" data-hint="成品" style="font-family: 'Poppins Regular';" >
-					<a class="t-27" target="_blank" href="src/Chihiro and Haku (Spirited Away) 1920×1080.png" download="Chihiro and Haku (Spirited Away) 1920×1080.png" >
-						 <span style="opacity: 0.5;">|</span> Chihiro and Haku (1920×1080).png
-					</a>
-				</code>
-				<br />
-				<code class="hint--right hint--rounded" data-hint="原始文件" style="margin-top: 8px; font-family: 'Poppins Regular';" >
-					<a class="t-27" target="_blank" href="src/Origin.zip" download="Origin.zip" > <span style="opacity: 0.5;">|</span> Resources (Original).zip</a>
-				</code>
-				<br />
-			</div>
-		`,
-		confirmButtonText: "关闭",
-
-		html: true,
-		allowOutsideClick: true,
-	},);
-}

@@ -1,0 +1,16 @@
+﻿span {
+	color: rgba(151, 153, 153, 1);
+}
+
+h1 {
+	color: rgba(151, 153, 153, 1);
+	font-size: 40px;
+}
+
+@media screen and (max-width: 900px) {
+	.main {
+		margin: 10% auto;
+		width: 80%;
+	}
+}
+

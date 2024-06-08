@@ -52,11 +52,16 @@ img {
 	user-select: none;
 }
 
-.onlyphoneshow {
-	display: none;
+.footer {
+	border-radius: 15px;
+	padding: 25px;
+	background-color: rgba(242, 242, 242, 1);
 }
 
+
+
 .t-1 {
+	line-height: 30px;
 	font-size: 20px;
 	white-space: nowrap;
 }
@@ -96,7 +101,7 @@ img {
 
 	word-wrap: break-word;
 	white-space: normal;
-	font-family: '微软雅黑';
+	font-family: 'Microsoft YaHei';
 	font-size: 15px;
 	line-height: 16px;
 }
@@ -105,7 +110,7 @@ img {
 	display: block;
 	margin: 10px auto;
 	width: 30px;
-	font-family: '微软雅黑';
+	font-family: 'Microsoft YaHei';
 	font-size: 15px;
 	line-height: 15px;
 	pointer-events: none;
@@ -117,7 +122,7 @@ img {
 	margin: 60px -15px;
 	word-wrap: break-word;
 	white-space: normal;
-	font-family: '微软雅黑';
+	font-family: 'Microsoft YaHei';
 	font-size: 15px;
 	line-height: 16px;
 	color: rgba(192, 194, 194, 1);
@@ -140,7 +145,7 @@ img {
 
 .t-10 {
 	display: inline-block;
-	margin-left: 65px;
+	margin-left: 80px;
 }
 
 .t-11 {
@@ -154,73 +159,14 @@ img {
 	pointer-events: none;
 }
 
-.t-12 {
-	border-radius: 0 !important;
-	position: absolute;
-	margin: -10px 650px;
-	pointer-events: none;
+.t-15 {
+	z-index: 5;
 }
 
-@media screen and (max-width: 1300px) {
-	.page {
-		width: 900px;
-	}
-	.img-1,
-	.img-1 img {
-		width: 640px;
-		height: 408px;
-	}
-	.img-2,
-	.img-2 img,
-	.img-3,
-	.img-3 img {
-		width: 320px;
-		height: 450px;
-	}
-	.img-2 {
-		margin-left: 30px;
-	}
-	.t-12 {
-		margin: -10px 500px;
-	}
-	.t-4,
-	.t-2,
-	.t-9 {
-		width: 180px;
-	}
-}
 
-@media screen and (max-width: 980px) {
-	.page {
-		width: 800px;
-	}
-	.img-1,
-	.img-1 img {
-		width: 512px;
-		height: 326px;
-	}
-	.img-2,
-	.img-2 img,
-	.img-3,
-	.img-3 img {
-		width: 256px;
-		height: 360px;
-	}
-	.t-12 {
-		display: none;
-	}
-	.t-4,
-	.t-2,
-	.t-9 {
-		width: 180px;
-	}
-	.t-5 {
-		margin: 0 25px;
-	}
-}
 
 /* 手机样式 */
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 1100px) {
 	.page {
 		position: absolute;
 		left: 0px;
@@ -284,16 +230,22 @@ img {
 		word-wrap: break-word;
 		white-space: normal;
 	}
-	.onlyphoneshow {
-		display: block !important;
-	}
-	.phonenotshow {
-		display: none !important;
-	}
 	.titlebox {
 		margin-left: 5%;
 		width: 90%;
 		word-wrap: break-word;
 		white-space: normal;
 	}
+	.f-2 {
+		display: none;
+	}
+	.f-3 {
+		display: unset;
+	}
+	.footer {
+		margin-left: 10px;
+		width: calc(100% - 70px);
+	}
 }
+
+
