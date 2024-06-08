@@ -178,6 +178,7 @@ function Delete(id) {
 		message.Close()
 		setTimeout(function (){
 			message('<span class="t-8" ></span> 加载中', 'info', -1);
+			$('#body').removeClass('body-scroll');
 		}, 1000);
 
 		fetch('https://tatsuno.top/remark.api', {
