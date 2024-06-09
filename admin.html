@@ -76,6 +76,71 @@ h1 {
 	margin: 0;
 }
 
+
+
+.comment {
+	font-family: 'Microsoft YaHei';
+	display: block;
+	padding-bottom: 50px;
+	line-height: 24px;
+	font-size: 16px;
+}
+
+.time {
+	width: 185px;
+	display: inline-block;
+	color: rgba(151, 153, 153, 0.5);
+	margin-top: 10px;
+	white-space: nowrap;
+}
+
+.delete {
+	float: right;
+	color: rgba(255, 50, 50, 0.7);
+	font-weight: bolder;
+	cursor: pointer;
+	user-select: none;
+}
+
+.delete:hover {
+	text-decoration: underline;
+}
+
+.title {
+	font-weight: bolder;
+	display: block;
+}
+
+.content {
+	display: block;
+	white-space: break-spaces;
+	color: rgba(151, 153, 153, 0.8);
+	overflow: hidden;
+}
+
+.admin {
+	background-color: rgba(98, 185, 229, 0.7);
+	color: white;
+	padding: 0px 5px;
+	margin: 0px 10px;
+	line-height: 22px;
+	border-radius: 5px;
+	display: inline-block;
+	vertical-align: bottom;
+	user-select: none;
+	pointer-events: none;
+}
+
+.open {
+	display: block;
+	cursor: pointer;
+	width: 60px;
+	color: rgba(98, 185, 229, 1);
+	user-select: none;
+}
+
+
+
 .b1 {
 	position: absolute;
 	margin: 0;
@@ -176,10 +241,10 @@ h1 {
 
 .t8 {
 	position: absolute;
-	padding: 0px 20px;
+	padding: 0px 10px;
 	width: 35%;
 	left: 65%;
-	height: 100%;
+	height: calc(100% - 160px);
 	background-color: aliceblue;
 	border-left: solid 2px rgba(98, 185, 229, 1);
 	box-sizing: border-box;
@@ -203,71 +268,28 @@ h1 {
 	vertical-align: top;
 }
 
-.comment {
-	font-family: 'Microsoft YaHei';
-	display: block;
-	padding-bottom: 50px;
-	line-height: 24px;
-	font-size: 16px;
-}
-
 .t11 {
 	transition: 0.5s ease;
 	opacity: 0;
 }
 
-.time {
-	width: 185px;
-	display: inline-block;
-	color: rgba(151, 153, 153, 0.5);
-	margin-top: 10px;
-	white-space: nowrap;
+.t12 {
+	position: absolute;
+	width: 35%;
+	height: 160px;
+	left: 65%;
+	bottom: 0px;
+	border-radius: 0px;
+	border-top: solid 2px rgba(98, 185, 229, 1);
+	border-left: solid 2px rgba(98, 185, 229, 1);
+	border-right: none;
+	border-bottom: none;
+	box-sizing: border-box;
 }
 
-.delete {
-	float: right;
-	color: rgba(255, 50, 50, 0.7);
-	font-weight: bolder;
-	cursor: pointer;
-	user-select: none;
-}
 
-.delete:hover {
-	text-decoration: underline;
-}
 
-.title {
-	font-weight: bolder;
-	display: block;
-}
 
-.content {
-	display: block;
-	white-space: break-spaces;
-	color: rgba(151, 153, 153, 0.8);
-	overflow: hidden;
-}
-
-.admin {
-	background-color: rgba(98, 185, 229, 0.7);
-	color: white;
-	padding: 0px 5px;
-	margin: 0px 10px;
-	line-height: 22px;
-	border-radius: 5px;
-	display: inline-block;
-	vertical-align: bottom;
-	user-select: none;
-	pointer-events: none;
-}
-
-.open {
-	display: block;
-	cursor: pointer;
-	width: 60px;
-	color: rgba(98, 185, 229, 1);
-	user-select: none;
-}
 
 
 </style>
@@ -300,7 +322,7 @@ h1 {
 
 
 <script src="js\admin.js"></script>
-
+<script src="js\jquery.base64.js"></script>
 
 </body>
 

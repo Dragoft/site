@@ -14,12 +14,13 @@ page = 1;
 
 function login() {
 	adminKey = document.querySelector('.t1').value.toString();
+	adminKey64 = $.base64.encode(adminKey);
 
 	fetch('https://tatsuno.top/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 0,
-			"Token": adminKey
+			"Token": adminKey64
 		}
 	})
 	.then(response => {return response.json();})
@@ -41,10 +42,8 @@ function login() {
 
 				<div class="t6" ></div>
 
-				<div class="t8" >
-					<div class="t11" >
-					</div>
-				</div>
+				<div class="t8" ></div>
+				<textarea class="t1 t12" placeholder=">" ></textarea>
 			`);
 
 			BTNvisit();
@@ -103,9 +102,12 @@ function loadComment(page) {
 }
 
 function showComment(data) {
-	var box = document.querySelector('.t11');
+	var box = document.querySelector('.t8');
 	box.style.opacity = '0';
 	box.innerHTML = '';
+
+	var textbox = document.querySelector('.t12');
+	textbox.innerHTML = data;
 
 	for (var i = 0; i < data['results'].length; i++) {
 		var span = document.createElement('span');
