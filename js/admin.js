@@ -109,9 +109,13 @@ function BTNall() {
 		<br />
 		<span>这里是 tatsuno.top/ 的网站后台管理系统，欢迎回来！</span>
 		<br />
+		<br />
 		<span>介绍:</span>
 		<br />
-		<span>此系统由 Tatsuno Yuu 于 2024/6/9 独立完成开发，使数据库的操作变得更加简单。</span>
+		<span>此管理系统由 Tatsuno Yuu 于 2024/6/9 独立完成开发，当前版本: BETA 0.00.012</span>
+		<br />
+		<span>其意义在于通过前端的简单操作，控制后台的数据库，节省时间！</span>
+		<br />
 		<br />
 		<span>Copyright © 2023-` + new Date().getFullYear() + ` Tatsuno Yuu.</span>
 	`);
@@ -413,7 +417,7 @@ function changeVisit() {
 	if (adminKey=='') {return};
 
 
-	fetch('https://tatsuno.top/counter.api', {
+	fetch('https://tatsuno.top/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 3,
