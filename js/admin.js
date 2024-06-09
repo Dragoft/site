@@ -22,9 +22,6 @@ function login() {
 
 	function check(data) {
 		if (data['login']==1) {
-
-
-
 			$('.b1').html(`
 				<div class="t5" >
 					<span class="t10" ></span>
@@ -77,6 +74,7 @@ function login() {
 }
 
 
+
 function BTNall() {
 	$('.t7').removeClass('t7-active');
 	$('#b1').addClass('t7-active');
@@ -94,7 +92,7 @@ function BTNall() {
 		<span>adminKey: </span>
 		<br />
 		<input class="t1 t27 c2" maxlength="10" placeholder="admainKey" type="password" ></input>
-		<a class="t4 t28" href="javascript:;" onclick="sent()" >更新</a>
+		<a class="t4 t28" href="javascript:;" onclick="changeCode()" >更新</a>
 		<br />
 		<br />
 		<span>已上线: </span>
@@ -113,7 +111,7 @@ function BTNall() {
 		<br />
 		<span>介绍:</span>
 		<br />
-		<span>此管理系统由 Tatsuno Yuu 于 2024/6/9 独立完成开发，当前版本: BETA 0.00.012</span>
+		<span>此管理系统由 Tatsuno Yuu 于 2024/6/9 独立完成开发，当前版本:　[BETA 0.00.012]</span>
 		<br />
 		<span>其意义在于通过前端的简单操作，控制后台的数据库，节省时间！</span>
 		<br />
@@ -121,8 +119,12 @@ function BTNall() {
 		<span>Copyright © 2023-` + new Date().getFullYear() + ` Tatsuno Yuu.</span>
 	`);
 
+	if (visit=='') {
+		getVisit();
+	} else {
+		document.querySelector('.c1').value = visit;
+	}
 	getTime();
-	getVisit();
 	document.querySelector('.c2').value = adminKey;
 }
 
@@ -294,13 +296,11 @@ function showComment(data) {
 
 
 
-
 function copyToClipboard() {
 	var textbox = document.querySelector('.t13');
 	textbox.select();
 	document.execCommand('copy');
 }
-
 
 
 
@@ -370,8 +370,6 @@ function deleteComment() {
 
 
 
-
-
 function getVisit() {
 	fetch('https://tatsuno.top/counter.api', {
 		method: "POST",
@@ -388,6 +386,8 @@ function getVisit() {
 		visit = data['content'];
 	}
 }
+
+
 
 function getTime() {
 	var seconds = 1000
@@ -408,6 +408,8 @@ function getTime() {
 	var runtime = diffYears*365+diffDays;
 	document.querySelector('.c3').value = runtime + ' 天';
 }
+
+
 
 function changeVisit() {
 	var Box = document.querySelector('.c1');
@@ -434,5 +436,26 @@ function changeVisit() {
 }
 
 
+
+function changeCode() {
+	var Box = document.querySelector('.c2');
+	var code = Number(Box.value);
+
+	if (code=='') {return};
+	if (adminKey=='') {return};
+	if (adminKey==code) {return};
+
+
+	fetch('https://tatsuno.top/admin.api', {
+		method: "POST",
+		headers: {
+			"Authorization": 4,
+			"Token": adminKey64 + "###" + code
+		}
+	})
+	.then(response => {return response.json();})
+	.then(json => location.reload())
+	.catch(err => console.error('Request Failed', err)); 
+}
 
 
