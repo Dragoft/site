@@ -4,29 +4,6 @@ page = 1;
 
 
 
-			$('.b1').html(`
-				<div class="t5" >
-					<span class="t10" ></span>
-					<a class="t7" id="b1" href="javascript:;" onclick="BTNvisit()" style="margin-left: -5px;" >访问统计</a><a class="t7" id="b2" href="javascript:;" onclick="BTNaddremark()" >发表留言</a><a class="t7" id="b3" href="javascript:;" >删除留言</a>
-				</div>
-
-				<div class="t6" ></div>
-
-				<div class="t8" ></div>
-				<pre class="t1 t12"></pre>
-				<textarea class="t13" ></textarea>
-				<a class="t14" href="javascript:;" onclick="copyToClipboard()" >复制</a>
-			`);
-
-			BTNvisit();
-
-
-
-
-
-
-
-
 
 
 
