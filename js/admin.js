@@ -84,9 +84,6 @@ function BTNall() {
 	$('.t6').html(`
 		<div class="t9" >综合面板</div>
 		<br />
-		<span>基本信息</span>
-		<br />
-		<br />
 		<span>访客数: </span>
 		<br />
 		<textarea class="t1 t27 c1" maxlength="10" placeholder="0" ></textarea>
@@ -111,6 +108,12 @@ function BTNall() {
 		<div class="t9" >关于此 admin 系统</div>
 		<br />
 		<span>这里是 tatsuno.top/ 的网站后台管理系统，欢迎回来！</span>
+		<br />
+		<span>介绍:</span>
+		<br />
+		<span>此系统由 Tatsuno Yuu 于 2024/6/9 独立完成开发，使数据库的操作变得更加简单。</span>
+		<br />
+		<span>Copyright © 2023-` + new Date().getFullYear() + ` Tatsuno Yuu.</span>
 	`);
 
 	getTime();
@@ -365,21 +368,19 @@ function deleteComment() {
 
 
 function getVisit() {
-	if (visit=='') {
-		fetch('https://tatsuno.top/counter.api', {
-			method: "POST",
-			headers: {
-				"Token": 0
-			}
-		})
-		.then(response => {return response.json();})
-		.then(json => counter(json))
-		.catch(err => console.error('Request Failed', err)); 
-
-		function counter(data) {
-			document.querySelector('.c1').value = data['content'];
-			visit = data['content'];
+	fetch('https://tatsuno.top/counter.api', {
+		method: "POST",
+		headers: {
+			"Token": 0
 		}
+	})
+	.then(response => {return response.json();})
+	.then(json => counter(json))
+	.catch(err => console.error('Request Failed', err)); 
+
+	function counter(data) {
+		document.querySelector('.c1').value = data['content'];
+		visit = data['content'];
 	}
 }
 

@@ -85,7 +85,7 @@
 			if (cont[0]==dat0) {
 				var visit = cont[1];
 
-				var ps = context.env.MetaDB.prepare('UPDATE root set content=' + visit + ' where data="comment"');
+				var ps = context.env.MetaDB.prepare('UPDATE root set content=' + visit.toString() + ' where data="visit"');
 				reData = await ps.first();
 
 				var reData = {"action": "changeVist", "content": visit};
