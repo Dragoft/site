@@ -227,14 +227,15 @@ span {
 
 .t8 {
 	position: absolute;
-	padding: 0px 10px;
+	margin: 0;
+	padding: 0px 10px 0px 10px;
 	width: 35%;
 	left: 65%;
 	height: calc(100% - 160px);
 	background-color: aliceblue;
 	border-left: solid 2px rgba(98, 185, 229, 1);
 	box-sizing: border-box;
-	overflow: scroll;
+	overflow: overlay;
 }
 
 .t9 {

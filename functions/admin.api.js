@@ -29,36 +29,31 @@
 			var dat2 = typeof cont[1];
 			var dat3 = typeof cont[2];
 			var dat4 = typeof cont[3];
-			var dat5 = typeof cont[4];
-
-			var reData = {"0": cont[0], "type": dat1, "1": cont[1], "type": dat2, "3": cont[3], "type": dat3, "4": cont[4], "type": dat4, "5": cont[5], "type": dat5,};
 
 
+			if (cont[0]==dat0) {
+				// id
+				var now = new Date();
+				var options = {timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+				var formatter = new Intl.DateTimeFormat('en-US', options);
+				var parts = formatter.formatToParts(now).reduce((acc, part) => ({ ...acc, [part.type]: part.value }), {});
+				var preid = `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
 
+				if (cont[1]=='null') {
+					var id = preid;
+				} else {
+					var id = cont[1];
+				}
+				var sqlData = '"' + id + '", cont[2], "' + cont[3] + '", "' +  cont[4] + '"';
 
-//			if (cont[0]==dat0) {
-//				// id
-//				var now = new Date();
-//				var options = {timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-//				var formatter = new Intl.DateTimeFormat('en-US', options);
-//				var parts = formatter.formatToParts(now).reduce((acc, part) => ({ ...acc, [part.type]: part.value }), {});
-//				var preid = `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}`;
-//
-//				if (cont[1]==null) {
-//					var id = preid;
-//				} else {
-//					var id = cont[1];
-//				}
-//				var sqlData = '"' + id + '", cont[2], "' + cont[3] + '", "' +  cont[4] + '"';
-//
-//				var ps = context.env.MetaDB.prepare('INSERT INTO comment (id, deletable, name, content) VALUES (' + sqlData + ')');
-//				var su = await ps.first();
-//
-//				var ps = context.env.MetaDB.prepare('UPDATE root set content=content+1 where data="comment"');
-//				reData = await ps.first();
-//
-//				var reData = {"action": "write", "content": sqlData};
-//			}
+				var ps = context.env.MetaDB.prepare('INSERT INTO comment (id, deletable, name, content) VALUES (' + sqlData + ')');
+				var su = await ps.first();
+
+				var ps = context.env.MetaDB.prepare('UPDATE root set content=content+1 where data="comment"');
+				reData = await ps.first();
+
+				var reData = {"0": cont[0], "1": cont[1], "2": cont[2], "3": cont[3], "4": cont[4]};
+			}
 		}
 	}
 
