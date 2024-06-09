@@ -435,12 +435,26 @@ br {
 	background-color: rgba(255, 135, 56, 0.7) !important;
 }
 
+.t30 {
+	height: 200px;
+	width: 70%;
+}
 
+.t31 {
+	height: 200px;
+	width: 70%;
+}
 
+.t32 {
+	border-radius: 5px 0px 0px 5px;
+	border-right: none;
+}
 
-
-
-
+.t33 {
+	border-radius: 0px 5px 5px 0px;
+	margin-left: -5px;
+	width: 65px;
+}
 
 
 

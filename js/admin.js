@@ -25,7 +25,7 @@ function login() {
 			$('.b1').html(`
 				<div class="t5" >
 					<span class="t10" ></span>
-					<a class="t7" id="b1" href="javascript:;" onclick="BTNall()" style="margin-left: -5px;" >综合面板</a><a class="t7" id="b2" href="javascript:;" onclick="BTNaddremark()" >发表留言</a><a class="t7" id="b3" href="javascript:;" onclick="BTNdelete()" >删除留言</a>
+					<a class="t7" id="b1" href="javascript:;" onclick="BTNall()" style="margin-left: -5px;" >综合面板</a><a class="t7" id="b2" href="javascript:;" onclick="BTNaddremark()" >发表留言</a><a class="t7" id="b3" href="javascript:;" onclick="BTNdelete()" >删除留言</a><a class="t7" id="b4" href="javascript:;" onclick="BTNbase64()" >Base64</a>
 				</div>
 
 				<div class="t6" ></div>
@@ -84,20 +84,20 @@ function BTNall() {
 		<br />
 		<span>访客数: </span>
 		<br />
-		<textarea class="t1 t27 c1" maxlength="10" placeholder="0" ></textarea>
+		<textarea class="t1 t27 c1" maxlength="10" ></textarea>
 		<a class="t4 t28" href="javascript:;" onclick="changeVisit()" >更新</a>
 		<a class="t4 t29" href="javascript:;" onclick="getVisit()" >刷新</a>
 		<br />
 		<br />
 		<span>adminKey: </span>
 		<br />
-		<input class="t1 t27 c2" maxlength="10" placeholder="admainKey" type="password" ></input>
+		<input class="t1 t27 c2" maxlength="10" type="password" ></input>
 		<a class="t4 t28" href="javascript:;" onclick="changeCode()" >更新</a>
 		<br />
 		<br />
 		<span>已上线: </span>
 		<br />
-		<textarea class="t1 t27 c3" maxlength="10" placeholder="0 天" ></textarea>
+		<textarea class="t1 t27 c3" maxlength="10" ></textarea>
 		<br />
 		<br />
 		<br />
@@ -111,9 +111,11 @@ function BTNall() {
 		<br />
 		<span>介绍:</span>
 		<br />
-		<span>此管理系统由 Tatsuno Yuu 于 2024/6/9 独立完成开发，当前版本:　[BETA 0.00.012]</span>
+		<span>此管理系统由 Tatsuno Yuu 于 2024/6/9 完成开发，使用了 Mervi 的json渲染工具。当前版本:　[BETA 0.00.012]</span>
 		<br />
 		<span>其意义在于通过前端的简单操作，控制后台的数据库，节省时间！</span>
+		<br />
+		<br />
 		<br />
 		<br />
 		<span>Copyright © 2023-` + new Date().getFullYear() + ` Tatsuno Yuu.</span>
@@ -215,6 +217,36 @@ function BTNdelete() {
 		<br />
 	`);
 }
+
+
+
+function BTNbase64() {
+	$('.t7').removeClass('t7-active');
+	$('#b4').addClass('t7-active');
+
+	$('.t6').html(`
+		<div class="t9" >Base64 编码</div>
+		<br />
+		<textarea class="t1 t30" placeholder="输入" ></textarea>
+		<br />
+		<br />
+		<textarea class="t1 t31" placeholder="输出" ></textarea>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<a class="t4 t21" href="javascript:;" onclick="b64(1)" >编码</a>
+		<a class="t4 t21" href="javascript:;" style="margin-left: 10px;" onclick="b64(2)" >解码</a>
+		<a class="t4 t21" href="javascript:;" style="margin-left: 10px;" onclick="b64(3)" >交换</a>
+		<br />
+		<br />
+		<br />
+	`);
+}
+
+
+
 
 
 
@@ -445,6 +477,17 @@ function changeCode() {
 	if (adminKey=='') {return};
 	if (adminKey==code) {return};
 
+	var check = prompt("请输入原来的 adminKey", "");
+	if (check!=null) {
+		if (check!=adminKey) {
+			alert('输入值有误')
+			return;
+		}
+	} else {
+		alert('操作取消')
+		return;
+	}
+
 	fetch('https://tatsuno.top/admin.api', {
 		method: "POST",
 		headers: {
@@ -455,6 +498,33 @@ function changeCode() {
 	.then(response => {return response.json();})
 	.then(json => location.reload())
 	.catch(err => console.error('Request Failed', err)); 
+
 }
+
+
+
+function b64(n) {
+	var c1 = document.querySelector('.t30');
+	var c2 = document.querySelector('.t31');
+
+	var t1 = c1.value;
+	var t2 = c2.value;
+
+	if (n==1) {
+		c2.value = $.base64.encode(t1);
+	}
+	if (n==2) {
+		c2.value = $.base64.decode(t1);
+	}
+	if (n==3) {
+		var t3 = t1;
+		var t1 = t2;
+		var t2 = t3;
+
+		c1.value = t1;
+		c2.value = t2;
+	}
+}
+
 
 
