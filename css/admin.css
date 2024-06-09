@@ -399,3 +399,48 @@ br {
 	margin: 4px 15px;
 	display: inline-block;
 }
+
+.t26 {
+	color: rgba(151, 153, 153, 1);
+}
+
+.t27 {
+	width: 300px;
+	height: 30px;
+	font-size: 16px;
+	line-height: 16px;
+	margin-top: 5px;
+	vertical-align: bottom;
+	display: inline-block;
+}
+
+.t28 {
+	vertical-align: bottom;
+	display: inline-block;
+	font-size: 16px;
+	height: 20px;
+	width: 50px;
+}
+
+.t29 {
+	vertical-align: bottom;
+	display: inline-block;
+	font-size: 16px;
+	height: 20px;
+	width: 50px;
+	background-color: rgba(255, 135, 56, 1) !important;
+}
+
+.t29:hover {
+	background-color: rgba(255, 135, 56, 0.7) !important;
+}
+
+
+
+
+
+
+
+
+
+

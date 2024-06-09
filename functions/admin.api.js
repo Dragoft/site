@@ -75,6 +75,29 @@
 		}
 	}
 
+	if (mode=="3") {
+		if (cont!=null) {
+			var ps = context.env.MetaDB.prepare('SELECT * from root where data="adminKey"');
+			var dat0 = await ps.first();
+			var dat0 = dat0['content'];
+			var cont = cont.split("###");
+
+			if (cont[0]==dat0) {
+				var visit = cont[1];
+
+				var ps = context.env.MetaDB.prepare('UPDATE root set content=' + visit + ' where data="comment"');
+				reData = await ps.first();
+
+				var reData = {"action": "changeVist", "content": visit};
+			}
+		}
+	}
+
+
+
+
+
+
 //	var reData = {"0": dat0, "type":dat3, "1": dat1};
 
 

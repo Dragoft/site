@@ -1,9 +1,32 @@
 ﻿
 adminKey = '';
+visit = '';
 page = 1;
 
 
+			$('.b1').html(`
+				<div class="t5" >
+					<span class="t10" ></span>
+					<a class="t7" id="b1" href="javascript:;" onclick="BTNall()" style="margin-left: -5px;" >综合面板</a><a class="t7" id="b2" href="javascript:;" onclick="BTNaddremark()" >发表留言</a><a class="t7" id="b3" href="javascript:;" onclick="BTNdelete()" >删除留言</a>
+				</div>
 
+				<div class="t6" ></div>
+
+				<div class="t8" ></div>
+				<pre class="t1 t12"></pre>
+				<textarea class="t13" ></textarea>
+				<a class="t14" href="javascript:;" onclick="copyToClipboard()" >复制</a>
+				<div class="t22" >
+					<div class="t25" >
+						<span class="t24" >第</span>
+						<textarea class="t1 t23" maxlength="3" onfocus="this.select();" >1</textarea>
+						<span class="t24" >页:</span>
+					</div>
+					<a class="t15" href="javascript:;" onclick="loadComment(page)" >刷新</a>
+				</div>
+			`);
+
+			BTNall()
 
 
 
@@ -21,17 +44,16 @@ function login() {
 	})
 	.then(response => {return response.json();})
 	.then(json => check(json))
-	.catch(err => console.log('Request Failed', err)); 
+	.catch(err => console.error('Request Failed', err)); 
 
 	function check(data) {
 		if (data['login']==1) {
 
 
-
 			$('.b1').html(`
 				<div class="t5" >
 					<span class="t10" ></span>
-					<a class="t7" id="b1" href="javascript:;" onclick="BTNvisit()" style="margin-left: -5px;" >访问统计</a><a class="t7" id="b2" href="javascript:;" onclick="BTNaddremark()" >发表留言</a><a class="t7" id="b3" href="javascript:;" onclick="BTNdelete()" >删除留言</a>
+					<a class="t7" id="b1" href="javascript:;" onclick="BTNall()" style="margin-left: -5px;" >综合面板</a><a class="t7" id="b2" href="javascript:;" onclick="BTNaddremark()" >发表留言</a><a class="t7" id="b3" href="javascript:;" onclick="BTNdelete()" >删除留言</a>
 				</div>
 
 				<div class="t6" ></div>
@@ -73,8 +95,6 @@ function login() {
 
 
 
-
-
 		} else {
 			alert('密码错误');
 		} 
@@ -82,14 +102,44 @@ function login() {
 }
 
 
-function BTNvisit() {
+function BTNall() {
 	$('.t7').removeClass('t7-active');
 	$('#b1').addClass('t7-active');
 
 	$('.t6').html(`
-		<div class="t9" >访问量统计</div>
-
+		<div class="t9" >综合面板</div>
+		<br />
+		<span>基本信息</span>
+		<br />
+		<br />
+		<span>访客数: </span>
+		<br />
+		<textarea class="t1 t27 c1" maxlength="10" placeholder="0" ></textarea>
+		<a class="t4 t28" href="javascript:;" onclick="sent()" >更新</a>
+		<a class="t4 t29" href="javascript:;" onclick="getVisit()" >刷新</a>
+		<br />
+		<br />
+		<span>adminKey: </span>
+		<br />
+		<input class="t1 t27 c2" maxlength="10" placeholder="admainKey" type="password" ></input>
+		<a class="t4 t28" href="javascript:;" onclick="sent()" >更新</a>
+		<br />
+		<br />
+		<span>已上线: </span>
+		<br />
+		<textarea class="t1 t27 c3" maxlength="10" placeholder="0 天" ></textarea>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="t9" >关于此 admin 系统</div>
+		<br />
+		<span>这里是 tatsuno.top/ 的网站后台管理系统，欢迎回来！</span>
 	`);
+
+	getTime();
+	document.querySelector('.c2').value = adminKey;
 }
 
 
@@ -105,6 +155,8 @@ function BTNaddremark() {
 		<br />
 		<br />
 		<textarea class="t1 t17" maxlength="100" placeholder="留言" ></textarea>
+		<br />
+		<span class="t26" >剩余 100 字</span>
 		<br />
 		<br />
 		<br />
@@ -135,7 +187,19 @@ function BTNaddremark() {
 		<br />
 		<br />
 	`);
+
+	// 统计字数
+	$('.t17').on('keyup', function () {
+		if (document.querySelector('.t17').value.length>=90) {
+			$('.t26').css('color', 'rgba(255, 50, 50, 0.7)');
+		} else {
+			$('.t26').css('color', 'rgba(151, 153, 153, 1)');
+		}
+		var n = 100 - document.querySelector('.t17').value.length;
+		document.querySelector('.t26').innerHTML = '剩余 ' + n + ' 字';
+	})
 }
+
 
 
 function BTNdelete() {
@@ -145,9 +209,9 @@ function BTNdelete() {
 	$('.t6').html(`
 		<div class="t9" >基本参数</div>
 		<br />
-		<span>输入留言的 ID 即可将其删除。</span>
+		<span>注意，此 api 无视留言的 Deletable 值，这意味着它可以删除一切留言数据。请小心操作！</span>
 		<br />
-		<span>注意，此 api 无视留言的 Deletable 值，这意味着它可以删除一切留言数据。</span>
+		<span>输入留言的 ID 即可将其删除。</span>
 		<br />
 		<br />
 		<br />
@@ -284,7 +348,7 @@ function sent() {
 		}
 	})
 	.then(response => {return response.json();})
-	.catch(err => console.log('Request Failed', err)); 
+	.catch(err => console.error('Request Failed', err)); 
 
 	cotentBox.value = '';
 	setTimeout(function (){
@@ -310,7 +374,7 @@ function deleteComment() {
 		}
 	})
 	.then(response => {return response.json();})
-	.catch(err => console.log('Request Failed', err)); 
+	.catch(err => console.error('Request Failed', err)); 
 
 
 	Box.value = '';
@@ -319,3 +383,74 @@ function deleteComment() {
 	},1500)
 
 }
+
+
+
+
+
+function getVisit() {
+	if (visit=='') {
+		fetch('https://tatsuno.top/counter.api', {
+			method: "POST",
+			headers: {
+				"Token": 0
+			}
+		})
+		.then(response => {return response.json();})
+		.then(json => counter(json))
+		.catch(err => console.error('Request Failed', err)); 
+
+		function counter(data) {
+			document.querySelector('.c1').value = DATA['content'];
+			visit = data['content'];
+		}
+	}
+}
+
+function getTime() {
+	var seconds = 1000
+	var minutes = seconds * 60
+	var hours = minutes * 60
+	var days = hours * 24
+	var years = days * 365
+	var today = new Date()
+	var todaySecond = today.getSeconds()
+	var t1 = Date.UTC(2023,1,3,11,23,35)
+	var t2 = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds())
+	var diff = t2-t1
+	var diffYears = Math.floor(diff/years)
+	var diffDays = Math.floor((diff/days)-diffYears*365)
+	var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+	var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+	var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+	var runtime = diffYears*365+diffDays;
+	document.querySelector('.c3').value = runtime + ' 天';
+}
+
+function changeVisit() {
+	var Box = document.querySelector('.c1');
+	var visit = Number(Box.value);
+
+	if (visit==NaN) {return};
+	if (visit<0) {return};
+	if (adminKey=='') {return};
+
+
+	fetch('https://tatsuno.top/counter.api', {
+		method: "POST",
+		headers: {
+			"Authorization": 3,
+			"Token": adminKey64 + "###" + visit
+		}
+	})
+	.then(response => {return response.json();})
+	.catch(err => console.error('Request Failed', err)); 
+
+	setTimeout(function (){
+		getTime();
+	},1500)
+}
+
+
+
+
