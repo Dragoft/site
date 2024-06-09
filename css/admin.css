@@ -241,7 +241,7 @@ br {
 	padding: 0px 10px 0px 10px;
 	width: 35%;
 	left: 65%;
-	height: calc(100% - 200px);
+	height: calc(100% - 240px);
 	background-color: aliceblue;
 	border-left: solid 2px rgba(98, 185, 229, 1);
 	box-sizing: border-box;
@@ -277,7 +277,7 @@ br {
 .t12 {
 	position: absolute;
 	width: 35%;
-	height: 200px;
+	height: 240px;
 	left: 65%;
 	bottom: 0px;
 	border-radius: 0px;
@@ -301,7 +301,7 @@ br {
 
 .t14 {
 	position: absolute;
-	bottom: 170px;
+	bottom: 210px;
 	right: 10px;
 	color: rgba(98, 185, 229, 1);
 	user-select: none;
@@ -355,14 +355,14 @@ br {
 	height: 29px;
 	line-height: 16px;
 	margin: -3px 90px;
-	width: 180px;
+	width: 200px;
 }
 
 .t21 {
 	height: 20px;
-	padding: 20px 0px;
+	padding: 15px 0px;
 	line-height: 18px;
-	width: 200px;
+	width: 160px;
 	margin-left: -5px;
 }
 

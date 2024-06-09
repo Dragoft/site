@@ -8,7 +8,6 @@
 
 	if (mode=="0") {
 		if (cont!=null) {
-			var type = typeof cont;
 			var ps = context.env.MetaDB.prepare('DELETE FROM comment WHERE deletable = 1 and id = "' + cont + '"');
 			var su = await ps.first();
 
@@ -22,7 +21,6 @@
 	if (mode=="1") {
 		if (cont!=null) {
 			var cont = cont.split("###");
-			var type = typeof cont;
 
 			// id
 			var now = new Date();
@@ -45,7 +43,6 @@
 
 	if (mode=="2") {
 		if (cont!=null) {
-			var type = typeof cont;
 			var ps = context.env.MetaDB.prepare('SELECT * FROM comment ORDER BY id DESC LIMIT ' + cont + ', 10');
 			var reData = await ps.all();
 		}

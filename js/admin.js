@@ -5,6 +5,9 @@ page = 1;
 
 
 
+
+
+
 function login() {
 	adminKey = document.querySelector('.t1').value.toString();
 	adminKey64 = $.base64.encode(adminKey);
@@ -112,7 +115,33 @@ function BTNaddremark() {
 }
 
 
+function BTNdelete() {
+	$('.t7').removeClass('t7-active');
+	$('#b3').addClass('t7-active');
 
+	$('.t6').html(`
+		<div class="t9" >基本参数</div>
+		<br />
+		<span>输入留言的 ID 即可将其删除。</span>
+		<br />
+		<span>注意，此 api 无视留言的 Deletable 值，这意味着它可以删除一切留言数据。</span>
+		<br />
+		<br />
+		<br />
+		<span>ID:</span>
+		<textarea class="t1 t20" maxlength="19" placeholder="ID" ></textarea>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<a class="t4 t21" href="javascript:;" onclick="deleteComment()" >删 除</a>
+		<br />
+		<br />
+		<br />
+	`);
+}
 
 
 
@@ -211,7 +240,7 @@ function sent() {
 	var name = nicknameBox.value;
 	var content = cotentBox.value;
 	var name64 = $.base64.encode(name);
-	var name64 = $.base64.encode(content);
+	var content64 = $.base64.encode(content);
 
 	var id = document.querySelector('.t20').value;
 	var d = document.querySelector('.t19').value;
@@ -228,15 +257,42 @@ function sent() {
 		method: "POST",
 		headers: {
 			"Authorization": 1,
-			"Token": adminKey64 + "###" + id + "###" + d + "###" + name64 + "###" + name64
+			"Token": adminKey64 + "###" + id + "###" + d + "###" + name64 + "###" + content64
 		}
 	})
 	.then(response => {return response.json();})
-	.then(json => console.log(json))
 	.catch(err => console.log('Request Failed', err)); 
 
 	cotentBox.value = '';
+	setTimeout(function (){
+		loadComment(1);
+	},1500)
+
 }
 
 
 
+function deleteComment() {
+	var Box = document.querySelector('.t20');
+	var id = Box.value;
+
+	if (adminKey=='') {return};
+	if (id.length!=19) {return};
+
+	fetch('https://tatsuno.top/admin.api', {
+		method: "POST",
+		headers: {
+			"Authorization": 2,
+			"Token": adminKey64 + "###" + id
+		}
+	})
+	.then(response => {return response.json();})
+	.catch(err => console.log('Request Failed', err)); 
+
+
+	Box.value = '';
+	setTimeout(function (){
+		loadComment(1);
+	},1500)
+
+}

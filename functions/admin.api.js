@@ -25,11 +25,6 @@
 			var dat0 = await ps.first();
 			var dat0 = dat0['content'];
 			var cont = cont.split("###");
-			var dat1 = typeof cont[0];
-			var dat2 = typeof cont[1];
-			var dat3 = typeof cont[2];
-			var dat4 = typeof cont[3];
-
 
 			if (cont[0]==dat0) {
 				// id
@@ -52,7 +47,29 @@
 				var ps = context.env.MetaDB.prepare('UPDATE root set content=content+1 where data="comment"');
 				reData = await ps.first();
 
-				var reData = {"0": cont[0], "1": cont[1], "2": cont[2], "3": cont[3], "4": cont[4]};
+				var reData = {"action": "add", "0": cont[0], "1": cont[1], "2": cont[2], "3": cont[3], "4": cont[4]};
+
+			}
+		}
+	}
+
+	if (mode=="2") {
+		if (cont!=null) {
+			var ps = context.env.MetaDB.prepare('SELECT * from root where data="adminKey"');
+			var dat0 = await ps.first();
+			var dat0 = dat0['content'];
+			var cont = cont.split("###");
+
+			if (cont[0]==dat0) {
+				var id = cont[1];
+
+				var ps = context.env.MetaDB.prepare('DELETE FROM comment WHERE id = "' + id + '"');
+				var su = await ps.first();
+
+				var ps = context.env.MetaDB.prepare('UPDATE root set content=content-1 where data="comment"');
+				reData = await ps.first();
+
+				var reData = {"action": "delete", "target": id};
 
 			}
 		}
