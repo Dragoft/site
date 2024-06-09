@@ -5,13 +5,6 @@ page = 1;
 
 
 
-
-
-
-
-
-
-
 function login() {
 	adminKey = document.querySelector('.t1').value.toString();
 	adminKey64 = $.base64.encode(adminKey);
@@ -43,7 +36,9 @@ function login() {
 				<div class="t6" ></div>
 
 				<div class="t8" ></div>
-				<textarea class="t1 t12" placeholder=">" ></textarea>
+				<pre class="t1 t12"></pre>
+				<textarea class="t13" ></textarea>
+				<a class="t14" href="javascript:;" onclick="copyToClipboard()" >复制</a>
 			`);
 
 			BTNvisit();
@@ -106,8 +101,9 @@ function showComment(data) {
 	box.style.opacity = '0';
 	box.innerHTML = '';
 
-	var textbox = document.querySelector('.t12');
-	textbox.innerHTML = data;
+	var textbox = document.querySelector('.t13');
+	textbox.innerHTML = JSON.stringify(data);
+	commentData = data;
 
 	for (var i = 0; i < data['results'].length; i++) {
 		var span = document.createElement('span');
@@ -157,11 +153,28 @@ function showComment(data) {
 		}
 	}
 
+
+	var options = {
+		 collapsed: false,
+		withQuotes: true
+	};
+	$('#json-renderer').jsonViewer(data, options);
+
+
+
 	setTimeout(function (){
 		box.style.opacity = '1';
 	}, 1500);
 }
 
+
+
+
+function copyToClipboard() {
+	var textbox = document.querySelector('.t13');
+	textbox.select();
+	document.execCommand('copy');
+}
 
 
 

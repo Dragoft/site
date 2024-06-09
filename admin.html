@@ -8,6 +8,7 @@
 	<title>tatsuno.top/ - 管理</title>
 	<link rel="shortcut icon" href="src/icon.png" />
 	<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.json-viewer.css" />
 
 	<!-- admin.html -->
 
@@ -74,6 +75,10 @@ h1 {
 	line-height: 65px;
 	font-size: 60px;
 	margin: 0;
+}
+
+span {
+	color: rgba(151, 153, 153, 1);
 }
 
 
@@ -285,11 +290,19 @@ h1 {
 	border-right: none;
 	border-bottom: none;
 	box-sizing: border-box;
+	margin: 0;
 }
 
+.t13 {
+	opacity: 0;
+}
 
-
-
+.t14 {
+	position: absolute;
+	bottom: 130px;
+	right: 10px;
+	color: rgba(98, 185, 229, 1);
+}
 
 
 </style>
@@ -320,9 +333,9 @@ h1 {
 
 
 
-
-<script src="js\admin.js"></script>
+<script src="js\jquery.json-viewer.js"></script>
 <script src="js\jquery.base64.js"></script>
+<script src="js\admin.js"></script>
 
 </body>
 
