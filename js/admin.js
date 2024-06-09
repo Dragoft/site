@@ -5,9 +5,6 @@ page = 1;
 
 
 
-
-
-
 function login() {
 	adminKey = document.querySelector('.t1').value.toString();
 	adminKey64 = $.base64.encode(adminKey);
@@ -76,8 +73,41 @@ function BTNaddremark() {
 	$('#b2').addClass('t7-active');
 
 	$('.t6').html(`
-		<div class="t9" >发表留言</div>
+		<div class="t9" >基本参数</div>
+		<br />
+		<textarea class="t1 t16" maxlength="20" placeholder="昵称" ></textarea>
+		<br />
+		<br />
+		<textarea class="t1 t17" maxlength="100" placeholder="留言" ></textarea>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<div class="t9" >高级设置</div>
+		<br />
 
+		<span>Deletable: </span>
+		<select id="fruits" class="t18 t19">
+			<option value="0">0</option>
+			<option value="1" selected="selected">1</option>
+			<option value="2">2</option>
+		</select>
+		<br />
+		<br />
+
+		<span>ID: </span>
+		<textarea class="t1 t20" maxlength="19" placeholder="ID" ></textarea>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<a class="t4 t21" href="javascript:;" onclick="sent()" >留 言</a>
+		<br />
+		<br />
+		<br />
 	`);
 }
 
@@ -174,6 +204,39 @@ function copyToClipboard() {
 
 
 
+function sent() {
+	var nicknameBox = document.querySelector('.t16');
+	var cotentBox = document.querySelector('.t17');
+
+	var name = nicknameBox.value;
+	var content = cotentBox.value;
+	var name64 = $.base64.encode(name);
+	var name64 = $.base64.encode(content);
+
+	var id = document.querySelector('.t20').value;
+	var d = document.querySelector('.t19').value;
+
+
+
+	if (name=='') {return};
+	if (content=='') {return};
+	if (adminKey=='') {return};
+	if (id=='') {var id = 'null'};
+
+	
+	fetch('https://tatsuno.top/admin.api', {
+		method: "POST",
+		headers: {
+			"Authorization": 1,
+			"Token": adminKey64 + "###" + id + "###" + d + "###" + name64 + "###" + name64;
+		}
+	})
+	.then(response => {return response.json();})
+	.then(json => console.log(json))
+	.catch(err => console.log('Request Failed', err)); 
+
+	cotentBox.value = '';
+}
 
 
 
