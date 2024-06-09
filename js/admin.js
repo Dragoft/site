@@ -24,6 +24,7 @@ function login() {
 		if (data['login']==1) {
 
 
+
 			$('.b1').html(`
 				<div class="t5" >
 					<span class="t10" ></span>
@@ -46,7 +47,7 @@ function login() {
 				</div>
 			`);
 
-			BTNvisit();
+			BTNall()
 			loadComment(page);
 
 			// 跳转页面
@@ -89,7 +90,7 @@ function BTNall() {
 		<span>访客数: </span>
 		<br />
 		<textarea class="t1 t27 c1" maxlength="10" placeholder="0" ></textarea>
-		<a class="t4 t28" href="javascript:;" onclick="sent()" >更新</a>
+		<a class="t4 t28" href="javascript:;" onclick="changeVisit()" >更新</a>
 		<a class="t4 t29" href="javascript:;" onclick="getVisit()" >刷新</a>
 		<br />
 		<br />
@@ -113,6 +114,7 @@ function BTNall() {
 	`);
 
 	getTime();
+	getVisit();
 	document.querySelector('.c2').value = adminKey;
 }
 
@@ -375,7 +377,7 @@ function getVisit() {
 		.catch(err => console.error('Request Failed', err)); 
 
 		function counter(data) {
-			document.querySelector('.c1').value = DATA['content'];
+			document.querySelector('.c1').value = data['content'];
 			visit = data['content'];
 		}
 	}
