@@ -40,6 +40,7 @@ function login() {
 				<pre class="t1 t12"></pre>
 				<textarea class="t13" ></textarea>
 				<a class="t14" href="javascript:;" onclick="copyToClipboard()" >复制</a>
+				<a class="t15" href="javascript:;" onclick="loadComment(page)" >刷新</a>
 			`);
 
 			BTNvisit();
