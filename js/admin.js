@@ -450,7 +450,7 @@ function changeCode() {
 		method: "POST",
 		headers: {
 			"Authorization": 4,
-			"Token": adminKey64 + "###" + code
+			"Token": adminKey64 + "###" + $.base64.encode(code)
 		}
 	})
 	.then(response => {return response.json();})
