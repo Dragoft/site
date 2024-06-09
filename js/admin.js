@@ -98,7 +98,6 @@ function loadComment(page) {
 
 function showComment(data) {
 	var box = document.querySelector('.t8');
-	box.style.opacity = '0';
 	box.innerHTML = '';
 
 	var textbox = document.querySelector('.t13');
@@ -158,13 +157,7 @@ function showComment(data) {
 		 collapsed: false,
 		withQuotes: true
 	};
-	$('#json-renderer').jsonViewer(data, options);
-
-
-
-	setTimeout(function (){
-		box.style.opacity = '1';
-	}, 1500);
+	$('.t12').jsonViewer(data, options);
 }
 
 
