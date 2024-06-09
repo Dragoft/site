@@ -238,7 +238,7 @@ br {
 .t8 {
 	position: absolute;
 	margin: 0;
-	padding: 0px 10px 0px 10px;
+	padding: 40px 10px 0px 10px;
 	width: 35%;
 	left: 65%;
 	height: calc(100% - 240px);
@@ -288,6 +288,7 @@ br {
 	box-sizing: border-box;
 	margin: 0;
 
+	background-color: rgba(229, 243, 255, 1);
 	padding: 0px 30px 0px 30px;
 	overflow: overlay;
 	font-size: 16px;
@@ -309,7 +310,7 @@ br {
 
 .t15 {
 	position: absolute;
-	top: 30px;
+	top: 8px;
 	right: 10px;
 	color: rgba(98, 185, 229, 1);
 	user-select: none;
@@ -366,11 +367,35 @@ br {
 	margin-left: -5px;
 }
 
+.t22 {
+	position: absolute;
+	width: 35%;
+	height: 40px;
+	right: 0;
+	top: 0;
+	background-color: aliceblue;
+	border-bottom: solid 2px rgba(98, 185, 229, 0.2);
+	border-left: solid 2px rgba(98, 185, 229, 1);
+	box-sizing: border-box;
+}
 
+.t23 {
+	border: none;
+	height: 30px;
+	width: 50px;
+	font-size: 16px;
+	line-height: 20px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+}
 
+.t24 {
+	display: inline-block;
+	vertical-align: middle;
+}
 
-
-
-
-
-
+.t25 {
+	margin: 4px 15px;
+	display: inline-block;
+}

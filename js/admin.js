@@ -31,7 +31,7 @@ function login() {
 			$('.b1').html(`
 				<div class="t5" >
 					<span class="t10" ></span>
-					<a class="t7" id="b1" href="javascript:;" onclick="BTNvisit()" style="margin-left: -5px;" >访问统计</a><a class="t7" id="b2" href="javascript:;" onclick="BTNaddremark()" >发表留言</a><a class="t7" id="b3" href="javascript:;" >删除留言</a>
+					<a class="t7" id="b1" href="javascript:;" onclick="BTNvisit()" style="margin-left: -5px;" >访问统计</a><a class="t7" id="b2" href="javascript:;" onclick="BTNaddremark()" >发表留言</a><a class="t7" id="b3" href="javascript:;" onclick="BTNdelete()" >删除留言</a>
 				</div>
 
 				<div class="t6" ></div>
@@ -40,13 +40,36 @@ function login() {
 				<pre class="t1 t12"></pre>
 				<textarea class="t13" ></textarea>
 				<a class="t14" href="javascript:;" onclick="copyToClipboard()" >复制</a>
-				<a class="t15" href="javascript:;" onclick="loadComment(page)" >刷新</a>
+				<div class="t22" >
+					<div class="t25" >
+						<span class="t24" >第</span>
+						<textarea class="t1 t23" maxlength="3" onfocus="this.select();" >1</textarea>
+						<span class="t24" >页:</span>
+					</div>
+					<a class="t15" href="javascript:;" onclick="loadComment(page)" >刷新</a>
+				</div>
 			`);
 
 			BTNvisit();
 			loadComment(page);
 
+			// 跳转页面
+			$('.t23').on('keyup', function () {
+				 if(event.which == 13){
+					var Tpage = Number(document.querySelector('.t23').value);
+					document.querySelector('.t23').value = page;
+					$('.t23').focus()
 
+					if (typeof Tpage === 'number') {
+						if (Tpage != page) {
+							page = Tpage;
+							loadComment(page);
+							document.querySelector('.t23').value = page;
+							$('.t23').focus()
+						}
+					}
+				}
+			})
 
 
 
