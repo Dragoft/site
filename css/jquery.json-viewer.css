@@ -1,7 +1,7 @@
 /* Syntax highlighting for JSON objects */
 ul.json-dict, ol.json-array {
   list-style-type: none;
-  margin: 0px 0px 0px 3px;
+  margin: 0px 0px 0px 4px;
   border-left: 1px dotted #ccc;
   padding-left: 2em;
 }
@@ -28,8 +28,8 @@ a.json-toggle:before {
   position: absolute;
   display: inline-block;
   width: 12px;
-  left: -15px;
-  margin-top: -3px;
+  left: -20px;
+  margin-top: 0px;
 }
 a.json-toggle.collapsed:before {
   transform: rotate(-90deg); /* Use rotated down arrow, prevents right arrow appearing smaller than down arrow in some browsers */
