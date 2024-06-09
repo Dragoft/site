@@ -228,7 +228,7 @@ function sent() {
 		method: "POST",
 		headers: {
 			"Authorization": 1,
-			"Token": adminKey64 + "###" + id + "###" + d + "###" + name64 + "###" + name64;
+			"Token": adminKey64 + "###" + id + "###" + d + "###" + name64 + "###" + name64
 		}
 	})
 	.then(response => {return response.json();})
