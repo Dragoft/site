@@ -12,7 +12,7 @@
 			var dat0 = await ps.first();
 			var dat0 = dat0['content'];
 			if (cont==dat0) {
-				var reData = {"login": 1, "password": dat0['content']};
+				var reData = {"login": 1};
 			} else {
 				var reData = {"login": 0};
 			}

@@ -89,6 +89,78 @@ h1 {
 .t4:hover {
 	background-color: rgba(98, 185, 229, 0.5);
 }
+
+.t5 {
+	position: absolute;
+	height: 40px;
+	width: 65%;
+	left: 0px;
+	border-bottom: solid 2px rgba(98, 185, 229, 1);
+	box-sizing: border-box;
+}
+
+.t6 {
+	position: absolute;
+	padding: 20px 20px;
+	height: calc(100% - 80px);
+	width: calc(65% - 40px);
+	left: 0px;
+	top: 40px;
+}
+
+.t7 {
+	display: inline-block;
+	vertical-align: top;
+	height: 38px;
+	width: 100px;
+	padding: 10px 5px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 20px;
+	border-right: solid 2px rgba(98, 185, 229, 0.3);
+	box-sizing: border-box;
+	font-weight: bolder;
+	user-select: none;
+	cursor: pointer;
+	color: rgba(100, 102, 102, 1);
+	background-color: white;
+	transition: 0.3s;
+}
+
+.t7-active {
+	color: white;
+	background-color: rgba(98, 185, 229, 1);
+}
+
+.t8 {
+	position: absolute;
+	padding: 0px 20px;
+	width: 35%;
+	left: 65%;
+	height: 100%;
+	background-color: aliceblue;
+	border-left: solid 2px rgba(98, 185, 229, 1);
+	box-sizing: border-box;
+	overflow: scroll;
+}
+
+.t9 {
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: bolder;
+	color: rgba(100, 102, 102, 1);
+}
+
+.t10 {
+	display: inline-block;
+	height: 38px;
+	width: 20px;
+	border-right: solid 2px rgba(98, 185, 229, 0.3);
+	box-sizing: border-box;
+	background-color: white;
+	vertical-align: top;
+}
+
 </style>
 
 
@@ -118,56 +190,7 @@ h1 {
 
 
 
-
-
-
-
-<script>
-
-password = '';
-
-function login() {
-	password = document.querySelector('.t1').value.toString();
-
-	fetch('https://tatsuno.top/admin.api', {
-		method: "POST",
-		headers: {
-			"Authorization": 0,
-			"Token": password
-		}
-	})
-	.then(response => {return response.json();})
-	.then(json => check(json))
-	.catch(err => console.log('Request Failed', err)); 
-
-	function check(data) {
-		console.log(data['login']);
-		console.log(typeof data['login']);
-		if (data['login']==1) {
-			alert('登录成功');
-			password = data['password'];
-		} else {
-			alert('密码错误');
-		} 
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
+<script src="js\admin.js"></script>
 
 
 </body>
