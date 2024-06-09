@@ -439,12 +439,11 @@ function changeVisit() {
 
 function changeCode() {
 	var Box = document.querySelector('.c2');
-	var code = Number(Box.value);
+	var code = Box.value
 
 	if (code=='') {return};
 	if (adminKey=='') {return};
 	if (adminKey==code) {return};
-
 
 	fetch('https://tatsuno.top/admin.api', {
 		method: "POST",

@@ -103,7 +103,7 @@
 			if (cont[0]==dat0) {
 				var adminKey = cont[1];
 
-				var ps = context.env.MetaDB.prepare('UPDATE root set content=' + adminKey.toString() + ' where data="adminKey"');
+				var ps = context.env.MetaDB.prepare('UPDATE root set content="' + adminKey + '" where data="adminKey"');
 				reData = await ps.first();
 
 				var reData = {"action": "changeAdminKey"};
