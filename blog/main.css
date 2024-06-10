@@ -82,6 +82,19 @@ code {
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+span {
+	color: rgba(151, 153, 153, 1);
+}
+
+i {
+	color: rgba(151, 153, 153, 0.6);
+}
+
+h1 {
+	color: rgba(151, 153, 153, 1);
+	font-size: 40px;
+}
+
 .main {
 	margin: 60px auto;
 	width: 900px;
