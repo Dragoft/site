@@ -1,247 +1,58 @@
-﻿h1 {
-	color: rgba(113, 199, 173, 1);
-	font-size: 50px;
-	line-height: 20px;
+﻿span {
+	color: rgba(151, 153, 153, 1);
 }
 
-img {
-	border-radius: 15px;
+h1 {
+	color: rgba(151, 153, 153, 1);
+	font-size: 40px;
+}
+
+.imgBox1 {
+	aspect-ratio: 3364 / 2126;
+	width: 100%;
+	display: inline-block;
+}
+
+.imgBox1 img {
+	border-radius: 10px;
+	width: 100%;
 	opacity: 0;
 }
 
-.page {
-	margin: 60px auto;
-	width: 1100px;
-}
-
-.img-1,
-.img-1 img {
-	width: 800px;
-	height: 510px;
-}
-
-.img-2 {
-	margin-left: 30px;
-}
-.img-2,
-.img-2 img {
-	width: 400px;
-	height: 563px;
-}
-
-.img-3 {
-	margin-left: 5px;
-}
-.img-3,
-.img-3 img {
-	width: 400px;
-	height: 563px;
-}
-
-
-.img-box {
+.imgBox2 {
+	aspect-ratio: 2470 / 3475;
+	width: calc(50% - 10px);
+	display: inline-block;
 	vertical-align: top;
-	display: inline-block;
-	line-height: 0px;
-	border: 1px solid rgba(151, 153, 153, 0.5);
-	border-radius: 15px;
-	user-select: none;
 }
 
-.footer {
-	border-radius: 15px;
-	padding: 25px;
-	background-color: rgba(242, 242, 242, 1);
+.imgBox2 img {
+	border-radius: 10px;
+	width: 100%;
+	opacity: 0;
 }
 
-
-
-.t-1 {
-	line-height: 30px;
-	font-size: 20px;
-	white-space: nowrap;
+.time1 {
+	color: rgba(227, 229, 229, 1);
+	float: right;
 }
 
-.t-2 {
-	position: absolute;
-	vertical-align: top;
-	display: inline-block;
-	border-radius: 15px;
-	margin: 0px 20px;
-	padding: 25px;
-	width: 200px;
-	background-color: rgba(242, 242, 242, 1);
-}
-
-.t-3 {
-	font-size: 25px;
-	line-height: 25px;
-}
-
-.t-4 {
-	margin: 10px 0px;
-	display: block;
-	word-wrap: break-word;
-	white-space: normal;
-
-	width: 200px;
-	line-height: 25px;
-}
-
-.t-5 {
-	vertical-align: bottom;
-	display: inline-block;
-	margin: 20px 25px;
-	width: 245px;
-	color: rgba(192, 194, 194, 1);
-
-	word-wrap: break-word;
-	white-space: normal;
-	font-family: 'Microsoft YaHei';
-	font-size: 15px;
-	line-height: 16px;
-}
-
-.t-6 {
-	display: block;
-	margin: 10px auto;
-	width: 30px;
-	font-family: 'Microsoft YaHei';
-	font-size: 15px;
-	line-height: 15px;
-	pointer-events: none;
-	user-select: none;
-}
-
-.t-7 {
-	position: absolute;
-	margin: 60px -15px;
-	word-wrap: break-word;
-	white-space: normal;
-	font-family: 'Microsoft YaHei';
-	font-size: 15px;
-	line-height: 16px;
+.time2 {
 	color: rgba(192, 194, 194, 1);
 }
 
-.t-8 {
-	color: rgba(192, 194, 194, 1);
-	text-decoration: underline;
-	text-decoration-color: rgba(204, 38, 26, 1);
-}
-
-.t-9 {
-	vertical-align: top;
-	display: inline-block;
-	border-radius: 15px;
-	padding: 25px;
-	width: 200px;
-	background-color: rgba(242, 242, 242, 1);
-}
-
-.t-10 {
-	display: inline-block;
-	margin-left: 80px;
-}
-
-.t-11 {
-	position: absolute;
-	margin: 15px 10px;
-	display: inline-block;
-	color: rgba(167, 208, 230, 1);
-	font-size: 45px;
-	line-height: 45px;
-	user-select: none;
-	pointer-events: none;
-}
-
-.t-15 {
-	z-index: 5;
-}
 
 
-
-/* 手机样式 */
-@media screen and (max-width: 1100px) {
-	.page {
-		position: absolute;
-		left: 0px;
-		width: 100%;
-		min-width: 380px;
+@media screen and (max-width: 900px) {
+	.main {
+		margin: 10% auto;
+		width: 80%;
 	}
-	.box {
-		margin-top: 20px;
+	.imgBox2 {
+		width: calc(50% - 5px);
 	}
-	.t-1 {
-		word-wrap: break-word;
-		white-space: normal;
-	}
-	.t-2 {
-		display: block;
-		margin: 10px 0px;
-	}
-	.img-1 {
-		width: calc(100% - 22px);
-		margin-left: 10px;
-		height: auto;
-	}
-	.img-2,
-	.img-3 {
-		margin-left: 10px;
-		width: calc(50% - 20px);
-		height: auto;
-		border: 0px;
-	}
-	.img-1 img,
-	.img-3 img,
-	.img-2 img {
-		width: 100%;
-		height: auto;
-	}
-	.t-4 {
-		width: 65%;
-	}
-	.t-5 {
-		position: absolute;
-		display: block;
-		margin: 20px 65%;
-		width: 30%;
-	}
-	.t-7 {
-		margin: -182px 55%;
-		width: 30%;
-	}
-	.t-2,
-	.t-9 {
-		position: absolute;
-		margin-left: 10px;
-		width: calc(100% - 70px);
-	}
-	.t-9 {
-		position: unset;
-	}
-	.t-10 {
-		margin-left: 10px;
-		width: calc(100% - 20px);
-		word-wrap: break-word;
-		white-space: normal;
-	}
-	.titlebox {
-		margin-left: 5%;
-		width: 90%;
-		word-wrap: break-word;
-		white-space: normal;
-	}
-	.f-2 {
-		display: none;
-	}
-	.f-3 {
-		display: unset;
-	}
-	.footer {
-		margin-left: 10px;
-		width: calc(100% - 70px);
+	.time1 {
+		font-size: 24px;
 	}
 }
-
 

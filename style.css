@@ -321,7 +321,7 @@ img {
 }
 
 .MenuCheck3-inner {
-	display: none;
+	display: block;
 	height: 24px;
 	user-select: none;
 	overflow: hidden;
