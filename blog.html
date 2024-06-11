@@ -175,10 +175,10 @@
 	}
 
 	if (GetQueryString('id')!='undefined') {
-		var TargetBlog = GetQueryString('id');
+		var TargetBlog = GetQueryString('id').replace('page', 'Page');
 		for (var i = 0; i < BlogList.length; i++) {
 			if (BlogList[i]['src']==TargetBlog + '/') {
-				BlogPage('blog/' + TargetBlog.replace('page', 'Page') + '/page.html');
+				BlogPage('blog/' + TargetBlog + '/page.html');
 				break;
 			} else {
 				if (i==BlogList.length-1) {
