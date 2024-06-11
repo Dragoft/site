@@ -111,14 +111,6 @@
 		}
 	}
 
-
-
-
-//	var reData = {"0": dat0, "type":dat3, "1": dat1};
-
-
 	return Response.json(reData);
 }
-
-
 

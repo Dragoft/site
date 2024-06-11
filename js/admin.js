@@ -111,7 +111,7 @@ function BTNall() {
 		<br />
 		<span>介绍:</span>
 		<br />
-		<span>此管理系统由 Tatsuno Yuu 于 2024/6/9 完成开发，使用了 Mervi 的json渲染工具。当前版本:　[BETA 0.00.012]</span>
+		<span>此管理系统由 Tatsuno Yuu 于 2024/6/9 完成开发，使用了 Mervi 的json渲染工具。当前版本:　[BETA 0.00.012] [STABLE]</span>
 		<br />
 		<span>其意义在于通过前端的简单操作，控制后台的数据库，节省时间！</span>
 		<br />
