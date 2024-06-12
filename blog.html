@@ -75,7 +75,7 @@
 <!-- Javascript -->
 
 	<!-- Blog Data -->
-	<script src="blog/data.js"></script>
+	<script src="blog/pageData.js"></script>
 
 	<script>
 
@@ -175,7 +175,7 @@
 	}
 
 	if (GetQueryString('id')!='undefined') {
-		var TargetBlog = GetQueryString('id').replace('page', 'Page');
+		var TargetBlog = GetQueryString('id');
 		for (var i = 0; i < BlogList.length; i++) {
 			if (BlogList[i]['src']==TargetBlog + '/') {
 				BlogPage('blog/' + TargetBlog + '/page.html');

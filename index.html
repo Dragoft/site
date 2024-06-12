@@ -94,7 +94,7 @@
 	}
 
 	// 屏蔽 IE
-	if (!!window.ActiveXObject || "ActiveXObject" in window) {alert('可能无法兼容 IE 浏览器哦')};
+	if (!!window.ActiveXObject || "ActiveXObject" in window) {alert('网站可能无法兼容 IE 浏览器哦')};
 
 </script>
 
@@ -210,9 +210,9 @@
 
 <div class="box-1" >
 	<div class="t-36" >
-		<span class="t-37" onclick="Blog('open', 'Page/about'); changeURLStatic('id', 'page/about');" >关于我</span>
+		<span class="t-37" onclick="Blog('open', 'page/about'); changeURLStatic('id', 'page/about');" >关于我</span>
 		|
-		<span class="t-37" onclick="Blog('open', 'Page/square'); changeURLStatic('id', 'page/square');" >广场</span>
+		<span class="t-37" onclick="Blog('open', 'page/square'); changeURLStatic('id', 'page/square');" >广场</span>
 	</div>
 
 	<div class="box-2" >
@@ -306,7 +306,7 @@
 				<span id="footer-2" >已上线 | 0 天</span>
 				<br />
 				<br />
-				<span style="display: none;" id="visit_counter_outer" >你是这里的第 <span id="visit_counter">0</span> 位访客哦</span>
+				<span style="display: none;" id="visit_counter_outer" >你是这里的第 <span id="visit_counter">0</span> 位访客</span>
 				<br />
 				<br />
 		</div>
@@ -331,7 +331,7 @@
 			}
 		}, 10000);
 	</script>
-	<script src="blog\data.js" ></script>
+	<script src="blog\pageData.js" ></script>
 	<script src="js\search.js"></script>
 	<script src="js\typed.js"></script>
 	<script src="script.js" ></script>
