@@ -9,6 +9,8 @@ function login() {
 	adminKey = document.querySelector('.t1').value.toString();
 	adminKey64 = $.base64.encode(adminKey);
 
+	if (adminKey=='') {return};
+
 	fetch('https://tatsuno.top/admin.api', {
 		method: "POST",
 		headers: {
@@ -525,6 +527,14 @@ function b64(n) {
 		c2.value = t2;
 	}
 }
+
+
+
+$('.t32').on('keyup', function () {
+	 if(event.which == 13){
+		login();
+	}
+})
 
 
 
