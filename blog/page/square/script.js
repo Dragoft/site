@@ -47,11 +47,12 @@ function sent() {
 				if (errN==0) {
 					document.querySelector('.Tcontent').value = '';
 					document.querySelector('.count').innerHTML = '剩余 140 字';
+					$('.count').css('color', 'rgba(98, 185, 229, 0.8)');
 
 					ComNum = Number(ComNum) + 1;
 					PageAll = Math.ceil(ComNum/10);
 					document.querySelector('.page0').innerHTML = PageAll;
-					document.querySelector('.page0').title = '共' + ComNum + '条留言';
+					document.querySelector('.page').title = '共 ' + ComNum + ' 条留言';
 
 					setTimeout(function (){
 						loadComment(1);
@@ -197,7 +198,7 @@ function Delete(id) {
 			ComNum = Number(ComNum) - 1;
 			PageAll = Math.ceil(ComNum/10);
 			document.querySelector('.page0').innerHTML = PageAll;
-			document.querySelector('.page0').title = '共' + ComNum + '条留言';
+			document.querySelector('.page').title = '共' + ComNum + '条留言';
 
 			setTimeout(function (){
 				loadComment(page);
@@ -236,7 +237,7 @@ function init() {
 				ComNum = Number(DATA['content']);
 				PageAll = Math.ceil(ComNum/10);
 				document.querySelector('.page0').innerHTML = PageAll;
-				document.querySelector('.page0').title = '共' + ComNum + '条留言';
+				document.querySelector('.page').title = '共' + ComNum + '条留言';
 			}
 		}
 	}
