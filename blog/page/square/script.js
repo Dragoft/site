@@ -92,60 +92,62 @@ function showComment(data) {
 		box.style.opacity = '0';
 		box.innerHTML = '';
 
-		for (var i = 0; i < data['results'].length; i++) {
-			var span = document.createElement('span');
-			span.setAttribute('class', 'comment');
-			box.appendChild(span);
+		setTimeout(function (){
+			for (var i = 0; i < data['results'].length; i++) {
+				var span = document.createElement('span');
+				span.setAttribute('class', 'comment');
+				box.appendChild(span);
 
-			// 昵称
-			var span1 = document.createElement('span');
-			span1.innerText = $.base64.decode(data['results'][i]['name']) + ':  ';
-			span1.setAttribute('class', 'title');
-			span.appendChild(span1);
+				// 昵称
+				var span1 = document.createElement('span');
+				span1.innerText = $.base64.decode(data['results'][i]['name']) + ':  ';
+				span1.setAttribute('class', 'title');
+				span.appendChild(span1);
 
-			// 内容
-			var span2 = document.createElement('span');
-			span2.innerText = $.base64.decode(data['results'][i]['content']);
-			span2.setAttribute('class', 'content');
-			span.appendChild(span2);
+				// 内容
+				var span2 = document.createElement('span');
+				span2.innerText = $.base64.decode(data['results'][i]['content']);
+				span2.setAttribute('class', 'content');
+				span.appendChild(span2);
 
-			if (span2.offsetHeight>120) {
-				span2.setAttribute('style', 'height: 120px');
+				if (span2.offsetHeight>120) {
+					span2.setAttribute('style', 'height: 120px');
 
-				var span4 = document.createElement('span');
-				span4.innerHTML = '[ 展开 ]';
-				span4.setAttribute('class', 'open');
-				span4.setAttribute('onclick', '$(this).css("display", "none");$(this).siblings(".content").css("height", "unset");');
-				span.appendChild(span4);
+					var span4 = document.createElement('span');
+					span4.innerHTML = '[ 展开 ]';
+					span4.setAttribute('class', 'open');
+					span4.setAttribute('onclick', '$(this).css("display", "none");$(this).siblings(".content").css("height", "unset");');
+					span.appendChild(span4);
+				}
+
+				// 日期
+				var span3 = document.createElement('span');
+				span3.innerText = '[' + data['results'][i]['id'].substring(0, 16) + ']';
+				span3.setAttribute('class', 'time');
+				span.appendChild(span3);
+
+				if (data['results'][i]['deletable']=="1") {
+					var a = document.createElement('a');
+					a.innerHTML = '删除'
+					a.setAttribute('class', 'delete');
+					a.setAttribute('onclick', 'deleteComment("' + data['results'][i]['id'] + '")');
+					span3.appendChild(a);
+				}
+
+				if (data['results'][i]['deletable']=="2") {
+					var span5 = document.createElement('span');
+					span5.innerHTML = 'admin'
+					span5.setAttribute('class', 'admin');
+					span3.appendChild(span5);
+				}
 			}
-
-			// 日期
-			var span3 = document.createElement('span');
-			span3.innerText = '[' + data['results'][i]['id'].substring(0, 16) + ']';
-			span3.setAttribute('class', 'time');
-			span.appendChild(span3);
-
-			if (data['results'][i]['deletable']=="1") {
-				var a = document.createElement('a');
-				a.innerHTML = '删除'
-				a.setAttribute('class', 'delete');
-				a.setAttribute('onclick', 'deleteComment("' + data['results'][i]['id'] + '")');
-				span3.appendChild(a);
-			}
-
-			if (data['results'][i]['deletable']=="2") {
-				var span5 = document.createElement('span');
-				span5.innerHTML = 'admin'
-				span5.setAttribute('class', 'admin');
-				span3.appendChild(span5);
-			}
-		}
+		}, 500);
 
 		setTimeout(function (){
 			message.Close()
 			wait = 0;
 			box.style.opacity = '1';
-		}, 1500);
+		}, 2000);
 	}
 }
 

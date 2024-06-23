@@ -2,7 +2,7 @@
 	var mode = context.request.headers.get('Authorization');
 	var cont = context.request.headers.get('Token');
 
-	var reData = {"Mode": mode, "Content": cont};
+	var reData = {state: "failed", "action": mode, "content": cont, msg: "Invalid Input"};
 
 
 	// 删除留言
@@ -14,7 +14,7 @@
 			var ps = context.env.MetaDB.prepare('UPDATE root set content=content-1 where data="comment"');
 			reData = await ps.first();
 
-			var reData = {"action": "delete", "target": cont};
+			var reData = {state: "success", "action": "delete", "id": cont, msg: ""};
 		}
 	}
 
@@ -23,8 +23,9 @@
 		if (cont!=null) {
 			var cont = cont.split("###");
 
-			if (cont[1].length > 140) {return}
-			if (cont[0].length > 20) {return}
+			var reData = {state: "failed", "action": "write", msg: "Invalid Input"};
+			if (cont[1].length > 560) {return Response.json(reData)}
+			if (cont[0].length > 80) {return Response.json(reData)}
 
 
 
@@ -43,7 +44,7 @@
 			var ps = context.env.MetaDB.prepare('UPDATE root set content=content+1 where data="comment"');
 			reData = await ps.first();
 
-			var reData = {"action": "write", "content": sqlData};
+			var reData = {state: "success", "action": "write", "id": id, msg: ""};
 		}
 	}
 
