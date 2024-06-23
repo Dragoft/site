@@ -46,7 +46,7 @@ function sent() {
 
 				if (errN==0) {
 					document.querySelector('.Tcontent').value = '';
-					document.querySelector('.count').innerHTML = '剩余 100 字';
+					document.querySelector('.count').innerHTML = '剩余 140 字';
 
 					ComNum = Number(ComNum) + 1;
 					PageAll = Math.ceil(ComNum/10);
@@ -166,7 +166,9 @@ function deleteCancel() {
 function Delete(id) {
 	if (wait==0) {
 		wait = 1;
-		message.Close()
+		$('.del').fadeOut(200);	
+		$('#body').removeClass('body-scroll');
+
 		setTimeout(function (){
 			message('<span class="t-8" ></span> 加载中', 'info', -1);
 			$('#body').removeClass('body-scroll');
