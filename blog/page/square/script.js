@@ -148,7 +148,7 @@ function showComment(data) {
 			message.Close()
 			wait = 0;
 			box.style.opacity = '1';
-		}, 2000);
+		}, 1000);
 	}
 }
 
