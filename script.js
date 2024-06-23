@@ -68,6 +68,7 @@ var runtime = diffYears*365+diffDays;
 // 初始化参数
 playerMode = 1
 lang = navigator.language
+timer0 = null;
 
 
 
@@ -212,6 +213,8 @@ function NoticeListInit() {
 function Blog(action, id) {
 	if (action=='close') {
 		// 关闭博客页面
+		pageloading(0);
+
 		$('.blog').fadeOut(600);
 		$('.iframe').fadeOut(600);
 		$('.menu-btn-3').css('transition', 'none');
@@ -230,6 +233,8 @@ function Blog(action, id) {
 		}
 	} else {
 		// 打开博客界面
+		pageloading(1);
+
 		$('.blog').fadeIn(300);
 		$('#body').addClass('body-scroll');
 		$('.blog').addClass('blog-active');
@@ -257,6 +262,14 @@ function Blog(action, id) {
 
 
 	}
+}
+
+// 博客页面加载完成后执行
+function pageloaded() {
+	pageloading(0);
+	setTimeout(function (){
+		$('.iframe').fadeIn(400);
+	},300)
 }
 
 
@@ -308,7 +321,6 @@ function Typewriter() {
 		`<span style='font-family: "Microsoft YaHei"' >これは何ですか。</span>`,
 		`<span style='font-family: "Microsoft YaHei"' >ここは…</span>`,
 		'不要揪我的尾巴！',
-		`<span style='font-family: "Microsoft YaHei"' >辰野さん。</span>`,
 		'一个很懒的博主.',
 		'Html！',
 		'Hello world.',
@@ -464,6 +476,25 @@ function MenuCheck3() {
 	} else {
 		$('#menu-check-3').removeClass('menu-check-active');
 		$('.MenuCheck3-inner').fadeOut(240);
+	}
+}
+
+
+
+function pageloading(m) {
+	if(m==1) {
+		clearInterval(timer0);
+		$('.pageloading').fadeIn(150);
+		$('.pageloading1').css('display', 'none');
+
+		timer1 = setInterval(() => {
+			$('.pageloading1').fadeIn(150);
+			clearInterval(timer0);
+		},20000)
+
+	} else {
+		clearInterval(timer0);
+		$('.pageloading').fadeOut(300);
 	}
 }
 

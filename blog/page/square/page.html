@@ -15,7 +15,7 @@
 
 <body id="body" >
 <script>
-	var rs = [document.title, window.location.href, "$('.iframe').fadeIn(400);"];
+	var rs = [document.title, window.location.href, "pageloaded()"];
 	window.parent.postMessage(rs,"*");
 </script>
 
@@ -27,7 +27,7 @@
 </div>
 <div class="del" >
 	<div class="del-box" >
-		<h1 style="color: white;" > 删除</h1>
+		<h1 style="color: white; user-select: none;" > 删除</h1>
 		<span style="color: rgba(255, 255, 255, 0.8);" >确定要删除这条留言吗？被删除的数据将无法恢复！</span>
 		<br />
 		<span style="color: rgba(255, 255, 255, 0.8);" >[ID: <span style="color: rgba(255, 255, 255, 0.8);" class="del-id" >null</span>]</span>
