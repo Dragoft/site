@@ -146,7 +146,7 @@ function BTNaddremark() {
 		<br />
 		<textarea class="t1 t17" maxlength="100" placeholder="留言" ></textarea>
 		<br />
-		<span class="t26" >剩余 100 字</span>
+		<span class="t26" >剩余 140 字</span>
 		<br />
 		<br />
 		<br />
@@ -180,12 +180,12 @@ function BTNaddremark() {
 
 	// 统计字数
 	$('.t17').on('keyup', function () {
-		if (document.querySelector('.t17').value.length>=90) {
+		if (document.querySelector('.t17').value.length>=120) {
 			$('.t26').css('color', 'rgba(255, 50, 50, 0.7)');
 		} else {
 			$('.t26').css('color', 'rgba(151, 153, 153, 1)');
 		}
-		var n = 100 - document.querySelector('.t17').value.length;
+		var n = 140 - document.querySelector('.t17').value.length;
 		document.querySelector('.t26').innerHTML = '剩余 ' + n + ' 字';
 	})
 }

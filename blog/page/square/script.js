@@ -17,7 +17,7 @@ function sent() {
 		}
 
 		if (content.length > 0) {
-			if (content.length <= 100) {
+			if (content.length <= 140) {
 				var content64 = $.base64.encode(content)	
 			}
 		}
@@ -50,7 +50,8 @@ function sent() {
 
 					ComNum = Number(ComNum) + 1;
 					PageAll = Math.ceil(ComNum/10);
-					document.querySelector('.page').innerHTML = '共 ' + PageAll + ' 页 ( ' + ComNum + '条留言 )';
+					document.querySelector('.page0').innerHTML = PageAll;
+					document.querySelector('.page0').title = '共' + ComNum + '条留言';
 
 					setTimeout(function (){
 						loadComment(1);
@@ -152,11 +153,13 @@ function showComment(data) {
 
 function deleteComment(id) {
 	$('#body').addClass('body-scroll');
-	message('<span class="t-8" ></span> 删除留言:　[<span class="t-9" onclick="Delete(`' + id + '`)">确定</span>] [<span class="t-9" onclick="deleteCancel()" >取消</span>]', 'info', -1);
+	$('.del').fadeIn(200);
+	document.querySelector('.del-id').innerHTML = id;
+	document.querySelector('.delbtn').setAttribute('onclick', 'Delete(`' + id + '`)');
 }
 
 function deleteCancel() {
-	message.Close();
+	$('.del').fadeOut(200);	
 	$('#body').removeClass('body-scroll');
 }
 
@@ -189,7 +192,8 @@ function Delete(id) {
 		if (errN==0) {
 			ComNum = Number(ComNum) - 1;
 			PageAll = Math.ceil(ComNum/10);
-			document.querySelector('.page').innerHTML = '共 ' + PageAll + ' 页 ( ' + ComNum + '条留言 )';
+			document.querySelector('.page0').innerHTML = PageAll;
+			document.querySelector('.page0').title = '共' + ComNum + '条留言';
 
 			setTimeout(function (){
 				loadComment(page);
@@ -227,7 +231,8 @@ function init() {
 			if (errN==0) {
 				ComNum = Number(DATA['content']);
 				PageAll = Math.ceil(ComNum/10);
-				document.querySelector('.page').innerHTML = '共 ' + PageAll + ' 页 ( ' + ComNum + '条留言 )';
+				document.querySelector('.page0').innerHTML = PageAll;
+				document.querySelector('.page0').title = '共' + ComNum + '条留言';
 			}
 		}
 	}

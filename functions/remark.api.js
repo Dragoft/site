@@ -23,6 +23,11 @@
 		if (cont!=null) {
 			var cont = cont.split("###");
 
+			if (cont[1].length > 140) {return}
+			if (cont[0].length > 20) {return}
+
+
+
 			// 生成一个 id
 			var now = new Date();
 			var options = {timeZone: 'Asia/Shanghai', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
