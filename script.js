@@ -487,13 +487,14 @@ function pageloading(m) {
 		$('.pageloading').fadeIn(150);
 		$('.pageloading1').css('display', 'none');
 
-		timer1 = setInterval(() => {
+		timer0 = setInterval(() => {
 			$('.pageloading1').fadeIn(150);
 			clearInterval(timer0);
 		},20000)
 
 	} else {
 		clearInterval(timer0);
+		$('.pageloading1').css('display', 'none');
 		$('.pageloading').fadeOut(300);
 	}
 }
