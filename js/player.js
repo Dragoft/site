@@ -287,7 +287,7 @@ function PlayerList() {
 		}
 
 		list = document.querySelectorAll(".list-item")
-
+		list[song].id = 'list-item-active'
 	}
 }
 
