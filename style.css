@@ -28,6 +28,10 @@ body {
 	margin: 0;
 	line-height: 33px;
 	min-width: 380px;
+
+	/* 隐藏某些浏览器的滚动条 */
+	scrollbar-width: none !important;
+	-ms-overflow-style: none !important;
 }
 
 code {
@@ -541,7 +545,7 @@ img {
 .t-3 {
 	position: absolute;
 	font-size: 75px;
-	margin: 15px 190px;
+	margin: 10px 190px;
 	line-height: 90px;
 	font-weight: bold;
 	opacity: 0;
@@ -558,7 +562,7 @@ img {
 
 .t-4 {
 	position: absolute;
-	margin: 110px 195px;
+	margin: 100px 195px;
 	width: 296px;
 	font-size: 24px;
 	line-height: 24px;
