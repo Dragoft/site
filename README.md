@@ -31,23 +31,13 @@
 
 ## 感谢
 感谢他们在开发期间提供的帮助！
-* **名单列表**
-	* [Cloudflare](https://www.cloudflare.com/) <i style="float: right" >网站运行 & 管理</i>
-	* [Github](https://github.com/) <i style="float: right" >代码管理</i>
-	* [网易云音乐](https://music.163.com/) <i style="float: right" >音乐外链服务</i>
-	* [IcoMoon](https://icomoon.io/) <i style="float: right" >图标字体提供</i>
-	* [Hint.css](https://kushagra.dev/lab/hint/) <i style="float: right" >A pure CSS tooltip library</i>
-	* [Paint.NET](https://www.getpaint.net/) <i style="float: right" >图像处理软件</i>
 
+|	名称				|	帮助			|
+|	--------				|	---------			|
+|	[Cloudflare](https://www.cloudflare.com/)	|	网站运行 & 管理		|
+|	[Github](https://github.com/)		|	代码托管			|
+|	[网易云音乐](https://music.163.com/)	|	音乐外链服务		|
+|	[IcoMoon](https://icomoon.io/)		|	图标字体提供		|
+|	[Hint.css](https://kushagra.dev/lab/hint/)	|	A pure CSS tooltip library	|
+|	[Paint.NET](https://www.getpaint.net/)	|	图像处理软件		|
 
-
-
-
-
-<br />
-<br />
-<br />
-
-
-
-<p align="right">—— 2024/8/2</p>
