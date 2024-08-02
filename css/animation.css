@@ -17,100 +17,9 @@
 
 
 
-@keyframes fade-in-2 {
-	0% {
-		transform: scale(1.02);
-		opacity: 0;
-	}
-	60% {
-		transform: scale(1.02);
-		opacity: 0;
-	}
-	100% {
-		transform: scale(1);
-		opacity: 1;
-	}
-}
-
-
-
-.fade-in-3 {
-	animation: fade-in-3 1s;
-	animation-fill-mode:forwards;
-	animation-delay: 0.5s;
-}
-
-@keyframes fade-in-3 {
-	0% {
-		background-color: rgba(255, 255, 255, 1);
-	}
-	100% {
-		background-color: rgba(97, 129, 142, 1);
-		box-shadow: 0 0 50px 50px rgba(97, 129, 142, 1);
-		color: rgba(244, 243, 241, 0.9);
-	}
-}
-
-@keyframes fade-in-4 {
+@keyframes shining-1 {
 	0% {
 		opacity: 0;
-	}
-	99% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-.fade-in-4 {
-	animation: fade-in-4 1s ease-in;
-	animation-fill-mode:forwards;
-}
-
-
-
-/* WordsLoop From https://blog.csdn.net/weixin_47160442/article/details/129176317 */
-
-.loop-box {
-	overflow: hidden;
-}
-
-.loop {
-	display: block;
-	white-space: nowrap;
-}
-
-.loop-animation {
-	animation: 6s wordsLoop linear infinite normal;
-}
-
-@keyframes wordsLoop {
-	0% {
-		transform: translateX(130px);
-		-webkit-transform: translateX(130px);
-	}
-	100% {
-		transform: translateX(-120%);
-		-webkit-transform: translateX(-120%);
-	}
-}
-
-.loop:hover {
-	animation-play-state: paused;
-}
-
-
-
-.fade-in-4 {
-	animation: fade-in-1 1s ease-in;
-	animation-fill-mode:forwards;
-	animation-delay: 0.5s;
-}
-
-@keyframes fade-out-1 {
-	0% {
-		opacity: 1;
 	}
 	50% {
 		opacity: 1;
@@ -120,9 +29,8 @@
 	}
 }
 
-.fade-out-1 {
-	animation: fade-out-1 1s ease-in;
-	animation-fill-mode:forwards;
+.shining-1 {
+	animation: shining-1 1s infinite;
 }
 
 
@@ -151,28 +59,6 @@
 	0% { opacity:1; }
 	50% { opacity:0; }
 	100% { opacity:1; }
-}
-
-
-
-.arrow-1 {
-	animation: 0.6s arrow-1 ease-out infinite normal;
-}
-
-.arrow-1:hover {
-	animation-play-state: paused;
-}
-
-@keyframes arrow-1 {
-	0% {
-  		transform: translateX(0px);
-	}
-	50% {
-  		transform: translateX(20px);
-	}
-	100% {
-  		transform: translateX(0px);
-	}
 }
 
 

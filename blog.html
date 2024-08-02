@@ -5,273 +5,166 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Dragoft - 博客</title>
+	<title>tatsuno.top/</title>
 	<link rel="shortcut icon" href="src/icon.png" />
 	<link rel="preload" as="font" href="src/Poppins Regular.woff2" crossorigin="anonymous" />
 	<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/sweetalert-dev.js"></script>
-
-	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 	<link rel="stylesheet" type="text/css" href="css/animation.css">
-	<link rel="stylesheet" type="text/css" href="css/animation-link.css">
 	<link rel="stylesheet" type="text/css" href="css/player.css">
 
 	<!-- Mobile Device -->
 	<link rel="stylesheet" type="text/css" media="screen and (max-width: 900px)" href="css/mobile.css" />
 
 	<!-- blog.html -->
+
 </head>
 
 
 
 <style>
 
- @font-face{font-family: Poppins Regular;src: url('src/Poppins Regular.woff2');}body {font-family: 'Poppins Regular', '楷体';background-color: rgba(70, 70, 70, 1);line-height: 33px;}::-webkit-scrollbar {display: none;}::selection {background: rgba(113, 199, 173, 0.3);}a {text-decoration: none;-webkit-user-drag: none;}img {-webkit-user-select: none;-webkit-user-drag: none;}.header {position: fixed;z-index: 3;top: -20px;left: -100px;right: -100px;height: 95px;background-color: rgba(255, 255, 255, 0);color: rgba(192, 194, 194, 0.3);text-align: center;-webkit-user-select: none;line-height: 35px;backdrop-filter: none;transition: 0.5s;animation: fade-in-1 1s ease-in;animation-fill-mode:forwards;transform: translateZ(0);}.header-active {backdrop-filter: blur(5px);background-color: rgba(255, 255, 255, 0.8);}.header-item {width: 50px;font-size: 25px;margin: 40px;display: inline-block;white-space: nowrap;}.header-item a {color: rgba(244, 243, 241, 1);transition: 0.3s;}.header-item a:hover {color: rgba(113, 199, 173, 1);}.header-active a {color: rgba(151, 153, 153, 0.9);}.header-haku {height: 50px;width: 50px;border-radius: 15px;opacity: 0;}.header-shell {position: fixed;top: 12px;left: 12px;height: 50px;width: 50px;z-index: 3;border-radius: 15px;pointer-events: none;opacity: 0;transition: 0.3s;}.header-shell-active {pointer-events: auto;opacity: 1;}.headerbox {position: absolute;right: 200px;font-size: 16px;}.blog {position: fixed;z-index: 5;top: 0;left: 0;bottom: 0;width: 100%;background-color: rgba(255, 255, 255, 1);opacity: 1;transition: 0.5s;}.iframe {position: absolute;top: -2px;left: -2px;right: -2px;bottom: -2px;height: 100%;width: 100%;display: none;-webkit-user-select: none;}.body-scroll {overflow: hidden;}.blog-close {position: absolute;top: 42px;left: 180px;font-size: 28px;cursor: pointer;display: none;pointer-events: auto;}.main {position: absolute;top: 110%;left: 0;right: 0;z-index: 2;background-color: rgba(255, 255, 255, 1);border-top-right-radius: 45px;border-top-left-radius: 45px;}.Haku {height: 200px;width: 200px;border-radius: 40px;-webkit-user-select: none;opacity: 0;}.t-9 {position: absolute;width: 180px;height: 135px;left: 80px;top: 15px;}
+@font-face{font-family: 'Poppins Regular';src: url('src/Poppins Regular.woff2');}body{font-family: 'Poppins Regular','Microsoft YaHei';overflow: overlay;margin: 0;line-height: 33px;min-width: 380px;}: : -webkit-scrollbar{width: 12px !important;height: 12px !important;background-color: transparent !important;}: : -webkit-scrollbar-track{background-color: transparent !important;box-shadow: none !important;}: : -webkit-scrollbar-thumb{background-color: rgba(0,0,0,0.1) !important;border-radius: 100px !important;border: 4px solid transparent !important;background-clip: content-box !important;box-shadow: none !important;}: : -webkit-scrollbar-thumb: hover{background-color: rgba(0,0,0,0.2) !important;}: : -webkit-scrollbar-corner{background-color: transparent !important;box-shadow: none !important;}: : selection{background: rgba(113,199,173,0.3);}a{text-decoration: none;-webkit-user-drag: none;}img{-webkit-user-select: none;-webkit-user-drag: none;}.blog{position: fixed;z-index: 5;top: 0;left: 0;bottom: 0;width: 100%;background-color: rgba(255,255,255,1);opacity: 1;transition: 0.5s;}.iframe{position: absolute;top: -2px;left: -2px;right: -2px;bottom: -2px;height: 100%;width: 100%;display: none;-webkit-user-select: none;}.body-scroll{overflow: hidden;}.t-9{position: absolute;width: 180px;height: 135px;left: 80px;top: 15px;}.menu-btn-1{position: fixed;color: rgba(100, 102, 102, 0.3);background-color: rgba(255, 255, 255,0.6);top: 15px;left: 15px;width: 35px;height: 25px;border-radius: 100px;padding: 10px 5px;z-index: 20;font-size: 34px;line-height: 33px;cursor: pointer;user-select: none; opacity:0; transition: 0.3s;backdrop-filter: blur(3px);}.menu-btn-1: hover{color: rgba(100, 102, 102, 0.5);}.f-2 {display: unset;}.f-3 {display: none;}.pageloading{position:fixed;height:100px;width:300px;top:calc(50% - 50px);left:calc(50% - 150px);z-index:20;text-align:center;user-select:none;display:none}.pageloading0{font-size:20px;color:rgba(192,194,194,1)}.pageloading1{display:none;font-size:14px;color: rgba(255, 0, 20, 0.8);white-space: nowrap}
 
 </style>
 
 
 
 <body style="-ms-overflow-style: none;" id="body" >
+	<div class="FixedBox" >
 
+		<!-- Menu  -->
+		<div class="menu-btn-1" onclick="Back()" ></div>
 
+	</div>
 
-	<!-- Header -->
-	<div class="header" id="header" >
-		<a onclick="blog()" class="blog-close" >返回</a>
-		<div class="headerbox" >
+	<!-- Player   V. 1.1.6 -->
+	<div class="Player" >
 
+		<!-- COVER -->
+		<div class="MusicImgBox" onclick="Player()" >
+			<img class="MusicImg" onload="$('.Player').addClass('Player-active')" id="load-img" />
+			<div class="bar0" ><div class="bar1" ></div></div>
 		</div>
-	</div>
-	<!-- Header Menu -->
-	<div class="header-shell" >
-		<img class="header-haku" src="src/Haku.webp" onload="$(this).addClass('fade-in-1')" id="load-img HeaderImg" />
-	</div>
-
-
-	<!-- Player   V. 1.0.3 -->
-	<div class="Player Player-mode1" >
 
 		<div class="Player-menu" >
-			<!-- CONTROL BAR -->
-			<span class="PlayerButton" ><a href="javascript:;" onclick="MusicLast()" id="Prev" >Prev</a> | <a href="javascript:;" onclick="MusicNext()" id="Next" >Next</a></span>
-
-			<!-- MODE & PLAYLIST -->
+			<span class="list-head" >歌曲列表</span>
 			<a href="javascript:;" onclick="MusicMode()" id="Mod" title="列表循环" ></a>
-			<!-- MUSIC NAME -->
-			<div class="loop-box MusicName" ><span id="MusicName" class="loop" ></span></div>
 			<hr class="list-line" />
-
-			<!-- PLAYLIST MENU -->
 			<div class="PlayerList" >
-				<span class='PlayerListTitle' >播放列表. 
-					<span style='color: rgba(192, 194, 194, 0.6); font-family: "微软雅黑"; margin-left: 60px;' ># </span>
-					<span style='color: rgba(167, 208, 230, 1); font-weight: normal;' id='ListLength' ></span>
-					<span style="margin-left: 5px; font-weight: normal; color: rgba(151, 153, 153, 0.8);" >|</span>
-					<a href="javascript:;" target="_blank" class="Player-Button-2" title="查看歌曲封面 !" id="PlayerDownloadP" style="margin-left: 5px;" ></a>
-					<a href="javascript:;" target="_blank" class="Player-Button-2" title="下载这首音乐 !" id="PlayerDownloadM" ></a>
-				</span>
 				<div class="PlayerListInner" ></div>
 			</div>
 		</div>
 
-
-		<!-- COVER -->
-		<div class="PlayerImgBox" >
-			<img id="PlayerImg" onload="$(this).addClass('fade-in-1')" id="load-img" />
-			<a id="PlayerPlay" target="_blank" onclick="Play()" ></a>
-		</div>
-		<div class="PlayerAudioBoxOuter" >
-			<div class="PlayerAudioBox" >
-				<audio controls="controls" id="player" src="https://music.163.com/song/media/outer/url?id=448316625.mp3" preload="none" >出问题了诶！？</audio>
-			</div>
-		</div>
-		<div class="Player-Button" onclick="Player()" ></div>
-
+		<div class="PlayerButton PlayerButton-pause" onclick="Play()" ></div>
+		<div class="MusicName" ></div>
+		<audio id="player" src="https://music.163.com/song/media/outer/url?id=448316625.mp3" preload="none" ></audio>
+		<a href="javascript:;" onclick="MusicShow()" class="MusicShow0 f-3" ></a>
+		<a href="javascript:;" onclick="MusicShow()" class="MusicShow1 f-3" ></a>
 	</div>
+
+	<div class="pageloading" >
+		<div class="pageloading0 shining-1" >page.loading(): ...</div>
+		<div class="pageloading1" >Err: page loading timeoout (>20000 ms)</div>
+	</div>
+
+
 
 <!-- Main Code -->
 <div class="main">
 	<!-- Blog Iframe -->
-	<div class="blog" ></div>
+	<div class="blog" >
+		<iframe name="frame" class="iframe" id="iframe" ></iframe>
+	</div>
 </div>
 
 
 
 <!-- Javascript -->
 
-	<!-- Main -->
+	<!-- Blog Data -->
+	<script src="blog/pageData.js"></script>
+
 	<script>
-	if (window.screen.width > 900) {
-		window.document.oncontextmenu = function(){ 
-			return false;
-		}
-	}
 
 	playerMode = 1
+	timer0 = null;
 
 
 
 	// 配饰移动设备
 	if ($(window).width() < 900) {
 		var device = 'Mobile';
-
-		setTimeout(function (){
-			if($('#load-img').hasClass('fade-in-1')!=true) {
-				$('#load-img').addClass('fade-in-1');
-			}
-		},5000)
-		// 把播放器调到最小
-		setTimeout(function (){
-			$('.Player').addClass('Player-mode3');
-			$('.Player').removeClass('Player-mode1');
-		},200)
-		$('#player').fadeOut(300);
-		$('.Player-menu').fadeOut(300);
-		$('.PlayerImgBox').fadeOut(300);
-		$('.Player-Button').html('');
-
-		playerMode = 3;
 	} else {
 		var device = 'Desktop';
 	}
 
-	// 修复页脚无法加载的BUG
-	setTimeout(function (){
-		$('.footer-background').addClass('fade-in-1');
-		$('.footer').addClass('fade-in-3');
-	},10000)
-
-
-
-	// 显示播放器
+	// 显示播放器 菜单按钮
 	setTimeout(function (){
 		$('.Player').addClass('Player-active');
+		$('.menu-btn-1').addClass('fade-in-1');
 	},500)
-	function handle() {}
-
-
-	// Some Normal Functions
-
-	$('#header').addClass('header-active');
-	$('.header-item').addClass('link-2');
-	$('.header-shell').addClass('header-shell-active');
-	blog();
 
 
 
-	var iframeURL = '';
-	window.addEventListener('message', function (rs) {
-		iframeURL = rs.data;
-		$('title').text('Dragoft - ' + iframeURL[0]);
-		if (iframeURL[2]!=='undefined') {
-			eval(iframeURL[2]);
+	/*
+		Messager
+		To exchange data between parent page and child pages.
+
+		@param{string} event	JS code
+
+	*/
+
+	function pagePost(event) {
+		document.getElementById('iframe').contentWindow.postMessage(event, document.domain.length == 0 && '*' || '/');
+	}
+	window.addEventListener('message', function(event) {
+		if (event.origin == 'null' || event.origin.includes('https://tatsuno.top')) {
+			eval(event.data);
 		}
 	});
 
-	function msg(tite, src, action) {
-		window.postMessage([tite, src, action],"*");
-		return '已将 iframe 页面的返回值设为' + tite + ', ' + src + ', ' + action;
-	}
 
-	function blog() {
-		if ($('.blog').hasClass('blog-active')) {
-			if (iframeURL[1]=='Homepage') {
-				$('.iframe').fadeOut();
-				$('.blog-close').fadeOut();
-				if ($(window).width() > 900) {
-					$('.headerbox').fadeIn();
-				}
-				setTimeout(function (){
-					$('.blog').css('width', '0');
-					$('.blog').css('opacity', '0');
-					$('#body').removeClass('body-scroll');
-					$('#header').removeClass('header-active');
-					$('.blog').removeClass('blog-active');
-					$('.header-item').removeClass('link-2');
-					$('.header-shell').removeClass('header-shell-active');
-				},300)
-				setTimeout(function (){
-					window.location.href = 'index.html';
-				},700)
-			} else {
-				$('.iframe').fadeOut(400);
-				setTimeout(function (){
-					document.getElementById('iframe').src = window.location.href.split('org',1)[0] + 'org/blog/Homepage/page.html';
-				},400)
-			}
-		} else {
-			if($("#iframe").length <1){
-				var iframe = document.createElement('iframe');
-				iframe.setAttribute('name','frame');
-				iframe.setAttribute('class','iframe');
-				iframe.setAttribute('id','iframe');
-				document.querySelector('.blog').appendChild(iframe);
-			} else {
-				setTimeout(function (){
-					$('.iframe').fadeIn(400);
-				},400)
-			}
-			$('title').text('Dragoft - 博客');
-			$('.blog').addClass('blog-active');
-			$('#body').addClass('body-scroll');
-			$('.headerbox').fadeOut();
-			$('.header').fadeIn();
-			$('.blog-close').fadeIn();
-		}
-	}
 
 	function BlogPage(url) {
 		document.getElementById('iframe').src = url;
+		pageloading(1);
 	};
 
-	// 满足某些博客文章全屏的要求
-	function fullscreenOFF() {
-		if(!$('#header').hasClass('header-active')){
-			$('#header').css('display', 'block');
-			$('.header-shell').css('display', 'block');
-			$('.Player').css('display', 'block');
-
-			$('#header').addClass('header-active');
-			$('.header-item').addClass('link-2');
-			$('.header-shell').addClass('header-shell-active');
-			$('.blog-close').fadeIn();
-			$('.Player').removeClass('Player-inactive');
+	// 博客页面加载完成后执行
+	function pageloaded(title) {
+		if (title.slice(0, 1) == '-') {
+			$('title').text('tatsuno.top/ ' + title);
+		} else {
+			$('title').text(title);
 		}
-	}
-	function fullscreenON() {
-		$('#header').removeClass('header-active');
-		$('.header-item').removeClass('link-2');
-		$('.header-shell').removeClass('header-shell-active');
-		$('.blog-close').fadeOut();
-		$('.Player').addClass('Player-inactive');
+
 		setTimeout(function (){
-			$('#header').css('display', 'none');
-			$('.header-shell').css('display', 'none');
-			$('.Player').css('display', 'none');
+			pageloading(0);
+			$('.iframe').fadeIn(400);
 		},1000)
 	}
 
-	// 博客页面切换
-	function Jump(Path) {
-		$('.iframe').fadeOut(400);
-		setTimeout(function (){
-			document.getElementById('iframe').src = window.location.href.split('org',1)[0] + 'org/blog/' + Path + '/page.html';
-		},400)
+	function pageloading(m) {
+		if(m==1) {
+			clearInterval(timer0);
+			$('.pageloading').fadeIn(150);
+			$('.pageloading1').css('display', 'none');
+
+			timer1 = setInterval(() => {
+				$('.pageloading1').fadeIn(150);
+				clearInterval(timer0);
+			},20000)
+
+		} else {
+			clearInterval(timer0);
+			$('.pageloading').fadeOut(300);
+		}
 	}
 
-	</script>
 
 
-
-	<!-- Blog Data -->
-	<script src="blog/data.js"></script>
-
-
-
-	<!-- Url Controller -->
-	<script>
-	/* 	Powered By https://blog.csdn.net/weixin_42403306/article/details/105861346
+	/* 	Url Controller
+		Powered By https://blog.csdn.net/weixin_42403306/article/details/105861346
 		Read data from Url.							 */
 
 	function GetQueryString(name) {
@@ -330,24 +223,24 @@
 		return url2;
 	}
 
-	if (GetQueryString('id')!='undefined') {
-		var TargetBlog = GetQueryString('id');
-		if (TargetBlog=='Homepage') {
-			BlogPage('blog/' + TargetBlog + '/page.html');
+	var TargetBlog = GetQueryString('id');
+	if (TargetBlog!='undefined') {
+		if (TargetBlog=='ERROR') {
+			BlogPage('blog/error');
 		} else {
 			for (var i = 0; i < BlogList.length; i++) {
 				if (BlogList[i]['src']==TargetBlog + '/') {
-					BlogPage('blog/' + TargetBlog + '/page.html');
+					BlogPage('blog/' + TargetBlog + '/page');
 					break;
 				} else {
 					if (i==BlogList.length-1) {
-						BlogPage('blog/Homepage/error.html');
+						BlogPage('blog/error');
 					}
 				}
 			}
 		}
 	} else {
-		document.getElementById('iframe').src = window.location.href.split('org',1)[0] + 'org/blog/Homepage/page.html';
+		BlogPage('blog/error' + (document.domain == '' && '.html' || ''));
 	}
 
 
@@ -370,13 +263,25 @@
 		return undefined;
 	}
 
+
+
+	// 返回主页
+	function Back() {
+		$('#body').fadeOut(400);
+		setTimeout(function (){
+			window.location.href = 'index';
+		},500)
+	}
+
+
+
 	</script>
 
 	<!-- Player -->
 	<script src="js\player.js"></script>
 
-	<!-- Database -->
-	<script src="js\metadata.js"></script>
+	<!-- Counter -->
+	<script src="js\counter.js"></script>
 
 </body>
 

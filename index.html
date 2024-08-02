@@ -5,16 +5,12 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Dragoft - 主页</title>
-	<!-- 起名是个头疼问题 -->
+	<title>tatsuno.top/</title>
 	<link rel="shortcut icon" href="src/icon.png?ver=2" />
 	<link rel="stylesheet" href="style.css" />
 	<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="preload" as="font" href="src/Poppins Regular.woff2" crossorigin="anonymous" />
-	<script src="js/sweetalert-dev.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
 	<link rel="stylesheet" type="text/css" href="css/animation.css" />
-	<link rel="stylesheet" type="text/css" href="css/animation-link.css" />
 	<link rel="stylesheet" type="text/css" href="css/player.css"  />
 	<link rel="stylesheet" type="text/css" href="css/hint.css" />
 
@@ -25,373 +21,257 @@
 
 
 
-<body style="-ms-overflow-style: none;" id="body" >
-
-<div id="error" ></div>
-<!-- 仅允许由 https://bailong.eu.org/ 访问此页  -->
+<body style="pointer-events: none;" id="body" >
 <script>
+	// 初始化界面
+	function init() {
+		setTimeout(function (){
+			Typewriter();
+			$('.t-21').css('opacity', '1');
+			$('.Avatar').css('transition', '0.3s ease-out');
+			$('.footer').fadeIn(300); 
+
+			// 显示菜单按钮
+			$('.menu-btn-1').addClass('fade-in-1');
+			$('.t-36').addClass('fade-in-1');
+			// 激活页面
+			$('#body').removeAttr('style');
+
+			Welcome();
+
+		},2500);
+		setTimeout(function (){
+			$('.Avatar').css('transition', '0.5s ease-out');
+			$('.Avatar').css('opacity', '1'); 
+			$('.t-3').addClass('t-3-active');
+		},1500);
+		setTimeout(function (){
+			$('.Avatar-border').css('opacity', '1'); 
+		},400);
+	}
+
+	// 仅允许由 https://tatsuno.top/ 访问此页
 	ShowAlert = 1;
 	if (document.domain!='') {
-		if (window.location.href!='https://bailong.eu.org/') {
+		// 重定向备用域名
+		if (document.domain=='tatsuno.pages.dev') {
+			window.location.href = 'https://tatsuno.top/';
+		}
+		if (window.location.href!='https://tatsuno.top/') {
 			ShowAlert = 0;
-			document.getElementById('body').style.overflow = 'hidden';
-			document.getElementById('error').style.cssText = 'position: absolute; height: 100%; width: 100%; background-color: white; top: 0; left: 0; z-index: 999; display: grid; place-items: center;';
-			document.getElementById('error').innerHTML = `
-				<div style='height: 400px; color: rgba(100, 102, 102, 1); font-family: 微软雅黑;' >
-					<span  style='font-size: 30px;' >出问题了哦.</span><br /><br />
-					<span  style='white-space: nowrap; font-size: 20px; opacity: 0.7;' ><span>找不到 </span><ins  style='font-size: 20px;' id='surl' >url</ins></span><br />
-					<span  style='white-space: nowrap; font-size: 20px; opacity: 0.7;' >请检查输入的网址.</span><br /><br /><br />
-					<span  style='white-space: nowrap; font-size: 20px; opacity: 0.7;' >
-						<span>我们会在 </span><span id='stime' style='color: rgba(113, 199, 173, 1);' >n</span><span> 秒后将重定向至</span>
-						<a href='https://bailong.eu.org' style='color: rgba(100, 102, 102, 1); text-decoration: none; -webkit-user-drag: none;' >主页</a><span> .</span>
-					</span>
-				</div>
-			`
-			document.getElementById('surl').innerHTML = window.location.href;
-			var _seconds = 15;
-			// 这个有 ChatGPT 的帮助...
-			function countdown() {
-				if (_seconds > 0) {
-					document.getElementById('stime').innerHTML = _seconds;
-					_seconds--;
-					setTimeout(countdown, 1000);
-				} else {
-					console.clear();
-					window.location.href = 'https://bailong.eu.org';
-				}
-			}
-			countdown();
+			document.getElementById('body').style.display = 'none';
+
+			window.location.href = 'https://tatsuno.top/';
 		}
 	}
-</script>
 
-<!-- Background Loading Script -->
-<script>
-	function background() {
-		if($('.layer').hasClass('layer-active')==true) {
-			$('.t-6').addClass('fade-in-1');
-			$('.shadow').addClass('fade-in-1');
-			$('.shadow-1').addClass('fade-out-1');
-		} else {
-			$('.layer').addClass('layer-active');
-		}
-	};
-
-	// 屏蔽 IE
-	if (!!window.ActiveXObject || "ActiveXObject" in window) {alert('可能无法兼容 IE 浏览器哦')};
 </script>
 
 
 
 <div class="FixedBox" >
 
-	<!-- Background Shadow -->
-	<div class="shadow" ></div>
+	<!-- Menu  -->
+	<div class="menu-btn-1" onclick="MenuOpen()" ></div>
+	<div class="menu-btn-2" onclick="MenuClose()" ></div>
+	<div class="menu-btn-3" onclick="Blog('close', '')" ></div>
 
-	<!-- Header -->
-	<div class="header" id="header" >
-		<a onclick="blog()" class="blog-close" >返回</a>
-		<div class="headerbox" >
-			<span class="header-item"><a href="javascript:;" onclick="ToTop()" >主页</a></span>
-			|
-			<span class="header-item"><a href="javascript:;" onclick="ToMainPage()" >介绍</a></span>
-			|
-			<span class="header-item"><a href="javascript:;" onclick="ToBlog()" >博客</a></span>
-			|
-			<span class="header-item"><a href="javascript:;" onclick="Others()" >其他</a></span>
+	<div class="menu" >
+		<div class="menu-title" >
+			MENU.
+		</div>
+		<hr style="border: none; border-top: 1px solid rgba(100, 102, 102, 0.3); width: 250px; margin-top: -5px; margin-left: 0px;" />
+
+		<!-- 博客面板 -->
+		<div class="menu-box" style="margin-top: 10px;" >
+			<div class="menu-btn" onclick="MenuCheck1()" >
+				<div class="menu-check menu-check-active" id="menu-check-1" ></div>博客<span style="line-height: 18px; font-size: 18px;">「<span class="blog-num" >0</span>」</span>
+			</div>
+
+			<div class="MenuCheck1-inner" >
+				<div id="search" >
+					<textarea type="text" id="searchInput" onfocus="this.select();" maxlength="14" placeholder="/search" autocomplete="off" ></textarea><span class="t-38" ></span>
+					<ul class="search-result" ></ul>
+					
+				</div>
+			</div>
+		</div>
+
+		<!-- 通知 -->
+		<div class="menu-box" style="margin-top: 0px;" >
+			<div class="menu-btn" onclick="MenuCheck2()" >
+				<div class="menu-check menu-check-active" id="menu-check-2" ></div>通知.
+			</div>
+
+			<div class="MenuCheck2-inner" >
+				<div class="news-box" ></div>
+				<div class="news-box" ></div>
+				<div class="news-box" ></div>
+				<div class="news-box" ></div>
+				<div class="news-box" ></div>
+			</div>
+		</div>
+
+		<!-- 联系 -->
+		<hr style="border: none; border-top: 1px solid rgba(100, 102, 102, 0.3); width: 250px; margin-top: 60px; margin-left: 0px;" />
+		<div class="menu-box" style="margin-top: 10px;" >
+			<div class="menu-btn" onclick="MenuCheck3()" >
+				<div class="menu-check menu-check-active" id="menu-check-3" ></div>联系我.
+			</div>
+
+			<div class="MenuCheck3-inner" >
+				<a href="https://music.163.com/#/user/home?id=6288053607" target="_blank" class="t-18" style="margin-left: 25px;" >
+					<img src="src/footer/网易云音乐.png" class="t-15" />
+				</a>
+				<a href="https://space.bilibili.com/3494354685528792" target="_blank" class="t-18" >
+					<img src="src/footer/bilibili.png" class="t-15" />
+				</a>
+				<a href="https://github.com/Dragoft" target="_blank" class="t-18" >
+					<img src="src/footer/github.png" class="t-15" />
+				</a>
+				<a href="mailto:yuu@tatsuno.top" target="_blank" class="t-18" >
+					<img src="src/footer/mail.png" class="t-15" />
+				</a>
+
+			</div>
 		</div>
 	</div>
 
-	<!-- Header Menu -->
-	<div class="header-shell" >
-		<img class="header-haku" src="src/Haku.webp" onload="$(this).addClass('fade-in-1')" id="load-img HeaderImg" />
-	</div>
 
 
+	<!-- Player   V. 1.1.6 -->
+	<div class="Player" >
 
-	<!-- Player   V. 1.0.3 -->
-	<div class="Player Player-mode1" >
+		<!-- COVER -->
+		<div class="MusicImgBox" onclick="Player()" >
+			<img class="MusicImg" onload="$('.Player').addClass('Player-active')" id="load-img" />
+			<div class="bar0" ><div class="bar1" ></div></div>
+		</div>
 
 		<div class="Player-menu" >
-			<!-- CONTROL BAR -->
-			<span class="PlayerButton" ><a href="javascript:;" onclick="MusicLast()" id="Prev" >Prev</a> | <a href="javascript:;" onclick="MusicNext()" id="Next" >Next</a></span>
-
-			<!-- MODE & PLAYLIST -->
+			<span class="list-head" >歌曲列表</span>
 			<a href="javascript:;" onclick="MusicMode()" id="Mod" title="列表循环" ></a>
-			<!-- MUSIC NAME -->
-			<div class="loop-box MusicName" ><span id="MusicName" class="loop" ></span></div>
 			<hr class="list-line" />
-
-			<!-- PLAYLIST MENU -->
 			<div class="PlayerList" >
-				<span class='PlayerListTitle' >播放列表. 
-					<span style='color: rgba(192, 194, 194, 0.6); font-family: "微软雅黑"; margin-left: 60px;' ># </span>
-					<span style='color: rgba(167, 208, 230, 1); font-weight: normal;' id='ListLength' ></span>
-					<span style="margin-left: 5px; font-weight: normal; color: rgba(151, 153, 153, 0.8);" >|</span>
-					<a href="javascript:;" target="_blank" class="Player-Button-2" title="查看歌曲封面 !" id="PlayerDownloadP" style="margin-left: 5px;" ></a>
-					<a href="javascript:;" target="_blank" class="Player-Button-2" title="下载这首音乐 !" id="PlayerDownloadM" ></a>
-				</span>
 				<div class="PlayerListInner" ></div>
 			</div>
 		</div>
 
-
-		<!-- COVER -->
-		<div class="PlayerImgBox" >
-			<img id="PlayerImg" onload="$(this).addClass('fade-in-1')" id="load-img" />
-			<a id="PlayerPlay" target="_blank" onclick="Play()" ></a>
-		</div>
-		<div class="PlayerAudioBoxOuter" >
-			<div class="PlayerAudioBox" >
-				<audio controls="controls" id="player" src="https://music.163.com/song/media/outer/url?id=448316625.mp3" preload="none" >出问题了诶！？</audio>
-			</div>
-		</div>
-		<div class="Player-Button" onclick="Player()" ></div>
-
+		<div class="PlayerButton PlayerButton-pause" onclick="Play()" ></div>
+		<div class="MusicName" ></div>
+		<audio id="player" src="https://music.163.com/song/media/outer/url?id=448316625.mp3" preload="none" ></audio>
+		<a href="javascript:;" onclick="MusicShow()" class="MusicShow0 f-3" ></a>
+		<a href="javascript:;" onclick="MusicShow()" class="MusicShow1 f-3" ></a>
 	</div>
 
 
-	<!-- Background Image -->
-	<img id="background" onload="$(this).addClass('fade-in-1');" />
 
-	<div class="container" >
-		<div class="layer" >
-			<img src="src/background 0.webp" class="layer-1 background"  onload="background()" />
+	<!-- Footer -->
+	<div class="footer">
+	<div class="footer-inner" >
+		<div class="footer-box-1" >
+			<span class="footer-t1 footer-t2" >技术支持:</span>
+			<a class="footer-t3 hint--top hint--rounded" href="https://www.cloudflare.com/" target="_blank" data-hint="Cloudflare" >
+				<img src="src/footer/cloudflare.png" style="opacity: 0" onload="$(this).addClass('fade-in-1')" id="load-img" />
+			</a>
 		</div>
-		<div class="layer" >
-			<img src="src/background 1.webp" class="layer-2 background"  onload="background()" />
+		<div class="footer-box-2" >
+			<span class="footer-t4 footer-t1" >已上线 | <span id="onlineDate" >0</span> 天<span style="display: none;" id="visit_counter_outer" > & <span id="visit_counter">0</span> 访客</span></span>
 		</div>
-		<!-- 遮蔽层 -->
-		<div class="shadow-1" ></div>
-
-		<!-- 图片下载 -->
-		<a class="t-6" onclick="info1();" ></a>
-
 	</div>
+	</div>
+
+
+
+	<!-- MESSAGE   V. 1.0.0 -->
+	<div class="message" >
+		<div class="message-box" >content</div>
+	</div>
+	<div class="pageloading" >
+		<div class="pageloading0 shining-1" >page.loading(): ...</div>
+		<div class="pageloading1" >Err: page loading timeoout (>20000 ms)</div>
+	</div>
+
+
+
 </div>
-
-<!-- 千与千寻 -->
-<img src="src/title.png" class="background-title" onload="$(this).addClass('fade-in-1');" />
-
-
-
-
 
 
 
 <!-- Main Code -->
-<div class="main">
 
-	<!-- Footer Image -->
-	<!-- 好看吧 找 AI 画的. -->
-	<img src="src/footer.webp" class="footer-background" onload="setTimeout(function (){ $('#load-img').addClass('fade-in-1'); $('.footer').addClass('fade-in-3'); },1000)" id="load-img" />
-
-	<!-- Page -->
-	<div class="t-1">
-		<!-- Main Page -->
-		<div class="Haku-border" >
-			<div class="Haku-border-inner" id="load-img" >
-				<img class="Haku" src="src/Haku.webp" onload="$('.Haku-border-inner').addClass('fade-in-1')" />
-				<a class="t-21 hint--bottom hint--rounded" data-hint="下载此头像." target="_blank" href="src/Haku.png" download="Haku.png" ></a>
-			</div>
-		</div>
-		<span class="t-3" >Dragoft.</span>
-		<div class="t-4" >
-			<div class=" Typewriter-1" onclick="Typewriter();" ></div>
-		</div>
-
-		<br class="t-2 t-8" />
-		<br class="t-2" />
-		<br class="t-2" />
-
-		<div class="welcome" >
-			<span style="color: rgba(151, 153, 153, 0.3);" >——</span> 欢迎来到我的个人主页！
-		</div>
-
-
-
-		<div class="t-7">
-			<!-- 理科生果然写不好诗 -->
-
-			常常一个人，
-			<br />
-			看天火在远方的云中蔓延，然后消失。
-			<br />
-			望着依然忙碌的世界，<br class="t-9" />与黄昏一起，畅饮这难得的宁静
-			<br />
-			和手上的橙汁...
-			<br />
-			<br class="t-2" />
-			<br class="t-2" />
-			<br class="t-2 t-8" />
-		</div>
-
-
-
-		<div class="t-29" >
-			<span class="t-30" >Contact </span><span class="t-32 arrow-1" ></span>
-			<br />
-			<div class="t-31" >me.</div>
-		</div>
-		<div class="t-33" >
-			你也可以在这些地方找到我哦。 <span class="t-8" style="color: rgba(151, 153, 153, 0.6);" ><del>长期不在线.</del>..</span>
-			<br />
-			<span style="color: rgba(196, 169, 139);" ></span> <span style="color: rgba(151, 153, 153, 0.6);" >中国<span style="color: rgba(151, 153, 153, 0.8);" >・</span>四川</span>
-		</div>
-		<div class="t-16">
-			<a href="https://music.163.com/#/user/home?id=6288053607" target="_blank" class="t-18 t-14" >
-				<div class="t-19" >
-					<img src="src/footer/网易云音乐.png" onload="$(this).addClass('fade-in-1')" id="load-img" class="t-15" />
-					<span class="t-20" >网易云音乐</span>
-				</div>
-
-			</a>
-			<a href="https://space.bilibili.com/3494354685528792" target="_blank" class="t-18 t-14 t-25" >
-				<div class="t-19" >
-					<img src="src/footer/bilibili.png" onload="$(this).addClass('fade-in-1')" id="load-img" class="t-15" />
-					<span class="t-20" >bilibili</span>
-				</div>
-			</a>
-			<a href="mailto:dragoft@bailong.eu.org" target="_blank" class="t-18 t-14 t-25 t-34" >
-				<div class="t-19" >
-					<img src="src/footer/mail.png" onload="$(this).addClass('fade-in-1')" id="load-img" class="t-15" />
-					<span class="t-20" >Mail.</span>
-				</div>
-			</a>
-		</div>
-
-
-
-		<br class="t-2 t-8" />
-		<br class="t-2 t-8" />
-		<br class="t-2 t-8" />
-		<br class="t-2 t-8" />
-
-
-
-		<!-- Blog -->
-
-		<div class="blog-button" >
-			<div class="blog-3" >
-				<img src="src/mountain1.webp" onload="$(this).addClass('fade-in-1')" id="load-img" class="blog-img-1" />
-				<img src="src/mountain2.webp" onload="$(this).addClass('fade-in-1')" id="load-img" class="blog-img-2" />
-				<div class="blog-6" ><span class="t-26" ></span> <span class="blog-num" >0</span><span style="color: rgba(151, 153, 153, 0.5);" >.</span></div>
-				<div class="t-24" >
-					<hr class="t-35" />
-					<span>
-						这里是我的博客！
-						<br />
-						学业繁忙，更新速度会有亿点点慢...
-						<br />
-						<span style="color: rgba(196, 169, 139);" >  </span>
-					</span>
-				</div>
-
-				<a onclick="blog()" class="blog-2" >
-						<span  class="blog-4" >进入博客</span>
-				</a>
-			</div>
-		</div>
-
-
-		<!-- Blog Iframe -->
-		<div class="blog" ></div>
-
-		<span class="t-2" >
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-		</span>
-		<span class="t-8 t-2" >
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-		</span>
+<div class="box-1" >
+	<div class="t-36" >
+		<span class="t-37" onclick="Blog('open', 'page/about')" >关于我</span>
+		|
+		<span class="t-37" onclick="Blog('open', 'page/square')" >广场</span>
 	</div>
 
-	<!-- Footer -->
-	<div class="footer">
-		<br />
-		<br />
-
-		<!-- Left -->
-		<div class="footer-item-big" >
-				<span id="footer-1" >Copyright © 2023 Dragoft All rights reserved.</span>
-				<br />
-				<span id="footer-2" style="opacity: 0.7;" >已上线 | 0 天</span>
-				<br />
-				<br />
-				<span style="opacity: 0.7; display: none;" id="visit_counter_outer" >你是第 <span id="visit_counter">0</span> 位访客哦！</span>
-				<br />
-				<hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 1); width: 300px; margin-left: 0px; text-align: left;" />
-
-				<div class="footer-img" >
-					<a href="https://github.com/" target="_blank">
-						<img src="src/footer/github.png" title="GitHub: Let's build from here" style="opacity: 0" onload="$(this).addClass('fade-in-1')" id="load-img" />
-					</a>
-					<a href="https://www.cloudflare.com/" target="_blank">
-						<img src="src/footer/cloudflare.png" title="Cloudflare" style="opacity: 0" onload="$(this).addClass('fade-in-1')" id="load-img" />
-					</a>
-					<a href="https://nic.eu.org/" target="_blank">
-						<img src="src/footer/eu.org.png" title="EU.org: free domain names since 1996" style="opacity: 0; border-radius: 10px" onload="$(this).addClass('fade-in-1')" id="load-img" />
-					</a>
-					<a href="https://www.bilibili.com/" target="_blank">
-						<img src="src/footer/bilibili.png" title="哔哩哔哩 (゜-゜)つロ 干杯~-bilibili" style="opacity: 0" onload="$(this).addClass('fade-in-1')" id="load-img" />
-					</a>
-				</div>
+	<div class="box-2" >
+	<div class="Avatar-border" >
+		<div class="Avatar-border-inner" >
+			<img class="Avatar" src="src/Haku.webp" onload="init()" />
+			<a class="t-21" target="_blank" href="src/Haku.png" download="Haku.png" ></a>
 		</div>
-
-		<!-- Right -->
-		<div class="footer-item-big" >
-			<div class="t-23" >
-				<img src="src/Haku.webp" style="width: 160px; height: 160px; opacity: 0;" class="FooterImg" onload="$(this).addClass('fade-in-1')" id="load-img" />
-			</div>
-			<div class="t-23" >
-
-			</div>
-
-		</div>
-
-
-		<br />
-		<br />
 	</div>
+	<span class="t-3" >tatsuno</span>
+	<div class="t-4" >
+		<div class="Typewriter-1" onclick="Typewriter();" ></div>
+	</div>
+	</div>
+
+</div>
+
+
+
+
+
+<div class="box-3" >
+
+	<!-- Blog Iframe -->
+	<div class="blog" >
+		<iframe name="frame" class="iframe" id="iframe" ></iframe>
+	</div>
+
+</div>
 
 
 
 <!-- Javascript -->
+	<script>
+		// 自检
+		exam = '';
+		setTimeout(function (){
+			if(exam == 'ok'){
+				setTimeout(console.log.bind(
+					console,
+					'%cPage self-check: %cSUCCESS',
+					'color: rgba(100, 102, 102, 0.8); font-weight: bolder;',
+					'color: rgba(0, 200, 100, 1); font-weight: bolder;'
+				));
+				setTimeout(console.groupEnd.bind());
+			} else {
+				$('.message-box').html('Failed to load "script. js" (TIMEOUT)　<a onclick="location.reload();" href="javascript:;" style="color: rgb(170, 17, 17);" ><ins>Refresh</ins></a>');
+				$('.message-box').addClass('message-error');
+				$('.message').addClass('message-active');
 
-	<!-- Blog Data -->
-	<script src="blog\data.js" ></script>
-
-	<!-- Typewriter -->
+				setTimeout(console.log.bind(
+					console,
+					'%cPage self-check: %cTIMEOUT',
+					'color: rgba(100, 102, 102, 0.8); font-weight: bolder;',
+					'color: rgba(255, 0, 20, 1); font-weight: bolder;'
+				));
+				setTimeout(console.groupEnd.bind());
+			}
+		}, 10000);
+	</script>
+	<script src="blog\pageData.js" ></script>
+	<script src="js\search.js"></script>
 	<script src="js\typed.js"></script>
-
-	<!-- Main -->
 	<script src="script.js" ></script>
-
-	<!-- Background -->
-	<script src="js\background.js" ></script>
-
-	<!-- Music Player -->
 	<script src="js\player.js"></script>
-
-	<!-- Url -->
 	<script src="js\url.js"></script>
-
-	<!-- Database -->
-	<script src="js\metadata.js"></script>
+	<script src="js\counter.js"></script>
 
 </body>
 

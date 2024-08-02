@@ -1,14 +1,14 @@
-export async function onRequest(context) {
+锘縠xport async function onRequest(context) {
 	var mode = context.request.headers.get('Token');
-	var reData = {"API":mode};
+	var reData = {"API": mode};
 
-	// 只读取访问量
+	// 鍙
 	if (mode==0) {
 		var ps = context.env.MetaDB.prepare('SELECT * from root where data="visit"');
 		reData = await ps.first();
 	}
 
-	// 读取并修改访问量
+	// 璇诲啓
 	if (mode==1) {
 		var ps = context.env.MetaDB.prepare('UPDATE root set content=content+1 where data="visit"');
 		reData = await ps.first();

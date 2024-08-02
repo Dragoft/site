@@ -3,41 +3,68 @@
 	src: url('../src/Poppins Regular.woff2');
 }
 
+html {
+	height: 100%;
+	width: 100%;
+}
+
 body {
-	font-family: 'Poppins Regular',  '楷体'; 
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	font-family: 'Poppins Regular',  'Microsoft YaHei'; 
+	overflow: overlay;
+	margin: 0;
 	line-height: 33px;
+	min-width: 380px;
 }
 
 
 
-/* 滚动条样式 */
+/* 滚动条 */
+
 ::-webkit-scrollbar {
-	display: block;
-	width: 8px;
+
+	width: 12px !important;
+	height: 12px !important;
+	background-color: transparent !important;
 }
-/* 滚动槽 */
+
+
 ::-webkit-scrollbar-track {
-	border-radius: 5px;
-	background: rgba(0, 0, 0, 0.06);
-	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
-	margin: 100px 0px;
+
+	background-color: transparent !important;
+	box-shadow: none !important;
 }
-/* 滚动块 */
+
+
 ::-webkit-scrollbar-thumb {
-	border-radius: 5px;
-	background: rgba(0, 0, 0, 0.05);
-	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+
+	background-color: rgba(0, 0, 0, 0.1) !important;
+	border-radius: 100px !important;
+	border: 4px solid transparent !important;
+	background-clip: content-box !important;
+	box-shadow: none !important;
 }
+
+
 ::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 0, 0, 0.15);
+
+	background-color: rgba(0, 0, 0, 0.2) !important;
 }
-::-webkit-scrollbar:horizontal {
-	display: none;
+
+::-webkit-scrollbar-corner {
+	background-color: transparent !important;
+	box-shadow: none !important;
 }
+
+
 
 ::selection {
 	background: rgba(113, 199, 173, 0.3);
 }
+
+
 
 a {
 	text-decoration: none;
@@ -58,6 +85,19 @@ code {
 	background-color: rgba(244, 243, 241, 1);
 	border-radius: 10px;
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+span {
+	color: rgba(151, 153, 153, 1);
+}
+
+i {
+	color: rgba(151, 153, 153, 0.6);
+}
+
+h1 {
+	color: rgba(151, 153, 153, 1);
+	font-size: 40px;
 }
 
 .main {
@@ -86,31 +126,54 @@ code {
 
 
 
+/* 链接样式 */
 
-
-.type-1 {
-	/* 绿 */
-	color: rgba(113, 199, 173, 1);
+.link {
+	color: rgba(151, 153, 153, 1);
+	text-decoration: underline;
+	text-decoration-color: rgba(151, 153, 153, 0.3);
+	font-family: "Microsoft YaHei";
+	transition: 0.3s;
 }
 
-.type-2 {
-	/* 粉 */
-	color: rgba(244, 183, 188, 1);
+.link:hover {
+	text-decoration-color: rgba(113, 199, 173, 1);
 }
 
-.type-3 {
-	/* 蓝 */
-	color: rgba(167, 208, 230, 1);
-}
 
-.disabled {
+
+/* 功能样式 */
+
+.f-1 {
 	/* 无效元素 */
 	-webkit-user-select: none;
 	pointer-events: none;
 }
 
+.f-2 {
+	/* 仅在 PC 端显示 */
+	display: unset;
+}
+
+.f-3 {
+	/* 仅在移动端显示 */
+	display: none;
+}
+
+
+
 @media screen and (max-width: 900px) {
 	::-webkit-scrollbar {
 		display: none !important;
 	}
+	.f-2 {
+		/* 仅在 PC 端显示 */
+		display: none;
+	}
+	.f-3 {
+		/* 仅在移动端显示 */
+		display: unset;
+	}
 }
+
+

@@ -11,15 +11,22 @@ function Search(output, input, color) {
 
 	*/
 
+
+
+	// 清空上次的搜索痕迹
+
 	// 重置搜索结果列表高度
-	if (BlogList.length > 5) {
-		$('.search-result').css('height', '225px');
+	if (BlogTEMP.length > 10) {
+		$('#search').css('height', '275px');
+		document.getElementById('searchInput').name = 10;
 	} else {
-		$('.search-result').css('height', BlogList.length * 45 + 'px');
+		$('#search').css('height', BlogTEMP.length * 22 +55 + 'px');
+		document.getElementById('searchInput').name = BlogTEMP.length;
 	}
-	document.getElementById('searchInput').name = BlogList.length;
 
-
+	$('#search').css('transition', 'none');
+	$('#content-null').remove();
+	$(output).css('display', 'none');
 
 	// 获取所有output的元素内容
 	var output_elements = document.querySelectorAll(output);
@@ -35,9 +42,11 @@ function Search(output, input, color) {
 		// 清空上次搜索留下的 span 颜色
 		var span = element.getElementsByTagName('span');
 		if (span.length!=0) {
-			span[0].setAttribute('style', 'color: rgba(151, 153, 153, 1)');
+			span[0].parentNode.innerHTML = span[0].parentNode.id;
 		}
+
 	}
+
 
 
 
@@ -53,30 +62,34 @@ function Search(output, input, color) {
 
 
 
-	$('#content-null').remove();
-	$(output).css('display', 'none');
-
+	// 如果没有找到搜索结果，便终止后续代码
 	if (result.length==0) {
 		var a = document.createElement('a');
 		a.innerHTML = '没有找到指定内容...'
 		a.setAttribute('id', 'content-null');
-		a.setAttribute('css', 'search-list');
+		a.setAttribute('class', 'search-list');
+		a.setAttribute('style', 'cursor: text; user-select: auto;');
 		ul.appendChild(a);
 
 		// 更新搜索结果列表高度
-		$('.search-result').css('height', '45px');
+		$('#search').css('height', '77px');
 		document.getElementById('searchInput').name = 1;
 		return;
 	}
 
+
+
+	// 渲染搜索结果
+
 	for (var a = 0; a < result.length; a++) {
-		document.getElementById(result[a].toString()).style.display = "block";
+		if (document.getElementById(result[a].toString()) != null) {
+			document.getElementById(result[a].toString()).style.display = "table";
+		}
 
 		// 渲染搜索结果
 		var str = result[a].toString()
-		// 先用特殊字符串替换第一个符合搜索结果的字符串
+		// 利用特殊字符串将匹配的字符删去，并将数组一分为二
 		var newStr = str.replace(new RegExp(search, "i"), '#####');
-		// 删除特殊字符串，将原字符串分为2部分
 		var contentsArr = newStr.split('#####'); 
 
 		// 将数组里的第一个值取出
@@ -91,12 +104,19 @@ function Search(output, input, color) {
 	}
 
 	// 更新搜索结果列表高度
-	if (result.length > 5) {
-		$('.search-result').css('height', '225px');
+	if (result.length > 10) {
+		$('#search').css('height', '275px');
+		document.getElementById('searchInput').name = 10;
 	} else {
-		$('.search-result').css('height', result.length * 45 + 'px');
+		// 防止把 #content-null 当做搜索结果
+		if (BlogTEMP.length > result.length) {
+			$('#search').css('height', result.length * 22 +55 + 'px');
+			document.getElementById('searchInput').name = result.length;
+		} else {
+			$('#search').css('height', BlogTEMP.length * 22 +55 + 'px');
+			document.getElementById('searchInput').name = BlogTEMP.length;
+		}
 	}
-	document.getElementById('searchInput').name = result.length;
 }
 
 
