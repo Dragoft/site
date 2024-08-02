@@ -165,6 +165,7 @@ img {
 	position: absolute !important;
 	margin: 5px 70px;
 	height: 32px;
+	cursor: help;
 }
 
 .footer-t4 {
@@ -353,7 +354,6 @@ img {
 	display: block;
 	height: 24px;
 	user-select: none;
-	overflow: hidden;
 }
 
 .news-box {
@@ -448,19 +448,9 @@ img {
 	left: calc(50% - 250px);
 }
 
-.box-3 {
-	position: absolute;
-	width: 100%;
-	top: 100%;
-	background-color: rgba(255, 255, 255, 1);
-	font-size: 22px;
-	color: rgba(151, 153, 153, 1);
-}
-
 
 
 .Typewriter-1 {
-	font-family: 'Poppins Regular', '楷体';
 	cursor: pointer;
 	display: table;
 	user-select: none;
@@ -585,10 +575,9 @@ img {
 	position: absolute;
 	margin: 100px 195px;
 	width: 296px;
-	font-size: 24px;
-	line-height: 24px;
-
-	color: rgba(192, 194, 194, 0.9);
+	font-size: 22px;
+	line-height: 26px;
+	color: rgba(192, 194, 194, 0.6);
 }
 
 .t-5 {

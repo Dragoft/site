@@ -305,25 +305,40 @@ function Typewriter() {
 		// 标题语列表
 
 		['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()],
-		`<span style='font-family: "Microsoft YaHei"' >これは何ですか。</span>`,
-		`<span style='font-family: "Microsoft YaHei"' >ここは…</span>`,
+		'これは何ですか。',
+		'ここは…',
 		'不准再碰我的尾巴！',
 		'一个很懒的博主.',
 		'Html！',
 		'Hello world.',
-		`<span style='font-family: "Microsoft YaHei"' >はーい</span>`,
+		'はーい',
 		'小白一只.',
+		'私は新米です。',
 		'Java^1000Script！',
-		`<span style='font-family: "Microsoft YaHei"' >こんにちは。</span>`,
-		`<span style='font-family: "Microsoft YaHei"' >今日は` + ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()] + `ですか。</span>`,
+		'Python！',
+		'不准再碰我的尾巴！',
+		'こんにちは。',
+		'今日は^500' + ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()] + '^300ですか。',
 		'看上去很不错的样子...',
+		'美味しかったです！',
+		'誰もいません。',
+		'パンを食べる。',
+		'不准再碰我的尾巴！',
+		'Cookie required...',
+		'Encyclopedia.',
+		'   ',
+		'昨日は寒かったです。',
+		'Safebooru.',
+		'一夜鱼龙舞！',
+		'Have a good day !',
+		'undefined'
 
 		];
 
 	var RandomSentence = sentence[Math.floor(Math.random() * sentence.length)];
 	$('.Typewriter-1').typed({
 		strings: [RandomSentence],
-		typeSpeed: 80,
+		typeSpeed: 100,
 		showCursor: false,
 	});
 }
