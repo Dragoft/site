@@ -30,14 +30,14 @@
 <br />
 
 ## 感谢
-感谢他们在开发期间提供的帮助！
+感谢他们在开发期间提供的帮助。
 
-|	名称				|	帮助			|
-|	--------				|	---------			|
-|	[Cloudflare](https://www.cloudflare.com/)	|	网站运行 & 管理		|
-|	[Github](https://github.com/)		|	代码托管			|
-|	[网易云音乐](https://music.163.com/)	|	音乐外链服务		|
-|	[IcoMoon](https://icomoon.io/)		|	图标字体提供		|
-|	[Hint.css](https://kushagra.dev/lab/hint/)	|	A pure CSS tooltip library	|
-|	[Paint.NET](https://www.getpaint.net/)	|	图像处理软件		|
+|	名称					|	帮助									|
+|	--------					|	---------									|
+|	[Cloudflare](https://www.cloudflare.com/)		|	网站运行 & 管理								|
+|	[Github](https://github.com/)			|	代码托管									|
+|	[网易云音乐](https://music.163.com/)		|	音乐外链服务								|
+|	[IcoMoon](https://icomoon.io/)			|	图标字体提供								|
+|	[Hint.css](https://kushagra.dev/lab/hint/)		|	A pure CSS tooltip library	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	|
+|	[Paint.NET](https://www.getpaint.net/)		|	图像处理软件								|
 
