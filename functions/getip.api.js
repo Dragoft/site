@@ -1,8 +1,6 @@
 ﻿export async function onRequest(context) {
 	var reData = {"API": mode};
-	var ip = request.headers.get("X-Forwarded-For") || request.headers.get("CF-Connecting-IP");
+	var reData = context.request.headers.get('X-Forwarded-For') || context.request.headers.get('CF-Connecting-IP');
 
-
-
-	return Response.json(ip);
+	return Response.json(reData);
 }
