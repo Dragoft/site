@@ -296,32 +296,28 @@ h3 {
 
 
 @media screen and (max-width: 900px) {
-	.main {
-		margin: 10% auto;
-		width: 80%;
-	}
 
 	.Tname {
-		width: calc(80% - 22px);
-		left: 10%;
+		width: calc(90% - 22px);
+		left: 5%;
 		margin-left: 0px;
 	}
 
 	.Tcontent	{
 		position: absolute;
 		margin: 55px 0px;
-		width: calc(80% - 22px);
-		left: 10%;
+		width: calc(90% - 22px);
+		left: 5%;
 	}
 
 	.bottomBox {
 		position: absolute;
 		margin: 145px 0px;
-		width: calc(80% - 16px);
+		width: calc(90% - 16px);
 	}
 
 	.sent {
-		left: 10%;
+		left: 5%;
 		margin: 185px 0px;
 		width: 120px;
 		height: 34px;
@@ -331,7 +327,7 @@ h3 {
 	.pagebtn {
 		margin-top: 177px;
 		position: absolute;
-		right: 10%;
+		right: 5%;
 	}
 
 	.del-box {
