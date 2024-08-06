@@ -2,19 +2,20 @@
 <html lang="zh">
 
 <head>
-	<title>关于</title>
+	<title>About</title>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preload" as="font" href="../../../src/Poppins Regular.woff2" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="../../main.css">
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="../../../css/hint.css">
 
 </head>
 
 <body>
 <script>
 	window.parent.postMessage('pageloaded("- ' + document.title + '")', document.domain.length == 0 && '*' || '/');
+	history.pushState(null, null, location.href);
 
 	window.addEventListener('message', function(event) {
 		if (event.origin == 'null' || event.origin.includes('https://tatsuno.top')) {
@@ -36,35 +37,54 @@
 		<br class="f-1" />
 		<span>你好！</span>
 		<br />
-		<span>很高兴能在这里遇见你！</span>
+		<span>我是 tatsuno，一个普普通通的高中生。很高兴能在这里遇见你！</span>
+		<br class="f-2" />
+		<span class="f-2">先简单的自我介绍一下。</span>
 		<br />
+		<br class="f-1" />
+		<quote>
+			<span style="color: rgb(73, 160, 204);" >TATSUNO</span>
+			<br />
+			其实是个日本姓氏，没什么特别的寓意。可以写作「 竜野、龍野、辰野 ...... 」
+		</quote>
+		<br class="f-1" />
 		<br class="f-1" />
 
-		<span>我是 tatsuno，一个普普通通的高中生。没什么值得介绍的。</span>
-		<br />
+		<h2>喜欢的东西</h2>
+		<li class="list1" >Anime 「很有必要放在第一位」</li>
+		<li class="list1" >计算机</li>
+		<li class="list1" >日本語を勉強する</li>
+		<li class="list1" >音乐 & 绘画</li>
+
+
+		<h2>玩过的游戏</h2>
+		<li class="list1" ><span class="hint--right hint--rounded" data-hint="一只坏坏的大鹅..." >Untitled goose game</span></li>
+		<li class="list1" ><span class="hint--right hint--rounded" data-hint="气氛营造得很好" >The Final Station</span></li>
+		<li class="list1" ><span class="hint--right hint--rounded" data-hint="很不错的游戏" >Undertale</span></li>
+		<li class="list1" >Minecraft</li>
+		<li class="list1" >Terraria</li>
+		<li class="list1" ><span class="hint--right hint--rounded" data-hint="画面 & 音乐满分！" >Machinarium</span></li>
+		<br class="f-1" />
 		<br class="f-1" />
 
-		<span>我不是个内向的人，也许只是我一直生活在自己的世界里罢了。我觉得，高中三年，若只有埋头苦干，便太可惜了。所以我开始自学。体验了编程，入门了 Nihongo，看到了不一样的风景，逐渐创造出一个自己的世界，一个属于音乐、绘画、计算机和二次元的せかい。</span>
+		<h2>我的网站</h2>
+		<span>这里是我的个人网站，一个简单的博客。主要发布一些有关 <attention>生活</attention> <attention>技术</attention> <attention>游戏「 少量 」</attention> 的文章。如你所见，我的语言表达能力不是很好，这也是我坚持亲手创作博客文章的原因之一。</span>
 		<br />
 		<br class="f-1" />
-		<br class="f-1" />
-		<span>这里是我的个人网站，一个简单的博客。主要发布一些关于生活、技术、游戏（少量）的文章。如你所见，我的语言表达能力不是很好，这也是我坚持亲手创作博客文章的原因之一。</span>
+		<span>其实在很久以前，我就想拥有一个自己的网站了。由于囊中羞涩，这个愿望一直没能实现。直到 2023 年的某一天，我偶然接触到了 <attention class="hint--bottom hint--rounded" data-hint="比某些平台强太多..." >Cloudflare</attention> 这个良心的平台，才迈出了搭建网站的第一步。为了做好这个网站，我在无数次的复制粘贴中学会了如何运用代码表达心中的想法。历经 3 次重构后，我完成了它！</span>
 		<br />
 		<br class="f-1" />
-		<span>其实在很久以前，我就想拥有一个自己的网站了。由于囊中羞涩，这个愿望一直没能实现。直到 2023 年的某一天，我偶然接触到了 Cloudflare 这个良心的平台，才迈出了搭建网站的第一步。为了做好这个网站，我在无数次的复制粘贴中学会了如何运用代码表达心中的想法。经过 3 次重构后，我完成了它！</span>
-		<br />
-		<br class="f-1" />
-		<span>网站当前使用的主题叫做「<a class="link" href="https://github.com/Dragoft/site" target="_blank">S E K A I</a>」，这是我自己开发的一款博客主题。网站的设计灵感来自 <a class="link" href="https://kotobank.jp/" target="_blank"> kotobank.jp/</a>。和最初的构想一样，它简洁、美观，干净利落。虽然它的性能不是最好的，但它一定是最独一无二的。</span>
-		<br />
+		<quote>
+		<span>网站当前使用的主题叫做「<a class="link" href="https://github.com/Dragoft/site" target="_blank">S E K A I</a>」，设计灵感来自 <a class="link" href="https://kotobank.jp/" target="_blank"> kotobank.jp/</a>。和最初的构想一样，它简洁、美观，干净利落。虽然它的性能不是最好的，但它一定是最独一无二的。</span>
+		</quote>
 		<br class="f-1" />
 		<br class="f-1" />
-		<span>周围的世界仍在变化，这篇文章还没有写完 ......</span>
-		<br />
+
+		<h2>私の友達</h2>
+		<span>不是很喜欢交朋友，这里不支持交换友链。</span>
 		<br class="f-1" />
 		<br class="f-1" />
-		<i style="float: right;" >—— 2024.7.26</i>
-		<br />
-		<br class="f-1" />
+
 		<br class="f-1" />
 		<br class="f-1" />
 		<br class="f-1" />

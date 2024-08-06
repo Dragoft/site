@@ -105,7 +105,7 @@ img {
 
 
 ::selection {
-	background: rgba(113, 199, 173, 0.3);
+	background: rgba(96, 205, 242, 0.3);
 }
 
 
@@ -340,7 +340,7 @@ img {
 	height: 14px;
 	width: 16px;
 	padding: 6px 5px;
-	color: rgba(167, 208, 230, 1);
+	color: rgba(164, 199, 230, 1);
 	font-size: 16px;
 	line-height: 18px;
 	transition: 0.3s;
@@ -505,7 +505,7 @@ img {
 	position: fixed;
 	height: 100px;
 	width: 300px;
-	top: calc(50% - 50px);
+	top: calc(50% - 10px);
 	left: calc(50% - 150px);
 	z-index: 20;
 	text-align: center;
@@ -560,7 +560,7 @@ img {
 	line-height: 90px;
 	font-weight: bold;
 	opacity: 0;
-	background-image: linear-gradient(62deg, rgba(113, 199, 173, 0.9), rgba(113, 199, 173, 0.3));
+	background-image: linear-gradient(62deg, rgba(217, 227, 252, 1), rgba(164, 199, 230, 1));
 	color: transparent;
 	-webkit-background-clip: text;
 	user-select: none;

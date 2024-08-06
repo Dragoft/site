@@ -74,6 +74,9 @@ lang = navigator.language
 timer0 = null;
 device = $(window).width() < 900 && 'Mobile' || 'Desktop';
 states = document.domain == '' && 'Local' || 'Network';
+changeBlog = 0;
+
+history.pushState(null, null, location.href);
 
 
 
@@ -216,6 +219,7 @@ function Blog(action, id) {
 		// 打开博客界面
 		pageloading(1);
 
+		$('.iframe').css('display', 'none');
 		$('.blog').fadeIn(300);
 		$('#body').addClass('body-scroll');
 		$('.blog').addClass('blog-active');
@@ -229,6 +233,7 @@ function Blog(action, id) {
 
 		setTimeout(function (){
 			// 跳转指定文章
+			changeBlog = 1;
 			if (states == "Local") {
 				document.getElementById('iframe').src = 'blog/' + id + '/page.html';
 			} else {
@@ -259,6 +264,16 @@ function pageloaded(title) {
 	},1000)
 }
 
+// 后退，前进时直接关闭博客页面
+$('#iframe').on('load', function() {
+	if (changeBlog != 1) {
+		Blog('close', '');
+		changeBlog = 0;
+	} else {
+		changeBlog = 0;
+	}
+});
+
 
 
 // 弹窗
@@ -281,9 +296,6 @@ function message(content, type, time) {
 		$('.message').removeClass('message-active');
 	}
 }
-
-
-
 
 /* From https://blog.csdn.net/qq_41090476/article/details/96111016 */
 $(body).click(function(e){

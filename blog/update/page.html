@@ -16,6 +16,7 @@
 <body>
 <script>
 	window.parent.postMessage('pageloaded("- ' + document.title + '")', document.domain.length == 0 && '*' || '/');
+	history.pushState(null, null, location.href);
 
 	window.addEventListener('message', function(event) {
 		if (event.origin == 'null' || event.origin.includes('https://tatsuno.top')) {
@@ -32,22 +33,73 @@
 		<br class="f-1" />
 		<br class="f-1" />
 		<h1>标题</h1>
+		<i>—— 介绍</i>
+		<br />
+		<br class="f-1" />
+
+		<quote>引述内容</quote>
 		<br />
 
-		绿 113, 199, 173
-		粉 244, 183, 188
-		白 244, 243, 241
-		灰 227, 229, 229
-		灰 192, 194, 194
-		黑 100, 102, 102
-		黑 151, 153, 153
-		蓝 217, 227, 252
-		蓝 167, 208, 230
+		<attention>强调</attention>
+		<br />
+		<br />
 
-		.f-1 无效元素
-		.f-2 仅在电脑端显示的元素
-		.f-3 仅在移动端显示的元素
+		<table border="1">
+			<thead>
+				<tr>
+					<th>list 1</th>
+					<th>list 2</th>
+					<th>list 3</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>2</td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>3</td>
+					<td>3</td>
+				</tr>
+			</tbody>
+		</table>
+		<br />
+		<br />
 
+		<li class="list1" >这是列表内容</li>
+		<li class="list2" >这是子项</li>
+		<li class="list3" >这是子项的子项</li>
+		<br />
+		<br />
+
+
+		<img class="" src="../../src/readme.png" onload="$(this).addClass('fade-in-1')" />
+
+<br />
+<pre>
+
+绿 113, 199, 173
+粉 244, 183, 188
+白 244, 243, 241
+灰 227, 229, 229
+灰 192, 194, 194
+黑 100, 102, 102
+黑 151, 153, 153
+蓝 217, 227, 252
+蓝 167, 208, 230
+
+	.f-1 无效元素
+	.f-2 仅在电脑端显示的元素
+	.f-3 仅在移动端显示的元素
+
+</pre>
 	</div>
 
 </body>

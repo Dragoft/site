@@ -61,10 +61,12 @@ body {
 
 
 ::selection {
-	background: rgba(113, 199, 173, 0.3);
+	background: rgba(96, 205, 242, 0.3);
 }
 
 
+
+/* 预设样式 */
 
 a {
 	text-decoration: none;
@@ -74,16 +76,17 @@ a {
 img {
 	-webkit-user-select: none;
 	-webkit-user-drag: none;
+	opacity: 0;
 }
 
 code {
 	display: inline-block;
 	vertical-align: middle;
-	padding: 5px 8px;
+	padding: 4px 6px;
 	line-height: 22px;
 	font-size: 25px;
 	background-color: rgba(244, 243, 241, 1);
-	border-radius: 10px;
+	border-radius: 6px;
 	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -99,6 +102,142 @@ h1 {
 	color: rgba(151, 153, 153, 1);
 	font-size: 40px;
 }
+
+h2 {
+	color: rgba(151, 153, 153, 0.8);
+	font-size: 25px;
+}
+
+h3 {
+	color: rgba(151, 153, 153, 0.6);
+	font-size: 20px;
+}
+
+
+
+li {
+	list-style: none;
+	color: rgba(151, 153, 153, 1);
+}
+
+.list1:before {
+	content: "\ea56";
+	color: rgba(167, 208, 230, 1);
+	margin-right: 10px;
+	margin-left: 20px;
+	font-size: 4px;
+}
+
+.list2:before {
+	content: "\ea56";
+	color: rgba(167, 208, 230, 0.8);
+	margin-right: 10px;
+	margin-left: 45px;
+	font-size: 4px;
+}
+
+.list2 {
+	color: rgba(151, 153, 153, 0.8);
+}
+
+
+.list3:before {
+	content: "\ea56";
+	color: rgba(167, 208, 230, 0.6);
+	margin-right: 10px;
+	margin-left: 70px;
+	font-size: 4px;
+}
+
+.list3 {
+	color: rgba(151, 153, 153, 0.6);
+}
+
+
+
+/* 链接样式 */
+
+.link {
+	color: rgba(151, 153, 153, 1);
+	text-decoration: underline;
+	text-decoration-color: rgba(151, 153, 153, 0.3);
+	font-family: "Microsoft YaHei";
+	transition: 0.3s;
+
+}
+
+.link:hover {
+	color: rgba(73, 160, 204, 1);
+	text-decoration-color: rgba(73, 160, 204, 1);
+}
+
+
+
+/* 引言 */
+
+quote {
+	display: block;
+	color: rgba(151, 153, 153, 1);
+	background-color: rgb(232, 243, 249);
+	padding: 10px 15px 10px 10px;
+	border-left: rgb(168, 207, 230) solid 5px;
+	border-radius: 0px 7px 7px 0px;
+	word-break: break-all;
+	line-height: 26px;
+}
+
+
+
+/* 强调 */
+
+attention {
+	display: inline-block;
+	background-color: rgb(232, 243, 249);
+	color: rgb(73, 160, 204);
+	padding: 0px 8px 0px 8px;
+	line-height: 28px;
+	border-radius: 5px;
+}
+
+
+
+/* 表格 */
+
+thead tr th {
+
+	background-color: rgb(168, 207, 230);
+	color: white;
+	min-width: 80px;
+	text-align: left;
+}
+
+
+table {
+	border-collapse: collapse;
+	border: 1px rgba(151, 153, 153, 0.3) solid;
+}
+
+
+td,
+th {
+	vertical-align: top;
+	padding: 5px 10px;
+	color: rgba(151, 153, 153, 1);
+}
+
+
+tr:nth-child(even) {
+
+	background-color: rgb(237, 243, 247);
+}
+
+
+tr:nth-child(odd) {
+
+	background-color: rgb(249, 251, 252);
+}
+
+
 
 .main {
 	margin: 60px auto;
@@ -126,22 +265,6 @@ h1 {
 
 
 
-/* 链接样式 */
-
-.link {
-	color: rgba(151, 153, 153, 1);
-	text-decoration: underline;
-	text-decoration-color: rgba(151, 153, 153, 0.3);
-	font-family: "Microsoft YaHei";
-	transition: 0.3s;
-}
-
-.link:hover {
-	text-decoration-color: rgba(113, 199, 173, 1);
-}
-
-
-
 /* 功能样式 */
 
 .f-1 {
@@ -165,6 +288,10 @@ h1 {
 @media screen and (max-width: 900px) {
 	::-webkit-scrollbar {
 		display: none !important;
+	}
+	.main {
+		margin: 10% auto;
+		width: 90%;
 	}
 	.f-2 {
 		/* 仅在 PC 端显示 */
