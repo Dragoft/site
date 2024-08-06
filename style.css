@@ -320,7 +320,13 @@ img {
 	position: fixed;
 	left: -330px;
 	z-index: 10;
+	overflow: scroll;
 	transition: 0.3s ease-out;
+}
+
+.menu::-webkit-scrollbar {
+
+	display: none;
 }
 
 .menu-active {
@@ -350,12 +356,6 @@ img {
 	transform: rotate(90deg);
 }
 
-.MenuCheck3-inner {
-	display: block;
-	height: 24px;
-	user-select: none;
-}
-
 .news-box {
 	height: 24px;
 	font-family: 'Microsoft YaHei';
@@ -377,13 +377,30 @@ img {
 	transition: all 0.3s ease-out 0s;
 }
 
+.MenuCheck3-inner {
+	display: block;
+	height: 24px;
+	user-select: none;
+}
+
 
 
 .search-result {
 	margin: -3px 0px;
 	height: 230px;
+	width: 250px;
 	padding: 0px;
 	overflow: scroll;
+}
+
+.search-result::-webkit-scrollbar {
+
+	width: 2px !important;
+	height: 0px !important;
+}
+
+.search-result::-webkit-scrollbar-thumb {
+	background-clip: unset !important;
 }
 
 .search-list {
@@ -560,7 +577,7 @@ img {
 	line-height: 90px;
 	font-weight: bold;
 	opacity: 0;
-	background-image: linear-gradient(62deg, rgba(217, 227, 252, 1), rgba(164, 199, 230, 1));
+	background-image: linear-gradient(62deg, rgba(164, 199, 230, 1), rgba(217, 227, 252, 1));
 	color: transparent;
 	-webkit-background-clip: text;
 	user-select: none;
