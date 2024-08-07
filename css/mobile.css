@@ -35,13 +35,13 @@
 
 .t-3 {
 	font-size: 40px;
-	margin: 0px 130px;
+	margin: 0px 135px;
 	white-space: nowrap;
 }
 
 .t-4 {
 	font-size: 15px;
-	margin: 70px 135px;
+	margin: 70px 140px;
 	width: 55%;
 }
 
@@ -125,7 +125,7 @@
 .Avatar {
 	height: 120px;
 	width: 120px;
-	border-radius: 24px;
+	border-radius: 28px;
 }
 
 .footer-inner {

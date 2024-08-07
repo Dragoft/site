@@ -238,14 +238,17 @@
 
 
 <script>
-	window.parent.postMessage('pagePost("time = " + runtime)', document.domain.length == 0 && '*' || '/');
-	window.parent.postMessage('pagePost("visit = " + visit)', document.domain.length == 0 && '*' || '/');
 
 	setTimeout(function (){
-		document.getElementById('t1').innerHTML = time;
-		document.getElementById('t2').innerHTML = visit;
-		document.getElementById('t3').innerHTML = (visit * 0.2).toFixed(1);
-	}, 1000);
+		window.parent.postMessage('pagePost("time = " + runtime)', document.domain.length == 0 && '*' || '/');
+		window.parent.postMessage('pagePost("visit = " + visit)', document.domain.length == 0 && '*' || '/');
+
+		setTimeout(function (){
+			document.getElementById('t1').innerHTML = time;
+			document.getElementById('t2').innerHTML = visit;
+			document.getElementById('t3').innerHTML = (visit * 0.2).toFixed(1);
+		}, 1000);
+	}, 2000);
 
 
 
