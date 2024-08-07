@@ -57,7 +57,7 @@
 		<span>需要说明一下，「自己做网站」指的是从零开始编写自己的个人网站。找到的个人网站很多，但符合以上条件的几乎没有。</span>
 		<br />
 		<br class="f-1" />
-		<span>だから，我认为很有必要去创作<span class="hint--right hint--rounded" data-hint="用来滥竽充数" >这样一篇文章。</span></span>
+		<span>だから，我认为很有必要去创作<span class="hint--bottom hint--rounded" data-hint="用来滥竽充数" >这样一篇文章。</span></span>
 		<br />
 		<br class="f-1" />
 		<br class="f-1" />
@@ -244,7 +244,7 @@
 	setTimeout(function (){
 		document.getElementById('t1').innerHTML = time;
 		document.getElementById('t2').innerHTML = visit;
-		document.getElementById('t3').innerHTML = visit * 0.2;
+		document.getElementById('t3').innerHTML = (visit * 0.2).toFixed(1);
 	}, 1000);
 
 
