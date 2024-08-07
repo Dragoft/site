@@ -37,6 +37,7 @@ window.addEventListener('load',function(){
 		.catch(err => console.error('Request Failed', err)); 
 
 	} else {
+		visit = 0;
 		if (document.getElementById('visit_counter')!=undefined) {
 			setTimeout(function (){
 				$('#visit_counter_outer').fadeIn(300);
@@ -45,8 +46,9 @@ window.addEventListener('load',function(){
 	}
 
 	function counter(DATA) {
+		visit = DATA['content'];
 		if (document.getElementById('visit_counter')!=undefined) {
-			document.getElementById('visit_counter').innerHTML = DATA['content'];
+			document.getElementById('visit_counter').innerHTML = visit;
 			setTimeout(function (){
 				$('#visit_counter_outer').fadeIn(300);
 			},2000)
