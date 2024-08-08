@@ -75,6 +75,7 @@ timer0 = null;
 device = $(window).width() < 900 && 'Mobile' || 'Desktop';
 states = document.domain == '' && 'Local' || 'Network';
 changeBlog = 0;
+visit = 0;
 
 history.pushState(null, null, location.href);
 

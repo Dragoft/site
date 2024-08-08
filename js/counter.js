@@ -27,7 +27,7 @@ window.addEventListener('load',function(){
 		.then(response => {
 			if (!response.ok) {
 				if (response.status === 429) {
-					console.error('[' + dateFormatter('HH:mm:ss', new Date()) + '] Your request has been blocked by the API Firewall, please wait a moment.');
+					console.error('Your request has been blocked by the API Firewall, please wait a moment.');
 				}
 			} else {
 				return response.json();

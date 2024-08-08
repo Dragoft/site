@@ -15,7 +15,6 @@
 
 <body>
 <script>
-	window.parent.postMessage('pageloaded("- ' + document.title + '")', document.domain.length == 0 && '*' || '/');
 	history.pushState(null, null, location.href);
 
 	window.addEventListener('message', function(event) {
@@ -76,12 +75,13 @@
 		<br class="f-1" />
 		<span>相比之下，个人网站的访问量 & 浏览量一般少得可怜。</span>
 		<br class="f-2" />
+		<div id="t4" >
 		<span>借助个人网站盈利十分困难。就拿这个网站举例，网站</span>
 		<attention>上线 <span id="t1" >0</span> 天</attention> <attention class="hint--top hint--rounded" data-hint="多数还是我自己
 可能是因为我没有引流罢了" ><span id="t2" >0</span> 位访客</attention>
 		<span>假设现在网站主页上有一个广告，一次点击可以赚 0.2 元，每位访客都只点击了一次，那么到目前为止，网站的估计收入为 <attention><span id="t3" >0</span> 元</attention> 这还没有考虑维持网站正常运行的费用。在这种持续亏损的情况下，很多站长最终选择放弃了自己的网站。</span>
+		</div>
 
-		<br />
 		<br class="f-1" />
 		<br class="f-1" />
 
@@ -206,6 +206,7 @@
 		<span>是的，所有网站都终将迎来最后的一天，这个网站也不例外。但是，我们没有必要为此感到沮丧。生活还在继续，世界还在发展。</span>
 		<br />
 		<br class="f-1" />
+		<br class="f-1" />
 		<i>
 		あと10年もう100年 過ぎれば
 		<br />
@@ -240,14 +241,20 @@
 <script>
 
 	setTimeout(function (){
+		window.parent.postMessage('pageloaded("- ' + document.title + '")', document.domain.length == 0 && '*' || '/');
 		window.parent.postMessage('pagePost("time = " + runtime)', document.domain.length == 0 && '*' || '/');
 		window.parent.postMessage('pagePost("visit = " + visit)', document.domain.length == 0 && '*' || '/');
 
 		setTimeout(function (){
-			document.getElementById('t1').innerHTML = time;
-			document.getElementById('t2').innerHTML = visit;
-			document.getElementById('t3').innerHTML = (visit * 0.2).toFixed(1);
+			if (visit != 0) {
+				document.getElementById('t1').innerHTML = time;
+				document.getElementById('t2').innerHTML = visit;
+				document.getElementById('t3').innerHTML = (visit * 0.2).toFixed(1);
+			} else {
+				document.getElementById('t4').innerHTML = '';
+			}
 		}, 1000);
+
 	}, 2000);
 
 
