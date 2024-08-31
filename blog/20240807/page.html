@@ -1,0 +1,257 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh">
+
+<head>
+	<title>关于个人网站的一些思考</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="preload" as="font" href="../../src/Poppins Regular.woff2" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="../main.css">
+	<link rel="stylesheet" type="text/css" href="../../css/hint.css">
+
+</head>
+
+<body>
+<script>
+	history.pushState(null, null, location.href);
+
+	window.addEventListener('message', function(event) {
+		if (event.origin == 'null' || event.origin.includes('https://tatsuno.top')) {
+			eval(event.data);
+		}
+	});
+
+</script>
+
+	<!-- Mian -->
+	<div class="main" >
+
+		<h1>思考</h1>
+		<i>—— 关于个人网站的一些想法。</i>
+		<br />
+		<br class="f-1" />
+		<span>今天无聊，躺在床上胡思乱想。一个问题始终萦绕在我的脑海中：</span>
+		<br class="f-3" />
+		<br class="f-3" />
+		<attention>为什么没有人自己做网站了？</attention>
+		<br />
+		<br class="f-1" />
+		<span>因为好奇心的驱动，我进行了一次粗略的调查，并顺便写了篇文章。</span>
+		<br />
+		<span>这里仅是我的个人拙见，如有异议，欢迎反驳。</span>
+		<br />
+		<br class="f-1" />
+		<br class="f-1" />
+
+		<h2>Part 0: 序言</h2>
+		<span>已经两个月没更新博客了 <span style="font-family: 'Microsoft YaHei';" >:)</span></span>
+		<br />
+		<span>经常浏览国内的各种个人网站。日积月累，便发现了它们共有的一些问题。</span>
+		<br class="f-2" />
+		<span>需要说明一下，「自己做网站」指的是从零开始编写自己的个人网站。找到的个人网站很多，但符合以上条件的几乎没有。</span>
+		<br />
+		<br class="f-1" />
+		<span>だから，我认为很有必要去创作<span class="hint--bottom hint--rounded" data-hint="用来滥竽充数" >这样一篇文章。</span></span>
+		<br />
+		<br class="f-1" />
+		<br class="f-1" />
+
+		<h2>Part 1: Money talks!</h2>
+		<quote>
+			在我看来，真正能出圈变现的博客很少，大多数人的博客访问最多的可能只是你自己。此时花大量时间去搭建一个博客（网站）其实投入产出比很低。
+			<br />
+			<i style="display: block; text-align: right; color: rgba(151, 153, 153, 0.5);" >—— 知乎用户</i>
+		</quote>
+		<br class="f-1" />
+		<span>搭建网站是一件很困难的事。
+		<br />
+		<span>网站的域名、服务器、日常维护等都是一些花钱的玩意儿。文章配图侵权问题已经困扰了我很久。中文字体文件大，<span class="hint--top hint--rounded" data-hint="字体子集? 没门 !" >版权查得严</span>，基本不能用在个人网站上。说不定哪天又有人不高兴了，打打你的 CDN 玩玩。这些都是搭建个人网站的阻力。</span>
+		<br />
+		<br class="f-1" />
+		<span>相比之下，个人网站的访问量 & 浏览量一般少得可怜。</span>
+		<br class="f-2" />
+		<div id="t4" >
+		<span>借助个人网站盈利十分困难。就拿这个网站举例，网站</span>
+		<attention>上线 <span id="t1" >0</span> 天</attention> <attention class="hint--top hint--rounded" data-hint="多数还是我自己
+可能是因为我没有引流罢了" ><span id="t2" >0</span> 位访客</attention>
+		<span>假设现在网站主页上有一个广告，一次点击可以赚 0.2 元，每位访客都只点击了一次，那么到目前为止，网站的估计收入为 <attention><span id="t3" >0</span> 元</attention> 这还没有考虑维持网站正常运行的费用。在这种持续亏损的情况下，很多站长最终选择放弃了自己的网站。</span>
+		</div>
+
+		<br class="f-1" />
+		<br class="f-1" />
+
+		<h2>Part 2: 千篇一律的主题</h2>
+		<span>不可否认，使用模板建站十分简单高效。但消极影响也十分明显。</span>
+		<li class="list1" >网站样式单一，缺乏独创性</li>
+		<li class="list1" >可能存在安全隐患</li>
+		<li class="list1" >代码非原创，更新、维护起来更加困难</li>
+		<br class="f-1" />
+		<span>这里说一点题外话，先介绍介绍下面的这个小调查。博主随机统计了 58 个网站，得到了以下数据。</span>
+		<br />
+		<span>
+			感谢 <attention>萌国ICP备案 <a class="link" href="https://icp.gov.moe/aboutus.php" target="_blank">icp.gov.moe/</a></attention> 提供的随机网站列表！调查时间：<attention>2024.8.7 2:00 PM</attention>
+		</span>
+		<br />
+		<br class="f-1" />
+		<table border="1">
+			<thead>
+				<tr>
+					<th>使用主题</th>
+					<th>可能使用</th>
+					<th>未使用</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>39</td>
+					<td>9</td>
+					<td>10</td>
+				</tr>
+			</tbody>
+		</table>
+		<br class="f-1" />
+
+		<div class="f-2" >
+			<span>发现的主题及相应频数</span>
+			<table border="1">
+				<thead>
+					<tr>
+						<th>Butterfly</th>
+						<th>Argon</th>
+						<th>fluid</th>
+						<th>安知鱼</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>5</td>
+						<td>4</td>
+						<td>4</td>
+						<td>3</td>
+					</tr>
+				</tbody>
+				<thead>
+					<tr>
+						<th>Shiro</th>
+						<th>Sakurairo</th>
+						<th>Aria</th>
+						<th>其他</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>2</td>
+						<td>1</td>
+						<td>1</td>
+						<td>19</td>
+					</tr>
+				</tbody>
+			</table>
+			<br class="f-1" />
+			<span>备注：</span>
+			<br />
+			<i>
+				调查的 58 个网站几乎全部为国内的个人博客，网盘、论坛等网站不在调查范围内。
+				<br />
+				「使用主题」指那些直接在页脚标明的网站。
+				<br />
+				「可能使用」指那些很可能使用了主题，但没有标明的网站。无法判断是否使用了主题。
+			</i>
+			<br />
+		</div>
+		<div class="f-3" >
+			<i>完整数据仅在 PC 端显示 ......</i>
+			<br />
+		</div>
+
+		<br class="f-1" />
+		<span>通过分析不完全统计的结果，以小见大，可以认为国内的博客等个人网站中约有 <attention>67.2 %</attention> 使用了主题模板，だが，实际比例可能更高。</span>
+		<br />
+		<br class="f-1" />
+		<span>我不是在反对使用主题搭建网站，只是被这个调查结果震惊到了。</span>
+		<br />
+		<br class="f-3" />
+		<span>我们有多久没有试着自己写过代码了？我们是否过于追求简便，而忽略了个人网站曾经的内核 —— 个性化？网站模板必然方便，但带来的网站往往来得快去得也快：缺乏独创性，网站管理能力不足，内容单一乏味，网络竞争激烈，从一开始便注定了网站下线的命运。</span>
+		<br />
+		<br class="f-1" />
+		<br class="f-1" />
+
+		<h2>Part 3: ENV</h2>
+		<span>这点我不想多说，但我认为很有必要提一下。</span>
+		<br />
+		<br class="f-1" />
+		<br class="f-1" />
+
+		<h2>Part 4: FORESEE</h2>
+		<quote>
+			很多人认为博客的衰落是必然的结果，是我们所有人共同的选择。
+			<br />
+			<i style="display: block; text-align: right; color: rgba(151, 153, 153, 0.5);" >—— 未知出处</i>
+		</quote>
+		<br class="f-1" />
+		<span>从电脑到手机，从分散到集中，个人网站渐渐退出了人々的视野。</span>
+		<br />
+		<br class="f-1" />
+		<span>网站已经运行了这么多天，我还从来没有问过自己：<attention>这样做真的值得吗？</attention></span>
+		<br />
+		<br class="f-1" />
+		<span>当初花了无数精力，从自学前端，到独自摸索 Cloudflare 后端。付出了这么多之后，我才走到了这一步。跨越了几千公里，通过一行行超文本代码将我的想法分享给屏幕前的你。至少在这一点上，我认为是值得的。</span>
+		<br />
+		<br class="f-1" />
+		<span>是的，所有网站都终将迎来最后的一天，这个网站也不例外。但是，我们没有必要为此感到沮丧。生活还在继续，世界还在发展。</span>
+		<br />
+		<br class="f-1" />
+		<br class="f-1" />
+		<i>
+		あと10年もう100年 過ぎれば
+		<br />
+		変わりゆく この世界
+		<br />
+		僕らもうここに いないけれど
+		<br />
+		守りたいものがある
+		<br />
+		......
+		</i>
+
+	</div>
+
+
+
+
+
+
+
+<script>
+
+	setTimeout(function (){
+		window.parent.postMessage('env.f.page.ok("- ' + document.title + '")', document.domain.length == 0 && '*' || '/');
+		window.parent.postMessage('env.f.post("runtime = " + env.data.time)', document.domain.length == 0 && '*' || '/');
+		window.parent.postMessage('env.f.post("visit = " + env.data.visitors)', document.domain.length == 0 && '*' || '/');
+
+		setTimeout(function (){
+			if (visit != 0) {
+				document.getElementById('t1').innerHTML = time;
+				document.getElementById('t2').innerHTML = visit;
+				document.getElementById('t3').innerHTML = (visit * 0.2).toFixed(1);
+			} else {
+				document.getElementById('t4').innerHTML = '';
+			}
+		}, 1000);
+
+	}, 2000);
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

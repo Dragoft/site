@@ -1,253 +1,315 @@
-<!DOCTYPE HTML>
-<html lang="en">
+﻿<!DOCTYPE HTML>
+<html lang="zh">
 
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>| 白龙巜丶</title>
-	<link rel="shortcut icon" href="resource/Haku.ico" />
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="text.css">
-	<script src="script.js"></script>
+	<title>tatsuno.top/</title>
+	<link rel="shortcut icon" href="src/icon.png?ver=5" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="preload" as="font" href="src/Poppins Regular.woff2" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="css/animation.css" />
+	<link rel="stylesheet" type="text/css" href="css/player.css"  />
+	<link rel="stylesheet" type="text/css" href="css/hint.css" />
+
+	<!-- Mobile Device -->
+	<link rel="stylesheet" type="text/css" media="screen and (max-width: 900px)" href="css/mobile.css" />
+
 </head>
-<body oncontextmenu="openMenu(event)" >
 
 
 
-<!-- 加载背景   参考了 "豆苗学前端" 的循环滚动图片 -->
-<div class="background-color"></div>
-<div class="background" id="background">
-	<ul id="list">
-		<li><img src="resource/0.png" class="fade-in" /></li>
-		<li><img src="resource/2.png" class="fade-in" /></li>
-		<li><img src="resource/0.png" class="fade-in" /></li>
-		<li><img src="resource/3.png" class="fade-in" /></li>
-		<li><img src="resource/1.png" class="fade-in" /></li>
-	<script>
-		var box = document.getElementById('background');
-		var list = document.getElementById('list');
-		var left = 0;
-		list.innerHTML += list.innerHTML;
+<body style="pointer-events: none;" id="body" >
+<script>
+	// 定义核心变量
+	const env = {data: {}, f: {}, tmp: {}, timer: {}}
+	env.tmp.t1 = new Date()
+	env.data.list = {}
 
-		window.setInterval(function() {
-		setTimeout(function() {
-			left -= 0.25;
-			if (left <= -3000) {
-				left=0;
-			}
-			list.style.left = left + 'px';
+	// 初始化界面
+	function init() {
+		setTimeout(function (){
+			Typewriter();
+			$('.t-21').css('opacity', '1');
+			$('.Avatar').css('transition', '0.5s');
+			$('.footer').fadeIn(300); 
 
-			// 计算滚动条百分比
-			var bar = document.documentElement.scrollHeight || document.body.scrollHeight;
-			var p_1 = document.getElementById("per");
-			p_1.innerHTML=(((document.documentElement.scrollTop || document.body.scrollTop) / (bar - document.documentElement.clientHeight || document.body.clientHeight)) * 100).toFixed(0) + " " +"%";
+			// 显示菜单按钮
+			$('.menu-btn-1').addClass('fade-in-1');
+			$('.t-36').addClass('fade-in-1');
+			// 激活页面
+			$('#body').removeAttr('style');
 
-}, 0);
-		}, 20);
+			// 弹出问候语
+			env.f.msg('Hello 🎉', 'info', 2500);
+
+		},3000);
+		setTimeout(function (){
+			$('.t-39').addClass('t-3-active');
+		},2000);
+		setTimeout(function (){
+			$('.Avatar').css('opacity', '1'); 
+			$('.t-3').addClass('t-3-active');
+		},1500);
+		setTimeout(function (){
+			$('.Avatar-border').css('opacity', '1'); 
+		},400);
+	}
+
+	// 仅允许由 https://tatsuno.top/ 访问此页
+	ShowAlert = 1;
+	if (document.domain!='') {
+		// 重定向备用域名
+		if (document.domain=='tatsuno.pages.dev') {
+			window.location.href = 'https://tatsuno.top/';
+		}
+		if (window.location.href!='https://tatsuno.top/') {
+			ShowAlert = 0;
+			document.getElementById('body').style.display = 'none';
+
+			window.location.href = 'https://tatsuno.top/';
+		}
+	}
+
+</script>
 
 
-	</script></li>
-	</ul>
+
+
+<!-- Main Code -->
+
+<div class="box-1" >
+	<!-- Header -->
+	<div class="t-36" >
+		<span class="t-37" onclick="env.f.blog.open('page/about')" >About</span>
+		|
+		<span class="t-37" onclick="env.f.blog.open('page/square')" >留言</span>
+	</div>
+
+
+
+	<div class="box-2" >
+	<span class="t-3" >tatsuno<span class="t-40 rotate-1"></span></span>
+	<span class="t-39" >のサイトです。</span>	
+	<div class="t-4" >
+		<div class="Typewriter-1" onclick="Typewriter();" ></div>
+	</div>
+	<div class="Avatar-border" >
+		<div class="Avatar-border-inner" >
+			<img class="Avatar" src="src/Chika.webp" onload="init()" />
+			<div class="t-21">
+				<a target="_blank" href="src/Chika Shirakawa「白川千歌」.png" download="Chika Shirakawa「白川千歌」.png" class="hint--bottom hint--rounded" data-hint="下载头像" ></a>
+				<span class="hint--bottom hint--rounded" data-hint="Hi, I'm Shirakawa, a fox from Northland.
+It's clear that I have something to do with AI.
+(Tatsuno is too poor to invite a cartoonist)
+
+Anyway, I'm here. Nice to meet ya !"></span>
+			</div>
+		</div>
+	</div>
+
+
+
+	</div>
+
+
+
+	<!-- Blog Iframe -->
+	<div class="blog" >
+		<iframe name="frame" class="iframe" id="iframe" ></iframe>
+	</div>
 
 </div>
 
-<!-- 提前加载页脚, 防止覆盖白龙 -->
-<div class="foot_1">
-
-		<p>
-			<a href="https://www.bilibili.com" target="_blank" class="foot_2">
-				<img src="resource/thanks/bilibili.png" class="big" title="哔哩哔哩." style="opacity:0.8;" />
-			<a>
-			<a href="https://dash.cloudflare.com/" target="_blank" class="foot_3">
-				<img src="resource/thanks/Cloudflare.png" class="big" title="Cloudflare." style="opacity:0.8" />
-			<a>
-			<a href="http://tool.mkblog.cn/" target="_blank" class="foot_4">
-				<img src="resource/thanks/mkblog.png" class="big" title="孟坤工具箱." style="opacity:0.8" />
-			<a>
-			<a href="https://github.com/" target="_blank" class="foot_5">
-				<img src="resource/thanks/Github.png" class="big" title="Github." style="opacity:0.8" />
-			<a>
-		</p>
-
-	<center>
-		<hr size=1 style="opacity: 0.5; color: rgba(100, 102, 102, 0.5);" />
-		<span class="text_4">Copyright © 2023 </span><a href="https://music.163.com/#/user/home?id=6288053607" target="_blank" class="text_5" >白龙巜丶</a><span class="text_4">All rights reserved.</span>
-		<br />
-		<br />
-		<br />
-		<br />
-		<p class="text_7">感谢以上网站提供的帮助 !</p>
-		<p class="text_4 fade-in">· <span id="sitetime" class="text_7">已上线: <span class="text_6">0</span> 天 - <span class="text_6">0</span> 小时 - <span class="text_6">0</span> 分 - <span class="text_6">0</span> 秒</span> ·</p>
-	</center>
-</div>
 
 
-<img src="resource/Haku.png" class="Haku">
-<p class="text_3">您的进度:<span class="per" id="per">0 %<span></p>
+<div class="FixedBox" >
 
+	<!-- Menu  -->
+	<div class="menu-btn-1" onclick="env.f.menu.open()" ></div>
+	<div class="menu-btn-2" onclick="env.f.menu.close()" ></div>
+	<div class="menu-btn-3" onclick="env.f.blog.close()" ></div>
 
+	<div class="menu" >
+		<div class="menu-title" >
+			MENU.
+		</div>
+		<hr style="border: none; border-top: 1px solid rgba(100, 102, 102, 0.3); width: 250px; margin-top: -5px; margin-left: 0px;" />
 
-
-
-
-<!-- 网站内容 -->
-
-<div class="p_1 frosted_glass"></div>
-<p class="text_1">There are some magic words，aren't here?</p>
-
-<div class="p_2 frosted_glass"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!-- 参考了 "山羊の前端小窝" 的侧边栏代码 -->
-	<div class="shell">
-		<a class="e-box"></a>
-
-		<a href="javascript:void(0)" class="box">
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAMwSURBVGhD7ZgxaxRBFMdPsbA40dIPoOgHsIsphAgeeIVgwBSChZaiKcTPYGVSWWiRLhYBiwgnKMRCO0ELCwMWlrbiFRaC/v8zb/dud9+bnc3tuET2B483s+y9ff/dmTczN+jpmCPiO2H688dpuFuwc7BfsPewneGJk2xH0ZkAJH8D7ils6C7M+AK7BhH0tZgCppM3V+Eewi7AjvNaAL6xD7BHw9HKS3clAJK/DrcNO+YuVPkOuwwRn33XRhWA5B/D3fe9xmxAxLq0KyD5i3CvYXUvZQobQcQ739WpCJA3v+t7B2asfQlJfgIrDxuLWhFHxc/DYbMolRhI/jxck+QJ792TIaeiCeCYX5RCDEl+D2YlH6o6nCfblghNQN3YjCGPMZc8S6bGb9gq7Ka0NTIRrFwFtDnwR5oFMKatCW/ejwdSyEcYRWgw4TWM8R125C2HqhPnxFnczyrl0L5AmzAhK3lyJ0ueSHsMY6IaHIJc+HJSC1gSr7GOhLeknYNrr+BGMEsEV+2c1AKs+ZQtfBacL9ZvC/MktYB98WWY3ARj/orvzsC1FbjQPOB+KSe1AA4Rq0RyPO/KxHWgzYXuBcxK/ivsuW96oqtQU7KqhaRuwz2BWUlxSLCEfoNxi2GtFZwTy5gjn3zXo32B6K1sgDwGHvgMbg0WrPGw0CqdbSkKyRNNQGhyxVKIgQezPIZEkFPiy/A3Y8RQ90OagE3xi1CJISIuwazyqMHkudC99d0qFQEYu3zQhu8dCG6n88VpHnmLoRo/T5a8GitDrUJIgPt57k/4wJg5wXt476r81kRELMPy7YDBg7rkibq/+RegOnGLwXPHGXdhBl/GXSTPyV9LZwIIRHBB4w6TWw5WIy58W0i+7uv8P5hfQI6WrR7qU8RUBeBBrR/qU8QkFQHyllo91KeImaGV0RSH+hQxHZqA1g/1IEVMhyagbnLFUI6RIqZDmwOtHeqlmSRmhrqVOEz0ArqmF9A10VWoKTFVqCmxVSjmAFNHOUaKmA5NQOuHepAipkMTkOJQn+SPAlIRgHHW+qE+RcwMdSknmHj8y+8erMnhY9N6EEkRs6en51AzGPwFtuQYaUAhe1gAAAAASUVORK5CYII=" style="opacity:0.8" />
-			<span> 菜单.</span>
-		</a>
-		<a href="javascript:void(0)" class="box">
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAR5SURBVGhD7ZlbaBVHGMdnTwIxjaniBQJazIMFDUoNeIk2DwH7oKBgtaISA0VCXwIardCKLQ3oi1BMFMRXRUGkGgPtgy+FA7UaUVBB1IeCrTfyELWNl1iIZ/3/d749nk3O7pnZXY0H8oOPmW/Ozmb+881147iuq8qZjKRly4SA8WZCwHhT9gJSX0ZfPB9ag2QTrAk2l2UW/AXrh52umfzxb15JCWILeHH+90lIFsDYUKVmTnuo5tZ/ryoqlnp+ciikDUIoKhRrAdLwfbDdXsFoZtUpNWcWBmcqo/M5bDVEXNDuWKwEoPHs8V9g87yCMKqhcT5Gz0fVUpAIimgMi4SxAOn5a7DoxvtkMv+o2XWLahrm/yslkWDu8P2LYd/BOI8K6YeA5ZIPYBNnDhuzxpNcbo6692iveCVBA19xqMDWwt2jS/M0yeIwBqMISO8Pa8+KEVhtzaqVr7RrDhr8K5LCRp+EuDbJ5zGNAMd+HCphcesekNRHr3ajMBVQtLIhceteldSn6J7y3nfizv6++q7sMQ7JSDgnJBuJqQBuKnHJ1915qbc9o3J3h6pqT0hRYkwF3JTUFk7ifF3H4RHDve46zprObN9UKU6EkQBZRX7WnhU9/gq0/XLvbCRfvM45bQ6EOVW5r1ieFJs58CPsjs4awWdZx6NCqc1Ysi8cWrH+JlbuPoholZ8SYSxAenIjzEQEn/mycP3HhtPqKOes9tzjylEtEpVE2ESAIjieG2Fhw4ljnr814tm80B0Xe7EXOItGMuoM/Sn/T88iCgOVrvu190ACrE+jPt7u/FnDsHrGsxaonazUjVvVhb3ug9VnH3p8t+O+XZFc5S7ApB442LRhoRSNAbtxoHFYWjHygsQWQEz+ANl16ex9CDiPH/+UIghw6pH8lHudaez5fN11XRrknQlA73NX7MBxuVO9lCMSj84vh3uQO4Io5I++3/afa0Zv/zHiqE8OL1v/QIpVVzZbOVT1+K7rqDPdTRt2SnEAEwFWc4Cg8T8guQ1723ii852w2/KMh6tyrVx9ChtPulpaRth4DKtEy6lxBNAoHsxOwUz/ICfsFkSDEzsWaUfgKMymt/gs67xTjASg97ciadeeFe1S1xr0fskDHykpAA3gmaVbe7HolnfYwutlIX9LGsAkApyYM3Q2FqzLd9jCu3EhRb9MRApAzzGMHdpLRIe8ywgMHwoefQc+LWmAUhHgREzS+z58R+QCgEZXwpph5+COHrJXsQIV/VIXuYyi1/iyddpLyDRMg4ZPxbGCZ5XlEFD0ThIaAQn5au2lwNP/+KlFHGP8L3OhF6qoIcQxWKWzKcBIDz4Vxwhe6tnzoZ8VSZSAVC4cAQafSCYULpUnYWvR8CVRPe8TOgcwhC4iKfo5LwFXcLRI6+u1R1QEvpE0TbZJmhqhAtBTDN9+7aXCfnlnqpQ8jWIocTLvgDXDjDcjgbczTsJDaLzRf1xssT1O8+s0L+J1MG5OuEcG4LI3CBuA8fx/J8lx2gRjAR8qUZO4LJgQMN6UuQCl3gDe/n5EtYruEQAAAABJRU5ErkJggg==" style="opacity:0.8" />
-			<span> 介绍.</span>
-		</a>
-		<a href="javascript:void(0)" class="box">
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAASfSURBVGhD7ZlbqBVVHIe3mhdUtPDFerFEQVEpTcEw6IKKmliKSg+VioKElzqRD6KHqBN0I+/iS1heQfCKShaC5PXgi4LiBY00FXxQyNJM007fb9aazczaa2bvPduztwfOBx9rzXjOWf//rOuMbZqamnItmba2bLG0JlBrWhOoNSWvQndu//ksxTv4Cg7EnvgouY6n8Rfc2KVrt0u6WYyiCdjAv8DJ+ITuVYEHuBUXFkskNQGC1xNfg12DG9XnNr5PEhvNZSGJc4DgP6TYgLUKXqjtDTYWL94esE9ewbucxHW4j6dyLrjziKDNfhRjcBq+oHsO7/p6oiAB/pDG/CmMPvl/cAF/YJW5bF6IYS7FN9gpuGHQcBrkzgnfENKEdYMfVa3ghW1rFKrtEMWk2GLEesA+/QsYXW3mVSv4jxq321out2T4pLAnVpo7AVqd+kZ7wU1gMUWDuQo4WX96/2D9sZBoI2XQHXthD3yI16zRJxwjbJOYTlBE50Q9CXxu6wVDSJtUFE1YLw1/dO+Pc7EB6/B59A1JBf8mrsWfrLtwFurfiuHGEIvRbVA7bJR9toxBoP0pNB71JBbZUsNshCeJV1E/8yK2R03MAbgclcgQTNsg3RhiMbqNxY4HdFXSUvkxjkc9wTbYGV/GL1HDJMpo7G2qMdS2nuZR1JKth1KAJ4ZYjL4uL4W3sJ2pxngJR5pqHq0evp8N6YhTUMn31Y1yyJpAdH2Oot74gGHUxVwGnEVN3DSU4Ov4RnBVBlkTuGFLH0NRkzZkD5431VSUtDsHi5I1gYO29KGn+Qm9EI5VHZEX4pXgKhn10l1TLZ2sCazH+6bqRWNZS6uGlNiNE/BnTBpOv6PeBcoiawLHMK0xBa5dVIezEB0ENfnfRv3+PdQuqoTUS1/hASyLTAnUP3lLByvtA3eCG360tG6iF95D1YWGiF5UtFJp/R+Hmi8zcRvexLLI2gPiCG421USewu9wM0kMQ21k4m88g9qk9uJxLDt4kTkBekFz4Fu8HNxIRkHrKR/CXSQxGqPLbEVU0gNCJ1etMP8GV+lowxqLP2IjSUyM9EhmKkqAXviPYguuQNVLQW1qvV+N4ypNotIeCJP4FHXa1Hm9VJ7G+VjRcHIT0LeZPJzF9Z5aFJL4i0JD6WtUvVSGYwdT9eOJIRajm4DW4yg6YZYESeh48RlOxUYsdv4RSrbY0HNjiMXoJuBuTnNsWRIkcQ+1NGp9n41qLC0RzZ/EtzKLG0MsRt878W/mKs8MXit/sPWyYILqKK0j9jx8DTXetUvfQgWvZfhXki5I0r4TT6f6vbmT57nEd2LBL+2g0JYfol13LEkcNpfZIJlnKPqgXoK0kV3Eq77gRcPAkRo6WnKjX0h2EvxEWw/wJaBG9F3I/SZTRxLaVZsdgtf78lJ0P+/ou5ASz1OQgEjoOqEDmdbvwymvm5mgTa02euoa874vczNos2AoexMQ/EF9j9RTeByoI/hlth4jMQFhe0Jfp5NeIZsbDRt9nU5cRFJ3YvuLg3BncKO6qE2N+dQVMLUHotAbLfN/aB53Kj7M1ZrWBGpNawK1poUnkMv9D4bheYXHimm/AAAAAElFTkSuQmCC" style="opacity:0.8" />
-			<span> 图册.</span>
-		</a>
-		<a href="javascript:void(0)" class="box">
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIySURBVGhD7Zi9SwMxGMav4uiou3+A6203KOjQv0IcBEHcXATFoUsFNxEc6+zi1qWgww1C1y7ioJv4hbV2s6Dv04Sr17zptSZNPLgfPOS9a8jluXy86ZW6nx9BnpmRZW4pDPjGloFl0gXphfRtSWgLbaJtLaaLeJZ0QtrqX02PM9IOqde/+oXpCLjoPMAz8CwFkxHA0F6J0BkrpGsRCkxGYFuWLlGeaTICWGTzInTGK2lBhAKTEXDdeaA8s8gDvikM+KYw4JvCgG9yb2D0USJu4sCG8wfKdBaMQhk4pyTLPryBuJl9zv8nBnRTyNU53xjVgJg2ueg84EZgvHP+15cMnILjdArOwMg/0QmdrgycEssygTMw3jn/8VkGTjmVZYJuEWfT7gTBkzKi06RGaohwwN8NgLt7VybQ+U0RpjEzAGCidRsEb++2FzbezCVpjbRBUr4JATWRxU18FbNPFKYSkC3MR8AzuTfgdQodtBpzVOyS1kmLuDfEA+mcdFxZWmUTDzcC09hWlDZl5+ukQxLXeYD7+L0u6ytwBpRsZwGuTbz5SISZoB7qK3AGlGxnAa5NTJtJYOurBqIQ2Q6JwxY12eYwummjg62v24WQ9WyY0GZQW/AGorBHQvZDFkQ2nGRhDzIo2kBbPNhhJoGtb/J53QjaVSpU7IursajSVron4wTdFHLBEelGhJmgHuoreDMgE1OZVCXpphPu4/cy1W/37wzhbQrZwucUskJhwDc5NxAEP70ym46W/U3wAAAAAElFTkSuQmCC" style="opacity:0.8" />
-			<span> 更多.</span>
-		</a>
-		<a href="javascript:void(0)" class="box">
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAPUSURBVGhD7Zk/aBRBFIcvEkWI2iqiYArFwsJCG7E7i0slilGjNgEDihESsbCwFCwsFIwYMIUoYoJBIhHUwkJbLWKn2FgoaisGBYX4/W7njtm53dm/53mSD37M7oa8N2/m7ZvZuZ6lpaVKN7PCtF1L1weQmEKL37+tpjmE9qNdaAvKwwf0Gj1Cs31r1v3Uw6J4A6Dz6vhVtKn+oDw+onGCmA1u8xMZAB3vpbmOTtUftI9JdJZAfge32Yl7B/5G54V8yFduWmbApM2D4K6J8lWjdQ8tZB0xM6M70XGkTuu9shnMm06hAMwL+x7ZOf8FDeBgIbgtBj4UyBO0of4gQO/EVnxkfrHdFNLo252XwdI6L4ytAWR3Vj7lOzPuDCh1bEPXcDhurr0sPn3uK7e/kGbyLVIKLVb27r5AO4YaqLQOYmc91y+RAh3rq1U/649xuDMgxzbK+URwqo4r9e4iXbtrxUq0Ge1DN+jUV1rXdsP3JbQNHUbvsK02FjcA17E3dTDei25yqZlLs1b0oFXBZYvthu89phVr0Yx8yFfwKIx3K8GUJlWbtOX2B/qEXqDTeuCxfcK0NrHl1n0HQjUVJxqxSBgRpYq/3Naq3gGI84dtrf7R5bZWDZXbXAHgIL7c1qqpK5bPHz7iy22t2qxg3hTyoNFvLbcZOp+EsZVYbvMGoFJpM1lm5xsYm0pJm5DvvAHkKrc5iSu3dfIGkKncFsS1HfKdN4AQTHXu7XASSbZLCaCTLAfQaZYD6DT/dwDsVSK3sGVQlm03AG2WbLShaheubdd3KtwAdHJmc8S07cC17fpOhRuAjv1sRpnqHebaRltpbYWleT3IgrE5Gtw1cX2nwg1gGmlf30D7/nkcbg9umwyhN+gxOq8HaTG2FLT9sSKf8p2ZqIOtozT3g7sm2pNPoBlU5GBLaaORd7+0hrAZGwAfN+EPn1q1+eHTEoDA4S2ak8Fd25mi8yPmOhJfAHFlVB/eU8FlW5GP+kd+XiIDUIqYUVGu2+9EWcim0mZEvoJH0TD63vUibgbqYFx52Y+G0RzKVasN+l/ZkK1+YzsN3vUi8h34l2AGrtDYlW6Od+CAuS4WAMZ1jnkRbUR30DOM26cIhcC+1otXyK5aw/i4ba79KeQD4/rfy+gMOogeonPmeWGwk2q9yD0DODhG454YyJiOAHXIm3gy54LN5PWiVi0nAIFDvZTuGVG7mKLzLetF0enWKVlH14tSqhAzoe2HDmTtc8wyUM6Pu2ljU1oZJQjlqwJp/EKT5veCKFTnGz+IT9N5b1UrLYBOUUrJ6yRdHkCl8gf4i2mZkf775gAAAABJRU5ErkJggg==" style="opacity:0.8" />
-			<span> 文章.</span>
-		</a>
-		<a href="javascript:void(0)" class="box">
-			<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPmSURBVGhD7ZlNiBxFFMff665Zx8y6CaIQUEIO8ZCTwYToIeDg+pEPCLi5rJBDbq63RIwkJBBkE2IUUQ+iKIJiDoKyCRHdhN2EPiSQU9BTlOxhCTkEDDpuZpJxt7ufr3qes1OZrpkpndi70j+Y6f+r7umtf9Wrj+5FIoLljCfHZUtuIGtyA1mTG8iaZW+g+0IWBOrO3YVNBP4WwPhJAlwHRKsRYZB//kjjIqrwbSqAeAuBZviOv3DhxcGiugjlcr1xzf3BbiAIitW70RgiHVqsqBt87zob/QQidaK0o3xTivuKNYWq9fAA//H3/2nlNYhY5O+94EVfSVHfsRpAwmdF/msIaJ3IvpPPQlmTG8ia/7WBUI5LGutCVp08P8qr6jifVVLE8zqs4m/+9ALd4ltXE4nw7eDW5/cnmqlV5/S0OtKIrEyUBodmRFtxeiauTU5fYxed53SiKoJav2Jb+YaUGOjKUxgGqNRjUpROGP0Gyn+6m4m+jwFujqLHDiQ0SFo+DL/pWnmN8h+GhfAH6S0rbgYQj4nqxMni1vKs6HsZAaU2iO5OQT3BPbpHolScDJSK/tci7SB8KcpAUmefhL0Txa916gUnA3p3KtIKArwqsklSAaJxTp3VUtQ7nEoUx+/YTDiOATouogM4emdy6hkJ/maE029UtEkYzkIcv80Gj3HOX5NSA/S8l/mQOms5jgE4K8oK7zxvrniw8KOEjdaPorKEBpxSl3hMvFAaWnWw9NDKw5zz2/naKTltQGG0Pa0XnAxgFL8l0g7hiXuewkbA97eJNuCUOtM6TSba96clNEDl6+19Wy84GYjjgdS5vRX06GeRDYiGRPXKFc75P0UbUBQ9KrKJWw8Uws9EWqEYPq6cDhZXa8Q5Ub3yFOf8A6IN0Pd/FdnEzQBAai63wo+RawuF+bUSaiZ4Vb0g2mQh3NWa14kOo5ckNODxcpkPE41oEScDvMp+KNIOQVDa8WJzECd5rfxzEpoU1Gau2PnqH7+/W5urHNcrL1/7nJw14PFyKm1b4WQgrKsPRNrx6D1RrUxwXp8SbcAVW8Op8QZ43oFk5U2Bovg7PrS1vsbJwMBA+nRoQDAsqoluOc7rNzk92nK4K1F0G33v9bTW1zgZiD04ItIKb27Hat8HbStuY4r0PpWwdxA/slVe4ziI6XGRVhrvgubTtwyIX3DOX5WoK3ztdU6tzyVMxXUQv8LfFQnb4GeLkHvgaOsgbiVJJaV26rSQIjs6dZQa7tT6Gvd/8gVBsVaPdvPvNqJ+T6qf2JBuAHk/cY6d7OUVokyd//0T2VLEKYWWIrmBrMkNZE1uIGtyA9kC8Be5S2JFNLl53gAAAABJRU5ErkJggg==" style="opacity:0.8"; />
-			<span> 工具.</span>
-		</a>
-		</a>
-		<a href="https://music.163.com/#/user/home?id=6288053607" class="box" target="_blank" >
-			<img src="data:image/png;base64,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" style="opacity:0.8"; />
-			<span> 易云.</span>
-		</a>
-		</a>
-		<a class="e-box"></a>
-
-		<a class="e-box"></a>
-
-    </div>
-
-
-
-	<!-- 播放器   参考了 "想想卷王怎么做" 的代码 -->
-		<div class="wrapper">
-			<div class="img-area">
-				<img alt="" class="fade-in big" style="opacity: 0.9; border-radius: 15px;" />
+		<!-- 博客面板 -->
+		<div class="menu-box" style="margin-top: 10px;" >
+			<div class="menu-btn" onclick="env.f.menu.c1()" >
+				<div class="menu-check menu-check-active" id="menu-check-1" ></div>博客<span style="line-height: 18px; font-size: 18px;">「<span class="blog-num" >0</span>」</span>
 			</div>
-			<div class="song-details">
-				<p class="name fade-in" style="opacity: 0" >ㅤ</p>
-				<p class="artist fade-in" style="opacity: 0" >ㅤ</p>
-			</div>
-			<div class="progress-area">
-				<div class="progress-bar">
-					<audio id="main-audio" src=""></audio>
+
+			<div class="MenuCheck1-inner" >
+				<div id="search" >
+					<textarea type="text" id="searchInput" onfocus="this.select();" maxlength="14" placeholder="/search" autocomplete="off" ></textarea><span class="t-38" ></span>
+					<ul class="search-result" ></ul>
+					
 				</div>
-				<div class="song-timer">
-					<span class="current-time">0:00</span>
-					<span class="max-duration">0:00</span>
-				</div>
-			</div>
-			<div class="controls">
-				<i
-					id="repeat-plist"
-					class="iconfont icon-liebiaoxunhuan"
-					title="repeat"
-				></i>
-				<i
-					 id="prev"
-					 class="icon-shangyishou"
-				></i>
-				<i
-					id="start"
-					class="icon-bofang"
-				></i>
-				<i id="next" class="iconfont icon-xiayishou"></i>
-				<i id="more-music" class="iconfont icon-yinleliebiao"></i>
-			</div>
-			<div class="music-list">
-				<div class="header">
-					<div class="row">
-						<p style="color: rgb(113, 199, 173); font-size: 25px;"># </p>
-						<span>播放列表.</span>
-					</div>
-					<span id="close" class="iconfont icon-guanbi"></span>
-				</div>
-				<ul></ul>
 			</div>
 		</div>
 
-		<script src="music-list.js"></script>
-		<script src="player.js"></script>
+		<!-- 通知 -->
+		<div class="menu-box" style="margin-top: 0px;" >
+			<div class="menu-btn" onclick="env.f.menu.c2()" >
+				<div class="menu-check menu-check-active" id="menu-check-2" ></div>通知.
+			</div>
+
+			<div class="MenuCheck2-inner" >
+				<div class="news-box" ></div>
+				<div class="news-box" ></div>
+				<div class="news-box" ></div>
+				<div class="news-box" ></div>
+				<div class="news-box" ></div>
+			</div>
+		</div>
+
+		<!-- 联系 -->
+		<hr style="border: none; border-top: 1px solid rgba(100, 102, 102, 0.3); width: 250px; margin-top: 60px; margin-left: 0px;" />
+		<div class="menu-box" style="margin-top: 10px;" >
+			<div class="menu-btn" onclick="env.f.menu.c3()" >
+				<div class="menu-check menu-check-active" id="menu-check-3" ></div>联系我.
+			</div>
+
+			<div class="MenuCheck3-inner" >
+				<a href="https://music.163.com/#/user/home?id=6288053607" target="_blank" class="t-18" style="margin-left: 25px;" >
+					<img src="src/footer/网易云音乐.png" class="t-15" />
+				</a>
+				<a href="https://space.bilibili.com/3494354685528792" target="_blank" class="t-18" >
+					<img src="src/footer/bilibili.png" class="t-15" />
+				</a>
+				<a href="https://github.com/Dragoft" target="_blank" class="t-18" >
+					<img src="src/footer/github.png" class="t-15" />
+				</a>
+				<a href="mailto:yuu@tatsuno.top" target="_blank" class="t-18" >
+					<img src="src/footer/mail.png" class="t-15" />
+				</a>
+
+			</div>
+		</div>
+
+		<!-- 协议 -->
+		<div class="menu-policy" >
+			<span class="t-41" onclick="env.f.blog.open('page/policy')" >Privacy & Copyright</span>
+		</div>
+	</div>
 
 
 
-	<!-- 右键菜单 参考了 "前端小池" 的作品 -->
-	<div class="menu">
-		<ul class="menu-list">
-			 <a href = "javascript:void(0)" onclick="fun_0();">
-				<li class="menu-item">
-					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVDhPY2QAAnNze4V////dB7GJBf///3/ABGWTBRhNzGzPA825AOUTBIz/GWwYGBlVQDYzmJraNkDFiQImZjbzTc1s/5uY2tynyNmjmkkEI0nz6VOHGc+cPqJIVto+ffqIKgMDAwMA0F8ijlks7YQAAAAASUVORK5CYII=" />
-					<span>ㅤ复制.</span>
-					<!-- 感觉有点鸡肋 -->
-				</li>
+	<!-- Player   V. 1.18 -->
+	<div class="Player" >
+
+		<!-- COVER -->
+		<div class="MusicImgBox" onclick="player.f.menu()" >
+			<img class="MusicImg" onload="$('.Player').addClass('Player-active')" id="load-img" />
+			<div class="bar0" ><div class="bar1" ></div></div>
+		</div>
+
+		<div class="Player-menu" >
+			<span class="list-head" >歌曲列表 <a href="javascript:;" onclick="player.f.reset()" class="resetList" title="重置歌单" ></a></span>
+			<a href="javascript:;" onclick="player.f.mode()" id="Mod" title="列表循环" ></a>
+			<hr class="list-line" />
+			<div class="PlayerList" >
+				<div class="PlayerListInner" ></div>
+			</div>
+		</div>
+		<div class="Player-menu-info" >
+			<div class="Player-menu-info-title" >
+				这篇文章自带了 1 首音乐哦，
+				<br />
+				想要听听吗？
+				<br />
+				<span style="float: right; user-select: none;" >
+					<a class="Player-menu-info-button Player-menu-info-open" >打开</a> | <a class="Player-menu-info-button" onclick="player.f.add.ask(0)" >关闭</a>
+				</span>
+			</div>
+		</div>
+		<div class="PlayerButton PlayerButton-pause" onclick="player.f.play()" ></div>
+		<div class="MusicName" ></div>
+		<audio id="player" src="https://music.163.com/song/media/outer/url?id=448316625.mp3" preload="none" ></audio>
+		<a href="javascript:;" onclick="player.f.show()" class="MusicShow0 f-3" ></a>
+		<a href="javascript:;" onclick="player.f.show()" class="MusicShow1 f-3" ></a>
+	</div>
+
+
+
+	<!-- Footer -->
+	<div class="footer">
+	<div class="footer-inner" >
+		<div class="footer-box-1" >
+			<!-- To give the sincerest thanks -->
+			<span class="footer-t1 footer-t2" >技术支持:</span>
+			<a class="footer-t3 hint--top hint--rounded" onclick="window.open('https://www.cloudflare.com/')" target="_blank" data-hint="Cloudflare" >
+				<img src="src/footer/cloudflare.png" style="opacity: 0" onload="$(this).addClass('fade-in-1')" id="load-img" />
 			</a>
-			<a href = "javascript:void(0)" onclick="fun_1();">
-				<li class="menu-item">
-					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAGwSURBVDhPlVIhT8NQEL57nWADAgKBQEwgMcDoRkLWIpAERYJEIBAYBCEIQlCEsARQ2CUg+AEI3JoNsXWVECQIBAKBGDDB6/G1vIx0TMCXNK/57rt39907FhHqRj7vjmn+HLeE2q106vbO81omlEAi2baLa2AOQI8YihBvE1P5PW1tdV+izEl2vnguJGckdEGiZ97SahDnJDHvMNFK/4du2rY7auQx4sq5fHEDP0eiZCGo39yYWAeRjVB0jYkffb86b2ji6WlnRCn9IMz7zUa1ZPhfyBXmXCWqAh+Lvl+7irgUEgtobUC0KseqLkRVRcI1ClOXZOlbYVpC+wFRuA7PPAGvz0HgvRh9Ao2G94SEV7Z0RYjb8I9iuoJRDikEIqLPaHsCdk5Q5BC6XFQMQ71G65tKUVgHMTw1644bbU9EF+BRN+G5FCVGHDuO0/f2ru8xyQCTXI6Vf8T3U/1MspTJWLue57VNPAaWZxXKbRJr3ve9Z0P/bFi8XSTH2KYneMJT8B3oLD4HnGva3YrFBon1LBTcrBa9BxpDkQlmamHCAUSnSLw2sg4Syf9FZ7f/D6IvI8PF5VY7Q4sAAAAASUVORK5CYII=" />
-					<span>ㅤ刷新.</span>
-				</li>
-			</a>
-			<a href = "javascript:void(0)" onclick="fun_2();">
-				<li class="menu-item">
-					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAADjSURBVDhPrZM/CsIwGMXfi6O6OXgEwbWKQ4UcwcELeBTPoaA3cHRURBcnRzcdOzqIuJjPpI3/QVL0B1/h99I82tBSRJCHutal4sl0gctG+SyY8hkVECOg0FHNpq76POXdv6GEZhC14tg7BGYSRbrm9SuKgpIynD4KpMrCZRZSkL0z+VJAMKiAjUZ7Zu/W3sMR9HOf9jP/2Cxb+xg9gQwzxdL5fbLs4W7dkm0WJuv1YkzhKnUgUUrNb+OCN0/SzF0+ILpGzO42Lnpxu+4yt9m1pE2GcrTf+j5oiEPuH+OZH04buAJvookNcb/MOwAAAABJRU5ErkJggg==" />
-					<span>ㅤ更多.</span>
-				</li>
-			</a>
-			<li class="menu-item-divider"></li>
-			<a href = "javascript:void(0)" onclick="fun_3();">
-				<li class="menu-item menu-item-danger">
-					<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAD1SURBVDhPY/z//z8DTpCdLQGmp059AabRABOUxgS56RoMLH8OgzGIjQVg11yQ4QCUOc7AyKACxiA2SAwNYGouSE1g+P9vN1CTAFSEAcwGiYHkkACq5vy0ZqDQfAZGRhaoCAKAxYByYDUQAAmwhAQOBgH2+UB+BESYIFjB8OFnIuP/rCwJBtY/q4ECNhBxosERRFSB/QN0Fgz8Z9gAdNdFCJtRH+jvADAbDBgdGSbMOIA7qhj/bWSYMKsBjEFsLAC3ZiLAoNTMlMyQnw6MVyAGsbEAhGZG5i8M//8/QMIywGAGJkkgBrGR5f79/QHWgjdX4QUMDAArRF0qt/AOgQAAAABJRU5ErkJggg==" />
-					<span>ㅤ主页.</span>
-				</li>
-			</a>
-		</ul>
+		</div>
+		<div class="footer-box-2" >
+			<!-- 成就 -->
+			<span class="footer-t4 footer-t1" > | 
+				<span style="user-select: text;" ><span id="onlineDate" >0</span> 天<span style="display: none;" id="visit_counter_outer" > & <span id="visit_counter">0</span> 访客</span></span>
+			</span>
+		</div>
+	</div>
+	</div>
+
+
+
+	<!-- MESSAGE   V. 1.0.0 -->
+	<div class="message" >
+		<div class="message-box" >content</div>
+	</div>
+	<div class="pageloading" >
+		<div class="pageloading0 shining-1" >page.loading(): ...</div>
+		<div class="pageloading1" >Err: page loading timeoout (>20000 ms)</div>
 	</div>
 
 
 
 
+
+
+<!-- Javascript -->
+	<script>
+		// 自检
+		env.tmp.t2 = ''
+		setTimeout(function (){
+			if(env.tmp.t2 == 'ok'){
+				setTimeout(console.log.bind(
+					console,
+					'%cPage self-check: %cSUCCESS',
+					'color: rgba(100, 102, 102, 0.8); font-weight: bolder;',
+					'color: rgba(0, 200, 100, 1); font-weight: bolder;'
+				));
+				setTimeout(console.groupEnd.bind());
+			} else {
+				$('.message-box').html('Failed to load "script. js" (TIMEOUT)　<a onclick="location.reload();" href="javascript:;" style="color: rgb(170, 17, 17);" ><ins>Refresh</ins></a>');
+				$('.message-box').addClass('message-error');
+				$('.message').addClass('message-active');
+
+				setTimeout(console.log.bind(
+					console,
+					'%cPage self-check: %cTIMEOUT',
+					'color: rgba(100, 102, 102, 0.8); font-weight: bolder;',
+					'color: rgba(255, 0, 20, 1); font-weight: bolder;'
+				));
+				setTimeout(console.groupEnd.bind());
+			}
+			env.tmp.t2 = null
+			delete env.tmp.t2
+		}, 10000);
+	</script>
+	<script src="blog\staticDB.js" ></script>
+	<script src="js\search.js"></script>
+	<script src="js\typed.js"></script>
+	<script src="script.js" ></script>
+	<script src="js\player.js"></script>
+	<script src="js\url.js"></script>
+
 </body>
+
 
 </html>
