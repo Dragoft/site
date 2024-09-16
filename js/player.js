@@ -117,20 +117,24 @@ player.data.num = player.list.length
 player.data.mode = 0
 player.data.pause = 1
 player.data.subwin = 0
+player.data.lastScrollTop = 0
 
 player.data.timer = {}
 player.data.timer.t1 = null
 player.data.timer.t2 = null
+player.data.timer.t3 = null
 
 player.data.nowplay = {}
 player.data.nowplay.id = 0
 player.data.nowplay.long = "03:09"
+player.data.nowplay.now = 0
 
 player.e = {
 		body: document.getElementById('player'),
 		frame: document.querySelector('.Player'),
 		img: document.querySelector('.MusicImg'),
 		name: document.querySelector('.MusicName'),
+		bar0: document.querySelector('.bar2'),
 		bar: document.querySelector('.bar1'),
 		mode: document.getElementById('Mod'),
 		menu: document.querySelector('.Player-menu'),
@@ -138,13 +142,15 @@ player.e = {
 		list_body: document.querySelector('.PlayerListInner'),
 		btn: document.querySelector('.PlayerButton'),
 		subwin: document.querySelector('.Player-menu-info'),
+		s1: document.querySelector('.Player-menu-sound1'),
+		s2: document.querySelector('.Player-menu-sound0'),
 
 		cover0: document.querySelector('.MusicShow0'),
 		cover1: document.querySelector('.MusicShow1'),
 	}
 
 
-
+ 
 player.f = {}
 
 // 加载音乐信息
@@ -155,12 +161,16 @@ player.f.load = function(){
 	player.e.body.src = 'https://music.163.com/song/media/outer/url?id=' + player.list[id]['src'] + '.mp3'
 	player.e.img.src = player.list[id]['img']
 	player.e.bar.style.width = '0px'
+	player.data.nowplay.now = 0
 
 	setTimeout(function (){
 		if (!isNaN(player.e.body.duration)) {
-			player.data.nowplay.long = player.f.conversion(player.e.body.duration)
+			player.data.nowplay.long = player.f.conversion0(player.e.body.duration)
 		}
 	}, 1000)
+	if (player.e.list[0]) {
+		$('.PlayerListInner').animate({scrollTop: player.e.list[0].offsetHeight * (player.data.nowplay.id - 1)}, 300)
+	}
 
 	// 为当前播放歌曲添加样式
 	if (player.e.list[id] != undefined) {
@@ -261,7 +271,9 @@ player.f.list = function(force){
 
 		player.e.list = document.querySelectorAll(".list-item")
 		player.e.list[player.data.nowplay.id].id = 'list-item-active'
+		$(player.e.s1).animate({scrollTop: 600}, 0)
 	}
+
 }
 
 // 播放、暂停
@@ -274,7 +286,16 @@ player.f.play = function(){
 }
 	player.f.play.set = function(mode){
 		if (mode=='1') {
+			player.e.body.volume = 0
 			player.e.body.play()
+
+			setTimeout(function (){
+				if (!isNaN(player.e.body.duration)) {
+					player.e.body.currentTime = player.e.body.duration * player.data.nowplay.now
+					player.e.body.volume = player.data.nowplay.vol
+				}
+			},300)
+
 			$(player.e.btn).addClass('PlayerButton-play')
 			$(player.e.btn).removeClass('PlayerButton-pause')
 			player.data.pause = 0
@@ -379,13 +400,19 @@ player.f.reset = function() {
 	}
 }
 
-player.f.conversion = function(value) {
+// 转换 mm:ss 时间
+player.f.conversion0 = function(value) {
 	var  minute = Math.floor(value / 60)
 	var minute = minute.toString().length === 1 ? ('0' + minute) : minute
 	var second = Math.round(value % 60)
 	var second = second.toString().length === 1 ? ('0' + second) : second
 	return `${minute}:${second}`
  }
+
+player.f.conversion1 = function(str) {
+	var parts = str.split(':')
+	return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10)
+}
 
 // 调整音量
 player.f.vol = function(n) {
@@ -405,28 +432,49 @@ player.f.show = function() {
 
 
 
-
-
-
 player.f.load()
 player.e.body.volume = 0.4
+player.data.nowplay.vol = 0.4
 
 // 进度条
 setInterval(() => {
 	if(player.data.pause == 0){
-		$(player.e.bar).css('width', (Math.floor(player.e.body.currentTime) / Math.floor(player.e.body.duration)).toFixed(3) * 100 + '%')
+		var progress = (player.e.body.currentTime / player.e.body.duration).toFixed(3) * 100 || player.data.nowplay.now * 100
+		$(player.e.bar).css('width', progress + '%')
 	}
 }, 1000)
+
+// 进度调整
+player.e.bar0.addEventListener('click', function(event) {
+	var percent = ((event.clientX - player.e.bar0.getBoundingClientRect().left) / player.e.bar0.offsetWidth).toFixed(2)
+
+	$(player.e.bar).css('width', percent * 100 + '%')
+	player.data.nowplay.now = percent
+	if (player.data.pause == 0) {
+		player.e.body.currentTime = Math.floor(player.e.body.duration || player.f.conversion1(player.data.nowplay.long)) * percent
+	}
+})
 
 // 列表播放
 player.e.body.addEventListener('ended', function () {
 	if (player.data.nowplay.id == player.data.num - 1) {
-		player.data.nowplay.id = -1;
+		player.data.nowplay.id = -1
 	}
 	player.data.nowplay.id ++
-	player.f.load();
-	player.f.play();
-}, false);
+	player.f.load()
+	player.f.play.set(1)
+})
+
+// 调整音量
+player.e.s1.addEventListener('scroll', () => {
+	var size = 100 - (player.e.s1.scrollTop / 10).toFixed(0)
+	if (size < 0) {var size = 0}
+	if (size > 100) {var size = 100}
+
+	player.e.s2.innerHTML = size
+	player.e.body.volume = size / 100
+	player.data.nowplay.vol = size / 100
+})
 
 // 手机样式
 if (env.data.device == 'Mobile') {

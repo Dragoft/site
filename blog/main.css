@@ -99,17 +99,22 @@ i {
 }
 
 h1 {
-	color: rgba(151, 153, 153, 1);
+	color: rgba(127, 127, 127, 1);
 	font-size: 40px;
 }
 
 h2 {
-	color: rgba(151, 153, 153, 0.8);
+	color: rgba(140, 140, 140, 1);
 	font-size: 25px;
 }
 
+h2:after {
+	content: " #";
+	color: rgba(73, 160, 204, 1);
+}
+
 h3 {
-	color: rgba(151, 153, 153, 0.8);
+	color: rgba(140, 140, 140, 1);
 	font-size: 20px;
 	margin: 0;
 }
@@ -159,7 +164,7 @@ li {
 /* 链接样式 */
 
 .link {
-	color: rgba(151, 153, 153, 1);
+	color: rgba(73, 160, 204, 1);
 	text-decoration: underline;
 	text-decoration-color: rgba(151, 153, 153, 0.3);
 	font-family: "Microsoft YaHei";
@@ -168,7 +173,6 @@ li {
 }
 
 .link:hover {
-	color: rgba(73, 160, 204, 1);
 	text-decoration-color: rgba(73, 160, 204, 1);
 }
 

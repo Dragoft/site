@@ -1,19 +1,5 @@
-﻿h1 {
-	color: rgba(151, 153, 153, 1);
-	margin-left: -3px;
-	font-size: 40px;
-}
-
-h2 {
-	color: rgba(151, 153, 153, 0.8);
-	margin-left: -3px;
-	font-size: 25px;
-}
-
-h3 {
-	color: rgba(151, 153, 153, 0.8);
-	margin-left: -3px;
-	font-size: 20px;
+﻿h2:after {
+	display: none;
 }
 
 

@@ -502,14 +502,14 @@ window.addEventListener('load',function(){
 		})
 		.then(response => {return response.json()})
 		.then(json => {
-			env.data.visitoes = json.results[0].content
-			$('#visit_counter').html(env.data.visitoes)
+			env.data.visitors = json.results[0].content
+			$('#visit_counter').html(env.data.visitors)
 			$('#visit_counter_outer').fadeIn(300)
 
 			env.f.setCookie('Cookie !')
 		})
 	} else {
-		$('#visit_counter').html = env.data.visitoes
+		$('#visit_counter').html = env.data.visitors
 		$('#visit_counter_outer').fadeIn(300)
 	}
 
@@ -617,7 +617,7 @@ function Typewriter() {
 
 /* Console.log */
 console.log( 
-	'\n%c Theme %c S E K A I %c		ver.1.0.17\n',
+	'\n%c Theme %c S E K A I %c		ver.1.0.18\n',
 	'background-color: rgba(57, 145, 216, 0.5); color: white; font-weight: bolder;',
 	'background-color: rgba(57, 145, 216, 0.3); color: white;',
 	'color: rgba(192, 194, 194, 1);',

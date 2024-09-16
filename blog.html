@@ -37,14 +37,14 @@
 
 	</div>
 
-	<!-- Player   V. 1.18 -->
+	<!-- Player   V. 1.19 -->
 	<div class="Player" >
 
 		<!-- COVER -->
 		<div class="MusicImgBox" onclick="player.f.menu()" >
 			<img class="MusicImg" onload="$('.Player').addClass('Player-active')" id="load-img" />
-			<div class="bar0" ><div class="bar1" ></div></div>
 		</div>
+		<div class="bar2" ><div class="bar0" ><div class="bar1" ></div></div></div>
 
 		<div class="Player-menu" >
 			<span class="list-head" >歌曲列表 <a href="javascript:;" onclick="player.f.reset()" class="resetList" title="重置歌单" ></a></span>
@@ -262,7 +262,7 @@ window.addEventListener('load',function(){
 		})
 		.then(response => {return response.json()})
 		.then(json => {
-			env.data.visitoes = json.results[0].content
+			env.data.visitors = json.results[0].content
 			env.f.setCookie('Cookie !')
 		})
 	}

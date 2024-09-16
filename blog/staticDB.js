@@ -38,15 +38,9 @@ env.data.list.Bloglist = [
 
 
 	{
-		name: 'Safebooru.org',
-		src: '20240814/',
-		details: '2024.8.14\n简单介绍一下 Safebooru',
-		type: '',
-	},
-	{
-		name: '我的思考',
-		src: '20240807/',
-		details: '2024.8.7\n关于个人网站的一些想法',
+		name: 'Twilight Forest',
+		src: '20240916/',
+		details: '2024.9.16\n魔法森林中的迷失',
 		type: '',
 	},
 

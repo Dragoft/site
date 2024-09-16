@@ -55,7 +55,7 @@
 .MusicName {
 	position: absolute;
 	width: 143px;
-	margin: -39px 56px;
+	margin: -49px 56px;
 	color: rgba(245, 245, 245, 1);
 	text-shadow: 1px 1px 3px rgb(0, 0, 0, 0.3);
 	height: 23px;
@@ -193,7 +193,7 @@
 
 .PlayerButton {
 	position: absolute;
-	margin: -44px 25px;
+	margin: -54px 25px;
 	right: 150px;
 	width: 36px;
 	height: 36px;
@@ -224,13 +224,30 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	position: relative;
 	width: 100%;
 	height: 2px;
-	bottom: 7px;
-	background-color: rgba(255, 255, 255, 0.3)
+	bottom: -8px;
+	background-color: rgba(255, 255, 255, 0.3);
+	pointer-events: none;
 }
 
 .bar1 {
 	height: 2px;
 	background-color: rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+}
+
+.bar2 {
+	position: relative;
+	width: calc(100% - 8px);
+	left: 4px;
+	height: 10px;
+	bottom: 10px;
+	border-radius: 20px;
+	overflow: hidden;
+	cursor: text;
+}
+
+.bar2:hover .bar1 {
+	background-color: rgba(0, 0, 0, 0.4);
 }
 
 .list-head {
@@ -288,4 +305,35 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	cursor: pointer;
 }
 
+.Player-menu-sound0 {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	right: 28px;
+	top: 7px;
+	font-size: 14px;
+	line-height: 20px;
+	user-select: none;
+	text-align: right;
+}
+
+.Player-menu-sound1 {
+	position: absolute;
+	right: 30px;
+	top: 5px;
+	height: 20px;
+	width: 20px;
+	overflow: scroll;
+}
+
+.Player-menu-sound1::-webkit-scrollbar {
+
+	display: none;
+}
+
+.Player-menu-sound2 {
+	position: absolute;
+	height: 1200px;
+	width: 20px;
+}
 
