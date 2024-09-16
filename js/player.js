@@ -293,12 +293,12 @@ player.f.play = function(){
 				if (!isNaN(player.e.body.duration)) {
 					player.e.body.currentTime = player.e.body.duration * player.data.nowplay.now
 					player.e.body.volume = player.data.nowplay.vol
+
+					player.data.pause = 0
+					$(player.e.btn).addClass('PlayerButton-play')
+					$(player.e.btn).removeClass('PlayerButton-pause')
 				}
 			},300)
-
-			$(player.e.btn).addClass('PlayerButton-play')
-			$(player.e.btn).removeClass('PlayerButton-pause')
-			player.data.pause = 0
 		}
 		if (mode=='0') {
 			player.e.body.pause();
@@ -439,14 +439,14 @@ player.data.nowplay.vol = 0.4
 // 进度条
 setInterval(() => {
 	if(player.data.pause == 0){
-		var progress = (player.e.body.currentTime / player.e.body.duration).toFixed(3) * 100 || player.data.nowplay.now * 100
-		$(player.e.bar).css('width', progress + '%')
+		player.data.nowplay.now = (player.e.body.currentTime / player.e.body.duration).toFixed(8) || player.data.nowplay.now
+		$(player.e.bar).css('width', player.data.nowplay.now * 100 + '%')
 	}
 }, 1000)
 
 // 进度调整
 player.e.bar0.addEventListener('click', function(event) {
-	var percent = ((event.clientX - player.e.bar0.getBoundingClientRect().left) / player.e.bar0.offsetWidth).toFixed(2)
+	var percent = ((event.clientX - player.e.bar0.getBoundingClientRect().left) / player.e.bar0.offsetWidth).toFixed(8)
 
 	$(player.e.bar).css('width', percent * 100 + '%')
 	player.data.nowplay.now = percent
