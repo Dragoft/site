@@ -80,14 +80,21 @@ img {
 }
 
 code {
-	display: inline-block;
-	vertical-align: middle;
-	padding: 4px 6px;
-	line-height: 22px;
-	font-size: 25px;
-	background-color: rgba(244, 243, 241, 1);
-	border-radius: 6px;
-	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	display: block;
+	background-color: rgb(232, 243, 249);
+	color: rgba(73, 160, 204, 0.5);
+	padding: 6px 12px 6px 12px;
+	font-family: 'Poppins Regular', 'Microsoft YaHei';
+	line-height: 28px;
+	font-size: 16px;
+	border-radius: 5px;
+	white-space: pre-line;
+}
+
+code note {
+	color: rgba(73, 160, 204, 1);
+	user-select: none;
+	pointer-events: none;
 }
 
 span {

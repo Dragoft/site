@@ -67,6 +67,11 @@ function loadMusicData() {
 		img: 'https://p2.music.126.net/JIeHyV-yad8BDq_4GmsVuA==/2572857209028564.jpg?param=300y300',
 	},
 	{
+		name: 'Gusts of Wind Blowing in Different Directions - The Last Dinosaur',
+		src: '19498811',
+		img: 'https://p1.music.126.net/f3exPjEKfsnrQbsUqUlb2w==/109951169557730207.jpg',
+	},
+	{
 		name: 'There Is Still Wonder Left To Behold - reche',
 		src: '2017419119',
 		img: 'https://p1.music.126.net/b4dFvmdWVTmHv6gKgdgzEQ==/109951168261721978.jpg?param=300y300',

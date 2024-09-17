@@ -328,7 +328,8 @@ img {
 
 .menu-title {
 	height: 40px;
-	margin: 15px 0px;
+	margin-top: 22px;
+	margin-left: 22px;
 	font-size: 35px;
 	line-height: 35px;
 	color: rgba(100, 102, 102, 0.8);

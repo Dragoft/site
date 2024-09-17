@@ -4,7 +4,7 @@ env.data.list.Bloglist = [
 	{
 		name: '关于网站',
 		src: 'page/about/',
-		details: '2023.6.7\n网站信息 & 大事记 & 特别感谢',
+		details: '2023.6.7\n网站信息',
 		type: 'hide',
 	},
 	{
@@ -31,7 +31,7 @@ env.data.list.Bloglist = [
 	{
 		name: '神隠し',
 		src: '20240610/',
-		details: '2024.6.10\n博客网站停更公告...',
+		details: '2024.6.10\n博客网站停更公告 ...',
 		type: '',
 	},
 
@@ -43,19 +43,18 @@ env.data.list.Bloglist = [
 		details: '2024.9.16\n魔法森林中的迷失',
 		type: '',
 	},
+	{
+		name: 'Chika',
+		src: '20240917/',
+		details: '2024.9.17\n这是 Chika 的个人主页 ...',
+		type: '',
+	},
 
 ];
 
 
 
 /* 
-
-	{
-		name: '',
-		src: '',
-		details: '',
-		type: '',
-	},
 
 	TYPE:
 	图集:	文章:	实验:	教程: 	置顶: 
