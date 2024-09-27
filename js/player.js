@@ -293,17 +293,12 @@ player.f.play = function(){
 		if (mode=='1') {
 			player.e.body.volume = 0
 			player.e.body.play()
+			player.e.body.currentTime = (player.e.body.duration || 0) * player.data.nowplay.now
+			player.e.body.volume = player.data.nowplay.vol
 
-			setTimeout(function (){
-				if (!isNaN(player.e.body.duration)) {
-					player.e.body.currentTime = player.e.body.duration * player.data.nowplay.now
-					player.e.body.volume = player.data.nowplay.vol
-
-					player.data.pause = 0
-					$(player.e.btn).addClass('PlayerButton-play')
-					$(player.e.btn).removeClass('PlayerButton-pause')
-				}
-			},300)
+			player.data.pause = 0
+			$(player.e.btn).addClass('PlayerButton-play')
+			$(player.e.btn).removeClass('PlayerButton-pause')
 		}
 		if (mode=='0') {
 			player.e.body.pause();

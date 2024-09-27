@@ -150,21 +150,71 @@ env.f.getDate = function() {
 	return diffYears*365+diffDays
 }
 
-// iframe 通讯器
+// iframe 通讯
 env.f.post = function(event) {
 	document.getElementById('iframe').contentWindow.postMessage(event, document.domain.length == 0 && '*' || '/');
 }
 
-// 清除 url 参数
-env.f.clearURL = function() {
-	var url = window.location.href
-	if (url.indexOf('?') !== -1) {
-		var url = url.replace(/(\?|#)[^'"]*/, '')
-		history.replaceState(null, null, url);
+// url 参数
+env.f.url = {}
+	// 清除
+	env.f.url.clear = function() {
+		var url = window.location.href
+		if (url.indexOf('?') !== -1) {
+			var url = url.replace(/(\?|#)[^'"]*/, '')
+			history.replaceState(null, null, url)
+		}
 	}
-}
 
-// 清除 url 参数
+	// 修改
+	env.f.url.change = function(name, value) {
+		let url = location.href
+		let url2
+
+		if (typeof value === 'string') {
+			value = value.toString().replace(/(^\s*)|(\s*$)/, "");
+		}
+		if (!value) {
+			// 移除
+			let reg = eval('/(([\?|&])' + name + '=[^&]*)(&)?/i')
+			let res = url.match(reg)
+			if (res) {
+				if (res[2] && res[2] === '?') { // before has ?
+					if (res[3]) {
+						// 追加 &
+						url2 = url.replace(reg, '?')
+					} else {
+						url2 = url.replace(reg, '')
+					}
+				} else {
+					url2 = url.replace(reg, '$3')
+				}
+			}
+		} else {
+			let reg = eval('/([\?|&]' + name + '=)[^&]*/i')
+			if (url.match(reg)) {
+				// 编辑
+				url2 = url.replace(reg, '$1' + value)
+			} else {
+				// 添加
+				let reg = /([?](\w+=?)?)[^&]*/i
+				let res = url.match(reg)
+				url2 = url
+				if (res) {
+					if (res[0] !== '?') {
+						url2 += '&'
+					}
+				} else {
+					url2 += '?'
+				}
+				url2 += name + '=' + value
+			}
+		}
+
+		history.replaceState(null, null, url2)
+	}
+
+// 博客框架
 env.f.blog = {}
 	env.f.blog.open = function(id) {
 		// 打开博客界面
@@ -178,7 +228,7 @@ env.f.blog = {}
 		if (document.domain!='') {
 			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/blog?id=' + id)
 		} else {
-			changeURLStatic('id', id)
+			env.f.url.change('id', id)
 		}
 
 		setTimeout(function (){
@@ -201,64 +251,69 @@ env.f.blog = {}
 		// 关闭博客页面
 		env.f.page.loading.stop()
 
-		$('.blog').fadeOut(600);
-		$('.iframe').fadeOut(600);
-		$('.menu-btn-3').css('transition', 'none');
-		$('.menu-btn-3').fadeOut(400);
-		$('.blog').removeClass('blog-active');
-
+		$('.blog').fadeOut(600)
+		$('.iframe').fadeOut(600)
+		$('.menu-btn-3').css('transition', 'none')
+		$('.menu-btn-3').fadeOut(400)
+		$('.blog').removeClass('blog-active')
+ 
 		if (document.domain!='') {
-			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/');
+			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/')
 		} else {
-			ClearURLParam();
+			env.f.url.clear()
 		}
 		if(player.data.subwin == 1) {
-			player.f.add.ask(0);
+			player.f.add.ask(0)
 		}
 
-		$('title').text('tatsuno.top/');
+		$('title').text('tatsuno.top/')
+
+		setTimeout(function (){
+			env.data.change = 1
+			document.getElementById('iframe').src = ''
+		},400)
 	}
 
 // 初始化博客、通知面板
 env.f.init = function() {
 	// 博客
-	env.data.list.Bloglist = env.f.filter(env.data.list.Bloglist, 'type', 'hide');
+	env.data.list.Bloglist = env.f.filter(env.data.list.Bloglist, 'type', 'hide')
 	var BlogTEMP = env.data.list.Bloglist
 
-	var ul = document.querySelector('ul');
+	var ul = document.querySelector('ul')
 	for (var i = 0; i < BlogTEMP.length; i++) {
 		if (BlogTEMP[i]['type'] != 'hide') {
-			var div = document.createElement('div');
-				div.setAttribute('class', 'search-list');
-				div.setAttribute('style', 'display: block');
-				div.setAttribute('id', BlogTEMP[i]['type'] + ' ' + BlogTEMP[i]['name']);
-				ul.appendChild(div);
+			var div = document.createElement('div')
+				div.setAttribute('class', 'search-list')
+				div.setAttribute('style', 'display: block')
+				div.setAttribute('id', BlogTEMP[i]['type'] + ' ' + BlogTEMP[i]['name'])
+				ul.appendChild(div)
 
-			var a = document.createElement('a');
-				a.setAttribute('onclick', `env.f.blog.open('` + BlogTEMP[i]['src'].slice(0, -1) + `')`);
-				a.setAttribute('title', BlogTEMP[i]['details']);
-				div.appendChild(a);
+			var a = document.createElement('a')
+				a.setAttribute('onclick', `env.f.blog.open('` + BlogTEMP[i]['src'].slice(0, -1) + `')`)
+				a.setAttribute('title', BlogTEMP[i]['details'])
+				div.appendChild(a)
 
 			if (BlogTEMP[i]['name'].slice(-1) == '') {
-				a.innerHTML = BlogTEMP[i]['type'] + ' ' + BlogTEMP[i]['name'].substring(0, BlogTEMP[i]['name'].length - 1);
-				var div1 = document.createElement('div');
-					div1.setAttribute('class', 'pin');
-					div1.setAttribute('title', 'Pinned');
-					div1.innerHTML = '';
-					div.appendChild(div1);
+				a.innerHTML = BlogTEMP[i]['type'] + ' ' + BlogTEMP[i]['name'].substring(0, BlogTEMP[i]['name'].length - 1)
+				var div1 = document.createElement('div')
+					div1.setAttribute('class', 'pin')
+					div1.setAttribute('title', 'Pinned')
+					div1.innerHTML = ''
+					div.appendChild(div1)
 			} else {
-				a.innerHTML = BlogTEMP[i]['type'] + ' ' + BlogTEMP[i]['name'];
+				a.innerHTML = BlogTEMP[i]['type'] + ' ' + BlogTEMP[i]['name']
 			}
 		}
 	}
 
 	// 显示博客文章数量
-	document.querySelector('.blog-num').innerHTML = BlogTEMP.length;
+	document.querySelector('.blog-num').innerHTML = BlogTEMP.length
 	// 初始化搜索引擎
 	document.onkeydown = function(e) {
-		var ev = (typeof event!= 'undefined') ? window.event : e;
+		var ev = (typeof event!= 'undefined') ? window.event : e
 			 if(ev.keyCode == 13) {
-				return false;
+				return false
 			}
 	}
 	$('#searchInput').on('keyup', function () {
@@ -267,10 +322,10 @@ env.f.init = function() {
 	// 初始化列表高度
 	if (BlogTEMP.length > 10) {
 		$('#search').css('height', '275px');
-		document.getElementById('searchInput').name = 10;
+		document.getElementById('searchInput').name = 10
 	} else {
-		$('#search').css('height', BlogTEMP.length * 22 +55 + 'px');
-		document.getElementById('searchInput').name = BlogTEMP.length;
+		$('#search').css('height', BlogTEMP.length * 22 +55 + 'px')
+		document.getElementById('searchInput').name = BlogTEMP.length
 	}
 
 
@@ -451,21 +506,10 @@ env.data.memory.obj = performance.memory
 env.data.memory.check = null
 env.data.change = 0
 
-env.data.shoten = {
-	'１階': [{'hall': 'flooded by books, nothing left.'}],
-	'２階': [{
-		'bedroom': 'yuu tatsuno',
-		'living room': 'nothing',
-		'toilet': 'nothing',
-		'study': 'Chika Shirakawa',
-		'kitchen': 'nothing',
-	}]
-}
-
 $('title').text('tatsuno.top/')
 history.pushState(null, null, location.href)
 
-env.f.clearURL()
+env.f.url.clear()
 env.f.check.run()
 
 
@@ -502,7 +546,7 @@ window.addEventListener('load',function(){
 		})
 		.then(response => {return response.json()})
 		.then(json => {
-			env.data.visitors = json.results[0].content
+			env.data.visitors = parseFloat(json.results[0].content)
 			$('#visit_counter').html(env.data.visitors)
 			$('#visit_counter_outer').fadeIn(300)
 

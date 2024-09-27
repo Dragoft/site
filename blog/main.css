@@ -115,8 +115,8 @@ h2 {
 	font-size: 25px;
 }
 
-h2:after {
-	content: " #";
+h2:before {
+	content: "# ";
 	color: rgba(73, 160, 204, 1);
 }
 
