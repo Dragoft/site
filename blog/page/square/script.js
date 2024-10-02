@@ -41,6 +41,7 @@ function sent() {
 
 		if (errN==0) {
 			document.querySelector('.Tcontent').value = '';
+			document.querySelector('.Tcontent').style.height = '48px';
 			document.querySelector('.count').innerHTML = '200 words remaining.';
 
 			ComNum = Number(ComNum) + 1;
