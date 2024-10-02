@@ -154,7 +154,7 @@ function showComment(data) {
 		}, 500);
 
 		setTimeout(function (){
-//			message.Close()
+			message.Close()
 			wait = 0;
 			box.style.opacity = '1';
 		}, 1000);
