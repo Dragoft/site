@@ -135,7 +135,7 @@
 .turn {
 	font-size: 18px;
 	line-height: 18px;
-	color: rgba(98, 185, 229, 0.8);
+	color: rgba(94, 188, 209, 1);
 }
 
 .pagebtn {
@@ -170,7 +170,7 @@
 .sent {
 	display: inline-block;
 	vertical-align: top;
-	color: rgba(98, 185, 229, 0.7);
+	color: rgba(94, 188, 209, 1);
 	font-size: 16px;
 	line-height: 30px;
 	user-select: none;
@@ -325,7 +325,7 @@
 }
 
 .add:hover {
-	background-color: rgba(98, 185, 229, 0.5);
+	background-color: rgba(94, 188, 209, 0.8);
 	color: white;
 }
 

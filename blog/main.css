@@ -186,7 +186,7 @@ li {
 }
 
 .link:hover {
-	text-decoration-color: rgba(73, 160, 204, 1);
+	text-decoration-color: rgba(94, 188, 209, 1);
 }
 
 
@@ -242,6 +242,7 @@ thead tr th {
 	color: white;
 	min-width: 80px;
 	text-align: left;
+	font-weight: lighter;
 }
 
 
@@ -343,8 +344,14 @@ tr:nth-child(odd) {
 		display: unset;
 	}
 	showcase {
+		width: 100%;
 		display: block;
 	}
+	showcase:nth-child(even) {
+
+		margin-left: 0px;
+	}
+
 }
 
 

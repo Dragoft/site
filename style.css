@@ -1,13 +1,9 @@
 ﻿/* RGB List
+	主题色	rgba(94, 188, 209, 1)
 	      绿	rgba(113, 199, 173, 1)
 	      粉	rgba(244, 183, 188, 1)
 	      白	rgba(244, 243, 241, 1)
-	      灰	rgba(227, 229, 229, 1)
-	      灰	rgba(192, 194, 194, 1)
-	      黑	rgba(100, 102, 102, 1)
 	      黑	rgba(151, 153, 153, 1)
-	      蓝	rgba(217, 227, 252, 1)
-	      蓝	rgba(167, 208, 230, 1)
 
 	.f-1 无效元素
 	.f-2 仅在电脑端显示的元素
@@ -317,7 +313,7 @@ img {
 	height: 14px;
 	width: 16px;
 	padding: 6px 5px;
-	color: rgba(164, 199, 230, 1);
+	color: rgba(94, 188, 209, 1);
 	font-size: 16px;
 	line-height: 18px;
 	transition: 0.3s;
@@ -631,6 +627,7 @@ img {
 .t-15 {
 	width: 24px;
 	height: 24px;
+	filter: saturate(90%);
 }
 
 .t-16 {
@@ -760,7 +757,7 @@ img {
 }
 
 .t-37:hover {
-	color: rgba(151, 153, 153, 0.8);
+	color: rgba(94, 188, 209, 1);
 }
 
 .t-38 {
