@@ -8,16 +8,12 @@ function sent() {
 		var name = document.querySelector('.Tname').value.replace(/\n/g, '');
 		var content = document.querySelector('.Tcontent').value;
 
-		if (name.length <= 0) {
-			if (name.length > 20) {
-				retrun	
-			}
+		if (name.length <= 0 || name.length > 20) {
+			return	
 		}
 
-		if (content.length <= 0) {
-			if (content.length > 200) {
-				retrun	
-			}
+		if (content.length <= 0 || content.length > 200) {
+			return
 		}
 
 		wait = 1;
@@ -163,7 +159,7 @@ function showComment(data) {
 
 function deleteComment(id) {
 	$('#body').addClass('body-scroll');
-	$('.del').fadeIn(200);
+	$('.del').fadeIn(150);
 	document.querySelector('.del-id').innerHTML = id;
 	document.querySelector('.delbtn').setAttribute('onclick', 'Delete(`' + id + '`)');
 }
