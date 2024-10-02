@@ -160,7 +160,7 @@
 }
 
 #list-item-active {
-	color: rgba(113, 199, 173, 1);
+	color: rgba(var(--theme-color), 1);
 }
 
 .list-item:hover {

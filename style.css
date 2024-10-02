@@ -18,6 +18,12 @@
 	/* 这个字体中已添加图标成分 */
 }
 
+:root {
+	--theme-color: 94, 188, 209;
+}
+
+
+
 html {
 	height: 100%;
 	width: 100%;
@@ -313,7 +319,7 @@ img {
 	height: 14px;
 	width: 16px;
 	padding: 6px 5px;
-	color: rgba(94, 188, 209, 1);
+	color: rgba(var(--theme-color), 0.6);
 	font-size: 16px;
 	line-height: 18px;
 	transition: 0.3s;
@@ -588,7 +594,7 @@ img {
 	font-size: 22px;
 	line-height: 30px;
 	z-index: 3;
-	color: rgba(192, 194, 194, 0.6);
+	color: rgba(151, 153, 153, 0.4);
 }
 
 .t-5 {
@@ -757,7 +763,7 @@ img {
 }
 
 .t-37:hover {
-	color: rgba(94, 188, 209, 1);
+	color: rgba(var(--theme-color), 1);
 }
 
 .t-38 {
