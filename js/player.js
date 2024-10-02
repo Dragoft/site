@@ -62,6 +62,11 @@ function loadMusicData() {
 		img: 'https://p2.music.126.net/nEaSbkg_Cn8gN9vLoSz0gQ==/18494885092595843.jpg?param=300y300',
 	},
 	{
+		name: '阔野 - Lcz Sv',
+		src: '2049254735',
+		img: 'https://p1.music.126.net/Pfyb7uA1nOI1rVhcWOJt9w==/109951168628232296.jpg?param=300y300',
+	},
+	{
 		name: 'Disappear in Light - Equal Stones / Endless Melancholy',
 		src: '29406314',
 		img: 'https://p2.music.126.net/JIeHyV-yad8BDq_4GmsVuA==/2572857209028564.jpg?param=300y300',
@@ -266,7 +271,7 @@ player.f.list = function(force){
 		for (var i = 0; i < player.data.num; i++) {
 
 			var a = document.createElement('a')
-			a.innerHTML = player.list[i]['name']
+			a.innerHTML = player.list[i]['name'].split('-')[0]
 			a.setAttribute('class', 'list-item')
 			a.setAttribute('title', player.list[i]['name'])
 			a.setAttribute('onclick', 'player.f.play.start(' + i + ', 1)')
@@ -430,6 +435,18 @@ player.f.show = function() {
 	}
 }
 
+// 激活播放器
+player.f.loadPlayer = function() {
+	if (typeof env.tmp.t3 == 'undefined') {
+		env.tmp.t3 = ''
+		return
+	}
+
+	env.tmp.t3 = null
+	delete env.tmp.t3
+	$('.Player').addClass('Player-active')
+}
+
 
 
 player.f.load()
@@ -471,7 +488,7 @@ player.e.s1.addEventListener('scroll', () => {
 	if (size < 0) {var size = 0}
 	if (size > 100) {var size = 100}
 
-	player.e.s2.innerHTML = size
+	player.e.s2.innerHTML = size + '%'
 	player.e.body.volume = size / 100
 	player.data.nowplay.vol = size / 100
 })

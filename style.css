@@ -108,7 +108,7 @@ img {
 	min-width: 380px;
 	height: 40px;
 	background-color: rgba(244, 243, 241, 1);
-	background-image: linear-gradient(90deg, rgba(244, 243, 241, 1) 0%, rgba(255, 255, 255, 1) 80%);
+	background-image: linear-gradient(90deg, rgba(244, 243, 241, 1) 0%, rgba(255, 255, 255, 1) 70%);
 	color: rgba(151, 153, 153, 0.9);
 	-webkit-user-select: none;
 	line-height: 22px;
@@ -195,35 +195,23 @@ img {
 /* 主体框架 */
 
 .Avatar {
-	position: absolute;
-	height: 260px;
-	width: 260px;
-	border-radius: 60px;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	height: 100%;
 	-webkit-user-select: none;
-	cursor: pointer;
-	z-index: 4;
 
-	transition: 0.3s ease-out;
+	z-index: 0;
+	transition: 1s;
 	opacity: 0;
+	pointer-events: none;
 }
 
 .Avatar-border {
-	float: right;
-	height: 260px;
-	width: 260px;
-	border-radius: 60px;
-	display: inline-block !important;
-	border: 1px solid rgba(192, 194, 194, 0.5);
-	background-color: rgba(255, 255, 255, 1);
-
+	height: 0px;
+	width: 0px;
 	opacity: 0;
-	transition: 0.3s ease-out 0.3s;
-}
-
-.Avatar-active {
-	box-shadow: 20px 20px 50px -3px rgba(0, 0, 0, 0.2);
-	transform: translate(-20px, -25px) rotate(20deg) !important;
-	transform-origin: 300px 100px;
+	transition: 1s;
 }
 
 
@@ -467,10 +455,11 @@ img {
 
 .box-2 {
 	position: absolute;
-	width: 900px;
-	height: 262px;
-	top: calc(50% - 125px);
-	left: calc(50% - 450px);
+	width: 580px;
+	height: 300px;
+	top: calc(50% - 150px);
+	left: calc(50% - 550px);
+	z-index: 1;
 }
 
 
@@ -579,10 +568,10 @@ img {
 
 .t-3 {
 	position: absolute;
-	font-size: 75px;
-	margin-top: 20px;
+	font-size: 80px;
 	line-height: 90px;
 	font-weight: bold;
+	z-index: 3;
 	opacity: 0;
 	background-image: linear-gradient(62deg, rgba(35, 171, 215, 1), rgba(48, 237, 244, 1));
 	color: transparent;
@@ -598,10 +587,11 @@ img {
 
 .t-4 {
 	position: absolute;
-	margin-top: 190px;
+	margin-top: 250px;
 	width: 580px;
 	font-size: 22px;
-	line-height: 26px;
+	line-height: 30px;
+	z-index: 3;
 	color: rgba(192, 194, 194, 0.6);
 }
 
@@ -656,45 +646,6 @@ img {
 	width: 24px;
 	line-height: 20px;
 	user-select: none;
-}
-
-.t-21 {
-	position: absolute;
-	margin-top: 205px;
-	margin-left: 30px;
-	height: 30px;
-	width: 100px;
-	opacity: 0;
-	z-index: 3;
-	user-select: none;
-}
-
-.t-21 a,
-.t-21 span {
-	display: inline-block;
-	height: 36px;
-	width: 36px;
-	font-size: 20px;
-	line-height: 40px;
-	margin-right: 6px;
-	text-align: center;
-	background-color: rgba(244, 243, 241, 0.8);
-	color: rgba(151, 153, 153, 0.9);
-	border-radius: 50%;
-
-	transition: 0.2s ease-out;
-	user-select: none;
-	cursor: pointer;
-}
-
-.t-21 a:hover,
-.t-21 span:hover {
-	background-color: rgba(45, 219, 236, 1);
-	color: rgba(255, 255, 255, 1);
-}
-
-.t-21 span:after {
-	text-align: left;
 }
 
 .t-22 {
@@ -755,11 +706,6 @@ img {
 	display: none !important;
 }
 
-.t-29 {
-	height: 110px;
-	margin-left: 25px;
-}
-
 .t-30 {
 	font-size: 60px;
 	line-height: 60px;
@@ -794,11 +740,12 @@ img {
 }
 
 .t-36 {
-	font-size: 20px;
-	line-height: 20px;
+	font-size: 22px;
+	line-height: 26px;
 	position: absolute;
-	top: 15px;
-	right: 20px;
+	top: 25px;
+	left: 85px;
+	z-index: 3;
 	color: rgba(151, 153, 153, 0.2);
 	user-select: none;
 	opacity: 0;
@@ -806,7 +753,7 @@ img {
 
 .t-37 {
 	padding: 0px 10px;
-	color: rgba(151, 153, 153, 0.5);
+	color: rgba(151, 153, 153, 0.4);
 	user-select: none;
 	cursor: pointer;
 	transition: 0.3s ease;	
@@ -828,11 +775,12 @@ img {
 
 .t-39 {
 	position: absolute;
-	margin-top: 105px;
+	margin-top: 90px;
 	color: rgba(173, 175, 175, 1);
-	font-size: 30px;
-	line-height: 30px;
+	font-size: 34px;
+	line-height: 40px;
 	opacity: 0;
+	z-index: 3;
 	user-select: none;
 	transition: 1s ease-out 0.3s;
 }

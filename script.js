@@ -36,7 +36,7 @@ env.data.list.notice = [
 		content: '新的域名，新的开始！',
 	},
 
-];
+]
 
 
 
@@ -46,44 +46,44 @@ env.timer.t1 = null
 env.timer.t2 = null
 
 /* --------------------------------------
-已占用的 tmp 变量
-env.tmp.t1
-env.tmp.t2
+	已占用的 tmp 变量
+	env.tmp.t1
+	env.tmp.t2
 
 */
 
 // 剔除博客中被隐藏的文章
 env.f.filter = function(arr, key, value) {
-	return arr.filter(obj => obj[key] != value);
+	return arr.filter(obj => obj[key] != value)
 }
 
 // 剔除博客中被隐藏的文章
 env.f.filter = function(arr, key, value) {
-	return arr.filter(obj => obj[key] != value);
+	return arr.filter(obj => obj[key] != value)
 }
 
 // 设置 Cookie
 env.f.setCookie = function(value) {
-	var now = new Date();
-	var oneWeekLater = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000); 
-	var expires = oneWeekLater.toUTCString();
-	document.cookie = "Cookie=" + value + "; expires=" + expires;
-	return expires;
+	var now = new Date()
+	var oneWeekLater = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000) 
+	var expires = oneWeekLater.toUTCString()
+	document.cookie = "Cookie=" + value + "; expires=" + expires
+	return expires
 }
 
 // 读取 Cookie
 env.f.getCookie = function(name) {
-	var pattern = new RegExp('(?:^|; )' + name + '=([^;]*)');
-	var matches = document.cookie.match(pattern);
+	var pattern = new RegExp('(?:^|; )' + name + '=([^;]*)')
+	var matches = document.cookie.match(pattern)
 	if (matches) {
-		return decodeURIComponent(matches[1]);
+		return decodeURIComponent(matches[1])
 	}
-	return undefined;
+	return undefined
 }
 
 // 生成[min, max]范围内的随机整数
 env.f.getRandom = function(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
+	return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 // 获取浏览器类型
@@ -91,17 +91,17 @@ env.f.getBrowser = function() {
 	var userAgent = window.navigator.userAgent;
 
 	if (userAgent.indexOf("Chrome") !== -1) {
-		return "Chrome";
+		return "Chrome"
 	} else if (userAgent.indexOf("Firefox") !== -1) {
-		return "Firefox";
+		return "Firefox"
 	} else if (userAgent.indexOf("Safari") !== -1) {
-		return "Safari";
+		return "Safari"
 	} else if (userAgent.indexOf("Edge") !== -1) {
-		return "Edge";
+		return "Edge"
 	} else if (userAgent.indexOf("MSIE") !== -1 || userAgent.indexOf("Trident/") !== -1) {
-		return "IE";
+		return "IE"
 	} else {
-		return "Unknown";
+		return "Unknown"
 	}
 }
 
@@ -125,10 +125,10 @@ env.f.dateFormatter = function(formatter, date) {
 
 // 大小格式化
 env.f.sizeFormatter = function(bytes) {
-	var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-	if (bytes === 0) return '0 Bytes';
-	var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
-	return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
+	var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB']
+	if (bytes === 0) return '0 Bytes'
+	var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10)
+	return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i]
 }
 
 // 计算网站上线时间
@@ -152,7 +152,24 @@ env.f.getDate = function() {
 
 // iframe 通讯
 env.f.post = function(event) {
-	document.getElementById('iframe').contentWindow.postMessage(event, document.domain.length == 0 && '*' || '/');
+	document.getElementById('iframe').contentWindow.postMessage(event, document.domain.length == 0 && '*' || '/')
+}
+
+// iframe 重定向
+env.f.linkto = function(id) {
+	$('.iframe').fadeOut(600)
+	env.f.page.loading()
+
+	setTimeout(function (){
+		env.data.change = 1
+		if (env.data.states == "Local") {
+			env.f.url.change('id', id)
+			document.getElementById('iframe').src = 'blog/' + id + '/page.html'
+		} else {
+			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/blog?id=' + id)
+			document.getElementById('iframe').src = window.location.href.split('top',1)[0] + 'top/blog/' + id + '/page'
+		}
+	},400)
 }
 
 // url 参数
@@ -172,7 +189,7 @@ env.f.url = {}
 		let url2
 
 		if (typeof value === 'string') {
-			value = value.toString().replace(/(^\s*)|(\s*$)/, "");
+			value = value.toString().replace(/(^\s*)|(\s*$)/, "")
 		}
 		if (!value) {
 			// 移除
@@ -224,19 +241,14 @@ env.f.blog = {}
 		$('.blog').fadeIn(300)
 		$('.blog').addClass('blog-active')
 
-		// 修改地址栏参数
-		if (document.domain!='') {
-			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/blog?id=' + id)
-		} else {
-			env.f.url.change('id', id)
-		}
-
 		setTimeout(function (){
 			// 跳转指定文章
 			env.data.change = 1
 			if (env.data.states == "Local") {
+				env.f.url.change('id', id)
 				document.getElementById('iframe').src = 'blog/' + id + '/page.html'
 			} else {
+				history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/blog?id=' + id)
 				document.getElementById('iframe').src = window.location.href.split('top',1)[0] + 'top/blog/' + id + '/page'
 			}
 
@@ -276,6 +288,7 @@ env.f.blog = {}
 
 // 初始化博客、通知面板
 env.f.init = function() {
+
 	// 博客
 	env.data.list.Bloglist = env.f.filter(env.data.list.Bloglist, 'type', 'hide')
 	var BlogTEMP = env.data.list.Bloglist
@@ -321,7 +334,7 @@ env.f.init = function() {
 	})
 	// 初始化列表高度
 	if (BlogTEMP.length > 10) {
-		$('#search').css('height', '275px');
+		$('#search').css('height', '275px')
 		document.getElementById('searchInput').name = 10
 	} else {
 		$('#search').css('height', BlogTEMP.length * 22 +55 + 'px')
@@ -364,32 +377,32 @@ env.f.snapshot = function() {
 	setTimeout(console.groupCollapsed.bind(
 		console, 
 		'snapshot ' + env.f.dateFormatter('hh:mm:ss', new Date())
-	));
+	))
 	setTimeout(console.table.bind(
 		console, 
 		result
-	));
-	setTimeout(console.groupEnd.bind());
+	))
+	setTimeout(console.groupEnd.bind())
 }
 
 // 弹窗
 env.f.msg = function(content, type, time) {
-	$('.message-box').html(content);
-	$('.message-box').removeClass('message-info');
-	$('.message-box').removeClass('message-warn');
-	$('.message-box').removeClass('message-error');
+	$('.message-box').html(content)
+	$('.message-box').removeClass('message-info')
+	$('.message-box').removeClass('message-warn')
+	$('.message-box').removeClass('message-error')
 
-	$('.message-box').addClass('message-' + type);
-	$('.message').addClass('message-active');
+	$('.message-box').addClass('message-' + type)
+	$('.message').addClass('message-active')
 	if (time != -1) {
 		setTimeout(function (){
-			$('.message').removeClass('message-active');
-		}, time);
+			$('.message').removeClass('message-active')
+		}, time)
 	}
 }
 	// 关闭消息框
 	env.f.msg.close = function() {
-		$('.message').removeClass('message-active');
+		$('.message').removeClass('message-active')
 	}
 
 // 菜单
@@ -404,56 +417,59 @@ env.f.menu = {}
 .addClass('ok')
 			$('ul')
 .addClass('wait')
+			$('.menu-btn-1').css('cursor', 'progress')
 			env.f.init()
-				setTimeout(function (){
+
+			setTimeout(function (){
 				$('ul')
-.removeClass('wait');
-				$('.menu').addClass('menu-active');
-				$('.menu-btn-2').fadeIn(300);
-			}, 1000);
+.removeClass('wait')
+				$('.menu').addClass('menu-active')
+				$('.menu-btn-2').fadeIn(300)
+				$('.menu-btn-1').css('cursor', '')
+			}, 1000)
 		} else {
-			$('.menu').addClass('menu-active');
-			$('.menu-btn-2').fadeIn(300);
+			$('.menu').addClass('menu-active')
+			$('.menu-btn-2').fadeIn(300)
 		}
 	}
 
 		env.f.menu.close = function() {
- 			$('.menu').removeClass('menu-active');
-			$('.menu-btn-2').fadeOut(300);
+ 			$('.menu').removeClass('menu-active')
+			$('.menu-btn-2').fadeOut(300)
 		}
 
 	env.f.menu.c1 = function() {
-		$('#search').css('transition', 'all 0.3s ease-out 0s');
+		$('#search').css('transition', 'all 0.3s ease-out 0s')
 		if($('#menu-check-1').hasClass('menu-check-active')!=true) {
-			$('#menu-check-1').addClass('menu-check-active');
-			$('#search').css('opacity', '1');
-			$('#search').css('height', document.getElementById('searchInput').name * 22 +55 + 'px');
+			$('#menu-check-1').addClass('menu-check-active')
+			$('#search').css('opacity', '1')
+			$('#search').css('height', document.getElementById('searchInput').name * 22 +55 + 'px')
 		} else {
-			$('#menu-check-1').removeClass('menu-check-active');
-			$('#search').css('height', '0px');
-			$('#search').css('opacity', '0');
+			$('#menu-check-1').removeClass('menu-check-active')
+			$('#search').css('height', '0px')
+			$('#search').css('opacity', '0')
 		}
 	}
 
 	env.f.menu.c2 = function() {
 		if($('#menu-check-2').hasClass('menu-check-active')!=true) {
-			$('#menu-check-2').addClass('menu-check-active');
-			$('.MenuCheck2-inner').css('height', '120px');
-			$('.MenuCheck2-inner').css('opacity', '1');
+			$('#menu-check-2').addClass('menu-check-active')
+			$('.MenuCheck2-inner').css('height', '120px')
+			$('.MenuCheck2-inner').css('opacity', '1')
 		} else {
-			$('#menu-check-2').removeClass('menu-check-active');
-			$('.MenuCheck2-inner').css('height', '0px');
-			$('.MenuCheck2-inner').css('opacity', '0');
+			$('#menu-check-2').removeClass('menu-check-active')
+			$('.MenuCheck2-inner').css('height', '0px')
+			$('.MenuCheck2-inner').css('opacity', '0')
 		}
 	}
 
 	env.f.menu.c3 = function() {
 		if($('#menu-check-3').hasClass('menu-check-active')!=true) {
-			$('#menu-check-3').addClass('menu-check-active');
-			$('.MenuCheck3-inner').fadeIn(240);
+			$('#menu-check-3').addClass('menu-check-active')
+			$('.MenuCheck3-inner').fadeIn(240)
 		} else {
-			$('#menu-check-3').removeClass('menu-check-active');
-			$('.MenuCheck3-inner').fadeOut(240);
+			$('#menu-check-3').removeClass('menu-check-active')
+			$('.MenuCheck3-inner').fadeOut(240)
 		}
 	}
 
@@ -518,7 +534,7 @@ env.f.check.run()
 // 接受博客页面的信号
 window.addEventListener('message', function(event) {
 	if (event.origin == 'null' || event.origin.includes('https://tatsuno.top')) {
-		eval(event.data);
+		eval(event.data)
 	}
 })
 
@@ -569,33 +585,13 @@ $('#iframe').on('load', function() {
 	}
 })
 
-/* From https://blog.csdn.net/qq_41090476/article/details/96111016 */
-$(body).click(function(e){
-	var e = e || window.event;
-	var elem = e.target;
-	if($(elem).is('.t-21 *')){
-		return;
-	}
-	if($(elem).is('.Avatar') || $(elem).is('.Avatar *')){
-		if(!$('.Avatar').hasClass('Avatar-active')){
-			$('.Avatar').addClass('Avatar-active');
-		} else {
-			$('.Avatar').removeClass('Avatar-active');
-		}
-	}else{
-		$('.Avatar').removeClass('Avatar-active');
-	}	
-})
-
-
-
 // 强制初始化页面
 setTimeout(function (){
 	if(document.querySelector('.Avatar').style.opacity!=1){
-		env.f.msg('初始化异常，已强制加载页面', 'warn', 3000);
-		init();
+		env.f.msg('初始化异常，已强制加载页面', 'warn', 3000)
+		init()
 	}
-}, 30000);
+}, 30000)
 
 
 
@@ -607,19 +603,20 @@ function Typewriter() {
 			'あの、^1000今日は^200' + ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()] + '^300ですか。',
 			'白川さんは映画が好きです。',
 			'白川さんはよく映画を見ます。',
-			'白川さんは^200金曜日から^200日曜日まで^200休みます。',
-			'おいしい！',
 			'白川さんは歌が好きですよ。',
 			'田中さんは時々図書館で勉強します。',
-			'田中さんはいませんね。^400奈良へ行きました。',
-			'あれは田中さんの花屋ですか。',
 			'花屋に^300誰もいません。',
 			'でも、^300昨日は寒くありませんでした。^400今日も。',
 			'はい、^300これも私の毎日の仕事です。',
 			'奈良より、^300ここの夏のほうが暑いです。',
 			'わたしのアパートは^300書店の隣に^300あります。',
 
-		];
+			'莫愁前路无知己，^300天下谁人不识君！',
+			'固时俗之工巧兮，^300偭规矩而改错。',
+			'鸷鸟之不群兮，^300自前世而固然。',
+			'伏清白以死直兮，^300固前圣之所厚。',
+
+		]
 	} else {
 		var sentence = [
 			// 手机标题语列表
@@ -639,18 +636,18 @@ function Typewriter() {
 			'今日は^500' + ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()] + '^300ですか。',
 			'看上去很不错的样子...',
 			'美味しかったです！',
-			'   ',
+			'おいしい！',
 			'昨日は寒かったです。',
 			'Have a good day !'
 
-		];
+		]
 	}
-	var RandomSentence = sentence[Math.floor(Math.random() * sentence.length)];
+	var RandomSentence = sentence[Math.floor(Math.random() * sentence.length)]
 	$('.Typewriter-1').typed({
 		strings: [RandomSentence],
 		typeSpeed: 100,
 		showCursor: false,
-	});
+	})
 }
 
 
@@ -661,14 +658,14 @@ console.log(
 	'background-color: rgba(57, 145, 216, 0.5); color: white; font-weight: bolder;',
 	'background-color: rgba(57, 145, 216, 0.3); color: white;',
 	'color: rgba(192, 194, 194, 1);',
-);
+)
 
 setTimeout(console.groupCollapsed.bind(
 	console, 
 	'%cDetails%c()',
 	'color: rgba(100, 102, 102, 0.8)',
 	'color: rgba(100, 102, 102, 1)',
-));
+))
 setTimeout(console.log.bind(
 	console, 
 `	%cOnline:		` + env.data.time + ` Days
@@ -679,9 +676,9 @@ setTimeout(console.log.bind(
 	%c` + new Date() + `
 `,
 	'color: rgba(100, 102, 102, 0.8)',
-	'color: rgba(192, 194, 194, 1);'
+	'color: rgba(192, 194, 194, 1)'
 ));
-setTimeout(console.groupEnd.bind());
+setTimeout(console.groupEnd.bind())
 
 
 

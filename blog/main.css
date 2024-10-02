@@ -117,6 +117,11 @@ h2 {
 
 h2:before {
 	content: "# ";
+	color: rgba(73, 160, 204, 0.8);
+	transition: 0.3s;
+}
+
+h2:hover:before {
 	color: rgba(73, 160, 204, 1);
 }
 
@@ -175,6 +180,7 @@ li {
 	text-decoration: underline;
 	text-decoration-color: rgba(151, 153, 153, 0.3);
 	font-family: "Microsoft YaHei";
+	cursor: pointer;
 	transition: 0.3s;
 
 }
@@ -211,6 +217,21 @@ attention {
 	border-radius: 5px;
 }
 
+
+
+/* 并列框架 */
+
+showcase {
+	display: inline-block;
+	width: 45%;
+	vertical-align: top;
+	word-break: break-all;
+}
+
+showcase:nth-child(even) {
+
+	margin-left: 10px;
+}
 
 
 /* 表格 */
@@ -320,6 +341,9 @@ tr:nth-child(odd) {
 	.f-3 {
 		/* 仅在移动端显示 */
 		display: unset;
+	}
+	showcase {
+		display: block;
 	}
 }
 

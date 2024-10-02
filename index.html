@@ -7,15 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>tatsuno.top/</title>
 	<link rel="shortcut icon" href="src/icon.png?ver=6" />
-	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="style_flexible.css" />
+
 	<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="preload" as="font" href="src/Poppins Regular.woff2" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="css/animation.css" />
 	<link rel="stylesheet" type="text/css" href="css/player.css"  />
 	<link rel="stylesheet" type="text/css" href="css/hint.css" />
-
-	<!-- Mobile Device -->
-	<link rel="stylesheet" type="text/css" media="screen and (max-width: 900px)" href="css/mobile.css" />
 
 </head>
 
@@ -32,18 +31,18 @@
 	function init() {
 		setTimeout(function (){
 			Typewriter();
-			$('.t-21').css('opacity', '1');
-			$('.Avatar').css('transition', '0.5s');
 			$('.footer').fadeIn(300); 
+			player.f.loadPlayer();
 
 			// 显示菜单按钮
 			$('.menu-btn-1').addClass('fade-in-1');
 			$('.t-36').addClass('fade-in-1');
+
 			// 激活页面
 			$('#body').removeAttr('style');
 
 			// 弹出问候语
-			env.f.msg('Hello 🎉', 'info', 2500);
+			env.f.msg('Hello 🎉', 'info', 3000);
 
 		},3000);
 		setTimeout(function (){
@@ -55,7 +54,7 @@
 		},1500);
 		setTimeout(function (){
 			$('.Avatar-border').css('opacity', '1'); 
-		},400);
+		},300);
 	}
 
 	// 仅允许由 https://tatsuno.top/ 访问此页
@@ -83,9 +82,9 @@
 <div class="box-1" >
 	<!-- Header -->
 	<div class="t-36" >
-		<span class="t-37" onclick="env.f.blog.open('page/about')" >About</span>
+		<span class="t-37" onclick="env.f.blog.open('page/square')" >Square</span>
 		|
-		<span class="t-37" onclick="env.f.blog.open('page/square')" >留言</span>
+		<span class="t-37" onclick="env.f.blog.open('page/about')" >About</span>
 	</div>
 
 	<div class="box-2" >
@@ -95,14 +94,7 @@
 			<div class="Typewriter-1" onclick="Typewriter();" ></div>
 		</div>
 		<div class="Avatar-border" >
-			<div class="Avatar-border-inner" >
-				<img class="Avatar" src="src/Chika.webp" onload="init()" />
-				<div class="t-21">
-					<a target="_blank" href="src/Chika Shirakawa「白川千歌」.png" download="Chika Shirakawa「白川千歌」.png" ></a>
-					<span class="hint--bottom hint--rounded" data-hint="こんにちは！
-あたしは白川だよ。北方からのキツネです。" ></span>
-				</div>
-			</div>
+			<img class="Avatar" onload="init()" src="src/Chika.webp" />
 		</div>
 	</div>
 
@@ -195,7 +187,7 @@
 
 		<!-- COVER -->
 		<div class="MusicImgBox" onclick="player.f.menu()" >
-			<img class="MusicImg" onload="$('.Player').addClass('Player-active')" id="load-img" />
+			<img class="MusicImg" onload="player.f.loadPlayer()" id="load-img" />
 		</div>
 		<div class="bar2" ><div class="bar0" ><div class="bar1" ></div></div></div>
 
@@ -246,6 +238,7 @@
 				<span style="user-select: text;" ><span id="onlineDate" >0</span> 天<span style="display: none;" id="visit_counter_outer" > & <span id="visit_counter">0</span> 访客</span></span>
 			</span>
 		</div>
+
 	</div>
 	</div>
 

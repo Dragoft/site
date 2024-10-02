@@ -83,45 +83,56 @@
 	</div>
 
 	<div class="commentBox" ></div>
-	<br class="f-1" />
 
-	<textarea class="textarea Tname" placeholder="昵称" autocomplete="off" maxlength="20"></textarea>
-	<textarea class="textarea Tcontent" placeholder="内容" autocomplete="off" maxlength="200" ></textarea>
+	<div class="add" onclick="addOpen()" >+</div>
+	<div class="new" >
+		<textarea oninput="XautoResize('.Tname')" class="textarea Tname" placeholder="Nickname" autocomplete="off" maxlength="20"></textarea>
+		<span class="Tname-1" >: </span>
+		<span class="Tname-2" >Nickname</span>
+		<textarea oninput="YautoResize('.Tcontent')" class="textarea Tcontent" placeholder="Just write something ..." autocomplete="off" maxlength="200" ></textarea>
+		<br class="f-1" />
 
-	<span class="bottomBox" >
-		<span class="btn1 hint--right hint--rounded" data-hint="使用须知
+		<div class="bar" >
+			<a href="javascript:;" onclick="sent()" class="sent">submit</a> | 
+
+			<span class="f-2" style="color: rgba(151, 153, 153, 0.3);" >
+			<span class="btn1 hint--bottom hint--rounded" data-hint="使用须知
 ————————————
 此留言系统不支持 Html & Markdown 语法。
 超过 5 行的留言将被折叠。
 超过 7 天前的留言将无法被删除
 
 严禁发布任何非法内容，博主不会对留言的内容负责。
-请勿恶意调用本站的留言系统 API。" >关于</span>
-		<span class="btn1" style="margin-left: 5px;" onclick="init()" >刷新</span>
-		<span class="count" >剩余 200 字</span>
-	</span>
-	<a href="javascript:;" onclick="sent()" class="sent">submit</a>
+请勿恶意调用本站的留言系统 API。" >policy</span> | 
+			</span>
 
-	<div class="pagebtn" >
-		<span class="page" style="user-select: text;" >
-			页数：
-			<textarea class="textarea Tpage" autocomplete="off" maxlength="3" onfocus="this.select();" >1</textarea>
-			/
-			<span class="page0" style="color: rgba(100, 102, 102, 1); font-family: 'Microsoft YaHei';" >0</span>
-		</span>
-		<br />
-		<a href="javascript:;" onclick="turnPage(-1)" class="turn">上一页</a>
-		|
-		<a href="javascript:;" onclick="turnPage(1)" class="turn">下一页</a>
+			<span class="btn1 count" style="pointer-events: none;" >200 words remaining.</span>
+			<a href="javascript:;" onclick="addOpen()" class="btn4">[cancel]</a>
+		</div>
 	</div>
+	<br class="f-1" />
 
-	<br class="f-1" />
-	<br class="f-1" />
-	<br class="f-1" />
-	<br class="f-1" />
-	<br class="f-1" />
-	<br class="f-1" />
-	<br class="f-1" />
+	<div class="bar2" >
+		<span class="btn2" >
+			<a href="javascript:;" onclick="turnPage(-1)" class="turn">Prev</a>
+			|
+			<a href="javascript:;" onclick="turnPage(1)" class="turn">Next</a>
+		</span>
+		<span class="btn3" onclick="init()" >Reload</span>
+
+
+
+		<div class="pagebtn" >
+			<span class="page" style="user-select: text;" >
+				页数：
+				<textarea class="textarea Tpage" autocomplete="off" maxlength="3" onfocus="this.select();" >1</textarea>
+				/
+				<span class="page0" style="color: rgba(100, 102, 102, 1); font-family: 'Microsoft YaHei';" >0</span>
+			</span>
+			<br />
+
+		</div>
+	</div>
 
 </div>
 
@@ -168,13 +179,8 @@
 
 	// 统计字数
 	$('.Tcontent').on('keyup', function () {
-		if (document.querySelector('.Tcontent').value.length>=180) {
-			$('.count').css('color', 'rgba(255, 50, 50, 0.7)');
-		} else {
-			$('.count').css('color', 'rgba(98, 185, 229, 0.8)');
-		}
 		var n = 200 - document.querySelector('.Tcontent').value.length;
-		document.querySelector('.count').innerHTML = '剩余 ' + n + ' 字';
+		document.querySelector('.count').innerHTML = n + ' words remaining.';
 
 	})
 

@@ -45,8 +45,7 @@ function sent() {
 
 		if (errN==0) {
 			document.querySelector('.Tcontent').value = '';
-			document.querySelector('.count').innerHTML = '剩余 200 字';
-			$('.count').css('color', 'rgba(98, 185, 229, 0.8)');
+			document.querySelector('.count').innerHTML = '200 words remaining.';
 
 			ComNum = Number(ComNum) + 1;
 			PageAll = Math.ceil(ComNum/10);
@@ -155,14 +154,12 @@ function showComment(data) {
 		}, 500);
 
 		setTimeout(function (){
-			message.Close()
+//			message.Close()
 			wait = 0;
 			box.style.opacity = '1';
 		}, 1000);
 	}
 }
-
-
 
 function deleteComment(id) {
 	$('#body').addClass('body-scroll');
@@ -328,5 +325,38 @@ function fetchfailed() {
 } 
 
 
+function escapeRegExp(string) {
+	return string.replace(/[\r\n\s]+/g, '');
+}
+
+function YautoResize(e) {
+	const t = document.querySelector(e);
+	t.style.height = 'auto';
+	t.style.height = t.scrollHeight + 'px';
+	$("html,body").animate({scrollTop: $(document).height()}, 0);
+}
+
+function XautoResize(e) {
+	const t = document.querySelector(e);
+	const h = document.querySelector('.Tname-2');
+
+	h.innerHTML = t.value;
+	t.value = escapeRegExp(t.value)
+	t.style.width = (h.offsetWidth || 80) + 'px';
+}
+
+function addOpen() {
+	if($('.add').hasClass('add-active')!=true) {
+		$('.add').addClass('add-active');
+		$('.new').addClass('new-active');
+		$('.bar2').fadeOut(300);
+	} else {
+		document.querySelector('.Tcontent').value = '';
+		document.querySelector('.Tcontent').style.height = '48px';
+		$('.add').removeClass('add-active');
+		$('.new').removeClass('new-active');
+		$('.bar2').fadeIn(300);
+	}
+}
 
 
