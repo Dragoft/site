@@ -10,7 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="style_flexible.css" />
 
-	<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="preload" as="font" href="src/Poppins Regular.woff2" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="css/animation.css" />
 	<link rel="stylesheet" type="text/css" href="css/player.css"  />
@@ -94,6 +94,7 @@
 			<div class="Typewriter-1" onclick="Typewriter();" ></div>
 		</div>
 		<div class="Avatar-border" >
+			<!-- 感谢最大胆的设计，让我们摆脱了头像框的限制 -->
 			<img class="Avatar" onload="init()" src="src/Chika.webp" />
 		</div>
 	</div>
@@ -226,7 +227,7 @@
 	<div class="footer">
 	<div class="footer-inner" >
 		<div class="footer-box-1" >
-			<!-- To give the sincerest thanks -->
+			<!-- 简短而真挚的感谢 -->
 			<span class="footer-t1 footer-t2" >技术支持:</span>
 			<a class="footer-t3 hint--top hint--rounded" onclick="window.open('https://www.cloudflare.com/')" target="_blank" data-hint="Cloudflare" >
 				<img src="src/footer/cloudflare.png" style="opacity: 0; filter: saturate(90%);" onload="$(this).addClass('fade-in-1')" id="load-img" />
