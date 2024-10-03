@@ -330,7 +330,7 @@ env.f.init = function() {
 			}
 	}
 	$('#searchInput').on('keyup', function () {
-		new Search('.search-list', $('#searchInput'), 'rgba(244, 183, 188, 1)')
+		new Search('.search-list', $('#searchInput'), 'rgba(var(--t-c1), 1)')
 	})
 	// 初始化列表高度
 	if (BlogTEMP.length > 10) {
