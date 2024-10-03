@@ -124,21 +124,14 @@
 		width: 80%;
 	}
 
-	.Avatar-border {
-		float: left;
-		height: 120px;
-		width: 120px;
-		border-radius: 28px;
-		border: 1px solid rgba(192, 194, 194, 0.5);
-	}
-
 	.Avatar {
 		position: absolute;
-		left: 1px;
-		top: 1px;
+		left: 0px;
+		top: 0px;
 		height: 120px;
 		width: 120px;
 		border-radius: 28px;
+		border: 1px solid rgba(var(--t-t1), 0.1);
 	}
 
 	.footer-inner {

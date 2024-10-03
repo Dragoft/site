@@ -42,6 +42,11 @@ function loadMusicData() {
 		img: 'https://p2.music.126.net/9QkYHkN8UCiybMg-qHempw==/109951168047707020.jpg?param=300y300',
 	},
 	{
+		name: 'The Birth of a Legend - Evan Call',
+		src: '548145347',
+		img: 'https://p2.music.126.net/WSEx2yfxdewIbghaBtEXAQ==/109951163210679047.jpg?param=300y300',
+	},
+	{
 		name: 'Saudade (Original Mix) - Kupla',
 		src: '518904157',
 		img: 'https://p2.music.126.net/c04kf5BCGexeunM4MfAkHw==/109951165069828217.jpg?param=300y300',

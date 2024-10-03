@@ -1,28 +1,42 @@
-﻿/* RGB List
-	主题色	rgba(94, 188, 209, 1)
-	      绿	rgba(113, 199, 173, 1)
-	      粉	rgba(244, 183, 188, 1)
-	      白	rgba(244, 243, 241, 1)
-	      黑	rgba(151, 153, 153, 1)
+﻿
+:root {
+	/* 主题颜色 */
+	--t-c1: 94, 188, 209;
+	--t-c2: 83, 155, 191;
+	--t-c3: 107, 227, 230;
+	--t-c4: 105, 221, 226;
+	--t-c5: 96, 205, 242;
 
+	/* 文本颜色 */
+	--t-t1: 100, 102, 102;
+
+	/* 背景颜色 */
+	--t-b1: 255, 255, 255;
+	--t-b2: 0, 0, 0;
+	--t-b3: 244, 243, 241;
+
+	--t-r: 255, 0, 20;
+	--t-g: 0, 200, 100;
+
+
+
+/*
 	.f-1 无效元素
 	.f-2 仅在电脑端显示的元素
 	.f-3 仅在移动端显示的元素
-*/
+
+	|	
+	| 回车符
+					*/
+
+}
 
 
 
 @font-face{
 	font-family: Poppins Regular;
 	src: url('src/Poppins Regular.woff2');
-	/* 这个字体中已添加图标成分 */
 }
-
-:root {
-	--theme-color: 94, 188, 209;
-}
-
-
 
 html {
 	height: 100%;
@@ -38,10 +52,6 @@ body {
 	height: 100%;
 	width: 100%;
 	min-width: 380px;
-
-	/* 隐藏某些浏览器的滚动条 */
-	scrollbar-width: none !important;
-	-ms-overflow-style: none !important;
 }
 
 a {
@@ -75,7 +85,7 @@ img {
 
 ::-webkit-scrollbar-thumb {
 
-	background-color: rgba(0, 0, 0, 0.1) !important;
+	background-color: rgba(var(--t-b2), 0.1) !important;
 	border-radius: 100px !important;
 	border: 4px solid transparent !important;
 	background-clip: content-box !important;
@@ -85,7 +95,7 @@ img {
 
 ::-webkit-scrollbar-thumb:hover {
 
-	background-color: rgba(0, 0, 0, 0.2) !important;
+	background-color: rgba(var(--t-b2), 0.2) !important;
 }
 
 ::-webkit-scrollbar-corner {
@@ -96,7 +106,7 @@ img {
 
 
 ::selection {
-	background: rgba(96, 205, 242, 0.3);
+	background: rgba(var(--t-c5), 0.3) !important;
 }
 
 
@@ -109,9 +119,9 @@ img {
 	width: 100%;
 	min-width: 380px;
 	height: 40px;
-	background-color: rgba(244, 243, 241, 1);
-	background-image: linear-gradient(90deg, rgba(244, 243, 241, 1) 0%, rgba(255, 255, 255, 1) 70%);
-	color: rgba(151, 153, 153, 0.9);
+	background-color: rgba(var(--t-b3), 1);
+	background-image: linear-gradient(90deg, rgba(var(--t-b3), 1) 0%, rgba(var(--t-b1), 1) 70%);
+	color: rgba(var(--t-t1), 0.4);
 	-webkit-user-select: none;
 	line-height: 22px;
 	vertical-align: top;
@@ -142,7 +152,6 @@ img {
 }
 
 .footer-t1 {
-	color: rgba(151, 153, 153, 0.6);
 	font-size: 15px;
 	line-height: 16px;
 }
@@ -176,7 +185,7 @@ img {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-color: rgba(255, 255, 255, 1);
+	background-color: rgba(var(--t-b1), 1);
 	display: none;
 }
 
@@ -192,10 +201,6 @@ img {
 	user-select: none;
 }
 
-
-
-/* 主体框架 */
-
 .Avatar {
 	position: fixed;
 	top: 0px;
@@ -209,20 +214,13 @@ img {
 	pointer-events: none;
 }
 
-.Avatar-border {
-	height: 0px;
-	width: 0px;
-	opacity: 0;
-	transition: 1s;
-}
-
 
 
 /* 菜单 */
 .menu-btn {
 	user-select: none;
 	cursor: pointer;
-	color: rgba(100, 102, 102, 0.8);
+	color: rgba(var(--t-t1), 0.8);
 	font-size: 20px;
 	display: inline-block;
 }
@@ -230,13 +228,13 @@ img {
 .menu-btn-1 {
 	position: fixed;
 	opacity: 0;
-	color: rgba(100, 102, 102, 0.3);
-	background-color: rgba(255, 255, 255,0.6);
+	color: rgba(var(--t-t1), 0.3);
+	background-color: rgba(var(--t-b1),0.6);
 	top: 15px;
 	left: 15px;
 	width: 35px;
 	height: 25px;
-	border-radius: 100px;
+	border-radius: 100%;
 	padding: 10px 5px;
 	z-index: 3;
 	font-size: 34px;
@@ -249,7 +247,7 @@ img {
 
 .menu-btn-3:hover,
 .menu-btn-1:hover {
-	color: rgba(100, 102, 102, 0.5);
+	color: rgba(var(--t-t1), 0.6);
 }
 
 .menu-btn-2 {
@@ -258,20 +256,20 @@ img {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.3);
+	background-color: rgba(var(--t-b2), 0.3);
 	z-index: 5;
 	display: none;
 }
 
 .menu-btn-3 {
  	position: fixed;
-	color: rgba(100, 102, 102, 0.3);
-	background-color: rgba(255, 255, 255,0.6);
+	color: rgba(var(--t-t1), 0.3);
+	background-color: rgba(var(--t-b1), 0.6);
 	top: 15px;
 	left: 15px;
 	width: 35px;
 	height: 25px;
-	border-radius: 100px;
+	border-radius: 100%;
 	padding: 10px 5px;
 	z-index: 20;
 	font-size: 34px;
@@ -285,7 +283,7 @@ img {
 
 
 .menu {
-	background-color: rgba(244, 243, 241, 1);
+	background-color: rgba(var(--t-b3), 1);
 	width: 290px;
 	height: 100%;
 	padding: 0px 20px;
@@ -307,11 +305,17 @@ img {
 
 .menu-title {
 	height: 40px;
-	margin-top: 22px;
-	margin-left: 22px;
+	margin: 24px 0px 0px 24px;
 	font-size: 35px;
 	line-height: 35px;
-	color: rgba(100, 102, 102, 0.8);
+	color: rgba(var(--t-t1), 0.8);
+}
+
+.menu-line {
+	border: none;
+	border-top: 1px solid rgba(var(--t-t1), 0.3);
+	width: 250px;
+	margin-left: 0px;
 }
 
 .menu-check {
@@ -319,7 +323,7 @@ img {
 	height: 14px;
 	width: 16px;
 	padding: 6px 5px;
-	color: rgba(var(--theme-color), 0.6);
+	color: rgba(var(--t-c1), 0.6);
 	font-size: 16px;
 	line-height: 18px;
 	transition: 0.3s;
@@ -334,14 +338,14 @@ img {
 	font-family: 'Microsoft YaHei';
 	font-size: 16px;
 	line-height: 16px;
-	color: rgba(151, 153, 153, 0.6);
+	color: rgba(var(--t-t1), 0.4);
 }
 
 .news-date {
 	width: 50px;
 	display: inline-block;
 	margin-left: 25px;
-	color: rgba(151, 153, 153, 1);
+	color: rgba(var(--t-t1), 0.6);
 }
 
 .MenuCheck2-inner {
@@ -353,6 +357,7 @@ img {
 .MenuCheck3-inner {
 	display: block;
 	height: 24px;
+	margin-top: 2px;
 	user-select: none;
 }
 
@@ -363,7 +368,7 @@ img {
 	height: 40px;
 	bottom: 0px;
 	top: calc(100% - 40px);
-	background-color: rgba(244, 243, 241, 0.9);
+	background-color: rgba(var(--t-b3), 0.8);
 	backdrop-filter: blur(5px);
 	text-align: center;
 }
@@ -389,14 +394,14 @@ img {
 }
 
 .search-list {
-	color: rgba(151, 153, 153, 0.8);
+	color: rgba(var(--t-t1), 0.6);
 	margin-left: 25px;
 	height: 22px;
 	line-height: 22px;
 }
 
 .search-list a {
-	color: rgba(151, 153, 153, 0.8);
+	color: rgba(var(--t-t1), 0.6);
 	font-size: 16px;
 	line-height: 22px;
 	font-family: 'Poppins Regular', 'Microsoft YaHei';
@@ -415,21 +420,22 @@ img {
 	font-size: 16px;
 	line-height: 16px;
 	font-family: 'Poppins Regular', 'Microsoft YaHei';
-	color: rgba(100, 102, 102, 0.8);
-	border: 1px solid rgba(100, 102, 102, 0.4);
+	color: rgba(var(--t-t1), 0.8);
+	background-color: rgba(var(--t-b1), 1);
+	border: 1px solid rgba(var(--t-t1), 0.4);
 	transition: 0.3s;
 	overflow: hidden;
 }
 
 #searchInput::placeholder {
 	font-family: 'Microsoft YaHei';
-	color: rgba(100, 102, 102, 0.6);
+	color: rgba(var(--t-t1), 0.6);
 	user-select: none;
 }
 
 #searchInput:hover,
 #searchInput:focus {
-	border: 1px solid rgba(100, 102, 102, 0.8);
+	border: 1px solid rgba(var(--t-t1), 0.8);
 }
 
 #search {
@@ -438,7 +444,7 @@ img {
 }
 
 .pin {
-	color: rgba(151, 153, 153, 0.8);
+	color: rgba(var(--t-t1), 0.6);
 	display: inline-block;
 	font-size: 14px;
 	float: right;
@@ -452,7 +458,7 @@ img {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background-color: rgba(255, 255, 255, 1);
+	background-color: rgba(var(--t-b1), 1);
 }
 
 .box-2 {
@@ -496,24 +502,10 @@ img {
 	pointer-events: all;
 	user-select: none;
 	text-align: left;
-}
 
-.message-info {
-	background-color: rgba(0, 0, 0, 0.6);
-	color: rgba(255, 255, 255, 1);
+	background-color: rgba(var(--t-b2), 0.6);
+	color: rgba(var(--t-b1), 1);
 	backdrop-filter: blur(3px);
-}
-
-.message-warn {
-	background-color: rgb(255, 251, 229);
-	color: rgb(92, 60, 0);
-	border: 1px solid rgb(255, 245, 194);
-}
-
-.message-error {
-	background-color: rgb(255, 240, 240);
-	color: rgb(170, 17, 17);
-	border: 1px solid rgb(255, 214, 214);
 }
 
 .pageloading {
@@ -530,15 +522,62 @@ img {
 
 .pageloading0 {
 	font-size: 20px;
-	color: rgba(192, 194, 194, 1);
+	color: rgba(var(--t-t1), 0.6);
 }
 
 .pageloading1 {
 	display: none;
 	font-size: 14px;
-	color: rgba(255, 0, 20, 0.8);
+	color: rgba(var(--t-r), 0.8);
 	white-space: nowrap;
 }
+
+
+
+/* Animation */
+
+.typed-cursor {
+	opacity: 1;
+	-webkit-animation: blink 0.7s infinite;
+	-moz-animation: blink 0.7s infinite;
+	animation: blink 0.7s infinite;
+}
+@keyframes blink {
+	0% {	opacity:1;	}
+	50% {	opacity:0;	}
+	100% {	opacity:1;	}
+}
+
+@keyframes fade-in-1 {
+	0% {	opacity: 0; }
+	50% {	opacity: 0; }
+	100% {	opacity: 1;	}
+}
+.fade-in-1 {
+	animation: fade-in-1 1s ease-in;
+	animation-fill-mode:forwards;
+}
+
+@keyframes shining-1 {
+	0% {	opacity: 0;	}
+	50% {	opacity: 1;	}
+	100% {	opacity: 0;	}
+}
+.shining-1 {
+	animation: shining-1 1s infinite;
+}
+
+@keyframes rotate-1 {
+	0% {	transform: rotate(0deg);	}
+	100% {	transform: rotate(360deg);	}
+}
+.rotate-1 {
+	animation: rotate-1 5s linear infinite;
+}
+
+
+
+
 
 
 /* 功能样式 */
@@ -561,9 +600,6 @@ img {
 
 
 
-
-
-
 .t-1 {
 	text-align: right;
 }
@@ -575,7 +611,7 @@ img {
 	font-weight: bold;
 	z-index: 3;
 	opacity: 0;
-	background-image: linear-gradient(62deg, rgba(83, 155, 191, 1), rgba(107, 227, 230, 1));
+	background-image: linear-gradient(62deg, rgba(var(--t-c2), 1), rgba(var(--t-c3), 1));
 	color: transparent;
 	-webkit-background-clip: text;
 
@@ -594,52 +630,13 @@ img {
 	font-size: 22px;
 	line-height: 30px;
 	z-index: 3;
-	color: rgba(151, 153, 153, 0.4);
-}
-
-.t-5 {
-	font-size: 35px;
-	color: rgba(151, 153, 153, 1);
-}
-
-.t-6 {
-	position: fixed !important;
-	left: 12px;
-	bottom: 4px;
-	font-size: 16px;
-	color: rgba(2, 144, 164, 1);
-	-webkit-user-select: none;
-	cursor: pointer;
-}
-
-.t-10 {
-	margin: 0px 50px;
-	height: 80px;
-	-webkit-user-select: none;
-	white-space: nowrap;
-}
-
-.t-11 {
-	height: 80px;
-	width: 200px;
-	display: inline-block;
-	white-space: normal;
-}
-
-.t-12 {
-	color: rgba(113, 199, 173, 1);
+	color: rgba(var(--t-t1), 0.3);
 }
 
 .t-15 {
 	width: 24px;
 	height: 24px;
 	filter: saturate(90%);
-}
-
-.t-16 {
-	margin: 10px 20px;
-	-webkit-user-select: none;
-	-webkit-user-drag: none;
 }
 
 .t-18 {
@@ -651,97 +648,6 @@ img {
 	user-select: none;
 }
 
-.t-22 {
-	position: absolute;
-	margin: 20px -25px;
-
-	width: 200px;
-}
-
-.t-24 {
-	position: absolute;
-	margin: 85px 40px;
-}
-
-.t-26 {
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-	font-size: 60px;
-	vertical-align: middle;
-}
-
-.t-27 {
-	font-size: 16px;
-	color: rgba(2, 114, 164, 1);
-	-webkit-user-select: none;
-}
-
-.t-28 {
-	text-align: left;
-	margin: -15px 10%;
-	width: 80%;
-	line-height: 20px;
-	height: 160px;
-	overflow: scroll;
-}
-
-.t-28::-webkit-scrollbar {
-	display: block !important;
-	width: 3px;
-}
-
-.t-28::-webkit-scrollbar-track {
-	border-radius: 5px;
-	background: rgba(0, 0, 0, 0.06);
-	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
-}
-
-.t-28::-webkit-scrollbar-thumb {
-	border-radius: 5px;
-	background: rgba(0, 0, 0, 0.1);
-	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.t-28::-webkit-scrollbar-thumb:hover {
-	background: rgba(0, 0, 0, 0.15);
-}
-
-.t-28::-webkit-scrollbar:horizontal {
-	display: none !important;
-}
-
-.t-30 {
-	font-size: 60px;
-	line-height: 60px;
-	color: rgba(100, 102, 102, 0.9);
-}
-
-.t-31 {
-	font-size: 30px;
-	line-height: 30px;
-	margin: -5px 5px;
-}
-
-.t-32 {
-	position: absolute;
-	font-size: 40px;
-	line-height: 40px;
-	margin: 15px 10px;
-	color: rgba(244, 183, 188, 0.9);
-	user-select: none;
-}
-
-.t-33 {
-	margin-left: 25px;
-}
-
-.t-35 {
-	border: none;
-	border-top: 1px solid rgba(151, 153, 153, 0.2);
-	width: 310px;
-	text-align: left;
-	margin-left: 0px;	
-}
-
 .t-36 {
 	font-size: 22px;
 	line-height: 26px;
@@ -749,25 +655,25 @@ img {
 	top: 25px;
 	left: 85px;
 	z-index: 3;
-	color: rgba(151, 153, 153, 0.2);
+	color: rgba(var(--t-t1), 0.1);
 	user-select: none;
 	opacity: 0;
 }
 
 .t-37 {
 	padding: 0px 10px;
-	color: rgba(151, 153, 153, 0.4);
+	color: rgba(var(--t-t1), 0.4);
 	user-select: none;
 	cursor: pointer;
 	transition: 0.3s ease;	
 }
 
 .t-37:hover {
-	color: rgba(var(--theme-color), 1);
+	color: rgba(var(--t-c1), 1);
 }
 
 .t-38 {
-	color: rgba(151, 153, 153, 1);
+	color: rgba(var(--t-t1), 0.8);
 	display: inline-block;
 	vertical-align: top;
 	margin-left: -48px;
@@ -779,7 +685,7 @@ img {
 .t-39 {
 	position: absolute;
 	margin-top: 90px;
-	color: rgba(173, 175, 175, 1);
+	color: rgba(var(--t-t1), 0.7);
 	font-size: 34px;
 	line-height: 40px;
 	opacity: 0;
@@ -794,7 +700,7 @@ img {
 	width: 77px;
 	margin-left: 10px;
 	text-align: center;
-	color: rgba(105, 221, 226, 1);
+	color: rgba(var(--t-c4), 1);
 	font-size: 64px;
 	vertical-align: -3px;
 	font-weight: lighter;
@@ -806,14 +712,14 @@ img {
 	font-size: 12px;
 	line-height: 12px;
 	vertical-align: -4px;
-	color: rgba(151, 153, 153, 0.6);
+	color: rgba(var(--t-t1), 0.4);
 	user-select: none;
 	cursor: pointer;
 	transition: 0.3s;
 }
 
 .t-41:hover {
-	color: rgba(151, 153, 153, 0.9);
+	color: rgba(var(--t-t1), 0.6);
 }
 
 

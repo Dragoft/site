@@ -1,4 +1,27 @@
-﻿@font-face {
+﻿:root {
+	/* 主题颜色 */
+	--t-c1: 73, 160, 204;
+	--t-c2: 83, 155, 191;
+	--t-c3: 107, 227, 230;
+	--t-c4: 105, 221, 226;
+	--t-c5: 96, 205, 242;
+
+	/* 文本颜色 */
+	--t-t1: 100, 102, 102;
+
+	/* 背景颜色 */
+	--t-b1: 255, 255, 255;
+	--t-b2: 0, 0, 0;
+	--t-b3: 244, 243, 241;
+
+	--t-r: 255, 0, 20;
+	--t-g: 0, 200, 100;
+
+}
+
+
+
+@font-face {
 	font-family: Poppins Regular;
 	src: url('../src/Poppins Regular.woff2');
 }
@@ -40,7 +63,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
 
-	background-color: rgba(0, 0, 0, 0.1) !important;
+	background-color: rgba(var(--t-t1), 0.1) !important;
 	border-radius: 100px !important;
 	border: 4px solid transparent !important;
 	background-clip: content-box !important;
@@ -50,7 +73,7 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
 
-	background-color: rgba(0, 0, 0, 0.2) !important;
+	background-color: rgba(var(--t-t1), 0.2) !important;
 }
 
 ::-webkit-scrollbar-corner {
@@ -61,7 +84,7 @@ body {
 
 
 ::selection {
-	background: rgba(96, 205, 242, 0.3);
+	background: rgba(var(--t-c5), 0.3) !important;
 }
 
 
@@ -81,8 +104,8 @@ img {
 
 code {
 	display: block;
-	background-color: rgb(232, 243, 249);
-	color: rgba(73, 160, 204, 0.5);
+	background-color: rgba(var(--t-c1), 0.15);
+	color: rgba(var(--t-c1), 0.6);
 	padding: 6px 12px 6px 12px;
 	font-family: 'Poppins Regular', 'Microsoft YaHei';
 	line-height: 28px;
@@ -92,41 +115,36 @@ code {
 }
 
 code note {
-	color: rgba(73, 160, 204, 1);
+	color: rgba(var(--t-c1), 1);
 	user-select: none;
 	pointer-events: none;
 }
 
 span {
-	color: rgba(151, 153, 153, 1);
+	color: rgba(var(--t-t1), 0.6);
 }
 
 i {
-	color: rgba(151, 153, 153, 0.6);
+	color: rgba(var(--t-t1), 0.4);
 }
 
 h1 {
-	color: rgba(127, 127, 127, 1);
+	color: rgba(var(--t-t1), 0.9);
 	font-size: 40px;
 }
 
 h2 {
-	color: rgba(140, 140, 140, 1);
+	color: rgba(var(--t-t1), 0.8);
 	font-size: 25px;
 }
 
-h2:before {
-	content: "# ";
-	color: rgba(73, 160, 204, 0.8);
-	transition: 0.3s;
-}
-
-h2:hover:before {
-	color: rgba(73, 160, 204, 1);
+h2:after {
+	content: " # ";
+	color: rgba(var(--t-c1), 0.8);
 }
 
 h3 {
-	color: rgba(140, 140, 140, 1);
+	color: rgba(var(--t-t1), 0.7);
 	font-size: 20px;
 	margin: 0;
 }
@@ -135,50 +153,45 @@ h3 {
 
 li {
 	list-style: none;
-	color: rgba(151, 153, 153, 1);
+	color: rgba(var(--t-t1), 0.6);
 }
 
 .list1:before {
 	content: "\ea56";
-	color: rgba(167, 208, 230, 1);
+	color: rgba(var(--t-c1), 1);
 	margin-right: 10px;
-	margin-left: 20px;
 	font-size: 14px;
 }
 
 .list2:before {
 	content: "\ea56";
-	color: rgba(167, 208, 230, 0.8);
+	color: rgba(var(--t-c1), 0.8);
 	margin-right: 10px;
-	margin-left: 45px;
+	margin-left: 25px;
 	font-size: 14px;
 }
 
 .list2 {
-	color: rgba(151, 153, 153, 0.8);
+	color: rgba(var(--t-t1), 0.5);
 }
 
 
 .list3:before {
 	content: "\ea56";
-	color: rgba(167, 208, 230, 0.6);
+	color: rgba(var(--t-c1), 0.6);
 	margin-right: 10px;
-	margin-left: 70px;
+	margin-left: 50px;
 	font-size: 14px;
 }
 
 .list3 {
-	color: rgba(151, 153, 153, 0.6);
+	color: rgba(var(--t-t1), 0.4);
 }
 
-
-
-/* 链接样式 */
-
 .link {
-	color: rgba(73, 160, 204, 1);
+	color: rgba(var(--t-c1), 1);
 	text-decoration: underline;
-	text-decoration-color: rgba(151, 153, 153, 0.3);
+	text-decoration-color: rgba(var(--t-t1), 0.2);
 	font-family: "Microsoft YaHei";
 	cursor: pointer;
 	transition: 0.3s;
@@ -186,60 +199,54 @@ li {
 }
 
 .link:hover {
-	text-decoration-color: rgba(94, 188, 209, 1);
+	text-decoration-color: rgba(var(--t-c1), 1);
 }
-
-
-
-/* 引言 */
 
 quote {
 	display: block;
-	color: rgba(151, 153, 153, 1);
-	background-color: rgb(232, 243, 249);
+	color: rgba(var(--t-t1), 0.6);
+	background-color: rgba(var(--t-c1), 0.15);
 	padding: 10px 15px 10px 10px;
-	border-left: rgb(168, 207, 230) solid 5px;
+	border-left: rgba(var(--t-c1), 0.6) solid 5px;
 	border-radius: 0px 7px 7px 0px;
 	word-break: break-all;
 	line-height: 26px;
 }
 
-
-
-/* 强调 */
-
 attention {
 	display: inline-block;
-	background-color: rgb(232, 243, 249);
-	color: rgb(73, 160, 204);
+	background-color: rgba(var(--t-c1), 0.15);
+	color: rgba(var(--t-c1), 1);
 	padding: 0px 8px 0px 8px;
 	line-height: 28px;
 	border-radius: 5px;
 }
-
-
-
-/* 并列框架 */
 
 showcase {
 	display: inline-block;
 	width: 45%;
 	vertical-align: top;
 	word-break: break-all;
+	padding-right: 10px;
 }
 
-showcase:nth-child(even) {
-
-	margin-left: 10px;
+mat {
+	display: block;
+	width: 100%;
+	height: 5px;
+	pointer-events: none;
 }
 
-
-/* 表格 */
+box1 {
+	display: block;
+	width: calc(100% - 28px);
+	margin-left: 28px;
+}
 
 thead tr th {
 
-	background-color: rgb(168, 207, 230);
-	color: white;
+	background-color: rgba(var(--t-c1), 0.5);
+	color: rgba(var(--t-b1), 1);
 	min-width: 80px;
 	text-align: left;
 	font-weight: lighter;
@@ -248,7 +255,7 @@ thead tr th {
 
 table {
 	border-collapse: collapse;
-	border: 1px rgba(151, 153, 153, 0.3) solid;
+	border: 1px rgba(var(--t-t1), 0.2) solid;
 }
 
 
@@ -256,7 +263,7 @@ td,
 th {
 	vertical-align: top;
 	padding: 5px 10px;
-	color: rgba(151, 153, 153, 1);
+	color: rgba(var(--t-t1), 0.6);
 }
 
 
@@ -272,12 +279,10 @@ tr:nth-child(odd) {
 }
 
 .table-side {
-	background-color: rgba(168, 207, 230, 0.6);
+	background-color: rgba(var(--t-c1), 0.6);
 	color: white;
 	font-weight: bolder;
 }
-
-
 
 .main {
 	margin: 300px auto;

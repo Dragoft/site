@@ -11,7 +11,6 @@
 
 	<link rel="preload" as="font" href="src/Poppins Regular.woff2" crossorigin="anonymous" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/animation.css">
 	<link rel="stylesheet" type="text/css" href="css/player.css">
 
 	<!-- blog.html -->
@@ -22,7 +21,27 @@
 
 <style>
 
-@font-face{font-family: 'Poppins Regular';src: url('src/Poppins Regular.woff2');}body{font-family: 'Poppins Regular','Microsoft YaHei';overflow: overlay;margin: 0;line-height: 33px;min-width: 380px;}: : -webkit-scrollbar{width: 12px !important;height: 12px !important;background-color: transparent !important;}: : -webkit-scrollbar-track{background-color: transparent !important;box-shadow: none !important;}: : -webkit-scrollbar-thumb{background-color: rgba(0,0,0,0.1) !important;border-radius: 100px !important;border: 4px solid transparent !important;background-clip: content-box !important;box-shadow: none !important;}: : -webkit-scrollbar-thumb: hover{background-color: rgba(0,0,0,0.2) !important;}: : -webkit-scrollbar-corner{background-color: transparent !important;box-shadow: none !important;}: : selection{background: rgba(113,199,173,0.3);}a{text-decoration: none;-webkit-user-drag: none;}img{-webkit-user-select: none;-webkit-user-drag: none;}.blog{position: fixed;z-index: 5;top: 0;left: 0;bottom: 0;width: 100%;background-color: rgba(255,255,255,1);opacity: 1;transition: 0.5s;}.iframe{position: absolute;top: -2px;left: -2px;right: -2px;bottom: -2px;height: 100%;width: 100%;display: none;-webkit-user-select: none;}.body-scroll{overflow: hidden;}.t-9{position: absolute;width: 180px;height: 135px;left: 80px;top: 15px;}.menu-btn-1{position: fixed;color: rgba(100, 102, 102, 0.3);background-color: rgba(255, 255, 255,0.6);top: 15px;left: 15px;width: 35px;height: 25px;border-radius: 100px;padding: 10px 5px;z-index: 20;font-size: 34px;line-height: 33px;cursor: pointer;user-select: none; opacity:0; transition: 0.3s;backdrop-filter: blur(3px);}.menu-btn-1: hover{color: rgba(100, 102, 102, 0.5);}.f-2 {display: unset;}.f-3 {display: none;}.pageloading{position:fixed;height:100px;width:300px;top:calc(50% - 50px);left:calc(50% - 150px);z-index:20;text-align:center;user-select:none;display:none}.pageloading0{font-size:20px;color:rgba(192,194,194,1)}.pageloading1{display:none;font-size:14px;color: rgba(255, 0, 20, 0.8);white-space: nowrap}
+:root {
+	/* 主题颜色 */
+	--t-c1: 94, 188, 209;
+	--t-c2: 83, 155, 191;
+	--t-c3: 107, 227, 230;
+	--t-c4: 105, 221, 226;
+	--t-c5: 96, 205, 242;
+
+	/* 文本颜色 */
+	--t-t1: 100, 102, 102;
+
+	/* 背景颜色 */
+	--t-b1: 255, 255, 255;
+	--t-b2: 0, 0, 0;
+	--t-b3: 244, 243, 241;
+
+	--t-r: 255, 0, 20;
+	--t-g: 0, 200, 100;
+}
+
+@font-face{font-family:'Poppins Regular';src:url('src/Poppins Regular.woff2')}body{font-family:'Poppins Regular','Microsoft YaHei';overflow:overlay;margin:0;line-height:33px;min-width:380px}::-webkit-scrollbar{width:12px !important;height:12px !important;background-color:transparent !important}::-webkit-scrollbar-track{background-color:transparent !important;box-shadow:none !important}::-webkit-scrollbar-thumb{background-color:rgba(var(--t-b2),0.1) !important;border-radius:100px !important;border:4px solid transparent !important;background-clip:content-box !important;box-shadow:none !important}::-webkit-scrollbar-thumb:hover{background-color:rgba(var(--t-b2),0.2) !important}::-webkit-scrollbar-corner{background-color:transparent !important;box-shadow:none !important}::selection{background:rgba(var(--t-c5),0.3) !important}a{text-decoration:none;-webkit-user-drag:none}img{-webkit-user-select:none;-webkit-user-drag:none}.blog{position:fixed;z-index:5;top:0;left:0;bottom:0;width:100%;background-color:rgba(var(--t-b1),1);opacity:1;transition:0.5s}.iframe{position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;height:100%;width:100%;display:none;-webkit-user-select:none}.body-scroll{overflow:hidden}.t-9{position:absolute;width:180px;height:135px;left:80px;top:15px}.menu-btn-1{position:fixed;color:rgba(var(--t-t1),0.3);background-color:rgba(var(--t-b1),0.6);top:15px;left:15px;width:35px;height:25px;border-radius:100px;padding:10px 5px;z-index:20;font-size:34px;line-height:33px;cursor:pointer;user-select:none;opacity:0;transition:0.3s;backdrop-filter:blur(3px)}.menu-btn-1:hover{color:rgba(var(--t-t1),0.6)}.f-2{display:unset}.f-3{display:none}.pageloading{position:fixed;height:100px;width:300px;top:calc(50% - 50px);left:calc(50% - 150px);z-index:20;text-align:center;user-select:none;display:none}.pageloading0{font-size:20px;color:rgba(var(--t-t1),0.6)}.pageloading1{display:none;font-size:14px;color:rgba(var(--t-r),0.8);white-space:nowrap}.pageloading{position:fixed;height:100px;width:300px;top:calc(50% - 10px);left:calc(50% - 150px);z-index:20;text-align:center;user-select:none;display:none}.pageloading0{font-size:20px;color:rgba(var(--t-t1),0.6)}.pageloading1{display:none;font-size:14px;color:rgba(var(--t-r),0.8);white-space:nowrap}@keyframes fade-in-1{0%{opacity:0}50%{opacity:0}100%{opacity:1}}.fade-in-1{animation:fade-in-1 1s ease-in;animation-fill-mode:forwards}@keyframes shining-1{0%{opacity:0}50%{opacity:1}100%{opacity:0}}.shining-1{animation:shining-1 1s infinite}
 
 </style>
 
@@ -83,6 +102,10 @@
 		<iframe name="frame" class="iframe" id="iframe" ></iframe>
 	</div>
 </div>
+<div class="pageloading" >
+	<div class="pageloading0 shining-1" >page.loading(): ...</div>
+	<div class="pageloading1" >Err: page loading timeoout 「 >20000 ms 」</div>
+</div>
 
 
 
@@ -100,6 +123,23 @@ env.f = {}
 // iframe 通讯器
 env.f.post = function(event) {
 	document.getElementById('iframe').contentWindow.postMessage(event, document.domain.length == 0 && '*' || '/');
+}
+
+// iframe 重定向
+env.f.linkto = function(id) {
+	$('.iframe').fadeOut(300)
+	env.f.page.loading()
+
+	setTimeout(function (){
+		env.data.change = 1
+		if (env.data.states == "Local") {
+			env.f.url.change('id', id)
+			document.getElementById('iframe').src = 'blog/' + id + '/page.html'
+		} else {
+			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/blog?id=' + id)
+			document.getElementById('iframe').src = window.location.href.split('top',1)[0] + 'top/blog/' + id + '/page'
+		}
+	},400)
 }
 
 // 计算网站上线时间
@@ -185,20 +225,70 @@ env.f.back = function() {
 	},500)
 }
 
-// 读取 url 中的参数
-env.f.GetQueryString = function(name) {
-	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-	var r = window.location.search.substr(1).match(reg);
-	var context = "";
-	if (r != null)
-		context = decodeURIComponent(r[2]);
-	reg = null;
-	r = null;
-	return context == null || context == "" || context == "undefined" ? "undefined" : context;
-}
+
+// url 参数
+env.f.url = {}
+
+	env.f.url.get = function(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		var r = window.location.search.substr(1).match(reg);
+		var context = "";
+		if (r != null)
+			context = decodeURIComponent(r[2]);
+			reg = null;
+			r = null;
+			return context == null || context == "" || context == "undefined" ? "undefined" : context;
+	}
+
+	env.f.url.change = function(name, value) {
+		let url = location.href
+		let url2
+
+		if (typeof value === 'string') {
+			value = value.toString().replace(/(^\s*)|(\s*$)/, "")
+		}
+		if (!value) {
+			// 移除
+			let reg = eval('/(([\?|&])' + name + '=[^&]*)(&)?/i')
+			let res = url.match(reg)
+			if (res) {
+				if (res[2] && res[2] === '?') { // before has ?
+					if (res[3]) {
+						// 追加 &
+						url2 = url.replace(reg, '?')
+					} else {
+						url2 = url.replace(reg, '')
+					}
+				} else {
+					url2 = url.replace(reg, '$3')
+				}
+			}
+		} else {
+			let reg = eval('/([\?|&]' + name + '=)[^&]*/i')
+			if (url.match(reg)) {
+				// 编辑
+				url2 = url.replace(reg, '$1' + value)
+			} else {
+				// 添加
+				let reg = /([?](\w+=?)?)[^&]*/i
+				let res = url.match(reg)
+				url2 = url
+				if (res) {
+					if (res[0] !== '?') {
+						url2 += '&'
+					}
+				} else {
+					url2 += '?'
+				}
+				url2 += name + '=' + value
+			}
+		}
+
+		history.replaceState(null, null, url2)
+	}
 
 env.f.openPage = function() {
-	var TargetBlog = env.f.GetQueryString('id')
+	var TargetBlog = env.f.url.get('id')
 	var BlogList = env.data.list.Bloglist
 	if (TargetBlog!='undefined') {
 		if (TargetBlog=='ERROR') {
@@ -227,7 +317,7 @@ env.data.lang = navigator.language
 env.data.device = $(window).width() < 900 && 'Mobile' || 'Desktop'
 env.data.states = document.domain == '' && 'Local' || 'Network'
 env.data.memory = {}
-env.data.memory.obj = performance.memory
+env.data.memory.obj = null
 env.data.memory.check = null
 env.data.change = 0
 

@@ -13,7 +13,7 @@ env.data.list.notice = [
 	{
 		date: '10.2',
 		event: '网站 UI 设计优化',
-		content: '对网站样式进行了调整',
+		content: '最新的样式设计！',
 	},
 	{
 		date: '8.31',
@@ -157,7 +157,7 @@ env.f.post = function(event) {
 
 // iframe 重定向
 env.f.linkto = function(id) {
-	$('.iframe').fadeOut(600)
+	$('.iframe').fadeOut(300)
 	env.f.page.loading()
 
 	setTimeout(function (){
@@ -358,7 +358,7 @@ env.f.check = {}
 		var memory = env.data.memory.obj
 		env.timer.t1 = setInterval(() => {
 			env.data.memory.check = env.f.sizeFormatter(memory.usedJSHeapSize) + ' / ' + env.f.sizeFormatter(memory.totalJSHeapSize) + ' ' + ((memory.usedJSHeapSize / memory.totalJSHeapSize) * 100).toFixed(1) + '%'
-		}, 2000)
+		}, 5000)
 
 	}
 	env.f.check.stop = function() {
@@ -386,14 +386,10 @@ env.f.snapshot = function() {
 }
 
 // 弹窗
-env.f.msg = function(content, type, time) {
+env.f.msg = function(content, time) {
 	$('.message-box').html(content)
-	$('.message-box').removeClass('message-info')
-	$('.message-box').removeClass('message-warn')
-	$('.message-box').removeClass('message-error')
-
-	$('.message-box').addClass('message-' + type)
 	$('.message').addClass('message-active')
+
 	if (time != -1) {
 		setTimeout(function (){
 			$('.message').removeClass('message-active')
@@ -587,8 +583,8 @@ $('#iframe').on('load', function() {
 
 // 强制初始化页面
 setTimeout(function (){
-	if(document.querySelector('.Avatar').style.opacity!=1){
-		env.f.msg('初始化异常，已强制加载页面', 'warn', 3000)
+	if(document.querySelector('.Avatar').style.opacity == 0){
+		env.f.msg('初始化超时，已强制加载页面', 3000)
 		init()
 	}
 }, 30000)

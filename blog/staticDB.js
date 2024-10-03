@@ -38,15 +38,9 @@ env.data.list.Bloglist = [
 
 
 	{
-		name: 'Twilight Forest',
-		src: '20240916/',
-		details: '2024.9.16\n魔法森林中的迷失',
-		type: '',
-	},
-	{
 		name: 'Chika',
 		src: '20240917/',
-		details: '2024.9.17\n这是 Chika 的个人主页 ...',
+		details: '2024.9.17\nChika 的个人主页',
 		type: '',
 	},
 

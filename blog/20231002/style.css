@@ -1,7 +1,4 @@
-﻿span {
-	color: rgba(151, 153, 153, 1);
-}
-
+﻿
 .imgBox1 {
 	aspect-ratio: 3364 / 2126;
 	width: 100%;
@@ -28,12 +25,12 @@
 }
 
 .time1 {
-	color: rgba(227, 229, 229, 1);
+	color: rgba(var(--t-t1), 0.2);
 	float: right;
 }
 
 .time2 {
-	color: rgba(192, 194, 194, 1);
+	color: rgba(var(--t-t1), 0.4);
 }
 
 

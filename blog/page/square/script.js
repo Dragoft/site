@@ -288,11 +288,6 @@ function dateFormatter(formatter, date) {
 // 弹窗
 function message(content, type, time) {
 	$('.message-box').html(content);
-	$('.message-box').removeClass('message-info');
-	$('.message-box').removeClass('message-warn');
-	$('.message-box').removeClass('message-error');
-
-	$('.message-box').addClass('message-' + type);
 	$('.message').addClass('message-active');
 	if (time != -1) {
 		setTimeout(function (){

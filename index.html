@@ -12,7 +12,6 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="preload" as="font" href="src/Poppins Regular.woff2" crossorigin="anonymous" />
-	<link rel="stylesheet" type="text/css" href="css/animation.css" />
 	<link rel="stylesheet" type="text/css" href="css/player.css"  />
 	<link rel="stylesheet" type="text/css" href="css/hint.css" />
 
@@ -42,19 +41,17 @@
 			$('#body').removeAttr('style');
 
 			// 弹出问候语
-			env.f.msg('Hello 🎉', 'info', 3000);
+			env.f.msg('Hello 🎉', 3000);
 
 		},3000);
 		setTimeout(function (){
 			$('.t-39').addClass('t-3-active');
 		},2000);
 		setTimeout(function (){
-			$('.Avatar').css('opacity', '1'); 
+			$('.Avatar').css('opacity', '0.85'); 
 			$('.t-3').addClass('t-3-active');
 		},1500);
-		setTimeout(function (){
-			$('.Avatar-border').css('opacity', '1'); 
-		},300);
+
 	}
 
 	// 仅允许由 https://tatsuno.top/ 访问此页
@@ -93,10 +90,10 @@
 		<div class="t-4" >
 			<div class="Typewriter-1" onclick="Typewriter();" ></div>
 		</div>
-		<div class="Avatar-border" >
-			<!-- 感谢最大胆的设计，让我们摆脱了头像框的限制 -->
-			<img class="Avatar" onload="init()" src="src/Chika.webp" />
-		</div>
+
+		<!-- 感谢最大胆的设计，让我们摆脱了头像框的限制 -->
+		<img class="Avatar" onload="init()" src="src/Chika.webp" />
+
 	</div>
 
 	<!-- Blog Iframe -->
@@ -119,7 +116,7 @@
 		<div class="menu-title" >
 			MENU.
 		</div>
-		<hr style="border: none; border-top: 1px solid rgba(100, 102, 102, 0.3); width: 250px; margin-left: 0px;" />
+		<hr class="menu-line" />
 
 		<!-- 博客面板 -->
 		<div class="menu-box" style="margin-top: 10px;" >
@@ -152,7 +149,7 @@
 		</div>
 
 		<!-- 联系 -->
-		<hr style="border: none; border-top: 1px solid rgba(100, 102, 102, 0.3); width: 250px; margin-top: 60px; margin-left: 0px;" />
+		<hr class="menu-line" style="margin-top: 60px;" />
 		<div class="menu-box" style="margin-top: 10px;" >
 			<div class="menu-btn" onclick="env.f.menu.c3()" >
 				<div class="menu-check menu-check-active" id="menu-check-3" ></div>联系我
@@ -227,7 +224,7 @@
 	<div class="footer">
 	<div class="footer-inner" >
 		<div class="footer-box-1" >
-			<!-- 简短而真挚的感谢 -->
+			<!-- 简短但真挚的感谢 -->
 			<span class="footer-t1 footer-t2" >技术支持:</span>
 			<a class="footer-t3 hint--top hint--rounded" onclick="window.open('https://www.cloudflare.com/')" target="_blank" data-hint="Cloudflare" >
 				<img src="src/footer/cloudflare.png" style="opacity: 0; filter: saturate(90%);" onload="$(this).addClass('fade-in-1')" id="load-img" />
@@ -251,7 +248,7 @@
 	</div>
 	<div class="pageloading" >
 		<div class="pageloading0 shining-1" >page.loading(): ...</div>
-		<div class="pageloading1" >Err: page loading timeoout (>20000 ms)</div>
+		<div class="pageloading1" >Err: page loading timeoout 「 >20000 ms 」</div>
 	</div>
 
 
@@ -273,8 +270,7 @@
 				));
 				setTimeout(console.groupEnd.bind());
 			} else {
-				$('.message-box').html('Failed to load "script. js" (TIMEOUT)　<a onclick="location.reload();" href="javascript:;" style="color: rgb(170, 17, 17);" ><ins>Refresh</ins></a>');
-				$('.message-box').addClass('message-error');
+				$('.message-box').html('Failed to load "script. js" (TIMEOUT)　<a onclick="location.reload();" href="javascript:;" style="color: rgb(var(--t-b1));" ><ins>Refresh</ins></a>');
 				$('.message').addClass('message-active');
 
 				setTimeout(console.log.bind(
