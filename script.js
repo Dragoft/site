@@ -657,7 +657,7 @@ function Typewriter() {
 
 /* Console.log */
 console.log( 
-	'\n%c Theme %c S E K A I %c		ver.1.0.18\n',
+	'\n%c Theme %c S E K A I %c		ver.1.0.19\n',
 	'background-color: rgba(57, 145, 216, 0.5); color: white; font-weight: bolder;',
 	'background-color: rgba(57, 145, 216, 0.3); color: white;',
 	'color: rgba(192, 194, 194, 1);',

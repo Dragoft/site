@@ -18,7 +18,7 @@
 
 ## 使用的技术
 * **Cloudflare 服务**
-	* Pages
+	* Cloudflare Pages
 	* Pages Function
 	* D1 数据库
 	* Cloudflare Web Analytics

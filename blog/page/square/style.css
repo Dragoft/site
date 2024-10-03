@@ -29,15 +29,20 @@
 	height: 25px;
 	line-height: 24px;
 	font-size: 16px;
-	color: rgba(var(--t-t1), 0.6);
+	color: rgba(var(--t-t1), 0.7);
 	font-weight: bolder;
 	overflow: hidden;
 	white-space: nowrap;
 }
 
+.Tname::placeholder {
+	color: rgba(var(--t-t1), 0.7);
+}
+
 .Tname-1 {
 	vertical-align: bottom;
 	font-family: 'Microsoft YaHei';
+	color: rgba(var(--t-t1), 0.7);
 	line-height: 24px;
 	font-size: 16px;
 	font-weight: bolder;
@@ -63,12 +68,12 @@
 	width: 100%;
 	line-height: 24px;
 	font-size: 16px;
-	color: rgba(var(--t-t1), 0.4);
+	color: rgba(var(--t-t1), 0.5);
 	transition: 0.5s;
 }
 
 .Tcontent::placeholder {
-	color: rgba(var(--t-t1), 0.4);
+	color: rgba(var(--t-t1), 0.5);
 }
 
 .Tpage {
@@ -103,7 +108,7 @@
 
 .time {
 	display: block;
-	color: rgba(var(--t-t1), 0.2);
+	color: rgba(var(--t-t1), 0.3);
 	margin-top: 10px;
 	white-space: nowrap;
 }
@@ -121,6 +126,7 @@
 }
 
 .title {
+	color: rgba(var(--t-t1), 0.7);
 	font-weight: bolder;
 	display: block;
 }
@@ -128,7 +134,7 @@
 .content {
 	display: block;
 	white-space: break-spaces;
-	color: rgba(var(--t-t1), 0.4);
+	color: rgba(var(--t-t1), 0.5);
 	overflow: hidden;
 }
 
@@ -149,7 +155,7 @@
 
 .admin {
 	margin-left: 10px;
-	background-color: rgba(var(--t-c1), 0.6);
+	background-color: rgba(var(--t-c1), 0.4);
 	color: rgba(var(--t-b1), 1);
 	padding: 0px 5px;
 	line-height: 22px;
@@ -252,7 +258,7 @@
 	z-index: 10;
 	height: 100%;
 	width: 100%;
-	background-color: rgba(var(--t-b2), 0.6);
+	background-color: rgba(var(--t-b2), 0.8);
 	backdrop-filter: blur(5px);
 	display: none;
 }
