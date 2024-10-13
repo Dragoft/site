@@ -1,25 +1,24 @@
-﻿
-function Search(output, input, color) {
-	/* 方法说明
+﻿/*
+	方法说明
 	*@param{String} output 需要被搜索内容表格的id或class
 	*@param{String} input 搜索框的id或class
-	*@param{String} color 搜索内容以什么颜色返回
 
 	* 在ChatGPT 的帮助下完成了编写，目前仍无法搜索同名选项。本核心借鉴了lin_search.js
  
 							—— 2023.12.23
 
-	*/
+*/
 
 
+
+env.f.search = function(output, input) {
 	// 初始化
-	var BlogTEMP = env.data.list.Bloglist
-	var ul = document.querySelector('ul')
-
-
+	var BlogTEMP = env.data.list.Bloglist;
+	var ul = document.querySelector('ul');
+	var key = input.val().trim();
 
 	//  排除搜索违禁词
-	if (contains(input.val().trim(), '')) {
+	if (key.includes('')) {
 		return
 	}
 
@@ -63,7 +62,7 @@ function Search(output, input, color) {
 
 
 	// 定义一个输入的关键词
-	var search = escapeRegExp(input.val().trim());
+	var search = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 
 	// 使用filter()方法和正则表达式来进行模糊搜索
@@ -111,11 +110,11 @@ function Search(output, input, color) {
 
 		// 将数组里的第一个值取出
 		var contentArrFirst = contentsArr[0];
-		var content = str.substr(contentsArr[0].length, input.val().trim().length);
+		var content = str.substr(contentsArr[0].length, key.length);
 
 		if (content.length!=0) {
 			// 搜索结果为 头 + 颜色项 + 尾
-			var contentHtml = contentArrFirst + "<span style='color:" + color + "'>" + content + "</span>" + contentsArr[1];
+			var contentHtml = contentArrFirst + '<span class="search-key">' + content + '</span>' + contentsArr[1];
 			document.getElementById(result[a].toString()).childNodes[0].innerHTML = contentHtml;
 		}
 	}
@@ -134,16 +133,6 @@ function Search(output, input, color) {
 			document.getElementById('searchInput').name = BlogTEMP.length;
 		}
 	}
-}
-
-
-
-function escapeRegExp(string) {
-	return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $&表示匹配的子串
-}
-
-function contains(str, substr) {
-	return str.includes(substr);
 }
 
 

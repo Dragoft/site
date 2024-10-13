@@ -41,21 +41,20 @@ env.data.list.notice = [
 
 
 // 添加方法
-env.f = {}
 env.timer.t1 = null
 env.timer.t2 = null
 
 /* --------------------------------------
-	已占用的 tmp 变量
+	已占用的关键变量
 	env.tmp.t1
 	env.tmp.t2
+	env.tmp.t3
+
+	env.timer.t1
+	env.timer.t2
+	env.timer.t3
 
 */
-
-// 剔除博客中被隐藏的文章
-env.f.filter = function(arr, key, value) {
-	return arr.filter(obj => obj[key] != value)
-}
 
 // 剔除博客中被隐藏的文章
 env.f.filter = function(arr, key, value) {
@@ -89,7 +88,6 @@ env.f.getRandom = function(min, max) {
 // 获取浏览器类型
 env.f.getBrowser = function() {
 	var userAgent = window.navigator.userAgent;
-
 	if (userAgent.indexOf("Chrome") !== -1) {
 		return "Chrome"
 	} else if (userAgent.indexOf("Firefox") !== -1) {
@@ -287,7 +285,7 @@ env.f.blog = {}
 	}
 
 // 初始化博客、通知面板
-env.f.init = function() {
+env.f.initList = function() {
 
 	// 博客
 	env.data.list.Bloglist = env.f.filter(env.data.list.Bloglist, 'type', 'hide')
@@ -330,7 +328,7 @@ env.f.init = function() {
 			}
 	}
 	$('#searchInput').on('keyup', function () {
-		new Search('.search-list', $('#searchInput'), 'rgba(var(--t-c1), 1)')
+		new env.f.search('.search-list', $('#searchInput'))
 	})
 	// 初始化列表高度
 	if (BlogTEMP.length > 10) {
@@ -414,7 +412,7 @@ env.f.menu = {}
 			$('ul')
 .addClass('wait')
 			$('.menu-btn-1').css('cursor', 'progress')
-			env.f.init()
+			env.f.initList()
 
 			setTimeout(function (){
 				$('ul')
@@ -537,7 +535,7 @@ window.addEventListener('message', function(event) {
 // 页面加载完成后执行
 window.addEventListener('load',function(){
 	// 计算页面加载时间
-	env.data.load = env.f.dateFormatter ('mm:ss', new Date() - new Date(env.tmp.t1)) + ' ' + (new Date() - new Date(env.tmp.t1)).toString() + 'ms'
+	env.data.load = env.f.dateFormatter ('mm:ss', new Date() - new Date(env.tmp.t1)) + ' / ' + (new Date() - new Date(env.tmp.t1)).toString() + 'ms'
 	env.tmp.t1 = null
 	delete env.tmp.t1
 
@@ -585,109 +583,37 @@ $('#iframe').on('load', function() {
 setTimeout(function (){
 	if(document.querySelector('.Avatar').style.opacity == 0){
 		env.f.msg('初始化超时，已强制加载页面', 3000)
-		init()
+		env.f.init()
 	}
 }, 30000)
 
 
 
 function Typewriter() {
-	if (env.data.device == 'Desktop') {
-		var sentence = [
-			// 电脑标题语列表
-
-			'あの、^1000今日は^200' + ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()] + '^300ですか。',
-			'白川さんは映画が好きです。',
-			'白川さんはよく映画を見ます。',
-			'白川さんは歌が好きですよ。',
-			'田中さんは時々図書館で勉強します。',
-			'田中さんはいませんね。^400奈良へ行きました。',
-			'花屋に^300誰もいません。',
-			'でも、^300昨日は寒くありませんでした。^400今日も。',
-			'はい、^300これも私の毎日の仕事です。',
-			'奈良より、^300ここの夏のほうが暑いです。',
-			'わたしのアパートは^300書店の隣に^300あります。',
-			'この椅子に^300座って^300ください。',
-			'それを使っても^300いいですか。',
-			'名前を書かなくてもいいですよ。',
-			'今日はどうしても^300帰ります。',
-			'この花は^300２年に^300１度咲きます。',
-			'公園の中は静かで^300寒いです。',
-
-			'莫愁前路无知己，^300天下谁人不识君！',
-			'固时俗之工巧兮，^300偭规矩而改错。',
-			'鸷鸟之不群兮，^300自前世而固然。',
-			'伏清白以死直兮，^300固前圣之所厚。',
-
-		]
-	} else {
-		var sentence = [
-			// 手机标题语列表
-
-			['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()],
-			'これは何ですか。',
-			'ここは…',
-			'一个很懒的博主.',
-			'Html！',
-			'Hello world.',
-			'はーい',
-			'小白一只.',
-			'私は新米です。',
-			'Java^1000Script！',
-			'Python！',
-			'こんにちは。',
-			'今日は^500' + ['日曜日', '月曜日', '火曜日', '水曜日', '木曜日', '金曜日', '土曜日'][new Date().getDay()] + '^300ですか。',
-			'看上去很不错的样子...',
-			'美味しかったです！',
-			'おいしい！',
-			'昨日は寒かったです。',
-			'Have a good day !'
-
-		]
-	}
-	var RandomSentence = sentence[Math.floor(Math.random() * sentence.length)]
-	$('.Typewriter-1').typed({
-		strings: [RandomSentence],
-		typeSpeed: 100,
+	$('.t-39').typed({
+		strings: ['<span class="f-2" >私のサイト、^400</span>私一人の^200世界です。'],
+		typeSpeed: 90,
 		showCursor: false,
+		contentType: 'html',
 	})
 }
 
 
 
 /* Console.log */
-console.log( 
-	'\n%c Theme %c S E K A I %c		ver.1.0.19\n',
+setTimeout(console.log.bind(
+	console, 
+	'\n%c Theme %c S E K A I %c		ver.1.0.20\n',
 	'background-color: rgba(57, 145, 216, 0.5); color: white; font-weight: bolder;',
 	'background-color: rgba(57, 145, 216, 0.3); color: white;',
 	'color: rgba(192, 194, 194, 1);',
-)
-
-setTimeout(console.groupCollapsed.bind(
-	console, 
-	'%cDetails%c()',
-	'color: rgba(100, 102, 102, 0.8)',
-	'color: rgba(100, 102, 102, 1)',
-))
-setTimeout(console.log.bind(
-	console, 
-`	%cOnline:		` + env.data.time + ` Days
-	Device:		` + env.data.device + `: ` + $(window).width() + ` × ` + $(window).height()  + `
-	States:		` + env.data.states + `
-	Browser:	` + env.data.browser + ` [` + env.data.lang +`]
-
-	%c` + new Date() + `
-`,
-	'color: rgba(100, 102, 102, 0.8)',
-	'color: rgba(192, 194, 194, 1)'
 ));
-setTimeout(console.groupEnd.bind())
 
 
 
 
 
 
-env.tmp.t2 = 'ok'
+if (window.jQuery) {env.tmp.t2 = 'ok'}
 
 

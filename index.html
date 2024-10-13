@@ -27,31 +27,35 @@
 	env.data.list = {}
 
 	// 初始化界面
-	function init() {
-		setTimeout(function (){
-			Typewriter();
-			$('.footer').fadeIn(300); 
-			player.f.loadPlayer();
+	env.f.init = function() {
+		env.timer.t3 = setInterval(() => {
+			if (!document.hidden) {
+				setTimeout(function (){
+					$('.footer').fadeIn(300); 
+					player.f.loadPlayer();
+					env.f.msg('Hello 🎉', 3000);
 
-			// 显示菜单按钮
-			$('.menu-btn-1').addClass('fade-in-1');
-			$('.t-36').addClass('fade-in-1');
+					// 显示菜单按钮
+					$('.menu-btn-1').addClass('fade-in-1');
+					$('.t-36').addClass('fade-in-1');
 
-			// 激活页面
-			$('#body').removeAttr('style');
+					// 激活页面
+					$('#body').removeAttr('style');
 
-			// 弹出问候语
-			env.f.msg('Hello 🎉', 3000);
+				},2500);
+				setTimeout(function (){
+					$('.t-39').addClass('t-3-active');
+					Typewriter();
+				},1500);
+				setTimeout(function (){
+					$('.Avatar').removeAttr('style');
+					$('.Avatar').css('opacity', '0.85');
+					$('.t-3').addClass('t-3-active');
+				},1000);
 
-		},3000);
-		setTimeout(function (){
-			$('.t-39').addClass('t-3-active');
-		},2000);
-		setTimeout(function (){
-			$('.Avatar').css('opacity', '0.85'); 
-			$('.t-3').addClass('t-3-active');
-		},1500);
-
+				clearInterval(env.timer.t3)
+			}
+		},500)
 	}
 
 	// 仅允许由 https://tatsuno.top/ 访问此页
@@ -85,16 +89,12 @@
 	</div>
 
 	<div class="box-2" >
-		<span class="t-3" >tatsuno<span class="t-40 rotate-1"></span></span>
-		<span class="t-39" >のサイトです。</span>	
-		<div class="t-4" >
-			<div class="Typewriter-1" onclick="Typewriter();" ></div>
-		</div>
-
-		<!-- 感谢最大胆的设计，让我们摆脱了头像框的限制 -->
-		<img class="Avatar" onload="init()" src="src/Chika.webp" />
-
+		<span class="t-3" >辰野さん</span>
+		<div class="t-39" ></div>
 	</div>
+
+	<!-- 最大胆的设计，使我们摆脱了头像框的传统限制 -->
+	<img class="Avatar" style="transform: scale(1.02);" onload="env.f.init()" src="src/Chika.webp" />
 
 	<!-- Blog Iframe -->
 	<div class="blog" >
@@ -231,7 +231,7 @@
 			</a>
 		</div>
 		<div class="footer-box-2" >
-			<!-- 成就 -->
+			<!-- 一点小小的成就 -->
 			<span class="footer-t4 footer-t1" > | 
 				<span style="user-select: text;" ><span id="onlineDate" >0</span> 天<span style="display: none;" id="visit_counter_outer" > & <span id="visit_counter">0</span> 访客</span></span>
 			</span>
@@ -264,22 +264,24 @@
 			if(env.tmp.t2 == 'ok'){
 				setTimeout(console.log.bind(
 					console,
-					'%cPage self-check: %cSUCCESS',
+					'%c[' + env.f.dateFormatter('HH:mm:ss', new Date()) + '] POINT: %cSUCCESS			%c--root:/index.html --root:/script.js --remote:/../jquery.min.js',
 					'color: rgba(100, 102, 102, 0.8); font-weight: bolder;',
-					'color: rgba(0, 200, 100, 1); font-weight: bolder;'
+					'color: rgba(0, 200, 100, 1); font-weight: bolder;',
+					'color: rgba(100, 102, 102, 0.6);'
 				));
 				setTimeout(console.groupEnd.bind());
 			} else {
-				$('.message-box').html('Failed to load "script. js" (TIMEOUT)　<a onclick="location.reload();" href="javascript:;" style="color: rgb(var(--t-b1));" ><ins>Refresh</ins></a>');
-				$('.message').addClass('message-active');
-
 				setTimeout(console.log.bind(
 					console,
-					'%cPage self-check: %cTIMEOUT',
+					'%c[' + env.f.dateFormatter('HH:mm:ss', new Date()) + '] POINT: %cTIMEOUT			%c--root:/index.html --root:/script.js --remote:/../jquery.min.js',
 					'color: rgba(100, 102, 102, 0.8); font-weight: bolder;',
-					'color: rgba(255, 0, 20, 1); font-weight: bolder;'
+					'color: rgba(255, 0, 20, 1); font-weight: bolder;',
+					'color: rgba(100, 102, 102, 0.6);'
 				));
 				setTimeout(console.groupEnd.bind());
+
+				$('.message-box').html('Failed to load "script. js" (TIMEOUT)　<a onclick="location.reload();" href="javascript:;" style="color: rgb(var(--t-b1));" ><ins>Refresh</ins></a>');
+				$('.message').addClass('message-active');
 			}
 			env.tmp.t2 = null
 			delete env.tmp.t2

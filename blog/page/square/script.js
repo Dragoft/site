@@ -42,7 +42,7 @@ function sent() {
 		if (errN==0) {
 			document.querySelector('.Tcontent').value = '';
 			document.querySelector('.Tcontent').style.height = '48px';
-			document.querySelector('.count').innerHTML = '200 words remaining.';
+			document.querySelector('.count').innerHTML = '剩余 200 字';
 
 			ComNum = Number(ComNum) + 1;
 			PageAll = Math.ceil(ComNum/10);
@@ -334,7 +334,7 @@ function XautoResize(e) {
 
 	h.innerHTML = t.value;
 	t.value = escapeRegExp(t.value)
-	t.style.width = (h.offsetWidth || 80) + 'px';
+	t.style.width = (h.offsetWidth || 32) + 'px';
 }
 
 function addOpen() {

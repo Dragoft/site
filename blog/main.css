@@ -218,7 +218,7 @@ attention {
 	background-color: rgba(var(--t-c1), 0.15);
 	color: rgba(var(--t-c1), 1);
 	padding: 0px 8px 0px 8px;
-	line-height: 28px;
+	line-height: 27px;
 	border-radius: 5px;
 }
 
