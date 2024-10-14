@@ -44,13 +44,13 @@
 	}
 
 	.t-3 {
-		font-size: 40px;
+		font-size: 36px;
 		white-space: nowrap;
 	}
 
 	.t-39 {
 		font-size: 16px;
-		margin-top: 70px;
+		margin-top: 65px;
 		margin-left: 5px;
 	}
 
@@ -93,9 +93,21 @@
 	}
 
 	.t-36 {
-		font-size: 16px;
+		font-size: 20px;
 		right: 15px;
 		left: unset;
+	}
+
+	.t-37 {
+		color: rgba(var(--t-t1), 0.6);
+		text-shadow:	-1px -1px 0 rgba(var(--t-b1), 0.6),
+				-1px 1px 0 rgba(var(--t-b1), 0.6),
+				1px -1px 0 rgba(var(--t-b1), 0.6),
+				1px 1px 0 rgba(var(--t-b1), 0.6),
+				0 -1px 0 rgba(var(--t-b1), 0.6),
+				0 1px 0 rgba(var(--t-b1), 0.6),
+				1px 0 0 rgba(var(--t-b1), 0.6),
+				-1px 0 0 rgba(var(--t-b1), 0.6);
 	}
 
 	.menu-btn-1 {
@@ -103,10 +115,10 @@
 	}
 
 	.box-2 {
-		width: 200px;
-		height: 120px;
-		top: calc(50% - 80px);
-		left: calc(50% - 20px);
+		width: 180px;
+		height: 100px;
+		bottom: 80px;
+		left: 40px;
 	}
 
 	.box-4 {
@@ -118,12 +130,10 @@
 
 	.Avatar {
 		position: absolute;
-		left: calc(50% - 160px);
-		top: calc(50% - 80px);
-		height: 120px;
-		width: 120px;
-		border-radius: 28px;
-		border: 1px solid rgba(var(--t-t1), 0.1);
+		width: 90%;
+		object-fit: cover;
+		object-position: -130px 0px;
+		transform: none !important;
 	}
 
 	.footer-inner {

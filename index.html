@@ -264,7 +264,7 @@
 			if(env.tmp.t2 == 'ok'){
 				setTimeout(console.log.bind(
 					console,
-					'%c[' + env.f.dateFormatter('HH:mm:ss', new Date()) + '] POINT: %cSUCCESS			%c--root:/index.html --root:/script.js --remote:/../jquery.min.js',
+					'%c[' + env.f.dateFormatter('HH:mm:ss', new Date()) + '] POINT: %cSUCCESS		%cat --root:/index.html --root:/script.js --remote:/../jquery.min.js',
 					'color: rgba(100, 102, 102, 0.8); font-weight: bolder;',
 					'color: rgba(0, 200, 100, 1); font-weight: bolder;',
 					'color: rgba(100, 102, 102, 0.6);'
@@ -273,7 +273,7 @@
 			} else {
 				setTimeout(console.log.bind(
 					console,
-					'%c[' + env.f.dateFormatter('HH:mm:ss', new Date()) + '] POINT: %cTIMEOUT			%c--root:/index.html --root:/script.js --remote:/../jquery.min.js',
+					'%c[' + env.f.dateFormatter('HH:mm:ss', new Date()) + '] POINT: %cTIMEOUT		%cat --root:/index.html --root:/script.js --remote:/../jquery.min.js',
 					'color: rgba(100, 102, 102, 0.8); font-weight: bolder;',
 					'color: rgba(255, 0, 20, 1); font-weight: bolder;',
 					'color: rgba(100, 102, 102, 0.6);'
