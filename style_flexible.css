@@ -100,14 +100,14 @@
 
 	.t-37 {
 		color: rgba(var(--t-t1), 0.6);
-		text-shadow:	-1px -1px 0 rgba(var(--t-b1), 0.6),
-				-1px 1px 0 rgba(var(--t-b1), 0.6),
-				1px -1px 0 rgba(var(--t-b1), 0.6),
-				1px 1px 0 rgba(var(--t-b1), 0.6),
-				0 -1px 0 rgba(var(--t-b1), 0.6),
-				0 1px 0 rgba(var(--t-b1), 0.6),
-				1px 0 0 rgba(var(--t-b1), 0.6),
-				-1px 0 0 rgba(var(--t-b1), 0.6);
+		text-shadow:	-2px -2px 0 rgba(var(--t-b1), 0.4),
+				-2px 2px 0 rgba(var(--t-b1), 0.4),
+				2px -2px 0 rgba(var(--t-b1), 0.4),
+				2px 2px 0 rgba(var(--t-b1), 0.4),
+				0 -2px 0 rgba(var(--t-b1), 0.4),
+				0 2px 0 rgba(var(--t-b1), 0.4),
+				2px 0 0 rgba(var(--t-b1), 0.4),
+				-2px 0 0 rgba(var(--t-b1), 0.4);
 	}
 
 	.menu-btn-1 {
@@ -115,24 +115,18 @@
 	}
 
 	.box-2 {
+		position: fixed;
 		width: 180px;
 		height: 100px;
 		bottom: 80px;
 		left: 40px;
 	}
 
-	.box-4 {
-		font-family: 'Poppins Regular', 'Microsoft YaHei'; 
-		line-height: 25px;
-		font-size: 16px;
-		width: 80%;
-	}
-
 	.Avatar {
-		position: absolute;
+		position: fixed;
 		width: 90%;
 		object-fit: cover;
-		object-position: -130px 0px;
+		object-position: -120px 0px;
 		transform: none !important;
 	}
 
