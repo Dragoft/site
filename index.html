@@ -28,7 +28,7 @@
 
 	// 初始化界面
 	env.f.init = function() {
-		env.timer.t3 = setInterval(() => {
+		env.timer.t1 = setInterval(() => {
 			if (!document.hidden) {
 				setTimeout(function (){
 					$('.footer').fadeIn(300); 
@@ -53,7 +53,7 @@
 					$('.t-3').addClass('t-3-active');
 				},1000);
 
-				clearInterval(env.timer.t3)
+				clearInterval(env.timer.t1)
 			}
 		},500)
 	}

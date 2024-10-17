@@ -243,7 +243,7 @@ player.f.menu = function(){
 
 			player.e.body.classList.add('PlayerWait')
 			$(player.e.menu, 160).fadeIn(160)
-			if (env.data.device == 'Mobile') {$(player.e.cover1).fadeOut(160)}
+			if (env.data.isMobile) {$(player.e.cover1).fadeOut(160)}
 			player.f.list()
 
 			player.data.mode = 1
@@ -255,7 +255,7 @@ player.f.menu = function(){
 			$(player.e.body).addClass('PlayerWait')
 			$(player.e.body).addClass('Player-active')
 			$(player.e.menu).fadeOut(160)
-			if (env.data.device == 'Mobile') {$(player.e.cover1).fadeIn(400)}
+			if (env.data.isMobile) {$(player.e.cover1).fadeIn(400)}
 			setTimeout(function (){
 				$(player.e.body).fadeIn(200)
 				$(player.e.frame).fadeIn(300)
@@ -366,7 +366,7 @@ player.f.add = function(name, src, img) {
 				}
 			}, 2500)
 			player.data.timer.t2 = setInterval(() => {
-				if (env.data.device == 'Mobile') {$(player.e.cover1).fadeOut(200)}
+				if (env.data.isMobile) {$(player.e.cover1).fadeOut(200)}
 				player.data.timer.t1 = setInterval(() => {
 					if(player.data.subwin == 1) {
 						player.f.add.ask(0)
@@ -374,7 +374,7 @@ player.f.add = function(name, src, img) {
 					}
 				}, 20000)
 
-				if (env.data.device == 'Mobile') {
+				if (env.data.isMobile) {
 					$(player.e.cove1).fadeOut(200)
 					$(player.e.frame).addClass('Player-phone')
 					$(player.e.cover0).css('display',  'none')
@@ -390,7 +390,7 @@ player.f.add = function(name, src, img) {
 		if (mode == 0) {
 			player.data.subwin = 0
 			$(player.e.subwin).fadeOut(200)
-			if (player.data.subwin == 0) {if(player.data.mode == 0){ if (env.data.device == 'Mobile') {$(player.e.cover1).fadeIn(200)}}}
+			if (player.data.subwin == 0) {if(player.data.mode == 0){ if (env.data.isMobile) {$(player.e.cover1).fadeIn(200)}}}
 			clearInterval(player.data.timer.t2);
 
 			return
@@ -499,7 +499,7 @@ player.e.s1.addEventListener('scroll', () => {
 })
 
 // 手机样式
-if (env.data.device == 'Mobile') {
+if (env.data.isMobile) {
 	$(player.e.frame).css('transform', 'translateX(182px)')
 }
 

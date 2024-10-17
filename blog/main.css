@@ -102,6 +102,11 @@ img {
 	opacity: 0;
 }
 
+para {
+	display: block;
+	padding-bottom: 100px;
+}
+
 code {
 	display: block;
 	background-color: rgba(var(--t-c1), 0.15);
@@ -136,6 +141,8 @@ h1 {
 h2 {
 	color: rgba(var(--t-t1), 0.8);
 	font-size: 25px;
+	height: 45px;
+	border-bottom: 1px rgba(var(--t-t1), 0.2) solid;
 }
 
 h2:after {
@@ -149,7 +156,26 @@ h3 {
 	margin: 0;
 }
 
+hr1,
+hr2,
+hr3 {
+	display: block;
+	height: 10px;
+	margin-top: 10px;
+	border-top: 1px rgba(var(--t-t1), 0.2) solid;
+}
 
+hr1 {
+	width: 100%;
+}
+
+hr2 {
+	width: 80%;
+}
+
+hr3 {
+	width: 60%;
+}
 
 li {
 	list-style: none;

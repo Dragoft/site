@@ -41,7 +41,6 @@ env.data.list.notice = [
 
 
 // 添加方法
-env.timer.t1 = null
 env.timer.t2 = null
 
 /* --------------------------------------
@@ -52,7 +51,6 @@ env.timer.t2 = null
 
 	env.timer.t1
 	env.timer.t2
-	env.timer.t3
 
 */
 
@@ -160,7 +158,7 @@ env.f.linkto = function(id) {
 
 	setTimeout(function (){
 		env.data.change = 1
-		if (env.data.states == "Local") {
+		if (!env.data.isNetwork) {
 			env.f.url.change('id', id)
 			document.getElementById('iframe').src = 'blog/' + id + '/page.html'
 		} else {
@@ -242,7 +240,7 @@ env.f.blog = {}
 		setTimeout(function (){
 			// 跳转指定文章
 			env.data.change = 1
-			if (env.data.states == "Local") {
+			if (!env.data.isNetwork) {
 				env.f.url.change('id', id)
 				document.getElementById('iframe').src = 'blog/' + id + '/page.html'
 			} else {
@@ -349,20 +347,6 @@ env.f.initList = function() {
 	}
 
 }
-
-// 循环检测
-env.f.check = {}
-	env.f.check.run = function() {
-		var memory = env.data.memory.obj
-		env.timer.t1 = setInterval(() => {
-			env.data.memory.check = env.f.sizeFormatter(memory.usedJSHeapSize) + ' / ' + env.f.sizeFormatter(memory.totalJSHeapSize) + ' ' + ((memory.usedJSHeapSize / memory.totalJSHeapSize) * 100).toFixed(1) + '%'
-		}, 5000)
-
-	}
-	env.f.check.stop = function() {
-		clearInterval(env.timer.t1 )
-		env.data.memory.check = null
-	}
 
 // 变量快照
 env.f.snapshot = function() {
@@ -509,18 +493,14 @@ env.data.time = env.f.getDate()
 env.data.visitors = 0
 env.data.browser = env.f.getBrowser()
 env.data.lang = navigator.language
-env.data.device = $(window).width() < 900 && 'Mobile' || 'Desktop'
-env.data.states = document.domain == '' && 'Local' || 'Network'
-env.data.memory = {}
-env.data.memory.obj = performance.memory
-env.data.memory.check = null
+env.data.isMobile = $(window).width() < 900 && true || false
+env.data.isNetwork = document.domain != '' && true || false
 env.data.change = 0
 
 $('title').text('tatsuno.top/')
 history.pushState(null, null, location.href)
 
 env.f.url.clear()
-env.f.check.run()
 
 
 // 设置全局监听器
@@ -540,7 +520,7 @@ window.addEventListener('load',function(){
 	delete env.tmp.t1
 
 	// 获取访问量
-	if (env.data.states == 'Network') {
+	if (env.data.isNetwork) {
 		// 一周内的重复访问不计数
 		if (env.f.getCookie('Cookie') == undefined) {
 			var mode = 1

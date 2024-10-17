@@ -132,7 +132,7 @@ env.f.linkto = function(id) {
 
 	setTimeout(function (){
 		env.data.change = 1
-		if (env.data.states == "Local") {
+		if (!env.data.isNetwork) {
 			env.f.url.change('id', id)
 			document.getElementById('iframe').src = 'blog/' + id + '/page.html'
 		} else {
@@ -314,14 +314,9 @@ env.f.openPage = function() {
 env.data.time = env.f.getDate()
 env.data.visitors = 0
 env.data.lang = navigator.language
-env.data.device = $(window).width() < 900 && 'Mobile' || 'Desktop'
-env.data.states = document.domain == '' && 'Local' || 'Network'
-env.data.memory = {}
-env.data.memory.obj = null
-env.data.memory.check = null
+env.data.isMobile = $(window).width() < 900 && true || false
+env.data.isNetwork = document.domain != '' && true || false
 env.data.change = 0
-
-
 
 
 
@@ -338,7 +333,7 @@ window.addEventListener('message', function(event) {
 window.addEventListener('load',function(){
 
 	// 获取访问量
-	if (env.data.states == 'Network') {
+	if (env.data.isNetwork) {
 		// 一周内的重复访问不计数
 		if (env.f.getCookie('Cookie') == undefined) {
 			var mode = 1
