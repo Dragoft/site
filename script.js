@@ -352,19 +352,10 @@ env.f.initList = function() {
 env.f.snapshot = function() {
 	var result = []
 	for (let key in window) {
-		if (typeof window[key] !== 'function') {
-			result.push({name: key, value: window[key], type: typeof window[key]})
-		}
+		result.push({name: key, value: window[key]})
 	}
-	setTimeout(console.groupCollapsed.bind(
-		console, 
-		'snapshot ' + env.f.dateFormatter('hh:mm:ss', new Date())
-	))
-	setTimeout(console.table.bind(
-		console, 
-		result
-	))
-	setTimeout(console.groupEnd.bind())
+
+	return result
 }
 
 // 弹窗
@@ -489,12 +480,13 @@ env.f.page = {}
 
 
 // 设置环境变量
-env.data.time = env.f.getDate()
+env.data.uptime = env.f.getDate()
 env.data.visitors = 0
 env.data.browser = env.f.getBrowser()
 env.data.lang = navigator.language
 env.data.isMobile = $(window).width() < 900 && true || false
 env.data.isNetwork = document.domain != '' && true || false
+env.data.isNew = null
 env.data.change = 0
 
 $('title').text('tatsuno.top/')
@@ -524,8 +516,10 @@ window.addEventListener('load',function(){
 		// 一周内的重复访问不计数
 		if (env.f.getCookie('Cookie') == undefined) {
 			var mode = 1
+			env.data.isNew = true
 		} else {
 			var mode = 0
+			env.data.isNew = false
 		}
 
 		fetch('https://tatsuno.top/counter.api', {
