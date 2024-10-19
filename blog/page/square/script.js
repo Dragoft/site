@@ -93,8 +93,6 @@ env.f.print = function(page) {
 	box.innerHTML = '';
 
 	setTimeout(function (){
-		// 获取当前时间
-		env.f.getTime()
 
 		for (var i = 0; i < env.data.db['results'].length; i++) {
 			var span = document.createElement('span');
@@ -132,7 +130,7 @@ env.f.print = function(page) {
 			if (env.data.db['results'][i]['deletable']=="1") {
 
 				// 超过 7 天的留言无法删除
-				if (parseInt(env.data.db.results[i].id.replace(/:/g, '').replace(/-/g, '').replace(/ /g, '')) + 7000000 > parseInt(time)) {
+				if (parseInt(env.data.db.results[i].id.replace(/:/g, '').replace(/-/g, '').replace(/ /g, '')) + 7000000 > parseInt(env.f.getTime())) {
 					var a = document.createElement('a');
 					a.innerHTML = '[删除]'
 					a.setAttribute('class', 'delete');
@@ -212,7 +210,7 @@ env.f.init = function() {
 	})
 	.then(json => {
 		env.data.remarkN = Number(json.results[0].content);
-		env.data.pageN = Math.ceil(ComNum/10);
+		env.data.pageN = Math.ceil(env.data.remarkN/10);
 		document.querySelector('.page0').innerHTML = env.data.pageN;
 		document.querySelector('.page').title = '共 ' + env.data.remarkN + ' 条留言';
 	}); 
