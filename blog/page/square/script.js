@@ -281,13 +281,13 @@ env.f.del = function(e, id) {
 		}); 
 
 		if (!env.data.pause) {
-			env.f.pageN --
-			env.f.remarkN = Math.ceil(env.f.pageN/10);
-			document.querySelector('.page0').innerHTML = env.f.pageN;
-			document.querySelector('.page').title = '共 ' + env.f.remarkN + ' 条留言';
+			env.data.pageN --
+			env.data.remarkN = Math.ceil(env.data.pageN/10);
+			document.querySelector('.page0').innerHTML = env.data.pageN;
+			document.querySelector('.page').title = '共 ' + env.data.remarkN + ' 条留言';
 
 			setTimeout(function (){
-				env.f.get(env.f.page);
+				env.f.get(env.data.page);
 			}, 2000);
 		}
 	}
