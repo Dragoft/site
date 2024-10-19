@@ -17,15 +17,13 @@ env.data.pageN = null
 // 发送评论
 env.f.sent = function() {
 	if (env.data.pause) {return}
+	env.data.pause = true
 
 	var name = document.querySelector('.Tname').value.replace(/\n/g, '');
 	var content = document.querySelector('.Tcontent').value;
-
 	if (name.length <= 0 || name.length > 20 || content.length <= 0 || content.length > 200) {
 		return	
 	}
-
-
 
 	env.data.pause = true
 
@@ -41,29 +39,28 @@ env.f.sent = function() {
 	})
 	.then(response => {
 		if (!response.ok) {
-				env.f.failed()
-			}
+			env.f.failed()
+		} else {
+			document.querySelector('.Tcontent').value = '';
+			document.querySelector('.Tcontent').style.height = '48px';
+			document.querySelector('.count').innerHTML = '剩余 200 字';
+
+			env.data.remarkN ++
+			env.data.pageN = Math.ceil(env.data.remarkN / 10);
+			document.querySelector('.page0').innerHTML = env.data.pageN;
+			document.querySelector('.page').title = '共 ' +env.data.remarkN + ' 条留言';
+
+			setTimeout(function (){
+				env.f.print(1)
+				env.data.page = 1
+			}, 1500);
+		}
 	}); 
-
-		document.querySelector('.Tcontent').value = '';
-		document.querySelector('.Tcontent').style.height = '48px';
-		document.querySelector('.count').innerHTML = '剩余 200 字';
-
-		env.data.remarkN ++
-		env.data.pageN = Math.ceil(env.data.remarkN / 10);
-		document.querySelector('.page0').innerHTML = env.data.pageN;
-		document.querySelector('.page').title = '共 ' +env.data.remarkN + ' 条留言';
-
-		setTimeout(function (){
-			env.f.print(1)
-			env.data.page = 1
-		}, 1500);
 }
 
 
 // 显示评论
 env.f.print = function(page) {
-	if (env.data.ok) {return}
 	if (page != null) {
 		fetch('https://tatsuno.top/remark.api', {
 			method: "POST",
@@ -83,6 +80,8 @@ env.f.print = function(page) {
 		})
 		.then(json => {
 			env.data.db = json
+			env.f.print()
+			return
 		}); 
 	}
 
@@ -192,6 +191,7 @@ env.f.dateFormatter = function(formatter, date) {
 // 初始化
 env.f.init = function() {
 	if (env.data.pause) {return}
+	env.data.pause = true
 	env.f.print(env.data.page);
 
 	fetch('https://tatsuno.top/remark.api', {
