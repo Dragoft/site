@@ -33,19 +33,6 @@
 <div class="message" >
 	<div class="message-box" >content</div>
 </div>
-<div class="del" >
-	<div class="del-box" >
-		<h1 style="color: white; user-select: none;" > 删除</h1>
-		<span style="color: rgba(255, 255, 255, 0.8);" >真的要删除这条留言吗？被删除的数据将无法恢复！</span>
-		<br />
-		<span style="color: rgba(255, 255, 255, 0.8);" >[ID: <span style="color: rgba(255, 255, 255, 0.8);" class="del-id" >null</span>]</span>
-		<br />
-		<br class="f-1" />
-		<br class="f-1" />
-		<span class="t-9 delbtn" >确定</span><span class="t-9" onclick="deleteCancel()" style="margin-left: 20px;" >取消</span>
-	</div>
-</div>
-
 
 
 
@@ -85,17 +72,17 @@
 
 	<div class="commentBox" ></div>
 
-	<div class="add" onclick="addOpen()" >+</div>
+	<div class="add" onclick="env.f.open()" >+</div>
 	<div class="new" >
-		<textarea oninput="XautoResize('.Tname')" class="textarea Tname" placeholder="昵称" autocomplete="off" maxlength="20"></textarea>
+		<textarea oninput="env.f.xResize('.Tname')" class="textarea Tname" placeholder="昵称" autocomplete="off" maxlength="20"></textarea>
 		<span class="Tname-1" >: </span>
 		<span class="Tname-2" >昵称</span>
-		<textarea oninput="YautoResize('.Tcontent')" class="textarea Tcontent" placeholder="天气很不错呢，随便写点什么吧！" autocomplete="off" maxlength="200" ></textarea>
+		<textarea oninput="env.f.yResize('.Tcontent')" class="textarea Tcontent" placeholder="天气很不错呢，随便写点什么吧！" autocomplete="off" maxlength="200" ></textarea>
 		<br class="f-1" />
 
 		<hr1></hr1>
 		<div class="bar" >
-			<a href="javascript:;" onclick="sent()" class="sent">留言</a> | 
+			<a href="javascript:;" onclick="env.f.sent()" class="sent">留言</a> | 
 
 			<span class="f-2" style="color: rgba(151, 153, 153, 0.3);" >
 			<span class="btn1 hint--bottom hint--rounded" data-hint="使用须知
@@ -109,18 +96,18 @@
 			</span>
 
 			<span class="btn1 count" style="pointer-events: none;" >剩余 200 字</span>
-			<a href="javascript:;" onclick="addOpen()" class="btn4">[取消]</a>
+			<a href="javascript:;" onclick="env.f.open()" class="btn4">[取消]</a>
 		</div>
 	</div>
 	<br class="f-1" />
 
 	<div class="bar2" >
 		<span class="btn2" >
-			<a href="javascript:;" onclick="turnPage(-1)" class="turn">后退</a>
+			<a href="javascript:;" onclick="env.f.toPage(-1)" class="turn">后退</a>
 			|
-			<a href="javascript:;" onclick="turnPage(1)" class="turn">前进</a>
+			<a href="javascript:;" onclick="env.f.toPage(1)" class="turn">前进</a>
 		</span>
-		<span class="btn3" onclick="init()" >刷新</span>
+		<span class="btn3" onclick="env.f.init()" >刷新</span>
 
 
 
@@ -146,34 +133,25 @@
 <script src="script.js" ></script>
 <script>
 
-	errN = 0;
-	wait = 0;
 	if (document.domain!='') {
 		setTimeout(function (){
-			init();
+			env.f.init();
 		}, 1000);
-	} else {
-		console.warn('[' + dateFormatter('HH:mm:ss', new Date()) + '] The comment data will not be loaded in the local environment.');
 	}
 
 
 	// 跳转页面
 	$('.Tpage').on('keyup', function () {
 		 if(event.which == 13){
-			var Tpage = Number(document.querySelector('.Tpage').value);
-			document.querySelector('.Tpage').value = page;
+			var Tpage = Number(document.querySelector('.Tpage').value)
+			document.querySelector('.Tpage').value = env.data.page
 			$('.Tpage').focus()
 
 			if (typeof Tpage === 'number') {
-				if (Tpage > 0) {
-					if (Tpage <= PageAll) {
-						if (Tpage != page) {
-							page = Tpage;
-							loadComment(page);
-							document.querySelector('.Tpage').value = page;
-							$('.Tpage').focus()
-						}
-					}
+				if (Tpage > 0 && Tpage <= env.data.pageN && Tpage != env.data.page) {
+					env.data.page = Tpage
+					env.f.print(Tpage)
+					document.querySelector('.Tpage').value = env.data.page
 				}
 			}
 		}

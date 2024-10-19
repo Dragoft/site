@@ -118,6 +118,14 @@
 	user-select: none;
 }
 
+.delete a {
+	color: rgba(var(--t-r), 0.6);
+	font-weight: bolder;
+	cursor: pointer;
+	user-select: none;
+	text-decoration: none;
+}
+
 .delete:hover {
 	text-decoration: underline;
 }
@@ -247,25 +255,6 @@
 	background-color: rgba(var(--t-b2), 0.6);
 	color: rgba(var(--t-b1), 1);
 	backdrop-filter: blur(3px);
-}
-
-.del {
-	position: fixed;
-	z-index: 10;
-	height: 100%;
-	width: 100%;
-	background-color: rgba(var(--t-b2), 0.8);
-	backdrop-filter: blur(5px);
-	display: none;
-}
-
-.del-box {
-	position: absolute;
-	height: 300px;
-	width: 400px;
-	top: calc(50% - 150px);
-	left: calc(50% - 200px);
-	color: rgba(var(--t-b1), 1);
 }
 
 .bar {
