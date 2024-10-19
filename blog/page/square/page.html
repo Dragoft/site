@@ -150,7 +150,7 @@
 			if (typeof Tpage === 'number') {
 				if (Tpage > 0 && Tpage <= env.data.pageN && Tpage != env.data.page) {
 					env.data.page = Tpage
-					env.f.print(Tpage)
+					env.f.get(Tpage)
 					document.querySelector('.Tpage').value = env.data.page
 				}
 			}

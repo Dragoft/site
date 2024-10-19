@@ -51,7 +51,7 @@ env.f.sent = function() {
 			document.querySelector('.page').title = '共 ' +env.data.remarkN + ' 条留言';
 
 			setTimeout(function (){
-				env.f.print(1)
+				env.f.get(1)
 				env.data.page = 1
 			}, 1500);
 		}
@@ -59,8 +59,8 @@ env.f.sent = function() {
 }
 
 
-// 显示评论
-env.f.print = function(page) {
+// 获取评论
+env.f.get = function(page) {
 	if (page != null) {
 		fetch('https://tatsuno.top/remark.api', {
 			method: "POST",
@@ -80,13 +80,15 @@ env.f.print = function(page) {
 		})
 		.then(json => {
 			env.data.db = json
-			env.f.print()
-			return
+			env.f.print(json)
 		}); 
+	} else {
+		env.f.print(env.data.db)
 	}
+}
 
-	// 打印评论
-
+// 显示评论
+env.f.print = function(data) {
 	var box = document.querySelector('.commentBox');
 	box.style.opacity = '0';
 	box.innerHTML = '';
@@ -192,7 +194,7 @@ env.f.dateFormatter = function(formatter, date) {
 env.f.init = function() {
 	if (env.data.pause) {return}
 	env.data.pause = true
-	env.f.print(env.data.page);
+	env.f.get(env.data.page);
 
 	fetch('https://tatsuno.top/remark.api', {
 		method: "POST",
@@ -222,7 +224,7 @@ env.f.toPage = function(page) {
 	if (env.data.page + page >= 1 && env.data.page + page <= env.data.pageN) {
 		env.data.page = env.data.page + page
 		document.querySelector('.Tpage').value = env.data.page;
-		env.f.print(env.data.page)
+		env.f.get(env.data.page)
 	}
 }
 
@@ -285,7 +287,7 @@ env.f.del = function(e, id) {
 			document.querySelector('.page').title = '共 ' + env.f.remarkN + ' 条留言';
 
 			setTimeout(function (){
-				env.f.print(env.f.page);
+				env.f.get(env.f.page);
 			}, 2000);
 		}
 	}
