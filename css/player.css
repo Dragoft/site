@@ -42,7 +42,7 @@
 	background-color: rgba(var(--t-b3), 0.8);
 	backdrop-filter: blur(3px);
 	box-shadow: rgb(var(--t-b2), 0.1) 20px 20px 50px -3px;
-	border: 1px solid rgba(var(--t-t1), 0.3);
+	border: 1px solid rgba(var(--t-t1), 0.1);
 	box-sizing: border-box;
 }
 
@@ -127,7 +127,7 @@
 .list-line {
 	position: absolute;
 	border: none;
-	border-top: 1px solid rgba(var(--t-t1), 0.2);
+	border-top: 1px solid rgba(var(--t-t1), 0.1);
 	width: 100%;
 	text-align: center;
 	margin: -2px 0px;
@@ -249,7 +249,7 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	background-color: rgba(var(--t-b3), 0.8);
 	backdrop-filter: blur(3px);
 	box-shadow: rgb(var(--t-b2), 0.1) 20px 20px 50px -3px;
-	border: 1px solid rgba(var(--t-t1), 0.4);
+	border: 1px solid rgba(var(--t-t1), 0.1);
 	box-sizing: border-box;
 }
 
