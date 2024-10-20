@@ -48,7 +48,7 @@ env.f.sent = function() {
 			env.data.remarkN ++
 			env.data.pageN = Math.ceil(env.data.remarkN / 10);
 			document.querySelector('.page0').innerHTML = env.data.pageN;
-			document.querySelector('.page').title = '共 ' +env.data.remarkN + ' 条留言';
+			document.querySelector('.remarkN').innerHTML = env.data.remarkN;
 
 			setTimeout(function (){
 				env.f.get(1)
@@ -212,9 +212,9 @@ env.f.init = function() {
 	})
 	.then(json => {
 		env.data.remarkN = Number(json.results[0].content);
-		env.data.pageN = Math.ceil(env.data.remarkN/10);
+		env.data.pageN = Math.ceil(env.data.remarkN / 10);
 		document.querySelector('.page0').innerHTML = env.data.pageN;
-		document.querySelector('.page').title = '共 ' + env.data.remarkN + ' 条留言';
+		document.querySelector('.remarkN').innerHTML = env.data.remarkN;
 	}); 
 }
 
@@ -282,9 +282,9 @@ env.f.del = function(e, id) {
 
 		if (!env.data.pause) {
 			env.data.pageN --
-			env.data.remarkN = Math.ceil(env.data.pageN/10);
+			env.data.remarkN = Math.ceil(env.data.pageN / 10);
 			document.querySelector('.page0').innerHTML = env.data.pageN;
-			document.querySelector('.page').title = '共 ' + env.data.remarkN + ' 条留言';
+			document.querySelector('.remarkN').innerHTML = env.data.remarkN;
 
 			setTimeout(function (){
 				env.f.get(env.data.page);

@@ -47,7 +47,7 @@ body {
 	font-family: 'Poppins Regular', 'Microsoft YaHei';
 	overflow: overlay;
 	margin: 0;
-	line-height: 33px;
+	line-height: 30px;
 
 	height: 100%;
 	width: 100%;
@@ -338,7 +338,7 @@ img {
 	height: 24px;
 	font-family: 'Microsoft YaHei';
 	font-size: 16px;
-	line-height: 16px;
+	line-height: 24px;
 	color: rgba(var(--t-t1), 0.4);
 }
 
@@ -652,10 +652,20 @@ img {
 
 .t-37 {
 	padding: 0px 10px;
-	color: rgba(var(--t-t1), 0.4);
 	user-select: none;
 	cursor: pointer;
 	transition: 0.3s ease;	
+
+	color: rgba(var(--t-t1), 0.4);
+	text-shadow:	-2px -2px 0 rgba(var(--t-b1), 1),
+			-2px 2px 0 rgba(var(--t-b1), 1),
+			2px -2px 0 rgba(var(--t-b1), 1),
+			2px 2px 0 rgba(var(--t-b1), 1),
+			0 -2px 0 rgba(var(--t-b1), 1),
+			0 2px 0 rgba(var(--t-b1), 1),
+			2px 0 0 rgba(var(--t-b1), 1),
+			-2px 0 0 rgba(var(--t-b1), 1);
+
 }
 
 .t-37:hover {
@@ -695,7 +705,7 @@ img {
 }
 
 .t-41:hover {
-	color: rgba(var(--t-c1), 1);
+	color: rgba(var(--t-t1), 0.8);
 }
 
 

@@ -78,7 +78,7 @@
 	height: 24px;
 	width: 30px;
 	text-align: right;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 21px;
 	background-color: rgba(var(--t-b1), 0);
 	color: rgba(var(--t-t1), 0.6);
@@ -144,8 +144,6 @@
 }
 
 .turn {
-	font-size: 18px;
-	line-height: 18px;
 	color: rgba(var(--t-c1), 0.8);
 }
 
@@ -155,6 +153,7 @@
 	text-align: right;
 	margin-top: -8px;
 	color: rgba(var(--t-t1), 0.6);
+	font-family: 'Microsoft YaHei';
 	user-select: none;
 }
 
@@ -193,16 +192,12 @@
 
 .btn1 {
 	vertical-align: top;
-	font-size: 16px;
-	line-height: 30px;
 	cursor: pointer;
 	color: rgba(var(--t-t1), 0.4);
 }
 
 .btn2 {
 	vertical-align: top;
-	font-size: 18px;
-	line-height: 18px;
 	user-select: none;
 	color: rgba(var(--t-t1), 0.4);
 }
@@ -210,8 +205,6 @@
 .btn3 {
 	vertical-align: top;
 	margin-left: 10px;
-	font-size: 18px;
-	line-height: 18px;
 	user-select: none;
 	color: rgba(var(--t-t1), 0.4);
 	cursor: pointer;
@@ -221,9 +214,7 @@
 	position: absolute;
 	left: calc(50% + 400px);
 	vertical-align: top;
-	font-size: 16px;
 	font-weight: bolder;
-	line-height: 30px;
 	cursor: pointer;
 	color: rgba(var(--t-r), 0.6);
 	font-family: 'Microsoft YaHei';
@@ -231,7 +222,7 @@
 
 .bar {
 	color: rgba(var(--t-t1), 0.2);
-	height: 30px;
+	height: 140px;
 	user-select: none;
 	white-space: nowrap;
 }
@@ -296,12 +287,6 @@
 	pointer-events: unset;
 }
 
-.page {
-	ser-select: text;
-	font-family: 'Microsoft YaHei';
-	font-size: 18px;
-	line-height: 18px;
-}
 
 
 @media screen and (max-width: 900px) {
