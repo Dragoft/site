@@ -112,6 +112,11 @@ function loadMusicData() {
 		img: 'https://p1.music.126.net/MMASnAgdlP9e_Zpzo3lOUQ==/109951165258328565.jpg?param=300y300',
 	},
 	{
+		name: 'この空であなたを待ってる - KOKIA',
+		src: '1830163710',
+		img: 'https://p2.music.126.net/resCPZ3quIJPxdn1HDt3ww==/109951165811423814.jpg?param=300y300',
+	},
+	{
 		name: '変わり行く世界のために - 茶太',
 		src: '697291',
 		img: 'https://p2.music.126.net/eiR5oFPitGtu1hzka4Vm5g==/814738116182197.jpg?param=300y300',

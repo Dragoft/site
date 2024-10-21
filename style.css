@@ -455,7 +455,7 @@ img {
 }
 
 .pin {
-	color: rgba(var(--t-t1), 0.6);
+	color: rgba(var(--t-t1), 0.3);
 	display: inline-block;
 	font-size: 14px;
 	float: right;

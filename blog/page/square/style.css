@@ -151,8 +151,8 @@
 	height: 25px;
 	float: right;
 	text-align: right;
-	margin-top: -8px;
 	color: rgba(var(--t-t1), 0.6);
+	line-height: 30px;
 	font-family: 'Microsoft YaHei';
 	user-select: none;
 }
@@ -290,18 +290,16 @@
 
 
 @media screen and (max-width: 900px) {
-	.main {
-		margin: 50px auto !important;
-	}
-
-	.del-box {
-		width: 80%;
-		left: 10%;
-	}
-
 	.btn4 {
 		left: calc(100% - 75px);
 	}
 
+	.bar {
+		height: 80px;
+	}
+
+	.main {
+		padding: 80px 0px 80px 0px !important;
+	}
 }
 
