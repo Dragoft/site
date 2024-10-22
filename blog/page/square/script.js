@@ -140,7 +140,7 @@ env.f.print = function(data) {
 
 			if (env.data.db['results'][i]['deletable'] == "0") {
 				var span5 = document.createElement('span')
-				span5.innerHTML = 'admin'
+				span5.innerHTML = '[operater]'
 				span5.setAttribute('class', 'admin')
 				span3.appendChild(span5)
 			}

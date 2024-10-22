@@ -378,14 +378,13 @@ img {
 
 .search-result {
 	margin: -3px 0px;
-	height: 220px;
+	height: 110px;
 	width: 250px;
 	padding: 0px;
 	overflow: scroll;
 }
 
 .search-result::-webkit-scrollbar {
-
 	width: 2px !important;
 	height: 0px !important;
 }
@@ -537,6 +536,7 @@ img {
 }
 
 .pageloading1 {
+	margin-top: 5px;
 	display: none;
 	font-size: 14px;
 	color: rgba(var(--t-r), 0.8);

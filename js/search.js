@@ -23,9 +23,9 @@ env.f.search = function(output, input) {
 	}
 
 	// 重置搜索结果列表高度
-	if (BlogTEMP.length > 10) {
-		$('#search').css('height', '275px');
-		document.getElementById('searchInput').name = 10;
+	if (BlogTEMP.length > 5) {
+		$('#search').css('height', '165px');
+		document.getElementById('searchInput').name = 5;
 	} else {
 		$('#search').css('height', BlogTEMP.length * 22 + 55 + 'px');
 		document.getElementById('searchInput').name = BlogTEMP.length;
@@ -120,9 +120,9 @@ env.f.search = function(output, input) {
 	}
 
 	// 更新搜索结果列表高度
-	if (result.length > 10) {
-		$('#search').css('height', '275px');
-		document.getElementById('searchInput').name = 10;
+	if (result.length > 5) {
+		$('#search').css('height', '165px');
+		document.getElementById('searchInput').name = 5;
 	} else {
 		// 防止把 #content-null 当做搜索结果
 		if (BlogTEMP.length > result.length) {

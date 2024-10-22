@@ -329,9 +329,9 @@ env.f.initList = function() {
 		new env.f.search('.search-list', $('#searchInput'))
 	})
 	// 初始化列表高度
-	if (BlogTEMP.length > 10) {
-		$('#search').css('height', '275px')
-		document.getElementById('searchInput').name = 10
+	if (BlogTEMP.length > 5) {
+		$('#search').css('height', '165px')
+		document.getElementById('searchInput').name = 5
 	} else {
 		$('#search').css('height', BlogTEMP.length * 22 +55 + 'px')
 		document.getElementById('searchInput').name = BlogTEMP.length
@@ -474,6 +474,15 @@ env.f.page = {}
 		},1000)
 	}
 
+env.f.typewriter1 = function() {
+	$('.t-39').typed({
+		strings: ['<span class="f-2" >私のサイト、^400</span>私一人の^200世界です。'],
+		typeSpeed: 90,
+		showCursor: false,
+		contentType: 'html',
+	})
+}
+
 
 
 
@@ -556,28 +565,20 @@ $('#iframe').on('load', function() {
 // 强制初始化页面
 setTimeout(function (){
 	if(document.querySelector('.Avatar').style.opacity == 0){
-		env.f.msg('初始化超时，已强制加载页面', 3000)
+		env.f.msg('Err: 强制加载页面', 3000)
 		env.f.init()
 	}
 }, 30000)
 
 
 
-function Typewriter() {
-	$('.t-39').typed({
-		strings: ['<span class="f-2" >私のサイト、^400</span>私一人の^200世界です。'],
-		typeSpeed: 90,
-		showCursor: false,
-		contentType: 'html',
-	})
-}
 
 
 
 /* Console.log */
 setTimeout(console.log.bind(
 	console, 
-	'\n%c Theme %c S E K A I %c		ver.1.0.20\n',
+	'\n%c Theme %c S E K A I %c		ver.1.0.21\n',
 	'background-color: rgba(57, 145, 216, 0.5); color: white; font-weight: bolder;',
 	'background-color: rgba(57, 145, 216, 0.3); color: white;',
 	'color: rgba(192, 194, 194, 1);',

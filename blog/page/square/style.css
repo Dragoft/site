@@ -159,12 +159,8 @@
 
 .admin {
 	margin-left: 10px;
-	background-color: rgba(var(--t-c1), 0.5);
-	color: rgba(var(--t-b1), 1);
-	padding: 0px 5px;
-	line-height: 22px;
-	border-radius: 5px;
 	display: inline-block;
+	color: rgba(var(--t-c1), 0.6);
 	user-select: none;
 }
 
