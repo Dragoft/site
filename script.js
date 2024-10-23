@@ -562,14 +562,6 @@ $('#iframe').on('load', function() {
 	}
 })
 
-// 强制初始化页面
-setTimeout(function (){
-	if(document.querySelector('.Avatar').style.opacity == 0){
-		env.f.msg('Err: 强制加载页面', 3000)
-		env.f.init()
-	}
-}, 30000)
-
 
 
 

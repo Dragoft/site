@@ -47,6 +47,11 @@ function loadMusicData() {
 		img: 'https://p2.music.126.net/WSEx2yfxdewIbghaBtEXAQ==/109951163210679047.jpg?param=300y300',
 	},
 	{
+		name: 'One Last Adventure - Evan Call',
+		src: '2116382384',
+		img: 'https://p1.music.126.net/8RdmkeoexrTxI7PdasUkhA==/109951169761664617.jpg?param=300y300',
+	},
+	{
 		name: 'Saudade (Original Mix) - Kupla',
 		src: '518904157',
 		img: 'https://p2.music.126.net/c04kf5BCGexeunM4MfAkHw==/109951165069828217.jpg?param=300y300',
