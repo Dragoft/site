@@ -16,19 +16,6 @@
 
 <br />
 
-## 使用的技术
-* **Cloudflare 服务**
-	* Cloudflare Pages
-	* Pages Function
-	* D1 数据库
-	* Cloudflare Web Analytics
-* **前端**
-	* iframe 博客页面嵌套
-	* JavaScript postMessage 页面通信
-	* CSS 响应式设计
-
-<br />
-
 ## 感谢
 感谢他们在开发期间提供的帮助。
 
