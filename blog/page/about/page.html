@@ -6,6 +6,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<link rel="preload" as="font" href="../../../src/Poppins Regular.woff2" crossorigin="anonymous" />
 	<link rel="stylesheet" type="text/css" href="../../main.css">
 
@@ -23,6 +25,53 @@
 	});
 
 </script>
+<style>
+
+	.img1 {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: 5px;
+		opacity: 0;
+	}
+
+	.imgBox1 {
+		aspect-ratio: 200 / 280;
+		width: 20%;
+		display: inline-block;
+	}
+
+	.details {
+		position: sticky;
+		padding: 5px 10px;
+		height: 60px;
+		display: block;
+		margin-top: -70px;
+		border-radius: 0px 0px 5px 5px;
+		background: rgba(var(--t-b2), 0.5);
+		color: rgba(var(--t-b1), 0.8);
+		backdrop-filter: blur(5px);
+		opacity: 0;
+		transition: 0.5s;
+	}
+
+	.details i {
+		color: rgba(var(--t-b1), 0.4);
+		font-style: normal;
+		user-select: none;
+	}
+
+	.imgBox1:hover .details {
+		opacity: 1;
+	}
+
+	@media screen and (max-width: 900px) {
+		.details {
+			display: none;
+		}
+	}
+
+</style>
 
 	<!-- Mian -->
 	<div class="main" >
@@ -81,15 +130,24 @@
 				<li class="list1" >Untitled goose game</li>
 				<li class="list1" >The Final Station</li>
 				<li class="list1" >Undertale</li>
-				<li class="list1" >Spore</li>
 				<li class="list1" >A Dark Room</li>
 			</showcase>
 			<showcase>
 				<li class="list1" >Minecraft</li>
 				<li class="list1" >Terraria</li>
 				<li class="list1" >Machinarium</li>
-				<li class="list1" >Cube Escape & Rusty Lake</li>
 			</showcase>
+			<br />
+			<br class="f-1 f-2" />
+
+			<h3>看过的动漫</h3>
+			<hr1></hr1>
+			<mat></mat>
+			<span class="imgBox1" >
+				<img class="img1" src="img/葬送のフリーレン.webp" onload="$(this).addClass('fade-in-1')" />
+				<span class="details" >葬送のフリーレン<br /><i> 2023</i></span>
+			</span>
+
 		</para>
 		<para></para>
 

@@ -12,9 +12,19 @@ function loadMusicData() {
 	return [
 
 	{
-		name: 'End Credits (Xeuphoria Piano Ver.) - Xeuphoria',
-		src: '1872016809',
-		img: 'src/End Credits (Cover).webp',
+		name: 'One Last Adventure - Evan Call',
+		src: '2116382384',
+		img: 'https://p1.music.126.net/8RdmkeoexrTxI7PdasUkhA==/109951169761664617.jpg?param=300y300',
+	},
+	{
+		name: 'The Birth of a Legend - Evan Call',
+		src: '548145347',
+		img: 'https://p2.music.126.net/WSEx2yfxdewIbghaBtEXAQ==/109951163210679047.jpg?param=300y300',
+	},
+	{
+		name: 'Calling - MAROK / mamomo',
+		src: '1944649836',
+		img: 'https://p2.music.126.net/vrXsouN6rhgah68sHv4Akg==/109951169530454564.jpg?param=300y300',
 	},
 	{
 		name: "原風景 - mamomo / 丘咲アンナ",
@@ -30,26 +40,6 @@ function loadMusicData() {
 		name: 'アシタカとサン - 久石譲',
 		src: '444805',
 		img: 'https://p1.music.126.net/ssLtfKomzOOqn_e26E802w==/109951164728014642.jpg?param=300y300',
-	},
-	{
-		name: 'Calling - MAROK / mamomo',
-		src: '1944649836',
-		img: 'https://p2.music.126.net/vrXsouN6rhgah68sHv4Akg==/109951169530454564.jpg?param=300y300',
-	},
-	{
-		name: 'One Day - KISNOU',
-		src: '448316625',
-		img: 'https://p2.music.126.net/9QkYHkN8UCiybMg-qHempw==/109951168047707020.jpg?param=300y300',
-	},
-	{
-		name: 'The Birth of a Legend - Evan Call',
-		src: '548145347',
-		img: 'https://p2.music.126.net/WSEx2yfxdewIbghaBtEXAQ==/109951163210679047.jpg?param=300y300',
-	},
-	{
-		name: 'One Last Adventure - Evan Call',
-		src: '2116382384',
-		img: 'https://p1.music.126.net/8RdmkeoexrTxI7PdasUkhA==/109951169761664617.jpg?param=300y300',
 	},
 	{
 		name: 'Saudade (Original Mix) - Kupla',
@@ -92,29 +82,19 @@ function loadMusicData() {
 		img: 'https://p1.music.126.net/b4dFvmdWVTmHv6gKgdgzEQ==/109951168261721978.jpg?param=300y300',
 	},
 	{
-		name: "Fragile Voices - Adib Sin / Bao The Whale",
-		src: '1302091532',
-		img: 'https://p1.music.126.net/-BeDc-pw84wsfmTC_DX0nQ==/109951164659012739.jpg?param=300y300',
-	},
-	{
-		name: "Snowflakes - 佐々木恵梨",
-		src: '2107925574',
-		img: 'https://p2.music.126.net/Hf2sKfCVb91e1BtFncKe_w==/109951169156986673.jpg?param=300y300',
-	},
-	{
 		name: "お天道様は笑ってる - KOKIA",
 		src: '2101452195',
 		img: 'https://p1.music.126.net/rLHKvau26Wt2KA5DJc_u6A==/109951169067925149.jpg?param=300y300',
 	},
 	{
+		name: 'One Day - KISNOU',
+		src: '448316625',
+		img: 'https://p2.music.126.net/9QkYHkN8UCiybMg-qHempw==/109951168047707020.jpg?param=300y300',
+	},
+	{
 		name: 'like water - Park Bird / Chance Thrash',
 		src: '1847674461',
 		img: 'https://p2.music.126.net/FPZrJuBWnJKtR9_4zXmMOQ==/109951166009136375.jpg?param=300y300',
-	},
-	{
-		name: 'Bittersweet - 渡星',
-		src: '1473212760',
-		img: 'https://p1.music.126.net/MMASnAgdlP9e_Zpzo3lOUQ==/109951165258328565.jpg?param=300y300',
 	},
 	{
 		name: 'この空であなたを待ってる - KOKIA',
