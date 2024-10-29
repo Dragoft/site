@@ -82,11 +82,6 @@ function loadMusicData() {
 		img: 'https://p1.music.126.net/b4dFvmdWVTmHv6gKgdgzEQ==/109951168261721978.jpg?param=300y300',
 	},
 	{
-		name: "お天道様は笑ってる - KOKIA",
-		src: '2101452195',
-		img: 'https://p1.music.126.net/rLHKvau26Wt2KA5DJc_u6A==/109951169067925149.jpg?param=300y300',
-	},
-	{
 		name: 'One Day - KISNOU',
 		src: '448316625',
 		img: 'https://p2.music.126.net/9QkYHkN8UCiybMg-qHempw==/109951168047707020.jpg?param=300y300',

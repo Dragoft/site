@@ -219,6 +219,7 @@
 .bar {
 	color: rgba(var(--t-t1), 0.2);
 	height: 140px;
+	font-size: 16px;
 	user-select: none;
 	white-space: nowrap;
 }
