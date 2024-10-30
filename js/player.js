@@ -14,62 +14,62 @@ function loadMusicData() {
 	{
 		name: 'One Last Adventure - Evan Call',
 		src: '2116382384',
-		img: 'https://p1.music.126.net/8RdmkeoexrTxI7PdasUkhA==/109951169761664617.jpg?param=300y300',
+		img: 'https://p1.music.126.net/8RdmkeoexrTxI7PdasUkhA==/109951169761664617.jpg',
 	},
 	{
 		name: 'The Birth of a Legend - Evan Call',
 		src: '548145347',
-		img: 'https://p2.music.126.net/WSEx2yfxdewIbghaBtEXAQ==/109951163210679047.jpg?param=300y300',
+		img: 'https://p2.music.126.net/WSEx2yfxdewIbghaBtEXAQ==/109951163210679047.jpg',
 	},
 	{
 		name: 'Calling - MAROK / mamomo',
 		src: '1944649836',
-		img: 'https://p2.music.126.net/vrXsouN6rhgah68sHv4Akg==/109951169530454564.jpg?param=300y300',
+		img: 'https://p2.music.126.net/vrXsouN6rhgah68sHv4Akg==/109951169530454564.jpg',
 	},
 	{
 		name: "原風景 - mamomo / 丘咲アンナ",
 		src: '33469247',
-		img: 'https://p1.music.126.net/ct9bs4VXR1mrbVRsX9iboA==/3372202162443903.jpg?param=300y300',
+		img: 'https://p1.music.126.net/ct9bs4VXR1mrbVRsX9iboA==/3372202162443903.jpg',
 	},
 	{
 		name: 'ワタリドリ - KOKIA',
 		src: '2101452199',
-		img: 'https://p1.music.126.net/rLHKvau26Wt2KA5DJc_u6A==/109951169067925149.jpg?param=300y300',
+		img: 'https://p1.music.126.net/rLHKvau26Wt2KA5DJc_u6A==/109951169067925149.jpg',
 	},
 	{
 		name: 'アシタカとサン - 久石譲',
 		src: '444805',
-		img: 'https://p1.music.126.net/ssLtfKomzOOqn_e26E802w==/109951164728014642.jpg?param=300y300',
+		img: 'https://p1.music.126.net/ssLtfKomzOOqn_e26E802w==/109951164728014642.jpg',
 	},
 	{
 		name: 'Saudade (Original Mix) - Kupla',
 		src: '518904157',
-		img: 'https://p2.music.126.net/c04kf5BCGexeunM4MfAkHw==/109951165069828217.jpg?param=300y300',
+		img: 'https://p2.music.126.net/c04kf5BCGexeunM4MfAkHw==/109951165069828217.jpg',
 	},
 	{
 		name: 'Friend - Kozoro',
 		src: '33004707',
-		img: 'https://p2.music.126.net/FR7zKYB8ujNRoWQuGCHbGg==/109951163288692527.jpg?param=300y300',
+		img: 'https://p2.music.126.net/FR7zKYB8ujNRoWQuGCHbGg==/109951163288692527.jpg',
 	},
 	{
 		name: 'Together - Bcalm / Purrple Cat',
 		src: '1916742663',
-		img: 'https://p2.music.126.net/zJBR2s3mTC06Z-v4npw2Jw==/109951168736565471.jpg?param=300y300',
+		img: 'https://p2.music.126.net/zJBR2s3mTC06Z-v4npw2Jw==/109951168736565471.jpg',
 	},
 	{
 		name: 'Shelter (Piano version) - Porter Robinson / Madeon',
 		src: '461347460',
-		img: 'https://p2.music.126.net/nEaSbkg_Cn8gN9vLoSz0gQ==/18494885092595843.jpg?param=300y300',
+		img: 'https://p2.music.126.net/nEaSbkg_Cn8gN9vLoSz0gQ==/18494885092595843.jpg',
 	},
 	{
 		name: '阔野 - Lcz Sv',
 		src: '2049254735',
-		img: 'https://p1.music.126.net/Pfyb7uA1nOI1rVhcWOJt9w==/109951168628232296.jpg?param=300y300',
+		img: 'https://p1.music.126.net/Pfyb7uA1nOI1rVhcWOJt9w==/109951168628232296.jpg',
 	},
 	{
 		name: 'Disappear in Light - Equal Stones / Endless Melancholy',
 		src: '29406314',
-		img: 'https://p2.music.126.net/JIeHyV-yad8BDq_4GmsVuA==/2572857209028564.jpg?param=300y300',
+		img: 'https://p2.music.126.net/JIeHyV-yad8BDq_4GmsVuA==/2572857209028564.jpg',
 	},
 	{
 		name: 'Gusts of Wind Blowing in Different Directions - The Last Dinosaur',
@@ -79,27 +79,27 @@ function loadMusicData() {
 	{
 		name: 'There Is Still Wonder Left To Behold - reche',
 		src: '2017419119',
-		img: 'https://p1.music.126.net/b4dFvmdWVTmHv6gKgdgzEQ==/109951168261721978.jpg?param=300y300',
+		img: 'https://p1.music.126.net/b4dFvmdWVTmHv6gKgdgzEQ==/109951168261721978.jpg',
 	},
 	{
 		name: 'One Day - KISNOU',
 		src: '448316625',
-		img: 'https://p2.music.126.net/9QkYHkN8UCiybMg-qHempw==/109951168047707020.jpg?param=300y300',
+		img: 'https://p2.music.126.net/9QkYHkN8UCiybMg-qHempw==/109951168047707020.jpg',
 	},
 	{
 		name: 'like water - Park Bird / Chance Thrash',
 		src: '1847674461',
-		img: 'https://p2.music.126.net/FPZrJuBWnJKtR9_4zXmMOQ==/109951166009136375.jpg?param=300y300',
+		img: 'https://p2.music.126.net/FPZrJuBWnJKtR9_4zXmMOQ==/109951166009136375.jpg',
 	},
 	{
 		name: 'この空であなたを待ってる - KOKIA',
 		src: '1830163710',
-		img: 'https://p2.music.126.net/resCPZ3quIJPxdn1HDt3ww==/109951165811423814.jpg?param=300y300',
+		img: 'https://p2.music.126.net/resCPZ3quIJPxdn1HDt3ww==/109951165811423814.jpg',
 	},
 	{
 		name: '変わり行く世界のために - 茶太',
 		src: '697291',
-		img: 'https://p2.music.126.net/eiR5oFPitGtu1hzka4Vm5g==/814738116182197.jpg?param=300y300',
+		img: 'https://p2.music.126.net/eiR5oFPitGtu1hzka4Vm5g==/814738116182197.jpg',
 	}
 
 	]
@@ -159,7 +159,7 @@ player.f.load = function(){
 
 	player.e.name.innerHTML = player.list[id]['name']
 	player.e.body.src = 'https://music.163.com/song/media/outer/url?id=' + player.list[id]['src'] + '.mp3'
-	player.e.img.src = player.list[id]['img']
+	player.e.img.src = player.list[id]['img'] + '?param=300y300'
 	player.e.bar.style.width = '0px'
 	player.data.nowplay.now = 0
 
