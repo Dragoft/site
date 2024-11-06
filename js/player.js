@@ -15,91 +15,115 @@ function loadMusicData() {
 		name: 'One Last Adventure - Evan Call',
 		src: '2116382384',
 		img: 'https://p1.music.126.net/8RdmkeoexrTxI7PdasUkhA==/109951169761664617.jpg',
+		lrc: false,
 	},
 	{
 		name: 'The Birth of a Legend - Evan Call',
 		src: '548145347',
 		img: 'https://p2.music.126.net/WSEx2yfxdewIbghaBtEXAQ==/109951163210679047.jpg',
+		lrc: false,
 	},
 	{
 		name: 'Calling - MAROK / mamomo',
 		src: '1944649836',
 		img: 'https://p2.music.126.net/vrXsouN6rhgah68sHv4Akg==/109951169530454564.jpg',
+		lrc: false,
 	},
 	{
 		name: "原風景 - mamomo / 丘咲アンナ",
 		src: '33469247',
 		img: 'https://p1.music.126.net/ct9bs4VXR1mrbVRsX9iboA==/3372202162443903.jpg',
+		lrc: false,
 	},
 	{
 		name: 'ワタリドリ - KOKIA',
 		src: '2101452199',
 		img: 'https://p1.music.126.net/rLHKvau26Wt2KA5DJc_u6A==/109951169067925149.jpg',
+		lrc: false,
 	},
 	{
 		name: 'アシタカとサン - 久石譲',
 		src: '444805',
 		img: 'https://p1.music.126.net/ssLtfKomzOOqn_e26E802w==/109951164728014642.jpg',
+		lrc: false,
 	},
 	{
 		name: 'Saudade (Original Mix) - Kupla',
 		src: '518904157',
 		img: 'https://p2.music.126.net/c04kf5BCGexeunM4MfAkHw==/109951165069828217.jpg',
+		lrc: false,
 	},
 	{
 		name: 'Friend - Kozoro',
 		src: '33004707',
 		img: 'https://p2.music.126.net/FR7zKYB8ujNRoWQuGCHbGg==/109951163288692527.jpg',
+		lrc: false,
 	},
 	{
 		name: 'Together - Bcalm / Purrple Cat',
 		src: '1916742663',
 		img: 'https://p2.music.126.net/zJBR2s3mTC06Z-v4npw2Jw==/109951168736565471.jpg',
+		lrc: false,
 	},
 	{
 		name: 'Shelter (Piano version) - Porter Robinson / Madeon',
 		src: '461347460',
 		img: 'https://p2.music.126.net/nEaSbkg_Cn8gN9vLoSz0gQ==/18494885092595843.jpg',
+		lrc: false,
 	},
 	{
 		name: '阔野 - Lcz Sv',
 		src: '2049254735',
 		img: 'https://p1.music.126.net/Pfyb7uA1nOI1rVhcWOJt9w==/109951168628232296.jpg',
+		lrc: false,
 	},
 	{
 		name: 'Disappear in Light - Equal Stones / Endless Melancholy',
 		src: '29406314',
 		img: 'https://p2.music.126.net/JIeHyV-yad8BDq_4GmsVuA==/2572857209028564.jpg',
+		lrc: false,
 	},
 	{
 		name: 'Gusts of Wind Blowing in Different Directions - The Last Dinosaur',
 		src: '19498811',
 		img: 'https://p1.music.126.net/f3exPjEKfsnrQbsUqUlb2w==/109951169557730207.jpg',
+		lrc: false,
 	},
 	{
 		name: 'There Is Still Wonder Left To Behold - reche',
 		src: '2017419119',
 		img: 'https://p1.music.126.net/b4dFvmdWVTmHv6gKgdgzEQ==/109951168261721978.jpg',
+		lrc: false,
+	},
+	{
+		name: 'bliss - milet',
+		src: '2122535814',
+		img: 'https://p1.music.126.net/b66bKUxVNZlC_S_3u7UCaA==/109951169268030489.jpg',
+		lrc: true,
 	},
 	{
 		name: 'One Day - KISNOU',
 		src: '448316625',
 		img: 'https://p2.music.126.net/9QkYHkN8UCiybMg-qHempw==/109951168047707020.jpg',
+		lrc: false,
 	},
 	{
 		name: 'like water - Park Bird / Chance Thrash',
 		src: '1847674461',
 		img: 'https://p2.music.126.net/FPZrJuBWnJKtR9_4zXmMOQ==/109951166009136375.jpg',
+		lrc: false,
 	},
 	{
 		name: 'この空であなたを待ってる - KOKIA',
 		src: '1830163710',
 		img: 'https://p2.music.126.net/resCPZ3quIJPxdn1HDt3ww==/109951165811423814.jpg',
+		lrc: false,
 	},
 	{
 		name: '変わり行く世界のために - 茶太',
 		src: '697291',
 		img: 'https://p2.music.126.net/eiR5oFPitGtu1hzka4Vm5g==/814738116182197.jpg',
+		lrc: true,
 	}
 
 	]
@@ -118,6 +142,14 @@ player.data.mode = 0
 player.data.pause = 1
 player.data.subwin = 0
 player.data.lastScrollTop = 0
+player.data.lrc = {}
+player.data.lrc.data = ''
+player.data.lrc.leng = null
+player.data.lrc.now = null
+player.data.lrc.open = 0
+
+
+
 
 player.data.timer = {}
 player.data.timer.t1 = null
@@ -126,7 +158,7 @@ player.data.timer.t3 = null
 
 player.data.nowplay = {}
 player.data.nowplay.id = 0
-player.data.nowplay.long = "03:09"
+player.data.nowplay.long = '03:09'
 player.data.nowplay.now = 0
 
 player.e = {
@@ -144,6 +176,9 @@ player.e = {
 		subwin: document.querySelector('.Player-menu-info'),
 		s1: document.querySelector('.Player-menu-sound1'),
 		s2: document.querySelector('.Player-menu-sound0'),
+		lrc: document.querySelector('.lrc'),
+		lrcI: document.querySelector('.lrcImg'),
+		lrcB: document.querySelector('.lrcBox'),
 
 		cover0: document.querySelector('.MusicShow0'),
 		cover1: document.querySelector('.MusicShow1'),
@@ -162,6 +197,8 @@ player.f.load = function(){
 	player.e.img.src = player.list[id]['img'] + '?param=300y300'
 	player.e.bar.style.width = '0px'
 	player.data.nowplay.now = 0
+	player.e.lrcI.src = player.list[id]['img'] + '?param=300y300'
+	player.f.lrc.get()
 
 	setTimeout(function (){
 		if (!isNaN(player.e.body.duration)) {
@@ -437,6 +474,101 @@ player.f.loadPlayer = function() {
 	$('.Player').addClass('Player-active')
 }
 
+player.f.lrc = {}
+
+	player.f.lrc.get = function() {
+		if (player.list[player.data.nowplay.id]['lrc']) {
+			$(player.e.lrc).fadeOut(160)
+			fetch('https://tatsuno.top/src/lrc/' + player.list[player.data.nowplay.id]['src'] + '.lrc')
+			.then(response => {
+				if (response.ok) {
+					return response.text();
+				}
+				setTimeout(function (){$(player.e.lrc).fadeIn(160)}, 1000)
+				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br /><div>加载歌词失败</div><br /><br /><br /><br /><br /><br />'
+			})
+			.then(text => {
+				player.data.lrc.data = text
+				player.f.lrc.load(text)
+			})
+		} else {
+			setTimeout(function (){$(player.e.lrc).fadeIn(160)}, 1000)
+			player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br /><div>纯音乐，请欣赏</div><br /><br /><br /><br /><br /><br />'
+		}
+	}
+
+	player.f.lrc.load = function(str) {
+		player.data.lrc.leng = str.split('\n').length
+		player.data.lrc.now = 0
+
+		player.e.lrc.innerHTML = ''
+		for (var i = 0; i < player.data.lrc.leng; i++) {
+
+			var div = document.createElement('div')
+				div.innerHTML = (str.split('\n')[i].slice(12) || '　').split('#')[0]
+				div.setAttribute('class', 'lrc-' + (i + 1))
+				player.e.lrc.appendChild(div)
+
+			var span = document.createElement('span')
+				span.innerHTML = str.split('\n')[i].substring(1, 6)
+				span.setAttribute('class', 'lrcT')
+				span.setAttribute('onclick', 'player.f.lrc.to("' + str.split('\n')[i].substring(1, 9) + '")')
+				div.appendChild(span)
+
+			if (str.split('\n')[i].split('#')[1] != undefined) {
+				var trans = document.createElement('trans')
+					trans.innerHTML = str.split('\n')[i].split('#')[1]
+					div.appendChild(trans)
+			}
+
+		}
+		player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br />' +  player.e.lrc.innerHTML + '<br /><br /><br /><br /><br /><br />'
+		setTimeout(function (){$(player.e.lrc).fadeIn(160)}, 1000)
+	}
+
+	player.f.lrc.conversion = function(str) {
+		return +str.split(':')[0] * 60 + +str.split(':')[1];
+	}
+
+	player.f.lrc.read = function(n) {
+
+		return player.data.lrc.data.split('\n')[n - 1] || null
+	}
+
+	player.f.lrc.gui = function() {
+
+		if (!player.data.lrc.open) {
+			player.f.lrc.find(player.e.body.currentTime)
+			$(player.e.lrcB).fadeIn(160)
+			player.data.lrc.open = 1
+		} else {
+			$(player.e.lrcB).fadeOut(160)
+			player.data.lrc.open = 0
+		}
+	}
+
+	player.f.lrc.find = function(n) {
+
+		for (var i = 0; i < player.data.lrc.leng; i++) {
+			if (Number(player.f.lrc.conversion((player.f.lrc.read(i) || '[00:00.000]').substring(1, 10))) <= n) {
+				player.data.lrc.now = i
+			} else {
+				$('.highlight').removeClass('highlight')
+			}
+		}
+		$('.lrc-' + player.data.lrc.now).addClass('highlight')
+	}
+
+	player.f.lrc.to = function(n) {
+
+		player.f.lrc.find(player.f.lrc.conversion(n))
+		player.f.play.set(1)
+		player.e.body.currentTime = player.f.lrc.conversion(n)
+	}
+
+
+
+
 
 
 player.f.load()
@@ -459,6 +591,19 @@ player.e.bar0.addEventListener('click', function(event) {
 	player.data.nowplay.now = percent
 	if (player.data.pause == 0) {
 		player.e.body.currentTime = Math.floor(player.e.body.duration || player.f.conversion1(player.data.nowplay.long)) * percent
+	}
+})
+
+// 歌词显示
+player.e.body.addEventListener('timeupdate', function () {
+	if (!player.data.pause && player.data.lrc.open && player.list[player.data.nowplay.id]['lrc']) {
+		if (Number(player.f.lrc.conversion((player.f.lrc.read(player.data.lrc.now) || '[00:00.000]').substring(1, 10))) <= player.e.body.currentTime) {
+			$('.highlight').removeClass('highlight')
+			$('.lrc-' + player.data.lrc.now).addClass('highlight')
+			$(player.e.lrc).animate({scrollTop: $(player.e.lrc).scrollTop() + $('.lrc-' + player.data.lrc.now).offset().top - 200}, 500)
+
+			player.data.lrc.now ++
+		}
 	}
 })
 

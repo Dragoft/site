@@ -76,17 +76,17 @@
 	user-select: none;
 }
 
-.resetList {
-	color: rgba(var(--t-t1), 0);
-	font-size: 13px;
+.listBTN {
+	color: rgba(var(--t-t1), 0.6);
+	font-size: 15px;
 	line-height: 30px;
 	user-select: none;
 	cursor: pointer;
 	transition: 0.3s;
 }
 
-.resetList:hover {
-	color: rgba(var(--t-t1), 0.6);
+.listBTN:hover {
+	color: rgba(var(--t-t1), 0.8);
 }
 
 .PlayerList {
@@ -216,6 +216,7 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	padding: 5px 10px;
 	font-weight: bolder;
 	font-size: 16px;
+	color: rgba(var(--t-t1), 0.2);
 	line-height: 35px;
 	user-select: none;
 }
@@ -299,4 +300,108 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	height: 1200px;
 	width: 20px;
 }
+
+.lrcBox {
+	display: none;
+	position: fixed;
+	z-index: 30;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.lrcImg {
+	position: fixed;
+	aspect-ratio: 1 / 1;
+	width: calc(100% + 200px);
+	top: -100px;
+	left: -100px;
+	z-index: 25;
+	filter: brightness(0.4) blur(30px);
+}
+
+.lrc {
+	position: fixed;
+	z-index: 35;
+	width: 700px;
+	height: 100%;
+	overflow: scroll;
+	left: calc(50% - 350px);
+}
+
+.lrc div {
+	padding-bottom: 10px;
+	font-size: 22px;
+	line-height: 30px;
+	color: rgba(var(--t-b1), 0.2);
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.2);
+	font-family: 'Microsoft YaHei';
+
+	transition: 0.3s;
+}
+
+.lrcT {
+	float: right;
+	width: 60px;
+	user-select: none;
+	color: rgba(var(--t-b1), 0);
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0);
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.lrc div:hover .lrcT {
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.2) !important;
+	color: rgba(var(--t-b1), 0.2);
+}
+
+.lrc::-webkit-scrollbar {
+	display: none !important;
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.6) !important;
+}
+
+
+.lrcClose {
+	position: fixed;
+	color: rgba(var(--t-b1), 0.2);
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.2);
+	top: 15px;
+	left: 15px;
+	width: 35px;
+	height: 25px;
+	border-radius: 100%;
+	padding: 10px 5px;
+	z-index: 35;
+	font-size: 34px;
+	line-height: 33px;
+	cursor: pointer;
+	user-select: none;
+	transition: 0.3s;
+}
+
+.lrcClose:hover {
+	color: rgba(var(--t-b1), 0.4);
+}
+
+.highlight {
+	color: rgba(var(--t-b1), 1) !important;
+}
+
+.highlight span,
+.highlight trans {
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.4) !important;
+	color: rgba(var(--t-b1), 0.6) !important;
+}
+
+trans {
+	display: block;
+	font-size: 16px;
+	color: rgba(var(--t-b1), 0.1);
+	transition: 0.3s;
+}
+
+
+
+
 
