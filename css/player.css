@@ -333,6 +333,8 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	height: 100%;
 	overflow: scroll;
 	left: calc(50% - 350px);
+	white-space: break-spaces;
+	word-break: break-all;
 }
 
 .lrc-blur {
