@@ -197,10 +197,12 @@ player.f.load = function(){
 	player.e.img.src = player.list[id]['img'] + '?param=300y300'
 	player.e.bar.style.width = '0px'
 	player.data.nowplay.now = 0
-	player.e.lrcI.src = player.list[id]['img'] + '?param=300y300'
+
+	$(player.e.lrcI).css('opacity', '0')
 	player.f.lrc.get()
 
 	setTimeout(function (){
+		player.e.lrcI.src = player.list[id]['img'] + '?param=300y300'
 		if (!isNaN(player.e.body.duration)) {
 			player.data.nowplay.long = player.f.conversion0(player.e.body.duration)
 		}
@@ -477,8 +479,8 @@ player.f.loadPlayer = function() {
 player.f.lrc = {}
 
 	player.f.lrc.get = function() {
+		$(player.e.lrc).fadeOut(160)
 		if (player.list[player.data.nowplay.id]['lrc']) {
-			$(player.e.lrc).fadeOut(160)
 			fetch('https://tatsuno.top/src/lrc/' + player.list[player.data.nowplay.id]['src'] + '.lrc')
 			.then(response => {
 				if (response.ok) {
@@ -492,8 +494,10 @@ player.f.lrc = {}
 				player.f.lrc.load(text)
 			})
 		} else {
-			setTimeout(function (){$(player.e.lrc).fadeIn(160)}, 1000)
-			player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br /><div>纯音乐，请欣赏</div><br /><br /><br /><br /><br /><br />'
+			setTimeout(function (){
+				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br /><div>没有歌词的纯音乐哦 ...</div><br /><br /><br /><br /><br /><br />'
+				$(player.e.lrc).fadeIn(160)
+			}, 1000)
 		}
 	}
 
@@ -505,25 +509,28 @@ player.f.lrc = {}
 		for (var i = 0; i < player.data.lrc.leng; i++) {
 
 			var div = document.createElement('div')
-				div.innerHTML = (str.split('\n')[i].slice(12) || '　').split('#')[0]
+				div.innerHTML = (str.split('\n')[i].slice(12) || '<br /><br />').split('#')[0]
 				div.setAttribute('class', 'lrc-' + (i + 1))
 				player.e.lrc.appendChild(div)
 
-			var span = document.createElement('span')
-				span.innerHTML = str.split('\n')[i].substring(1, 6)
-				span.setAttribute('class', 'lrcT')
-				span.setAttribute('onclick', 'player.f.lrc.to("' + str.split('\n')[i].substring(1, 9) + '")')
-				div.appendChild(span)
+			if (str.split('\n')[i].slice(12) != '' ) {
+				var span = document.createElement('span')
+					span.innerHTML = str.split('\n')[i].substring(1, 6)
+					span.setAttribute('class', 'lrcT')
+					span.setAttribute('onclick', 'player.f.lrc.to("' + str.split('\n')[i].substring(1, 9) + '")')
+					div.appendChild(span)
 
-			if (str.split('\n')[i].split('#')[1] != undefined) {
-				var trans = document.createElement('trans')
-					trans.innerHTML = str.split('\n')[i].split('#')[1]
-					div.appendChild(trans)
+				if (str.split('\n')[i].split('#')[1] != undefined) {
+					var trans = document.createElement('trans')
+						trans.innerHTML = str.split('\n')[i].split('#')[1]
+						div.appendChild(trans)
+				}
 			}
-
 		}
-		player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br />' +  player.e.lrc.innerHTML + '<br /><br /><br /><br /><br /><br />'
-		setTimeout(function (){$(player.e.lrc).fadeIn(160)}, 1000)
+		setTimeout(function (){
+			player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br />' +  player.e.lrc.innerHTML + '<br /><br /><br /><br /><br /><br />'
+			$(player.e.lrc).fadeIn(160)
+		}, 1000)
 	}
 
 	player.f.lrc.conversion = function(str) {
@@ -568,9 +575,6 @@ player.f.lrc = {}
 
 
 
-
-
-
 player.f.load()
 player.e.body.volume = 0.4
 player.data.nowplay.vol = 0.4
@@ -596,7 +600,7 @@ player.e.bar0.addEventListener('click', function(event) {
 
 // 歌词显示
 player.e.body.addEventListener('timeupdate', function () {
-	if (!player.data.pause && player.data.lrc.open && player.list[player.data.nowplay.id]['lrc']) {
+	if (!player.data.pause && player.data.lrc.open && player.list[player.data.nowplay.id]['lrc'] && document.querySelector('.lrc-' + player.data.lrc.now) != null) {
 		if (Number(player.f.lrc.conversion((player.f.lrc.read(player.data.lrc.now) || '[00:00.000]').substring(1, 10))) <= player.e.body.currentTime) {
 			$('.highlight').removeClass('highlight')
 			$('.lrc-' + player.data.lrc.now).addClass('highlight')

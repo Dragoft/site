@@ -190,7 +190,7 @@
 
 
 
-	<!-- Player   V. 1.19 -->
+	<!-- Player   V. 1.20 -->
 	<div class="Player" >
 
 		<div class="MusicImgBox" onclick="player.f.menu()" >
@@ -227,7 +227,8 @@
 		<a href="javascript:;" onclick="player.f.show()" class="MusicShow1 f-3" ></a>
 	</div>
 	<div class="lrcBox" >
-		<img class="lrcImg" id="load-img" />
+		<img class="lrcImg" id="load-img" onload="setTimeout(function (){$(player.e.lrcI).css('opacity', '1')}, 1000)" />
+		<div class="lrc-blur" ></div>
 		<div class="lrc" ></div>
 		<div class="lrcClose" onclick="player.f.lrc.gui()" ></div>
 	</div>

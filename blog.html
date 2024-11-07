@@ -55,17 +55,16 @@
 
 	</div>
 
-	<!-- Player   V. 1.19 -->
+	<!-- Player   V. 1.20 -->
 	<div class="Player" >
 
-		<!-- COVER -->
 		<div class="MusicImgBox" onclick="player.f.menu()" >
-			<img class="MusicImg" onload="$('.Player').addClass('Player-active')" id="load-img" />
+			<img class="MusicImg" onload="player.f.loadPlayer()" id="load-img" />
 		</div>
 		<div class="bar2" ><div class="bar0" ><div class="bar1" ></div></div></div>
 
 		<div class="Player-menu" >
-			<span class="list-head" >歌曲列表 <a href="javascript:;" onclick="player.f.reset()" class="resetList" title="重置歌单" ></a></span>
+			<span class="list-head" ><a href="javascript:;" onclick="player.f.lrc.gui()" class="listBTN" >歌词</a> | <a href="javascript:;" onclick="player.f.reset()" class="listBTN" >重置</a></span>
 			<a href="javascript:;" onclick="player.f.mode()" id="Mod" title="列表循环" ></a>
 			<span href="javascript:;" class="Player-menu-sound0" >0</span>
 			<span href="javascript:;" class="Player-menu-sound1" title="使用鼠标滑轮调整音量" ><span href="javascript:;" class="Player-menu-sound2"></span></span>
@@ -91,6 +90,12 @@
 		<audio id="player" src="https://music.163.com/song/media/outer/url?id=448316625.mp3" preload="none" ></audio>
 		<a href="javascript:;" onclick="player.f.show()" class="MusicShow0 f-3" ></a>
 		<a href="javascript:;" onclick="player.f.show()" class="MusicShow1 f-3" ></a>
+	</div>
+	<div class="lrcBox" >
+		<img class="lrcImg" id="load-img" onload="setTimeout(function (){$(player.e.lrcI).css('opacity', '1')}, 1000)" />
+		<div class="lrc-blur" ></div>
+		<div class="lrc" ></div>
+		<div class="lrcClose" onclick="player.f.lrc.gui()" ></div>
 	</div>
 
 
