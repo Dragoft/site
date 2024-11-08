@@ -487,12 +487,14 @@ player.f.lrc = {}
 				if (response.ok) {
 					return response.text();
 				}
-				setTimeout(function (){$(player.e.lrc).fadeIn(160)}, 1000)
-				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br /><div>加载歌词失败</div><br /><br /><br /><br /><br /><br />'
 			})
 			.then(text => {
 				player.data.lrc.data = text
 				player.f.lrc.load(text)
+			})
+			.catch(error => {
+				setTimeout(function (){$(player.e.lrc).fadeIn(160)}, 1000)
+				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br /><div>加载歌词失败</div><br /><br /><br /><br /><br /><br />'
 			})
 		} else {
 			setTimeout(function (){
@@ -518,7 +520,7 @@ player.f.lrc = {}
 				var span = document.createElement('span')
 					span.innerHTML = str.split('\n')[i].substring(1, 6)
 					span.setAttribute('class', 'lrcT')
-					span.setAttribute('onclick', 'player.f.lrc.to("' + str.split('\n')[i].substring(1, 9) + '")')
+					span.setAttribute('onclick', 'player.f.lrc.to("' + str.split('\n')[i].substring(1, 10) + '")')
 					div.appendChild(span)
 
 				if (str.split('\n')[i].split('#')[1] != undefined) {
@@ -557,7 +559,7 @@ player.f.lrc = {}
 
 	player.f.lrc.find = function(n) {
 
-		for (var i = 0; i < player.data.lrc.leng; i++) {
+		for (var i = 0; i < player.data.lrc.leng - 1; i++) {
 			if (Number(player.f.lrc.conversion((player.f.lrc.read(i) || '[00:00.000]').substring(1, 10))) <= n) {
 				player.data.lrc.now = i
 			} else {

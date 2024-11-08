@@ -348,6 +348,7 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 }
 
 .lrc div {
+	width: calc(100% - 70px);
 	padding-bottom: 10px;
 	font-size: 22px;
 	line-height: 30px;
@@ -364,12 +365,14 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 }
 
 .lrcT {
-	float: right;
+	position: absolute;
+	right: 0;
 	width: 60px;
 	user-select: none;
 	color: rgba(var(--t-b1), 0);
 	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0);
 	cursor: pointer;
+	white-space: nowrap;
 	transition: 0.3s;
 }
 
