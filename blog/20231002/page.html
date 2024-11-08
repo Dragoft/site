@@ -27,9 +27,10 @@
 			name: 'Moon Child - 西原健一郎 / Nina Vidal',
 			src: '456041',
 			img: 'https://p2.music.126.net/jBO0wfjt5-AprTRmDzhtcQ==/6057209557711541.jpg?param=300y300',
+			lrc: true,
 	}
 
-	window.parent.postMessage('player.f.add.ask(1, "' + music['name'] + '", "' + music['src'] + '", "' + music['img'] + '" )', document.domain.length == 0 && '*' || '/');
+	window.parent.postMessage('player.f.add.ask(1, "' + music['name'] + '", "' + music['src'] + '", "' + music['img'] + '", ' + music['lrc'] + ' )', document.domain.length == 0 && '*' || '/');
 
 </script>
 <style>

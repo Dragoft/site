@@ -33,7 +33,7 @@ function loadMusicData() {
 		name: "原風景 - mamomo / 丘咲アンナ",
 		src: '33469247',
 		img: 'https://p1.music.126.net/ct9bs4VXR1mrbVRsX9iboA==/3372202162443903.jpg',
-		lrc: false,
+		lrc: true,
 	},
 	{
 		name: 'ワタリドリ - KOKIA',
@@ -93,7 +93,7 @@ function loadMusicData() {
 		name: 'There Is Still Wonder Left To Behold - reche',
 		src: '2017419119',
 		img: 'https://p1.music.126.net/b4dFvmdWVTmHv6gKgdgzEQ==/109951168261721978.jpg',
-		lrc: false,
+		lrc: true,
 	},
 	{
 		name: 'bliss - milet',
@@ -117,13 +117,13 @@ function loadMusicData() {
 		name: 'この空であなたを待ってる - KOKIA',
 		src: '1830163710',
 		img: 'https://p2.music.126.net/resCPZ3quIJPxdn1HDt3ww==/109951165811423814.jpg',
-		lrc: false,
+		lrc: true,
 	},
 	{
 		name: '変わり行く世界のために - 茶太',
 		src: '697291',
 		img: 'https://p2.music.126.net/eiR5oFPitGtu1hzka4Vm5g==/814738116182197.jpg',
-		lrc: true,
+		lrc: false,
 	}
 
 	]
@@ -355,12 +355,13 @@ player.f.play = function(){
 	}
 
 // 更新播放器列表
-player.f.add = function(name, src, img) {
+player.f.add = function(name, src, img, lrc) {
 		player.list = [
 			{
 				'name': name,
 				'src': src,
 				'img': img,
+				'lrc': lrc,
 			}
 		]
 		player.data.nowplay.id = 0
@@ -378,7 +379,7 @@ player.f.add = function(name, src, img) {
 			player.f.menu.set(1)
 		}, 500)
 }
-	player.f.add.ask = function(mode, name, src, img) {
+	player.f.add.ask = function(mode, name, src, img, lrc) {
 		if (mode == 1) {
 			player.data.subwin = 1
 			clearInterval(player.data.timer.t1)
@@ -404,7 +405,7 @@ player.f.add = function(name, src, img) {
 					$(player.e.cover0).css('display',  'none')
 				}
 				$(player.e.subwin).fadeIn(200)
-				$('.Player-menu-info-open').attr('onclick', 'player.f.add("' + name + '", "' + src + '", "' + img + '")')
+				$('.Player-menu-info-open').attr('onclick', 'player.f.add("' + name + '", "' + src + '", "' + img + '", ' + lrc + ')')
 				clearInterval(player.data.timer.t2)
 
 			}, 3000)
@@ -576,8 +577,8 @@ player.f.lrc = {}
 
 
 player.f.load()
-player.e.body.volume = 0.4
-player.data.nowplay.vol = 0.4
+player.e.body.volume = 0.5
+player.data.nowplay.vol = 0.5
 
 // 进度条
 setInterval(() => {
@@ -623,7 +624,7 @@ player.e.body.addEventListener('ended', function () {
 
 // 调整音量
 player.e.s1.addEventListener('scroll', () => {
-	var size = 100 - (player.e.s1.scrollTop / 10).toFixed(0)
+	var size = 100 - (player.e.s1.scrollTop / 10).toFixed(0) + 10
 	if (size < 0) {var size = 0}
 	if (size > 100) {var size = 100}
 
