@@ -334,7 +334,7 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	overflow: scroll;
 	left: calc(50% - 350px);
 	white-space: break-spaces;
-	word-break: break-all;
+	word-break: break-word;
 }
 
 .lrc-blur {
@@ -348,14 +348,35 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 }
 
 .lrc div {
+	width: calc(100% - 20px);
+	padding: 5px 10px;
+	margin-top: 5px;
+	line-height: 28px;
+	background-color: rgba(var(--t-b1), 0);
+	border-radius: 5px;
+	font-family: 'Microsoft YaHei';
+	cursor: pointer;
+
+	transition: 0.3s;
+}
+
+.lrc div:hover {
+	background-color: rgba(var(--t-b1), 0.05);
+}
+
+lrc {
+	display: inline-block;
 	width: calc(100% - 70px);
-	padding-bottom: 10px;
 	font-size: 22px;
-	line-height: 30px;
 	color: rgba(var(--t-b1), 0.2);
 	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.2);
-	font-family: 'Microsoft YaHei';
+	transition: 0.3s;
+}
 
+trans {
+	display: block;
+	font-size: 16px;
+	color: rgba(var(--t-b1), 0.1);
 	transition: 0.3s;
 }
 
@@ -365,13 +386,12 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 }
 
 .lrcT {
-	position: absolute;
-	right: 0;
-	width: 60px;
+	float: right;
+	font-size: 22px;
+	width: 55px;
 	user-select: none;
 	color: rgba(var(--t-b1), 0);
 	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0);
-	cursor: pointer;
 	white-space: nowrap;
 	transition: 0.3s;
 }
@@ -410,7 +430,8 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	color: rgba(var(--t-b1), 0.4);
 }
 
-.highlight {
+.highlight lrc {
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.4) !important;
 	color: rgba(var(--t-b1), 1) !important;
 }
 
@@ -420,14 +441,18 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 	color: rgba(var(--t-b1), 0.6) !important;
 }
 
-trans {
-	display: block;
-	font-size: 16px;
-	color: rgba(var(--t-b1), 0.1);
-	transition: 0.3s;
+.mTitle {
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.4);
+	color: rgba(var(--t-b1), 1);
+	font-size: 24px;
+	background-color: rgba(var(--t-b1), 0) !important;
+	cursor: auto !important;
 }
 
-
+.mTitle span {
+	color: rgba(var(--t-b1), 0.4);
+	font-size: 18px;
+}
 
 @media screen and (max-width: 850px)  {
 	.lrc {
@@ -436,13 +461,21 @@ trans {
 	}
 	.lrcImg {
 		left: -20%;
+		top: -50px;
 		width: unset;
-		height: 100%;
+		height: calc(100% + 100px);
 	}
 	.lrcT {
 		display: none;
 	}
-
+	lrc {
+		width: 100%;
+	}
+	.lrc div {
+		width: 100%;
+		padding: 0px 0px 10px 0px;
+		background-color: rgba(var(--t-b1), 0) !important;
+	}
 }
 
 

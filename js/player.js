@@ -39,7 +39,7 @@ function loadMusicData() {
 		name: 'ワタリドリ - KOKIA',
 		src: '2101452199',
 		img: 'https://p1.music.126.net/rLHKvau26Wt2KA5DJc_u6A==/109951169067925149.jpg',
-		lrc: false,
+		lrc: true,
 	},
 	{
 		name: 'アシタカとサン - 久石譲',
@@ -356,28 +356,28 @@ player.f.play = function(){
 
 // 更新播放器列表
 player.f.add = function(name, src, img, lrc) {
-		player.list = [
-			{
-				'name': name,
-				'src': src,
-				'img': img,
-				'lrc': lrc,
-			}
-		]
-		player.data.nowplay.id = 0
-		player.data.num = 1
-		player.f.menu.set(1)
-
-		if (player.data.pause == 0) {
-			player.f.play()
+	player.list = [
+		{
+			'name': name,
+			'src': src,
+			'img': img,
+			'lrc': lrc,
 		}
+	]
+	player.data.nowplay.id = 0
+	player.data.num = 1
+	player.f.menu.set(1)
 
-		player.f.add.ask(0)
-		setTimeout(function (){
-			player.f.load()
-			player.f.list(1)
-			player.f.menu.set(1)
-		}, 500)
+	if (player.data.pause == 0) {
+		player.f.play()
+	}
+
+	player.f.add.ask(0)
+	setTimeout(function (){
+		player.f.load()
+		player.f.list(1)
+		player.f.menu.set(1)
+	}, 500)
 }
 	player.f.add.ask = function(mode, name, src, img, lrc) {
 		if (mode == 1) {
@@ -494,11 +494,11 @@ player.f.lrc = {}
 			})
 			.catch(error => {
 				setTimeout(function (){$(player.e.lrc).fadeIn(160)}, 1000)
-				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br /><div>加载歌词失败</div><br /><br /><br /><br /><br /><br />'
+				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="mTitle" >' + player.list[player.data.nowplay.id]['name'] + '<br /><br /><span>加载歌词失败</span></div><br /><br /><br /><br /><br /><br />'
 			})
 		} else {
 			setTimeout(function (){
-				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br /><div>没有歌词的纯音乐哦 ...</div><br /><br /><br /><br /><br /><br />'
+				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="mTitle" >' + player.list[player.data.nowplay.id]['name'] + '<br /><br /><span>没有填词的纯音乐哦 ...</span></div><br /><br /><br /><br /><br /><br />'
 				$(player.e.lrc).fadeIn(160)
 			}, 1000)
 		}
@@ -512,26 +512,27 @@ player.f.lrc = {}
 		for (var i = 0; i < player.data.lrc.leng; i++) {
 
 			var div = document.createElement('div')
-				div.innerHTML = (str.split('\n')[i].slice(12) || '<br /><br />').split('#')[0]
+				div.setAttribute('onclick', 'player.f.lrc.to("' + str.split('\n')[i].substring(1, 10) + '")')
 				div.setAttribute('class', 'lrc-' + (i + 1))
 				player.e.lrc.appendChild(div)
 
-			if (str.split('\n')[i].slice(12) != '' ) {
-				var span = document.createElement('span')
-					span.innerHTML = str.split('\n')[i].substring(1, 6)
-					span.setAttribute('class', 'lrcT')
-					span.setAttribute('onclick', 'player.f.lrc.to("' + str.split('\n')[i].substring(1, 10) + '")')
-					div.appendChild(span)
-
+			var lrc = document.createElement('lrc')
 				if (str.split('\n')[i].split('#')[1] != undefined) {
-					var trans = document.createElement('trans')
-						trans.innerHTML = str.split('\n')[i].split('#')[1]
-						div.appendChild(trans)
+					lrc.innerHTML = (str.split('\n')[i].slice(12) || '<br /><br />').split('#')[0] + '<trans>' + str.split('\n')[i].split('#')[1] + '</trans>'
+				} else {
+					lrc.innerHTML = (str.split('\n')[i].slice(12) || '<br /><br />').split('#')[0]
 				}
-			}
+				div.appendChild(lrc)
+
+			var span = document.createElement('span')
+				span.innerHTML = str.split('\n')[i].substring(1, 6)
+				span.setAttribute('class', 'lrcT')
+				div.appendChild(span)
+
 		}
 		setTimeout(function (){
-			player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="lrc-0" >' + player.list[player.data.nowplay.id]['name'] + '</div><br />' +  player.e.lrc.innerHTML + '<br /><br /><br /><br /><br /><br />'
+			player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="mTitle" >' + player.list[player.data.nowplay.id]['name'] + '</div><br />' +  player.e.lrc.innerHTML + '<br /><br /><br /><br /><br /><br />'
+			player.f.lrc.find(player.e.body.currentTime)
 			$(player.e.lrc).fadeIn(160)
 		}, 1000)
 	}
