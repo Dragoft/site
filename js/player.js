@@ -123,7 +123,7 @@ function loadMusicData() {
 		name: '変わり行く世界のために - 茶太',
 		src: '697291',
 		img: 'https://p2.music.126.net/eiR5oFPitGtu1hzka4Vm5g==/814738116182197.jpg',
-		lrc: false,
+		lrc: true,
 	}
 
 	]
