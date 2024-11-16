@@ -432,16 +432,6 @@ env.f.menu = {}
 		}
 	}
 
-	env.f.menu.c3 = function() {
-		if($('#menu-check-3').hasClass('menu-check-active')!=true) {
-			$('#menu-check-3').addClass('menu-check-active')
-			$('.MenuCheck3-inner').fadeIn(240)
-		} else {
-			$('#menu-check-3').removeClass('menu-check-active')
-			$('.MenuCheck3-inner').fadeOut(240)
-		}
-	}
-
 env.f.page = {}
 	// 博客页面加载动画
 	env.f.page.loading = function() {
