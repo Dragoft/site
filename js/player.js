@@ -1,10 +1,10 @@
-﻿/*
-   调用网易云了的 API
-   参考了 www.jq22.com/jquery-info14295 的 UI 设计.
-   最后更新 2024-6-6
+﻿
 
-   同步歌单: https://music.163.com/#/playlist?id=8087950314
-*/
+
+/*	player.js
+ *	created by Tatsuno Yuu, 2024/11/16
+
+	*/
 
 
 
@@ -15,12 +15,6 @@ function loadMusicData() {
 		name: 'One Last Adventure - Evan Call',
 		src: '2116382384',
 		img: 'https://p1.music.126.net/8RdmkeoexrTxI7PdasUkhA==/109951169761664617.jpg',
-		lrc: false,
-	},
-	{
-		name: 'The Birth of a Legend - Evan Call',
-		src: '548145347',
-		img: 'https://p2.music.126.net/WSEx2yfxdewIbghaBtEXAQ==/109951163210679047.jpg',
 		lrc: false,
 	},
 	{
