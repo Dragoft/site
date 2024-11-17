@@ -19,8 +19,6 @@
 	--t-r: 255, 0, 20;
 	--t-g: 0, 200, 100;
 
-
-
 /*
 	.f-1 无效元素
 	.f-2 仅在电脑端显示的元素
@@ -630,8 +628,8 @@ img {
 	font-size: 80px;
 	line-height: 80px;
 	font-weight: bold;
-	z-index: 3;
 	opacity: 0;
+	z-index: 3;
 	background-image: linear-gradient(62deg, rgba(var(--t-c2), 1), rgba(var(--t-c3), 1));
 	color: transparent;
 	-webkit-background-clip: text;
