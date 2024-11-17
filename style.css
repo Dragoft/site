@@ -231,7 +231,6 @@ img {
 	position: fixed;
 	opacity: 0;
 	color: rgba(var(--t-t1), 0.3);
-	background-color: rgba(var(--t-b1),0.6);
 	top: 15px;
 	left: 15px;
 	width: 35px;
@@ -258,7 +257,7 @@ img {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(var(--t-b2), 0.5);
+	background-color: rgba(var(--t-b2), 0.6);
 	z-index: 5;
 	display: none;
 }
@@ -266,7 +265,6 @@ img {
 .menu-btn-3 {
  	position: fixed;
 	color: rgba(var(--t-t1), 0.3);
-	background-color: rgba(var(--t-b1), 0.6);
 	top: 15px;
 	left: 15px;
 	width: 35px;
@@ -316,7 +314,7 @@ img {
 .menu-line {
 	border: none;
 	border-top: 1px solid rgba(var(--t-t1), 0.3);
-	width: 250px;
+	width: 260px;
 	margin-left: 0px;
 }
 
@@ -358,9 +356,31 @@ img {
 
 .MenuCheck3-inner {
 	display: block;
-	height: 24px;
+	height: 80px;
 	margin-top: 2px;
+	overflow: hidden;
+	transition: all 0.3s ease-out 0s;
+}
+
+.contact {
+	display: block;
+	height: 20px;
+	width: 160px;
+	margin-left: 20px;
+	padding: 5px 10px 5px 10px;
+	font-size: 16px;
+	line-height: 20px;
+	color: rgba(var(--t-b4), 0.6);
+	background-color: rgba(var(--t-b4), 0.05);
+	border-radius: 5px;
 	user-select: none;
+	white-space: nowrap;
+	cursor: help;
+	transition: 0.3s;
+}
+
+.contact:hover {
+	background-color: rgba(var(--t-b4), 0.08);
 }
 
 .menu-policy {
@@ -624,19 +644,12 @@ img {
 	opacity: 1 !important;
 }
 
-.t-15 {
-	width: 24px;
-	height: 24px;
-	filter: saturate(90%);
-}
-
-.t-18 {
-	display: inline-block;
-	margin-left: 10px;
-	height: 24px;
-	width: 24px;
-	line-height: 20px;
-	user-select: none;
+.t-4 {
+	margin-right: -5px;
+	float: right;
+	line-height: 24px;
+	font-size: 20px;
+	color: rgba(var(--t-t1), 0.6);
 }
 
 .t-36 {

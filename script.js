@@ -432,6 +432,18 @@ env.f.menu = {}
 		}
 	}
 
+	env.f.menu.c3 = function() {
+		if($('#menu-check-3').hasClass('menu-check-active')!=true) {
+			$('#menu-check-3').addClass('menu-check-active')
+			$('.MenuCheck3-inner').css('height', '80px')
+			$('.MenuCheck3-inner').css('opacity', '1')
+		} else {
+			$('#menu-check-3').removeClass('menu-check-active')
+			$('.MenuCheck3-inner').css('height', '0px')
+			$('.MenuCheck3-inner').css('opacity', '0')
+		}
+	}
+
 env.f.page = {}
 	// 博客页面加载动画
 	env.f.page.loading = function() {
