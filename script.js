@@ -11,6 +11,11 @@
 // 通知列表
 env.data.list.notice = [
 	{
+		date: '11.19',
+		event: '准备更换域名',
+		content: '要偷偷跑路了 ...',
+	},
+	{
 		date: '10.2',
 		event: '网站 UI 设计优化',
 		content: '最新的样式设计！',
@@ -29,11 +34,6 @@ env.data.list.notice = [
 		date: '6.8',
 		event: '留言板上线',
 		content: '网站新增留言板功能！',
-	},
-	{
-		date: '4.6',
-		event: '启用域名: tatsuno.top/',
-		content: '新的域名，新的开始！',
 	},
 
 ]

@@ -1,10 +1,8 @@
 ﻿'''
     this program is used to update the website quickly.
-    powered by tatsuno
+    by sumiyo
 
 '''
-
-
 
 
 
@@ -19,7 +17,7 @@ import tkinter as tk
 
 
 path = os.getcwd()
-path = os.path.dirname(path) + "\\launcher\\"
+path = os.path.dirname(path) + "\\config\\"
 
 config = ConfigParser()
 wait = 0
@@ -116,7 +114,7 @@ def code(content, tag):
 
 def check():
     global getinbox
-    code("request ver.1.10\n\n", "null")
+    code("updater ver.1.10\n\n", "null")
 
     code("$ git --version\n", "cmd")
     git = "git --version"
@@ -380,7 +378,7 @@ def task1():
 
 root = Tk()
 
-root.title('request.')
+root.title('updater')
 root.geometry("600x380")
 root.resizable(False, True)
 root.configure(bg="#2E2E2E")
