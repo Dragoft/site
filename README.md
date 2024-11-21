@@ -7,11 +7,11 @@
 ## 感谢
 感谢他们提供的帮助。
 
-|	名称					|	帮助				|
+|	名称					|	说明				|
 |:--------						|:---------					|
 |	[Cloudflare](https://www.cloudflare.com/)		|	网站运行 & 管理			|
 |	[Github](https://github.com/)			|	代码托管				|
 |	[IcoMoon](https://icomoon.io/)			|	图标字体				|
 |	[Hint.css](https://kushagra.dev/lab/hint/)		|	A pure CSS tooltip library		|
-|	[Paint.NET](https://www.getpaint.net/)		|	图像处理软件			|
+|	[Paint.NET](https://www.getpaint.net/)		|	创建，编辑，扫描和打印图片。		|
 
