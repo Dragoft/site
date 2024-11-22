@@ -44,14 +44,13 @@
 	}
 
 	.t-3 {
-		font-size: 36px;
-		white-space: nowrap;
+		font-size: 40px;
 	}
 
 	.t-39 {
 		font-size: 16px;
-		margin-top: 65px;
-		margin-left: 5px;
+		margin-top: 75px;
+		margin-left: 3px;
 	}
 
 	.t-16 {
@@ -108,7 +107,7 @@
 
 	.box-2 {
 		position: fixed;
-		width: 180px;
+		width: 260px;
 		height: 100px;
 		bottom: 80px;
 		left: 40px;

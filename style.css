@@ -4,7 +4,7 @@
 	--t-c1: 186, 138, 219;
 	--t-c2: 123, 96, 202;
 	--t-c3: 255, 184, 237;
-	--t-c4: 105, 221, 226;
+	--t-c4: 143, 93, 213;
 	--t-c5: 255, 184, 237;
 
 	/* 文本颜色 */
@@ -638,6 +638,7 @@ img {
 	-webkit-background-clip: text;
 
 	user-select: none;
+	white-space: nowrap;
 	transition: 1s ease-out 0.3s;
 }
 
@@ -706,7 +707,17 @@ img {
 	opacity: 0;
 	z-index: 3;
 	user-select: none;
+	white-space: nowrap;
 	transition: 1s ease-out 0.3s;
+
+	text-shadow:	-2px -2px 0 rgba(var(--t-b1), 1),
+			-2px 2px 0 rgba(var(--t-b1), 1),
+			2px -2px 0 rgba(var(--t-b1), 1),
+			2px 2px 0 rgba(var(--t-b1), 1),
+			0 -2px 0 rgba(var(--t-b1), 1),
+			0 2px 0 rgba(var(--t-b1), 1),
+			2px 0 0 rgba(var(--t-b1), 1),
+			-2px 0 0 rgba(var(--t-b1), 1);
 }
 
 .t-41 {

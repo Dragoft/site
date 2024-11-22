@@ -2,7 +2,7 @@
 
 
 /*	admin.js
- *	created by Tatsuno Yuu, 2024/7/29
+ *	created by sumiyo, 2024/7/29
  *	version: BETA 0.00.014
 
 	*/

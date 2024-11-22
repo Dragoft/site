@@ -2,7 +2,7 @@
 
 
 /*	script.js
- *	created by Tatsuno Yuu, 2024/8/27
+ *	created by sumiyo, 2024/8/27
 
 	*/
 
@@ -480,7 +480,7 @@ env.f.page = {}
 
 env.f.typewriter1 = function() {
 	$('.t-39').typed({
-		strings: ['<span class="f-2" >私のサイト、^400</span>私一人の^200世界です。'],
+		strings: ['私のサイト、^400私一人の^200世界です。'],
 		typeSpeed: 90,
 		showCursor: false,
 		contentType: 'html',

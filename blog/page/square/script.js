@@ -25,7 +25,7 @@ env.f.sent = function() {
 		return	
 	}
 
-	fetch('https://tatsuno.top/remark.api', {
+	fetch('https://sumiyo.link/remark.api', {
 		method: "POST",
 		headers: {
 			"Token": 1
@@ -60,7 +60,7 @@ env.f.sent = function() {
 // 获取评论
 env.f.get = function(page) {
 	if (page != null) {
-		fetch('https://tatsuno.top/remark.api', {
+		fetch('https://sumiyo.link/remark.api', {
 			method: "POST",
 			headers: {
 				"Token": 2,
@@ -197,7 +197,7 @@ env.f.init = function() {
 	if (env.data.pause) {return}
 	env.f.get(env.data.page)
 
-	fetch('https://tatsuno.top/remark.api', {
+	fetch('https://sumiyo.link/remark.api', {
 		method: "POST",
 		headers: {
 			"Token": 3,
@@ -264,7 +264,7 @@ env.f.del = function(e, id) {
 	e.attr('onclick', '')
 }
 	env.f.del.yes = function(id) {
-		fetch('https://tatsuno.top/remark.api', {
+		fetch('https://sumiyo.link/remark.api', {
 			method: "POST",
 			headers: {
 				"Token": 0,

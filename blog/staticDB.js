@@ -35,6 +35,12 @@ env.data.list.Bloglist = [
 		type: '',
 	},
 
+	{
+		name: 'sumiyo',
+		src: '20241122/',
+		details: '2024.11.22\n介绍',
+		type: '',
+	},
 ];
 
 

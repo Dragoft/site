@@ -429,7 +429,7 @@ player.f.reset = function() {
 	}
 }
 
-// 转换 mm:ss 时间
+// mm:ss
 player.f.conversion0 = function(value) {
 	var  minute = Math.floor(value / 60)
 	var minute = minute.toString().length === 1 ? ('0' + minute) : minute
@@ -441,6 +441,13 @@ player.f.conversion0 = function(value) {
 player.f.conversion1 = function(str) {
 	var parts = str.split(':')
 	return parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10)
+}
+
+// mm:ss.fff
+player.f.conversion2 = function(n) {
+	var t = player.f.conversion0(n)
+	var f = n.toString().split('.')[1].slice(0, 3).padEnd(3, '0')
+	return t + '.' + (f | '000')
 }
 
 // 调整音量
@@ -492,7 +499,7 @@ player.f.lrc = {}
 			})
 		} else {
 			setTimeout(function (){
-				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="mTitle" >' + player.list[player.data.nowplay.id]['name'] + '<br /><br /><span>没有填词的纯音乐哦 ...</span></div><br /><br /><br /><br /><br /><br />'
+				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="mTitle" >' + player.list[player.data.nowplay.id]['name'] + '<br /><br /><span>一首没有填词的纯音乐哦 ...</span></div><br /><br /><br /><br /><br /><br />'
 				$(player.e.lrc).fadeIn(160)
 			}, 1000)
 		}
@@ -569,6 +576,16 @@ player.f.lrc = {}
 		player.f.lrc.find(player.f.lrc.conversion(n))
 		player.f.play.set(1)
 		player.e.body.currentTime = player.f.lrc.conversion(n)
+	}
+
+	player.f.lrc.debug = function() {
+
+		console.warn('歌词时间轴矫正模式: 按下回车键获取当前的播放位置')
+		document.addEventListener('keydown', function(event) {
+			if (event.key === 'Enter' || event.keyCode === 13) {
+				console.log(player.f.conversion2(player.e.body.currentTime))
+			}
+		});
 	}
 
 
