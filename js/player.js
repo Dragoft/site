@@ -499,7 +499,7 @@ player.f.lrc = {}
 			})
 		} else {
 			setTimeout(function (){
-				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="mTitle" >' + player.list[player.data.nowplay.id]['name'] + '<br /><br /><span>一首没有填词的纯音乐哦 ...</span></div><br /><br /><br /><br /><br /><br />'
+				player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="mTitle" >' + player.list[player.data.nowplay.id]['name'] + '<br /><br /><span>没有填词的纯音乐哦 ...</span></div><br /><br /><br /><br /><br /><br />'
 				$(player.e.lrc).fadeIn(160)
 			}, 1000)
 		}

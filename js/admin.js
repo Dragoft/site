@@ -37,7 +37,7 @@ function login() {
 
 	if (adminKey=='') {return};
 
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 0,
@@ -149,7 +149,7 @@ function BTNall() {
 		<br />
 		<div class="t9" >关于此 admin 系统</div>
 		<br />
-		<span>这里是 tatsuno.top/ 的网站后台管理系统，欢迎回来！</span>
+		<span>这里是 sumiyo.link/ 的网站后台管理系统，欢迎回来！</span>
 		<br />
 		<br />
 		<div class="f-2">
@@ -454,7 +454,7 @@ function sentChunks() {
 	var token = $.base64.encode(formData.get('file').name) + '###' + formData.get('file').size + '###' + chunks + '###' + temp;
 	var bodyData = chunkList[temp];
 
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 6,
@@ -523,7 +523,7 @@ function getfile() {
 // 文件分片下载
 function getChunk() {
 	document.getElementById('downloadChunk').innerHTML = temp;
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 8,
@@ -586,7 +586,7 @@ function loadfile() {
 		showfile();
 		return
 	}
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 7
@@ -616,7 +616,7 @@ function showfile() {
 }
 
 function deletefile(reload) {
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 9
@@ -636,7 +636,7 @@ function deletefile(reload) {
 
 
 function loadComment(page) {
-	fetch('https://tatsuno.top/remark.api', {
+	fetch('https://sumiyo.link/remark.api', {
 		method: "POST",
 		headers: {
 			"Token": 2,
@@ -771,7 +771,7 @@ function sent() {
 	document.querySelector('.t26').innerHTML = '共有 0 字';
 	$('.t26').css('color', 'rgba(151, 153, 153, 1)');
 	
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 1,
@@ -803,7 +803,7 @@ function deleteComment() {
 	if (adminKey=='') {return};
 	if (id.length!=19) {return};
 
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 2,
@@ -824,7 +824,7 @@ function deleteComment() {
 
 
 function getVisit() {
-	fetch('https://tatsuno.top/counter.api', {
+	fetch('https://sumiyo.link/counter.api', {
 		method: "POST",
 		headers: {
 			"Token": 0
@@ -871,7 +871,7 @@ function changeVisit() {
 	if (adminKey=='') {return};
 
 
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 3,
@@ -907,7 +907,7 @@ function changeCode() {
 		return;
 	}
 
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 4,
@@ -986,7 +986,7 @@ function runSql() {
 
 
 function fetchSql(cmd) {
-	fetch('https://tatsuno.top/admin.api', {
+	fetch('https://sumiyo.link/admin.api', {
 		method: "POST",
 		headers: {
 			"Authorization": 5,

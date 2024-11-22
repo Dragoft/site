@@ -227,9 +227,9 @@ table {
 .t2 {
 	position: absolute;
 	width: 260px;
-	height: 200px;
+	height: 100px;
 	left: calc(50% - 130px);
-	top: calc(50% - 130px);
+	top: 50%;
 }
 
 .t3 {
@@ -510,19 +510,6 @@ table {
 	line-height: 20px;
 	background-color: rgba(255, 255, 255, 1);
 	user-select: none;
-}
-
-.t34 {
-	text-align: center;
-	height: 140px;
-	width: 100%;
-}
-
-.t34 img {
-	height: 128px;
-	width: 128px;
-	user-select: none;
-	-webkit-user-drag: none;
 }
 
 .t35 {
