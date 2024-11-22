@@ -162,8 +162,8 @@ env.f.linkto = function(id) {
 			env.f.url.change('id', id)
 			document.getElementById('iframe').src = 'blog/' + id + '/page.html'
 		} else {
-			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/blog?id=' + id)
-			document.getElementById('iframe').src = window.location.href.split('top',1)[0] + 'top/blog/' + id + '/page'
+			history.replaceState(null, null, window.location.href.split('link',1)[0] + 'link/blog?id=' + id)
+			document.getElementById('iframe').src = window.location.href.split('link',1)[0] + 'link/blog/' + id + '/page'
 		}
 	},400)
 }
@@ -244,8 +244,8 @@ env.f.blog = {}
 				env.f.url.change('id', id)
 				document.getElementById('iframe').src = 'blog/' + id + '/page.html'
 			} else {
-				history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/blog?id=' + id)
-				document.getElementById('iframe').src = window.location.href.split('top',1)[0] + 'top/blog/' + id + '/page'
+				history.replaceState(null, null, window.location.href.split('link',1)[0] + 'link/blog?id=' + id)
+				document.getElementById('iframe').src = window.location.href.split('link',1)[0] + 'link/blog/' + id + '/page'
 			}
 
 			$('.menu-btn-3').css('transition', '0.3s')
@@ -266,7 +266,7 @@ env.f.blog = {}
 		$('.blog').removeClass('blog-active')
  
 		if (document.domain!='') {
-			history.replaceState(null, null, window.location.href.split('top',1)[0] + 'top/')
+			history.replaceState(null, null, window.location.href.split('link',1)[0] + 'link/')
 		} else {
 			env.f.url.clear()
 		}
