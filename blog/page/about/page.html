@@ -1,0 +1,173 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh">
+
+<head>
+	<title>about</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link rel="preload" as="font" href="../../../src/Poppins Regular.woff2" crossorigin="anonymous" />
+	<link rel="stylesheet" type="text/css" href="../../main.css">
+
+</head>
+
+<body>
+<script>
+	window.parent.postMessage('env.f.page.ok("- ' + document.title + '")', document.domain.length == 0 && '*' || '/');
+	history.pushState(null, null, location.href);
+
+	window.addEventListener('message', function(event) {
+		if (event.origin == 'null' || event.origin.includes('https://tatsuno.top')) {
+			eval(event.data);
+		}
+	});
+
+</script>
+<style>
+
+	.img1 {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+		opacity: 0;
+	}
+
+	.imgBox1 {
+		aspect-ratio: 200 / 280;
+		width: 20%;
+		display: inline-block;
+		background-color: rgba(var(--t-b2), 0.1);
+		border-radius: 8px;
+	}
+
+	.details {
+		position: sticky;
+		padding: 5px 10px;
+		height: 60px;
+		display: block;
+		margin-top: -70px;
+		border-radius: 0px 0px 5px 5px;
+		background: rgba(var(--t-b2), 0.5);
+		color: rgba(var(--t-b1), 0.8);
+		backdrop-filter: blur(5px);
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		opacity: 0;
+		transition: 0.5s;
+	}
+
+	.details i {
+		color: rgba(var(--t-b1), 0.4);
+		font-style: normal;
+		user-select: none;
+	}
+
+	.imgBox1:hover .details {
+		opacity: 1;
+	}
+
+	@media screen and (max-width: 900px) {
+		.details {
+			display: none;
+		}
+
+		.imgBox1 {
+			width: 32%;
+		}
+	}
+
+</style>
+
+	<!-- Mian -->
+	<div class="main" >
+
+		<h1>关于</h1>
+		<i>—— 用一段简单的自我介绍拥抱世界。</i>
+		<br />
+		<br class="f-1" />
+		<para>
+			<hr1></hr1>
+			<mat></mat>
+			<span>你好！</span>
+			<br />
+			<span>很高兴能在这里遇见你！按照规矩，先简单的自我介绍一下。</span>
+		</para>
+
+		<para>
+			<h3>我的名字</h3>
+			<mat></mat>
+			<quote>
+				<mat></mat>
+				<span style="color: rgb(var(--t-c1));" ><ruby>純世<rt>すみよ</rt></ruby></span>
+				<br />
+				可以理解为「纯粹的世界」。代表着清新、纯真的女孩子。
+			</quote>
+			<br class="f-1" />
+
+			<h3>喜欢的东西</h3>
+			<mat></mat>
+			<showcase>
+				<li class="list1" >动漫 「很有必要放在第一位」</li>
+				<li class="list1" >设计</li>
+				<li class="list1" >计算机</li>
+			</showcase>
+			<showcase>
+				<li class="list1" >自学日语</li>
+				<li class="list1" >听歌 & 画画</li>
+			</showcase>
+			<br />
+			<br class="f-1" />
+			<br class="f-1 f-2" />
+
+			<h3>看过的动漫</h3>
+			<hr1></hr1>
+			<mat></mat>
+			<span class="imgBox1" >
+				<img class="img1" src="img/葬送のフリーレン.webp" onload="$(this).addClass('fade-in-1')" />
+				<span class="details" >葬送のフリーレン<br /><i> 2023</i></span>
+			</span>
+
+			<br class="f-1" />
+			<br class="f-1" />
+			<br class="f-1 f-2" />
+		</para>
+
+		<para>
+			<h2>我的网站</h2>
+			<h3>概要</h3>
+			<mat></mat>
+			<span>这里是我的个人网站，一个简单的博客。</span>
+			<br />
+			<span>主要发表 <attention>生活</attention> <attention>感想</attention> 方面的文章。</span>
+			<br />
+			<br class="f-1" />
+			<span>我的文笔不好，这是我坚持亲手创作博客文章的原因之一。</span>
+			<br />
+			<br class="f-1" />
+			<br class="f-1" />
+			<h3>回忆</h3>
+			<mat></mat>
+			<span>很久以前，我就想有一个自己的网站了。</span>
+			<br />
+			<span>直到 2023 年的一天，我遇到了 <attention>Cloudflare</attention>。原本遥不可及的梦想顷刻便触手可及。我抓住了这个机会，网站的第一个版本在 2023-2-3 11:23 成功部署。</span>
+			<br />
+			<br class="f-1" />
+			<span>我欣赏与众不同的设计。为此，我踏上了网站设计的漫漫长路。</span>
+			<br />
+			<span>自学前端是个痛苦的过程。通过无数次复制粘贴，我学会了如何使用代码表达心中的想法。历经 4 次重构，我完成了这款网站主题：「<a class="link" href="https://github.com/Dragoft/site" target="_blank">せかい</a>」，设计灵感源自 <a class="link" href="https://kotobank.jp/" target="_blank"> kotobank.jp/</a>。和最初的构想一样，它简洁、美观，干净利落。虽然它不是最好的，但一定是最独一无二的。</span>
+		</para>
+
+		<para>
+			<h2>私の友達</h2>
+			<span>个人性格就是这样。</span>
+			<br />
+			<span>沉默寡言，保持低调，不是很会交朋友。这里不支持交换友链。</span>
+		</para>
+	</div>
+
+</body>
+</html>
