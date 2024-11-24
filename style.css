@@ -376,7 +376,7 @@ img {
 	border-radius: 5px;
 	user-select: none;
 	white-space: nowrap;
-	cursor: help;
+	cursor: pointer;
 	transition: 0.3s;
 }
 
@@ -448,7 +448,7 @@ img {
 	line-height: 16px;
 	font-family: 'Poppins Regular', 'Microsoft YaHei';
 	color: rgba(var(--t-t1), 0.8);
-	background-color: rgba(var(--t-b1), 1);
+	background-color: rgba(var(--t-b1), 0.6);
 	border: 1px solid rgba(var(--t-t1), 0.4);
 	transition: 0.3s ease;
 	overflow: hidden;

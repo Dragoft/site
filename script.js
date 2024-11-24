@@ -12,12 +12,12 @@
 env.data.list.notice = [
 	{
 		date: '11.21',
-		event: '新域名！',
-		content: '网站更换了当前的域名\n全新的开始！',
+		event: '注册 <ins>sumiyo.link/</ins>',
+		content: '新的域名，新的开始！',
 	},
 	{
-		date: '10.2',
-		event: '网站 UI 设计优化',
+		date: '10.02',
+		event: '网站设计优化',
 		content: '最新的样式设计！',
 	},
 	{
@@ -31,7 +31,7 @@ env.data.list.notice = [
 		content: '调整了主页的样式\n更换了头像',
 	},
 	{
-		date: '6.8',
+		date: '6.08',
 		event: '留言板上线',
 		content: '网站新增留言板功能！',
 	},
@@ -51,7 +51,6 @@ env.timer.t2 = null
 
 	env.timer.t1
 	env.timer.t2
-
 */
 
 // 剔除博客中被隐藏的文章
@@ -467,7 +466,7 @@ env.f.page = {}
 	// 博客页面加载完成后调用
 	env.f.page.ok = function(title) {
 		if (title.slice(0, 1) == '-') {
-			$('title').text('sumiyo.link ' + title)
+			$('title').text('sumiyo.link/ ' + title)
 		} else {
 			$('title').text(title)
 		}
@@ -571,19 +570,13 @@ $('#iframe').on('load', function() {
 
 
 
-/* Console.log */
 setTimeout(console.log.bind(
 	console, 
-	'\n%c Theme %c S E K A I %c		ver.1.0.21\n',
+	'\n%c THEME %c S E K A I %c		ver.1.0.21\n',
 	'background-color: rgba(57, 145, 216, 0.5); color: white; font-weight: bolder;',
 	'background-color: rgba(57, 145, 216, 0.3); color: white;',
 	'color: rgba(192, 194, 194, 1);',
 ));
-
-
-
-
-
 
 if (window.jQuery) {env.tmp.t2 = 'ok'}
 

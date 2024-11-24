@@ -155,7 +155,7 @@ function BTNall() {
 		<div class="f-2">
 		<span>介绍:</span>
 		<br />
-		<span>此管理系统由 Tatsuno Yuu 于 2024/6/9 完成开发，使用了 Mervi 的json渲染工具。当前版本:　[BETA 0.00.014] [STABLE]</span>
+		<span>此管理系统由 sumiyo 于 2024/6/9 完成开发，使用了 Mervi 的json渲染工具。当前版本:　[BETA 0.00.014] [STABLE]</span>
 		<br />
 		<span>其意义在于通过前端的简单操作，控制后台的数据库，节省时间！</span>
 		<br />
@@ -163,7 +163,7 @@ function BTNall() {
 		<br />
 		</div>
 		<br />
-		<span>Copyright © 2023-` + new Date().getFullYear() + ` Tatsuno Yuu.</span>
+		<span>Copyright © 2023-` + new Date().getFullYear() + ` sumiyo.</span>
 	`);
 
 	if (visit=='') {

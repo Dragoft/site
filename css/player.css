@@ -39,7 +39,7 @@
 	right: 0px;
 	z-index: 15;
 	border-radius: 10px;
-	background-color: rgba(var(--t-b3), 0.8);
+	background-color: rgba(var(--t-b3), 0.9);
 	backdrop-filter: blur(3px);
 	box-shadow: rgb(var(--t-b2), 0.1) 20px 20px 50px -3px;
 	border: 1px solid rgba(var(--t-t1), 0.1);

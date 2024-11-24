@@ -29,18 +29,19 @@ env.data.list.Bloglist = [
 		type: '',
 	},
 	{
-		name: '神隠し',
-		src: '20240610/',
-		details: '2024.6.10\n博客网站停更公告 ...',
-		type: '',
-	},
-
-	{
-		name: 'sumiyo',
+		name: 'sumiyo',
 		src: '20241122/',
 		details: '2024.11.22\n介绍',
 		type: '',
 	},
+
+	{
+		name: '雨中一日',
+		src: '20241123/',
+		details: '2024.11.23\n下雨的一天，我的无聊之作',
+		type: '',
+	},
+
 ];
 
 

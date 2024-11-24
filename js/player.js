@@ -482,6 +482,7 @@ player.f.lrc = {}
 
 	player.f.lrc.get = function() {
 		$(player.e.lrc).fadeOut(160)
+
 		if (player.list[player.data.nowplay.id]['lrc']) {
 			fetch('https://sumiyo.link/src/lrc/' + player.list[player.data.nowplay.id]['src'] + '.lrc')
 			.then(response => {
@@ -534,8 +535,17 @@ player.f.lrc = {}
 		setTimeout(function (){
 			player.e.lrc.innerHTML = '<br /><br /><br /><br /><br /><br /><div class="mTitle" >' + player.list[player.data.nowplay.id]['name'] + '</div><br />' +  player.e.lrc.innerHTML + '<br /><br /><br /><br /><br /><br />'
 			player.f.lrc.find(player.e.body.currentTime)
-			$(player.e.lrc).fadeIn(160)
-		}, 1000)
+
+			$(player.e.lrc).css('opacity', '0')
+			$(player.e.lrc).css('display', 'block')
+			$(player.e.lrc).animate({scrollTop: 0}, 0)
+
+			setTimeout(function (){
+				$(player.e.lrc).css('display', 'none')
+				$(player.e.lrc).css('opacity', '1')
+				$(player.e.lrc).fadeIn(160)
+			}, 100)
+		}, 500)
 	}
 
 	player.f.lrc.conversion = function(str) {
