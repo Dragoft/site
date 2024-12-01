@@ -519,7 +519,7 @@ window.addEventListener('message', function(event) {
 // 页面加载完成后执行
 window.addEventListener('load',function(){
 	// 计算页面加载时间
-	env.data.load = env.f.dateFormatter ('mm:ss', new Date() - new Date(env.tmp.t1)) + ' / ' + (new Date() - new Date(env.tmp.t1)).toString() + 'ms'
+	env.data.load = player.f.conversion2(((new Date() - new Date(env.tmp.t1)) / 1000).toFixed(3))
 	env.tmp.t1 = null
 	delete env.tmp.t1
 
