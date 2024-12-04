@@ -66,8 +66,8 @@ function loadMusicData() {
 		lrc: false,
 	},
 	{
-		name: '一緒なら',
-		src: '2094123643',
+		name: 'If I Am With You',
+		src: '2071032138',
 		img: 'https://p2.music.126.net/ZoGeQ6in2oB0Oop5q0yG7g==/109951169009601894.jpg',
 		lrc: false,
 	},
