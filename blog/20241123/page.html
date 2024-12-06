@@ -24,6 +24,15 @@
 		}
 	});
 
+	var music = {
+			name: 'Into The Unknown - The Blasting Company',
+			src: '1496208590',
+			img: 'https://p2.music.126.net/zmCk_Xg2TX_rIUGctbxj6A==/109951165477713858.jpg',
+			lrc: true,
+	}
+
+	window.parent.postMessage('player.f.add.ask(1, "' + music['name'] + '", "' + music['src'] + '", "' + music['img'] + '", ' + music['lrc'] + ' )', document.domain.length == 0 && '*' || '/');
+
 </script>
 <style>
 

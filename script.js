@@ -27,8 +27,8 @@ env.data.list.notice = [
 	},
 	{
 		date: '8.12',
-		event: '调整主页样式',
-		content: '调整了主页的样式\n更换了头像',
+		event: '调整网站的样式',
+		content: '调整了网站的样式\n更换了头像',
 	},
 	{
 		date: '6.08',
