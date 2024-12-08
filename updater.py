@@ -313,6 +313,7 @@ reduction\t\t减少当前 commit 次数
 get\t\t获取所有部署信息
 py\t\t执行原生 python 命令
 git\t\t执行原生 git 命令
+git-clear\t\t压缩 .git 文件夹
 ''', "null")
         return
 
@@ -334,6 +335,12 @@ git\t\t执行原生 git 命令
 
     if (cmd == "restart"):
         keep()
+        return
+
+    if (cmd == "git-clear"):
+        temp = subprocess.run('git gc --prune=now', capture_output=True, text=True, shell=True)
+        code(temp.stdout, "null")
+        code("done.\n", "null")
         return
 
     if (cmd == "get"):
