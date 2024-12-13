@@ -179,7 +179,7 @@
 
 
 
-	<!-- Player   V. 1.20 -->
+	<!-- Player   V. 1.21 -->
 	<div class="Player" >
 
 		<div class="MusicImgBox" onclick="player.f.menu()" >
@@ -191,7 +191,7 @@
 			<span class="list-head" ><a href="javascript:;" onclick="player.f.lrc.gui()" class="listBTN" >歌词</a> | <a href="javascript:;" onclick="player.f.reset()" class="listBTN" >重置</a></span>
 			<a href="javascript:;" onclick="player.f.mode()" id="Mod" title="列表循环" ></a>
 			<span href="javascript:;" class="Player-menu-sound0" >0</span>
-			<span href="javascript:;" class="Player-menu-sound1" title="使用鼠标滑轮调整音量" ><span href="javascript:;" class="Player-menu-sound2"></span></span>
+			<span href="javascript:;" class="Player-menu-sound1" title="音量" ><span href="javascript:;" class="Player-menu-sound2"></span></span>
 
 			<hr class="list-line" />
 			<div class="PlayerList" >
@@ -200,26 +200,27 @@
 		</div>
 		<div class="Player-menu-info" >
 			<div class="Player-menu-info-title" >
-				这篇文章自带了 1 首音乐哦，
-				<br />
-				想要听听吗？
-				<br />
+				这篇文章附有 1 首音乐，<br />想听听吗？<br />
 				<span style="float: right; user-select: none; color: rgba(var(--t-t1), 0.2)" >
-					<a class="Player-menu-info-button Player-menu-info-open" >打开</a> | <a class="Player-menu-info-button" onclick="player.f.add.ask(0)" >关闭</a>
+					<a class="Player-menu-info-button Player-menu-info-open" >加载</a> | <a class="Player-menu-info-button" onclick="player.f.add.ask(0)" >关闭</a>
 				</span>
 			</div>
 		</div>
-		<div class="PlayerButton PlayerButton-pause" onclick="player.f.play()" ></div>
+		<div class="PlayerButton PB-p1 PlayerButton-pause" onclick="player.f.play()" ></div>
 		<div class="MusicName" ></div>
-		<audio id="player" src="https://music.163.com/song/media/outer/url?id=448316625.mp3" preload="none" ></audio>
+		<audio id="player" preload="none" ></audio>
 		<a href="javascript:;" onclick="player.f.show()" class="MusicShow0 f-3" ></a>
 		<a href="javascript:;" onclick="player.f.show()" class="MusicShow1 f-3" ></a>
 	</div>
 	<div class="lrcBox" >
 		<img class="lrcImg" id="load-img" onload="setTimeout(function (){$(player.e.lrcI).css('opacity', '1')}, 1000)" />
 		<div class="lrc-blur" ></div>
+		<div class="lrc-title-box loop-box" ><span class="lrc-title" ><span></div>
 		<div class="lrc" ></div>
-		<div class="lrcClose" onclick="player.f.lrc.gui()" ></div>
+		<div class="lrc-menu" >
+			<div class="lrcClose" onclick="player.f.lrc.gui()" ></div>
+			<div class="PlayerButton PB-p2 PlayerButton-pause" onclick="player.f.play()" ></div>
+		</div>
 	</div>
 
 

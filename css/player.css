@@ -149,9 +149,6 @@
 }
 
 .PlayerButton {
-	position: absolute;
-	margin: -54px 25px;
-	right: 150px;
 	width: 36px;
 	height: 36px;
 	z-index: 10;
@@ -162,6 +159,12 @@
 	cursor: pointer;
 	transition: 0.3s;
 	user-select: none;
+}
+
+.PB-p1 {
+	position: absolute;
+	margin: -54px 25px;
+	right: 150px;
 }
 
 .PlayerButton:hover {
@@ -361,7 +364,7 @@ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYA
 }
 
 .lrc div:hover {
-	background-color: rgba(var(--t-b1), 0.05);
+	background-color: rgba(var(--t-b1), 0.06);
 }
 
 lrc {
@@ -406,30 +409,6 @@ trans {
 	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.6) !important;
 }
 
-
-.lrcClose {
-	position: fixed;
-	color: rgba(var(--t-b1), 0.2);
-	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.2);
-	backdrop-filter: blur(3px);
-	top: 15px;
-	left: 15px;
-	width: 35px;
-	height: 25px;
-	border-radius: 100%;
-	padding: 10px 5px;
-	z-index: 35;
-	font-size: 34px;
-	line-height: 33px;
-	cursor: pointer;
-	user-select: none;
-	transition: 0.3s;
-}
-
-.lrcClose:hover {
-	color: rgba(var(--t-b1), 0.4);
-}
-
 .highlight lrc {
 	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.4) !important;
 	color: rgba(var(--t-b1), 1) !important;
@@ -440,6 +419,8 @@ trans {
 	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.4) !important;
 	color: rgba(var(--t-b1), 0.6) !important;
 }
+
+
 
 .mTitle {
 	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.4);
@@ -453,6 +434,66 @@ trans {
 	color: rgba(var(--t-b1), 0.4);
 	font-size: 18px;
 }
+
+.lrc-title-box {
+	position: fixed;
+	height: 100%;
+	width: 100px;
+	right: 0px;
+	z-index: 50;
+	user-select: none;
+	pointer-events: none;
+}
+
+.lrc-title {
+	font-size: 80px;
+	line-height: 80px;
+	color: rgba(var(--t-b1), 0.04);
+	white-space: nowrap;
+	writing-mode: vertical-rl;
+}
+
+.lrc-menu {
+	position: fixed;
+	top: 15px;
+	left: 15px;
+	width: 200px;
+	height: 45px;
+	z-index: 35;
+	font-size: 34px;
+	line-height: 33px;
+	user-select: none;
+}
+
+.lrcClose {
+	display: inline-block;
+	color: rgba(var(--t-b1), 0.2);
+	text-shadow: 1px 1px 3px rgb(var(--t-b2), 0.2);
+	background-color: rgba(var(--t-b2), 0.1);
+	backdrop-filter: blur(3px);
+	width: 35px;
+	height: 25px;
+	border-radius: 100%;
+	padding: 10px 5px;
+	cursor: pointer;
+	user-select: none;
+	transition: 0.3s;
+}
+
+.lrcClose:hover {
+	color: rgba(var(--t-b1), 0.3);
+	background-color: rgba(var(--t-b2), 0.2);
+}
+
+.PB-p2 {
+	display: inline-block;
+	vertical-align: -3px;
+	margin-left: 5px;
+	backdrop-filter: blur(3px);
+	opacity: 0.5 !important;
+}
+
+
 
 @media screen and (max-width: 850px)  {
 	.lrc {
@@ -475,6 +516,10 @@ trans {
 		width: 100%;
 		padding: 0px 0px 10px 0px;
 		background-color: rgba(var(--t-b1), 0) !important;
+	}
+	.lrc-title {
+		font-size: 60px;
+		line-height: 100px;
 	}
 }
 

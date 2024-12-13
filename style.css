@@ -602,6 +602,20 @@ img {
 
 
 
+@keyframes wordsLoop {
+	0% {	transform: translateY(0%);
+		-webkit-transform: translateY(0%);
+	}
+	100% {	transform: translateY(-25%);
+		-webkit-transform: translateY(-25%);
+	}
+}
+
+
+
+
+
+
 /* 功能样式 */
 
 .f-1 {

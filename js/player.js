@@ -18,13 +18,13 @@ function loadMusicData() {
 		lrc: false,
 	},
 	{
-		name: 'Calling - MAROK / mamomo',
+		name: 'Calling - MAROK & mamomo',
 		src: '1944649836',
 		img: 'https://p2.music.126.net/vrXsouN6rhgah68sHv4Akg==/109951169530454564.jpg',
 		lrc: false,
 	},
 	{
-		name: "原風景 - mamomo / 丘咲アンナ",
+		name: "原風景 - mamomo & 丘咲アンナ",
 		src: '33469247',
 		img: 'https://p1.music.126.net/ct9bs4VXR1mrbVRsX9iboA==/3372202162443903.jpg',
 		lrc: true,
@@ -54,13 +54,13 @@ function loadMusicData() {
 		lrc: false,
 	},
 	{
-		name: 'Together - Bcalm / Purrple Cat',
+		name: 'Together - Bcalm & Purrple Cat',
 		src: '1916742663',
 		img: 'https://p2.music.126.net/zJBR2s3mTC06Z-v4npw2Jw==/109951168736565471.jpg',
 		lrc: false,
 	},
 	{
-		name: 'Shelter (Piano version) - Porter Robinson / Madeon',
+		name: 'Shelter (Piano version) - Porter Robinson & Madeon',
 		src: '461347460',
 		img: 'https://p2.music.126.net/nEaSbkg_Cn8gN9vLoSz0gQ==/18494885092595843.jpg',
 		lrc: false,
@@ -78,7 +78,7 @@ function loadMusicData() {
 		lrc: false,
 	},
 	{
-		name: 'Disappear in Light - Equal Stones / Endless Melancholy',
+		name: 'Disappear in Light - Equal Stones & Endless Melancholy',
 		src: '29406314',
 		img: 'https://p2.music.126.net/JIeHyV-yad8BDq_4GmsVuA==/2572857209028564.jpg',
 		lrc: false,
@@ -102,7 +102,7 @@ function loadMusicData() {
 		lrc: false,
 	},
 	{
-		name: 'like water - Park Bird / Chance Thrash',
+		name: 'like water - Park Bird & Chance Thrash',
 		src: '1847674461',
 		img: 'https://p2.music.126.net/FPZrJuBWnJKtR9_4zXmMOQ==/109951166009136375.jpg',
 		lrc: false,
@@ -167,18 +167,20 @@ player.e = {
 		img: document.querySelector('.MusicImg'),
 		name: document.querySelector('.MusicName'),
 		bar0: document.querySelector('.bar2'),
-		bar: document.querySelector('.bar1'),
+		bar1: document.querySelector('.bar1'),
 		mode: document.getElementById('Mod'),
 		menu: document.querySelector('.Player-menu'),
 		list: document.querySelectorAll('.list-item'),
 		list_body: document.querySelector('.PlayerListInner'),
-		btn: document.querySelector('.PlayerButton'),
+		btn1: document.querySelectorAll('.PlayerButton')[0],
+		btn2: document.querySelectorAll('.PlayerButton')[1],
 		subwin: document.querySelector('.Player-menu-info'),
 		s1: document.querySelector('.Player-menu-sound1'),
 		s2: document.querySelector('.Player-menu-sound0'),
 		lrc: document.querySelector('.lrc'),
 		lrcI: document.querySelector('.lrcImg'),
 		lrcB: document.querySelector('.lrcBox'),
+		lrcT: document.querySelector('.lrc-title'),
 
 		cover0: document.querySelector('.MusicShow0'),
 		cover1: document.querySelector('.MusicShow1'),
@@ -193,15 +195,21 @@ player.f.load = function(){
 	var id = player.data.nowplay.id;
 
 	player.e.name.innerHTML = player.list[id]['name']
+	$(player.e.lrcT).fadeOut(160)
+
 	player.e.body.src = 'https://music.163.com/song/media/outer/url?id=' + player.list[id]['src'] + '.mp3'
 	player.e.img.src = player.list[id]['img'] + '?param=300y300'
-	player.e.bar.style.width = '0px'
+	player.e.bar1.style.width = '0px'
 	player.data.nowplay.now = 0
 
 	$(player.e.lrcI).css('opacity', '0')
 	player.f.lrc.get()
 
 	setTimeout(function (){
+		$(player.e.lrcT).fadeIn(300)
+		player.e.lrcT.innerHTML = ('　' + player.list[id]['name'] + '　' + player.list[id]['name'] + '　' + player.list[id]['name'] + '　' + player.list[id]['name']).toUpperCase().replace(/[(]/g, '「').replace(/[)]/g, '」')
+		player.e.lrcT.setAttribute('style', 'animation: ' + player.list[id]['name'].length + 's wordsLoop linear infinite normal');
+
 		player.e.lrcI.src = player.list[id]['img'] + '?param=300y300'
 		if (!isNaN(player.e.body.duration)) {
 			player.data.nowplay.long = player.f.conversion0(player.e.body.duration)
@@ -331,13 +339,17 @@ player.f.play = function(){
 			player.e.body.volume = player.data.nowplay.vol
 
 			player.data.pause = 0
-			$(player.e.btn).addClass('PlayerButton-play')
-			$(player.e.btn).removeClass('PlayerButton-pause')
+			$(player.e.btn1).addClass('PlayerButton-play')
+			$(player.e.btn2).addClass('PlayerButton-play')
+			$(player.e.btn1).removeClass('PlayerButton-pause')
+			$(player.e.btn2).removeClass('PlayerButton-pause')
 		}
 		if (mode=='0') {
 			player.e.body.pause();
-			$(player.e.btn).addClass('PlayerButton-pause')
-			$(player.e.btn).removeClass('PlayerButton-play')
+			$(player.e.btn1).addClass('PlayerButton-pause')
+			$(player.e.btn2).addClass('PlayerButton-pause')
+			$(player.e.btn1).removeClass('PlayerButton-play')
+			$(player.e.btn2).removeClass('PlayerButton-play')
 			player.data.pause = 1
 		}
 	}
@@ -346,8 +358,10 @@ player.f.play = function(){
 	player.f.play.start = function(id, autoplay){
 		player.data.nowplay.id = id;
 		player.f.load();
-		$(player.e.btn).addClass('PlayerButton-pause')
-		$(player.e.btn).removeClass('PlayerButton-play')
+		$(player.e.btn1).addClass('PlayerButton-pause')
+		$(player.e.btn2).addClass('PlayerButton-pause')
+		$(player.e.btn1).removeClass('PlayerButton-play')
+		$(player.e.btn2).removeClass('PlayerButton-play')
 		if (autoplay == 1) {
 			player.f.play.set(1)
 		}
@@ -614,7 +628,7 @@ player.data.nowplay.vol = 0.5
 setInterval(() => {
 	if(player.data.pause == 0){
 		player.data.nowplay.now = (player.e.body.currentTime / player.e.body.duration).toFixed(8) || player.data.nowplay.now
-		$(player.e.bar).css('width', player.data.nowplay.now * 100 + '%')
+		$(player.e.bar1).css('width', player.data.nowplay.now * 100 + '%')
 	}
 }, 1000)
 
@@ -622,7 +636,7 @@ setInterval(() => {
 player.e.bar0.addEventListener('click', function(event) {
 	var percent = ((event.clientX - player.e.bar0.getBoundingClientRect().left) / player.e.bar0.offsetWidth).toFixed(8)
 
-	$(player.e.bar).css('width', percent * 100 + '%')
+	$(player.e.bar1).css('width', percent * 100 + '%')
 	player.data.nowplay.now = percent
 	if (player.data.pause == 0) {
 		player.e.body.currentTime = Math.floor(player.e.body.duration || player.f.conversion1(player.data.nowplay.long)) * percent
