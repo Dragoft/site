@@ -441,6 +441,7 @@ trans {
 	width: 100px;
 	right: 0px;
 	z-index: 50;
+	overflow: hidden;
 	user-select: none;
 	pointer-events: none;
 }

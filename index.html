@@ -200,9 +200,9 @@
 		</div>
 		<div class="Player-menu-info" >
 			<div class="Player-menu-info-title" >
-				这篇文章附有 1 首音乐，<br />想听听吗？<br />
+				这篇文章附有 1 首音乐，<br />想要听听吗？<br />
 				<span style="float: right; user-select: none; color: rgba(var(--t-t1), 0.2)" >
-					<a class="Player-menu-info-button Player-menu-info-open" >加载</a> | <a class="Player-menu-info-button" onclick="player.f.add.ask(0)" >关闭</a>
+					<a class="Player-menu-info-button Player-menu-info-open" >Y</a> / <a class="Player-menu-info-button" onclick="player.f.add.ask(0)" >N</a>
 				</span>
 			</div>
 		</div>
@@ -215,7 +215,8 @@
 	<div class="lrcBox" >
 		<img class="lrcImg" id="load-img" onload="setTimeout(function (){$(player.e.lrcI).css('opacity', '1')}, 1000)" />
 		<div class="lrc-blur" ></div>
-		<div class="lrc-title-box loop-box" ><span class="lrc-title" ><span></div>
+		<!-- 这个 headerSide 模仿了 frieren-anime.jp/ 的设计 -->
+		<div class="lrc-title-box" ><span class="lrc-title" ><span></div>
 		<div class="lrc" ></div>
 		<div class="lrc-menu" >
 			<div class="lrcClose" onclick="player.f.lrc.gui()" ></div>
